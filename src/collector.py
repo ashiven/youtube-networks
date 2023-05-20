@@ -27,8 +27,8 @@ def getRelated(youtube, videoId, resultSize):
     related = {}
     for item in response['items']:
         title = item['snippet']['title']
-        videoId = item['id']['videoId']
-        related[videoId] = title
+        id = item['id']['videoId']
+        related[id] = [videoId, title]
 
     return related
 
@@ -51,7 +51,8 @@ def getLayers(youtube, videoId, resultSize, depth):
 
 def main():
     apiKey = '***REMOVED***'
-    youtube = build('youtube', 'v3', developerKey=apiKey)
+    apiKey2 = '***REMOVED***'
+    youtube = build('youtube', 'v3', developerKey=apiKey2)
 
     # insert youtube link here
     seed = 'https://www.youtube.com/watch?v=lpFXlkjAurc'
