@@ -3,6 +3,7 @@ import re
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
+from typing import Optional
 
 
 # [I didn't write this function!!!] had to use this function from stackoverflow because there is no way to get pygraphviz working on windows
@@ -122,18 +123,26 @@ def getLayers(youtube, videoId, resultSize, depth):
     return layers
 
 
-def keyToTitle(layers, videoId):
+def layersToDict(layers):
+
+    # merge the dictionaries of layers to one dictionary
     dict = {}
     for layer in layers:
         for key, value in layer.items():
             dict[key] = value[1]
+    return dict
 
+
+def keyToTitle(dict, videoId):
+
+    # return the fitting title for the videoId
     if videoId in dict:
         return dict[videoId]
     else:
         return None
 
-def plotGraph(layers, display):
+
+def plotGraph(layers, display, rootTitle):
 
     # create a new graph with undirected edges
     G = nx.Graph()
@@ -142,44 +151,56 @@ def plotGraph(layers, display):
     if display == 'videoId':
         for layer in layers:
             for key, value in layer.items():
-                G.add_node(key)
-                parentKey = value[0]
-                G.add_edge(parentKey, key)
+                if not G.has_node(key):
+                    G.add_node(key)
+                    parentKey = value[0]
+                    G.add_edge(parentKey, key)
         root = next(iter(layers[1].values()))[0]
                 
     elif display == 'title':
-        G.add_node('seed')
+        dict = layersToDict(layers)
+        if rootTitle:
+            root = rootTitle
+            G.add_node(rootTitle)
+        else:
+            root = 'seed'
+            G.add_node('seed')
         for count, layer in enumerate(layers):
             for key, value in layer.items():
                 if count <= 1:
-                    if count == 1:
+                    if count == 1 and not G.has_node(value[1]):
                         G.add_node(value[1])
-                        G.add_edge('seed', value[1])
-                else:
+                        G.add_edge(root, value[1])
+                elif not G.has_node(value[1]):
                     G.add_node(value[1])
                     parentKey = value[0]
-                    G.add_edge(keyToTitle(layers, parentKey), value[1])
-        root = 'seed'
+                    G.add_edge(keyToTitle(dict, parentKey), value[1])
 
     # draw the graph
+    plt.figure(figsize=(15, 10))
     pos = hierarchy_pos(G, root)
-    nx.draw(G, pos=pos,  with_labels=True)
+    nx.draw(G, pos=pos,  with_labels=True, font_size=9)
     plt.title('Related Videos')
+    plt.tight_layout
     plt.show()
 
 
 def main():
+
+    # here we have two api keys because the ratelimiting is bad...
     apiKey = '***REMOVED***'
     apiKey2 = '***REMOVED***'
     youtube = build('youtube', 'v3', developerKey=apiKey2)
 
-    # insert youtube link here
-    seed = 'https://www.youtube.com/watch?v=lpFXlkjAurc'
+    seed = 'https://www.youtube.com/watch?v=cr1KaZ11KCo'    # insert youtube video link here
+    seedTitle = "I'm root"                                  # insert title of youtube video here
     videoId = parseVideoId(seed)
     resultSize = 2
     depth = 3
 
     layers = getLayers(youtube, videoId, resultSize, depth)
+    #layersTest = [{},{'X9oSdf_7XsM': ['vV-LIOSAWzY', 'Another Failure of a Review...'], '1SMLQiwt9n4': ['vV-LIOSAWzY', "Wendy's NEW Ghost Pepper Ranch Chicken Sandwich Review!"]},{'vV-LIOSAWzY': ['1SMLQiwt9n4', "Burger King's NEW Spider-Verse Whopper Review!"], '1SMLQiwt9n4': ['X9oSdf_7XsM', "Wendy's NEW Ghost Pepper Ranch Chicken Sandwich Review!"], 'X9oSdf_7XsM': ['1SMLQiwt9n4', 'Another Failure of a Review...']},{'X9oSdf_7XsM': ['1SMLQiwt9n4', 'Another Failure of a Review...'], '1SMLQiwt9n4': ['X9oSdf_7XsM', "Wendy's NEW Ghost Pepper Ranch Chicken Sandwich Review!"], 'vV-LIOSAWzY': ['X9oSdf_7XsM', "Burger King's NEW Spider-Verse Whopper Review!"]}]
+
 
     with open('output.log', 'a', encoding='utf-8') as logFile:
         for count, layer in enumerate(layers):
@@ -187,7 +208,8 @@ def main():
             print(f'Layer {count}:\n', file=logFile)
             print(layer, file=logFile)
 
-    plotGraph(layers, 'title')
+    # specify either 'title' or 'videoId' for node labels
+    plotGraph(layers, 'title', seedTitle)
 
 
 if __name__ == '__main__':
