@@ -3,8 +3,7 @@ import re
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
-from typing import Optional
-
+import argparse
 
 # [I didn't write this function!!!] had to use this function from stackoverflow because there is no way to get pygraphviz working on windows
 def hierarchy_pos(G, root=None, width=1., vert_gap = 0.2, vert_loc = 0, xcenter = 0.5):
@@ -159,12 +158,8 @@ def plotGraph(layers, display, rootTitle):
                 
     elif display == 'title':
         dict = layersToDict(layers)
-        if rootTitle:
-            root = rootTitle
-            G.add_node(rootTitle)
-        else:
-            root = 'seed'
-            G.add_node('seed')
+        root = rootTitle
+        G.add_node(root)
         for count, layer in enumerate(layers):
             for key, value in layer.items():
                 if count <= 1:
@@ -187,20 +182,26 @@ def plotGraph(layers, display, rootTitle):
 
 def main():
 
+    # parse the arguments supplied by the user
+    parser = argparse.ArgumentParser(description='Youtube Related Video Collector')
+    parser.add_argument('-d', '--depth', type=int, default=3, help='Search Depth')
+    parser.add_argument('-w', '--width', type=int, default=2, help='Search Width')
+    parser.add_argument('-s', '--seed', type=str, required=True, help='Initial Youtube Video')
+    parser.add_argument('-t', '--title', type=str, default="I'm root", help='Title of Initial Youtube Video')
+    parser.add_argument('-D', '--display', type=str, default='title', help="Display Video Titles: 'title' VideoIds: 'videoId'")
+    args = parser.parse_args()
+
+    seed = args.seed 
+    seedTitle = args.title  
+    videoId = parseVideoId(seed)
+    resultSize = args.width
+    depth = args.depth
+
     # here we have two api keys because the ratelimiting is bad...
     apiKey = '***REMOVED***'
     apiKey2 = '***REMOVED***'
     youtube = build('youtube', 'v3', developerKey=apiKey2)
-
-    seed = 'https://www.youtube.com/watch?v=cr1KaZ11KCo'    # insert youtube video link here
-    seedTitle = "I'm root"                                  # insert title of youtube video here
-    videoId = parseVideoId(seed)
-    resultSize = 2
-    depth = 3
-
     layers = getLayers(youtube, videoId, resultSize, depth)
-    #layersTest = [{},{'X9oSdf_7XsM': ['vV-LIOSAWzY', 'Another Failure of a Review...'], '1SMLQiwt9n4': ['vV-LIOSAWzY', "Wendy's NEW Ghost Pepper Ranch Chicken Sandwich Review!"]},{'vV-LIOSAWzY': ['1SMLQiwt9n4', "Burger King's NEW Spider-Verse Whopper Review!"], '1SMLQiwt9n4': ['X9oSdf_7XsM', "Wendy's NEW Ghost Pepper Ranch Chicken Sandwich Review!"], 'X9oSdf_7XsM': ['1SMLQiwt9n4', 'Another Failure of a Review...']},{'X9oSdf_7XsM': ['1SMLQiwt9n4', 'Another Failure of a Review...'], '1SMLQiwt9n4': ['X9oSdf_7XsM', "Wendy's NEW Ghost Pepper Ranch Chicken Sandwich Review!"], 'vV-LIOSAWzY': ['X9oSdf_7XsM', "Burger King's NEW Spider-Verse Whopper Review!"]}]
-
 
     with open('output.log', 'a', encoding='utf-8') as logFile:
         for count, layer in enumerate(layers):
@@ -208,8 +209,11 @@ def main():
             print(f'Layer {count}:\n', file=logFile)
             print(layer, file=logFile)
 
-    # specify either 'title' or 'videoId' for node labels
-    plotGraph(layers, 'title', seedTitle)
+    # display either video titles or video ids as node labels
+    if args.display == 'title':
+        plotGraph(layers, 'title', seedTitle)
+    elif args.display == 'videoId':
+        plotGraph(layers, 'videoId', seedTitle)
 
 
 if __name__ == '__main__':
