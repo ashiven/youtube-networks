@@ -197,9 +197,10 @@ def main():
     resultSize = args.width
     depth = args.depth
 
-    # here we have two api keys because the ratelimiting is bad...
+    # here we have a few api keys because the ratelimiting is bad...
     apiKey = '***REMOVED***'
     apiKey2 = '***REMOVED***'
+    apiKey3 = '***REMOVED***'
     youtube = build('youtube', 'v3', developerKey=apiKey2)
     layers = getLayers(youtube, videoId, resultSize, depth)
 
