@@ -138,17 +138,29 @@ def convertTree(T: nx.Graph, root: str, rootTitle: str, layers: List[Dict]) -> N
             labels[node] = dict[node]
     labels[root] = rootTitle
 
+    # create a list of unique channel Ids and then create a list of colors with one color for each channel Id
+    uniqueChannelIds = list(set(dict.values()))
+    colors = ["gold", "violet", "blue", "silver", #TODO: this is a very shitty and temporary solution and needs to be changed because if we end up needing more colors we're f'd
+              "limegreen", "orange", "darkorange",
+              "yellow", "green"]
+
+    # map every channelId to a color and after that map every node in the tree to the color corresponding with its channelId
+    channelToColor = {channelId: colors[count] for count, channelId in enumerate(uniqueChannelIds)}
+    nodeToColor = {node: channelToColor[labels[node]] for node in T.nodes() if node != root}
+
+    # now finally we create the list of colors that will be used for the nodes, red being the default color for undefined channelIds aka the root node
+    nodeColors = [nodeToColor.get(node, 'red') for node in T.nodes()]
+
     # draw the graph
     plt.figure(figsize=(15, 10))
     pos = hierarchy_pos(T, root)
-    nx.draw(T, pos=pos,  with_labels=False)
+    nx.draw(T, pos=pos,  with_labels=False, node_color=nodeColors)
     nx.draw_networkx_labels(T, pos, labels, font_size=9)
 
     # show plot
     plt.title('Channel Tree')
     plt.tight_layout
     plt.show()
-
 
 
 def main():
@@ -213,10 +225,7 @@ def main():
     # display channel ids as node labels
     elif display == 'channelId':
         T, root = getTree(layers, 'videoId', seedTitle)
-        if seedTitle:
-            convertTree(T, root, seedTitle, layers)
-        else:
-            convertTree(T, root, '', layers)
+        convertTree(T, root, seedTitle, layers)
 
 
 if __name__ == '__main__':
