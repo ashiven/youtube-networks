@@ -90,6 +90,33 @@ def keyToTitle(dict: Dict, videoId: str) -> str:
         return None
     
 
+# this function takes our layers and tree and so on and returns a list with the colors for the tree according to channelIds and a dict labels for labeling nodes with channelIds
+def getColors(layers: List[Dict], T: nx.Graph, root:str, rootTitle:str) -> tuple[List[str], Dict]:
+
+    # convert layers to a dictionary with key: videoId, value: channelId
+    dict = layersToChannelDict(layers)
+
+    # give every node its appropriate channelId label, replacing its previous videoId labels
+    labels = {}
+    for node in T.nodes():
+        if node != root:
+            labels[node] = dict[node]
+    labels[root] = rootTitle
+
+    # create a list of unique channel Ids and then create a list of colors with one color for each channel Id
+    uniqueChannelIds = list(set(dict.values()))
+    colors = ["gold", "violet", "blue", "silver", #TODO: this is a very shitty and temporary solution and needs to be changed because if we end up needing more colors we're f'd
+              "limegreen", "orange", "darkorange",
+              "yellow", "green"]
+
+    # map every channelId to a color and after that map every node in the tree to the color corresponding with its channelId
+    channelToColor = {channelId: colors[count] for count, channelId in enumerate(uniqueChannelIds)}
+    nodeToColor = {node: channelToColor[labels[node]] for node in T.nodes() if node != root}
+
+    # now finally we create the list of colors that will be used for the nodes, red being the default color for undefined channelIds aka the root node
+    return [nodeToColor.get(node, 'red') for node in T.nodes()], labels
+
+
 # this function will convert our layers from a list of dictionaries to a tree which can then be visualized 
 def getTree(layers: List[Dict], display: str, rootTitle: str) -> tuple[nx.Graph, str]:
 
@@ -128,33 +155,12 @@ def getTree(layers: List[Dict], display: str, rootTitle: str) -> tuple[nx.Graph,
 # into one which is labeled with the respective channel Ids belonging to the video Ids
 def convertTree(T: nx.Graph, root: str, rootTitle: str, layers: List[Dict]) -> None:
     
-    # convert layers to a dictionary with key: videoId, value: channelId
-    dict = layersToChannelDict(layers)
-
-    # give every node its appropriate channelId label, replacing its previous videoId labels
-    labels = {}
-    for node in T.nodes():
-        if node != root:
-            labels[node] = dict[node]
-    labels[root] = rootTitle
-
-    # create a list of unique channel Ids and then create a list of colors with one color for each channel Id
-    uniqueChannelIds = list(set(dict.values()))
-    colors = ["gold", "violet", "blue", "silver", #TODO: this is a very shitty and temporary solution and needs to be changed because if we end up needing more colors we're f'd
-              "limegreen", "orange", "darkorange",
-              "yellow", "green"]
-
-    # map every channelId to a color and after that map every node in the tree to the color corresponding with its channelId
-    channelToColor = {channelId: colors[count] for count, channelId in enumerate(uniqueChannelIds)}
-    nodeToColor = {node: channelToColor[labels[node]] for node in T.nodes() if node != root}
-
-    # now finally we create the list of colors that will be used for the nodes, red being the default color for undefined channelIds aka the root node
-    nodeColors = [nodeToColor.get(node, 'red') for node in T.nodes()]
+    colors, labels = getColors(layers, T, root, rootTitle)
 
     # draw the graph
     plt.figure(figsize=(15, 10))
     pos = hierarchy_pos(T, root)
-    nx.draw(T, pos=pos,  with_labels=False, node_color=nodeColors)
+    nx.draw(T, pos=pos,  with_labels=False, node_color=colors)
     nx.draw_networkx_labels(T, pos, labels, font_size=9)
 
     # show plot
@@ -188,7 +194,7 @@ def main():
     apiKey4 = '***REMOVED***'
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
-    youtube = build('youtube', 'v3', developerKey=apiKey2)
+    youtube = build('youtube', 'v3', developerKey=apiKey)
     layers = getLayers(youtube, videoId, resultSize, depth)
 
     # write the result for layers into a log file 
@@ -200,12 +206,12 @@ def main():
 
     # display video titles as node labels
     if display == 'title':
-        T, root = getTree(layers, 'title', seedTitle)
+        T, root = getTree(layers, 'title', seedTitle) # TODO: gotta make colors work for this one
         
         # draw the graph
         plt.figure(figsize=(15, 10))
         pos = hierarchy_pos(T, root)
-        nx.draw(T, pos=pos,  with_labels=True, font_size=9)
+        nx.draw(T, pos=pos,  with_labels=True, font_size=9, node_color=colors)
         plt.title('Related Videos')
         plt.tight_layout
         plt.show()
@@ -213,11 +219,12 @@ def main():
     # display video ids as node labels
     elif display == 'videoId':
         T, root = getTree(layers, 'videoId', seedTitle)
+        colors = getColors(layers, T, root, seedTitle)[0]
 
         # draw the graph
         plt.figure(figsize=(15, 10))
         pos = hierarchy_pos(T, root)
-        nx.draw(T, pos=pos,  with_labels=True, font_size=9)
+        nx.draw(T, pos=pos,  with_labels=True, font_size=9, node_color=colors)
         plt.title('Related Videos')
         plt.tight_layout
         plt.show()
