@@ -21,13 +21,13 @@ def parseVideoId(link: str) -> Optional[str]:
     else:
         return None
 
-
+# this function takes a video id and returns the title and channel id for that video
 def getVideoInfo(youtube: Any, videoId: str) -> tuple[str, str]:
     response = youtube.videos().list(part='snippet', id=videoId).execute()
     
     return response['items'][0]['snippet']['title'], response['items'][0]['snippet']['channelId']
 
-
+# this function takes a channel id and returns the name of the channel
 def getChannelName(youtube: Any, channelId: str) -> str:
     response = youtube.channels().list(part='snippet', id=channelId).execute()
     
@@ -77,7 +77,7 @@ def getLayers(youtube: Any, videoId: str, width: int, depth: int) -> List[Dict]:
 
 
 # this function takes our layers and converts them to a dict with key: video Id, value: video Title
-def layersToDict(layers: List[Dict]) -> Dict:
+def layersToTitleDict(layers: List[Dict]) -> Dict:
     dict = {}
     for layer in layers:
         for key, value in layer.items():
@@ -130,55 +130,60 @@ def getColors(layers: List[Dict], T: nx.Graph) -> tuple[List[str], Dict]:
 
 
 # this function will convert our layers from a list of dictionaries to a tree which can then be visualized 
-def getTree(layers: List[Dict], display: str) -> tuple[nx.Graph, str]:
+def getTree(layers: List[Dict]) -> tuple[nx.Graph, str]:
 
     # create a new graph with undirected edges
     T = nx.Graph()
 
     # iterate through layers and add edges according to parent node specified in value[0]
-    if display == 'videoId':
-        for count, layer in enumerate(layers):
-            for key, value in layer.items():
-                if not T.has_node(key) and value[0] != None:
-                    T.add_node(key)
-                    parentKey = value[0]
-                    T.add_edge(parentKey, key)
-        root = next(iter(layers[1].values()))[0]
-                
-    elif display == 'title':
-        dict = layersToDict(layers)
-        root = next(iter(layers[0].values()))[1]
-        T.add_node(root)
-        for count, layer in enumerate(layers):
-            for key, value in layer.items():
-                if count <= 1:
-                    if count == 1 and not T.has_node(value[1]):
-                        T.add_node(value[1])
-                        T.add_edge(root, value[1])
-                elif not T.has_node(value[1]):
-                    T.add_node(value[1])
-                    parentKey = value[0]
-                    T.add_edge(keyToTitle(dict, parentKey), value[1])
+    for layer in layers:
+        for key, value in layer.items():
+            if not T.has_node(key) and value[0] != None:
+                T.add_node(key)
+                parentKey = value[0]
+                T.add_edge(parentKey, key)
+    root = next(iter(layers[1].values()))[0]
     
     return T, root
 
 
 # this function takes a tree with the node names being video Ids and converts that tree
 # into one that is labeled with the respective channel Ids belonging to the video Ids
-def convertTree(T: nx.Graph, root: str, layers: List[Dict]) -> None:
+def convertTree(T: nx.Graph, root: str, layers: List[Dict], type:str) -> None:
     
     colors, labels = getColors(layers, T)
 
-    # draw the graph
-    plt.figure(figsize=(15, 10))
-    pos = hierarchy_pos(T, root)
-    nx.draw(T, pos=pos,  with_labels=False, node_color=colors)
-    nx.draw_networkx_labels(T, pos, labels, font_size=9)
+    if type == 'channelId':
+        # draw the graph
+        plt.figure(figsize=(15, 10))
+        pos = hierarchy_pos(T, root)
+        nx.draw(T, pos=pos,  with_labels=False, node_color=colors)
+        nx.draw_networkx_labels(T, pos, labels, font_size=9)
 
-    # show plot
-    plt.title('Channel Tree')
-    plt.tight_layout
-    plt.show()
+        # show plot
+        plt.title('Channel Tree')
+        plt.tight_layout
+        plt.show()
+
+    elif type == 'title':
+        # convert layers to a dictionary with key: videoId, value: title
+        dict = layersToTitleDict(layers)
+
+        # give every node its appropriate title label, replacing its previous videoId labels
+        labels = {}
+        for node in T.nodes():
+            labels[node] = dict[node]
+
+        # draw the graph
+        plt.figure(figsize=(15, 10))
+        pos = hierarchy_pos(T, root)
+        nx.draw(T, pos=pos,  with_labels=False, node_color=colors)
+        nx.draw_networkx_labels(T, pos, labels, font_size=9)
+
+        # show plot
+        plt.title('Channel Tree')
+        plt.tight_layout
+        plt.show()
 
 
 def main():
@@ -189,6 +194,7 @@ def main():
     parser.add_argument('-w', '--width', type=int, default=2, help='Search Width')
     parser.add_argument('-s', '--seed', type=str, required=True, help='Initial Youtube Video Link')
     parser.add_argument('-D', '--display', type=str, default='title', help="Display Video Titles: 'title' | Video Ids: 'videoId' | Channel Ids: 'channelId'")
+    parser.add_argument('-l', '--log', action='store_true', help="Enable logging into output.log")
     args = parser.parse_args()
 
     seed = args.seed 
@@ -196,6 +202,7 @@ def main():
     width = args.width
     depth = args.depth
     display = args.display
+    log = args.log
 
     # here we have a few api keys because the ratelimiting is bad...
     apiKey = '***REMOVED***'
@@ -204,33 +211,22 @@ def main():
     apiKey4 = '***REMOVED***'
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
-    youtube = build('youtube', 'v3', developerKey=apiKey3)
+    youtube = build('youtube', 'v3', developerKey=apiKey4)
     layers = getLayers(youtube, videoId, width, depth)
 
-    '''
+    
     # write the result for layers into a log file 
-    with open('output.log', 'a', encoding='utf-8') as logFile:
-        for count, layer in enumerate(layers):
-            print('\n', file=logFile)
-            print(f'Layer {count}:\n', file=logFile)
-            print(layer, file=logFile)
-    '''
-            
-    # display video titles as node labels
-    if display == 'title':
-        T, root = getTree(layers, 'title') # TODO: gotta make colors work for this one
-        
-        # draw the graph
-        plt.figure(figsize=(15, 10))
-        pos = hierarchy_pos(T, root)
-        nx.draw(T, pos=pos,  with_labels=True, font_size=9)
-        plt.title('Related Videos')
-        plt.tight_layout
-        plt.show()
+    if log:
+        with open('output.log', 'a', encoding='utf-8') as logFile:
+            for count, layer in enumerate(layers):
+                print('\n', file=logFile)
+                print(f'Layer {count}:\n', file=logFile)
+                print(layer, file=logFile)
+    
 
     # display video ids as node labels
-    elif display == 'videoId':
-        T, root = getTree(layers, 'videoId')
+    if display == 'videoId':
+        T, root = getTree(layers)
         colors = getColors(layers, T)[0]
 
         # draw the graph
@@ -241,10 +237,18 @@ def main():
         plt.tight_layout
         plt.show()
 
+    # display video titles as node labels
+    elif display == 'title':
+        T, root = getTree(layers) 
+        convertTree(T, root, layers, display)
+
     # display channel ids as node labels
     elif display == 'channelId':
-        T, root = getTree(layers, 'videoId')
-        convertTree(T, root, layers)
+        T, root = getTree(layers)
+        convertTree(T, root, layers, display)
+    
+    else:
+        print('-D has to be either: title, videoId or channelId')
 
 
 if __name__ == '__main__':
