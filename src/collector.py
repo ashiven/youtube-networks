@@ -90,6 +90,7 @@ def keyToTitle(dict: Dict, videoId: str) -> str:
         return None
     
 
+# this function will convert our layers from a list of dictionaries to a tree which can then be visualized 
 def getTree(layers: List[Dict], display: str, rootTitle: str) -> tuple[nx.Graph, str]:
 
     # create a new graph with undirected edges
