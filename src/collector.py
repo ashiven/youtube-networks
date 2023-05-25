@@ -149,11 +149,11 @@ def getTree(layers: List[Dict]) -> tuple[nx.Graph, str]:
 
 # this function takes a tree with the node names being video Ids and converts that tree
 # into one that is labeled with the respective channel Ids belonging to the video Ids
-def convertTree(T: nx.Graph, root: str, layers: List[Dict], type:str) -> None:
+def convertTree(T: nx.Graph, root: str, layers: List[Dict], display :str) -> None:
     
     colors, labels = getColors(layers, T)
 
-    if type == 'channelId':
+    if display == 'channelId':
         # draw the graph
         plt.figure(figsize=(15, 10))
         pos = hierarchy_pos(T, root)
@@ -165,7 +165,7 @@ def convertTree(T: nx.Graph, root: str, layers: List[Dict], type:str) -> None:
         plt.tight_layout
         plt.show()
 
-    elif type == 'title':
+    elif display == 'title':
         # convert layers to a dictionary with key: videoId, value: title
         dict = layersToTitleDict(layers)
 
