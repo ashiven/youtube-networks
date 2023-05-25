@@ -100,7 +100,8 @@ def getRelated(youtube, videoId, resultSize):
     for item in response['items']:
         title = item['snippet']['title']
         id = item['id']['videoId']
-        related[id] = [videoId, title]
+        channelId = item['snippet']['channelId']
+        related[id] = [videoId, title, channelId]
 
     return related
 
@@ -129,8 +130,18 @@ def layersToDict(layers):
     for layer in layers:
         for key, value in layer.items():
             dict[key] = value[1]
+
     return dict
 
+
+def layersToChannelDict(layers):
+    dict = {}
+    for layer in layers:
+        for key, value in layer.items():
+            dict[key] = value[2]
+
+    return dict
+    
 
 def keyToTitle(dict, videoId):
 
@@ -139,9 +150,9 @@ def keyToTitle(dict, videoId):
         return dict[videoId]
     else:
         return None
+    
 
-
-def plotGraph(layers, display, rootTitle):
+def getGraph(layers, display, rootTitle):
 
     # create a new graph with undirected edges
     G = nx.Graph()
@@ -170,14 +181,37 @@ def plotGraph(layers, display, rootTitle):
                     G.add_node(value[1])
                     parentKey = value[0]
                     G.add_edge(keyToTitle(dict, parentKey), value[1])
+    
+    return G, root
+
+
+# this function takes a tree with the nodes names being video Ids and converts that tree
+# into one which is labeled with the respective channel Ids belonging to the video Ids
+def convertTree(T, root, rootTitle, layers):
+    
+    # convert layers to a dictionary with key: videoId, value: channelId
+    dict = layersToChannelDict(layers)
+
+    labels = {}
+    # give every node its appropriate channelId label, replacing its previous videoId labels
+    for node in T.nodes():
+        if node != root:
+            labels[node] = dict[node]
+    labels[root] = rootTitle
 
     # draw the graph
     plt.figure(figsize=(15, 10))
-    pos = hierarchy_pos(G, root)
-    nx.draw(G, pos=pos,  with_labels=True, font_size=9)
-    plt.title('Related Videos')
+    pos = hierarchy_pos(T, root)
+    nx.draw(T, pos=pos,  with_labels=False)
+
+    # draw the previously created channelId labels
+    nx.draw_networkx_labels(T, pos, labels, font_size=9)
+
+    # show plot
+    plt.title('Channel Tree')
     plt.tight_layout
     plt.show()
+
 
 
 def main():
@@ -187,7 +221,7 @@ def main():
     parser.add_argument('-d', '--depth', type=int, default=3, help='Search Depth')
     parser.add_argument('-w', '--width', type=int, default=2, help='Search Width')
     parser.add_argument('-s', '--seed', type=str, required=True, help='Initial Youtube Video')
-    parser.add_argument('-t', '--title', type=str, default="I'm root", help='Title of Initial Youtube Video')
+    parser.add_argument('-t', '--title', type=str, default="I'm root", help='Title of Initial Youtube Video / Label for the root node')
     parser.add_argument('-D', '--display', type=str, default='title', help="Display Video Titles: 'title' VideoIds: 'videoId'")
     args = parser.parse_args()
 
@@ -211,9 +245,33 @@ def main():
 
     # display either video titles or video ids as node labels
     if args.display == 'title':
-        plotGraph(layers, 'title', seedTitle)
+        T, root = getGraph(layers, 'title', seedTitle)
+        
+        # draw the graph
+        plt.figure(figsize=(15, 10))
+        pos = hierarchy_pos(T, root)
+        nx.draw(T, pos=pos,  with_labels=True, font_size=9)
+        plt.title('Related Videos')
+        plt.tight_layout
+        plt.show()
+
     elif args.display == 'videoId':
-        plotGraph(layers, 'videoId', seedTitle)
+        T, root = getGraph(layers, 'videoId', seedTitle)
+
+        # draw the graph
+        plt.figure(figsize=(15, 10))
+        pos = hierarchy_pos(T, root)
+        nx.draw(T, pos=pos,  with_labels=True, font_size=9)
+        plt.title('Related Videos')
+        plt.tight_layout
+        plt.show()
+
+    elif args.display == 'channelId':
+        T, root = getGraph(layers, 'videoId', seedTitle)
+        if seedTitle:
+            convertTree(T, root, seedTitle, layers)
+        else:
+            convertTree(T, root, '', layers)
 
 
 if __name__ == '__main__':
