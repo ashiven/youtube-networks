@@ -214,7 +214,6 @@ def main():
     youtube = build('youtube', 'v3', developerKey=apiKey4)
     layers = getLayers(youtube, videoId, width, depth)
 
-    
     # write the result for layers into a log file 
     if log:
         with open('output.log', 'a', encoding='utf-8') as logFile:
@@ -223,7 +222,6 @@ def main():
                 print(f'Layer {count}:\n', file=logFile)
                 print(layer, file=logFile)
     
-
     # display video ids as node labels
     if display == 'videoId':
         T, root = getTree(layers)
