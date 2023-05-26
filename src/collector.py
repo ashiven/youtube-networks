@@ -186,11 +186,17 @@ def convertTree(youtube: Any, T: nx.Graph, root: str, layers: List[Dict], displa
         plt.show()
     
     elif display == 'channelName':
+        # list with unique channel Ids 
+        channelIdList = list(set(labels.values()))
+
+        # create dict with key: channelId ,value: channelName
+        channelDict = {channelId: getChannelName(youtube, channelId) for channelId in channelIdList}
+
         # give every node its appropriate channelName label, replacing its previous videoId labels
         channelLabels = {}
         for node in T.nodes():
-            channelLabels[node] = getChannelName(youtube, labels[node])
-        
+            channelLabels[node] = channelDict[labels[node]]
+
         # draw the graph
         plt.figure(figsize=(15, 10))
         pos = hierarchy_pos(T, root)
