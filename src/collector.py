@@ -149,7 +149,7 @@ def getTree(layers: List[Dict]) -> tuple[nx.Graph, str]:
 
 # this function takes a tree with the node names being video Ids and converts that tree
 # into one that is labeled with the respective channel Ids belonging to the video Ids
-def convertTree(T: nx.Graph, root: str, layers: List[Dict], display: str) -> None:
+def convertTree(youtube: Any, T: nx.Graph, root: str, layers: List[Dict], display: str) -> None:
     
     colors, labels = getColors(layers, T)
 
@@ -161,7 +161,7 @@ def convertTree(T: nx.Graph, root: str, layers: List[Dict], display: str) -> Non
         nx.draw_networkx_labels(T, pos, labels, font_size=9)
 
         # show plot
-        plt.title('Channel Tree')
+        plt.title('Channel Id Tree')
         plt.tight_layout
         plt.show()
 
@@ -181,7 +181,24 @@ def convertTree(T: nx.Graph, root: str, layers: List[Dict], display: str) -> Non
         nx.draw_networkx_labels(T, pos, labels, font_size=9)
 
         # show plot
-        plt.title('Channel Tree')
+        plt.title('Title Tree')
+        plt.tight_layout
+        plt.show()
+    
+    elif display == 'channelName':
+        # give every node its appropriate channelName label, replacing its previous videoId labels
+        channelLabels = {}
+        for node in T.nodes():
+            channelLabels[node] = getChannelName(youtube, labels[node])
+        
+        # draw the graph
+        plt.figure(figsize=(15, 10))
+        pos = hierarchy_pos(T, root)
+        nx.draw(T, pos=pos,  with_labels=False, node_color=colors)
+        nx.draw_networkx_labels(T, pos, channelLabels, font_size=9)
+
+        # show plot
+        plt.title('Channel Name Tree')
         plt.tight_layout
         plt.show()
 
@@ -236,14 +253,9 @@ def main():
         plt.show()
 
     # display video titles as node labels
-    elif display == 'title':
+    elif display == 'title' or display == 'channelId' or display == 'channelName':
         T, root = getTree(layers) 
-        convertTree(T, root, layers, display)
-
-    # display channel ids as node labels
-    elif display == 'channelId':
-        T, root = getTree(layers)
-        convertTree(T, root, layers, display)
+        convertTree(youtube, T, root, layers, display)
     
     else:
         print('-D has to be either: title, videoId or channelId')
