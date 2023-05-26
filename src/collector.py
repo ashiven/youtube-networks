@@ -2,7 +2,7 @@ from googleapiclient.discovery import build
 import re
 import networkx as nx
 import matplotlib.pyplot as plt
-import random
+import math
 import argparse
 from library import hierarchy_pos
 from typing import *
@@ -208,6 +208,47 @@ def convertTree(youtube: Any, T: nx.Graph, root: str, layers: List[Dict], displa
         plt.tight_layout
         plt.show()
 
+        G = nx.Graph()
+
+        for edge in T.edges():
+            u,v = edge
+            U = channelDict[labels[u]]
+            V = channelDict[labels[v]]
+            if not (U,V) in G.edges() and U != V:
+                G.add_edge(U, V, weight=1)
+            elif (U,V) in G.edges():
+                G.edges[U, V]['weight'] += 1
+
+        for edge in T.edges():
+            u,v = edge
+            U = channelDict[labels[u]]
+            V = channelDict[labels[v]]
+            if U == V and U in G.nodes():
+                for N in G.neighbors(U):
+                    G.edges[U, N]['weight'] -= 1
+
+        nx.set_node_attributes(G, 1,'size')
+        for node in T.nodes():
+            U = channelDict[labels[node]]
+            G.nodes[U]['size'] += 1
+
+        # draw the graph
+        plt.figure(figsize=(15, 10))
+        pos = hierarchy_pos(G, channelDict[labels[root]], width = 2*math.pi, xcenter=0)
+        new_pos = {u:(r*math.cos(theta),r*math.sin(theta)) for u, (theta, r) in pos.items()}
+        weights = nx.get_edge_attributes(G, 'weight')
+        sizes = nx.get_node_attributes(G, 'size')
+        scaledSizes = [100 * sizes[node] for node in G.nodes()]
+        nx.draw(G, pos=new_pos, with_labels=True, node_size=scaledSizes, font_size=9)
+        nx.draw_networkx_edge_labels(G, pos=new_pos, edge_labels=weights)
+
+        # show plot
+        plt.title('Channel Name Graph')
+        plt.tight_layout
+        plt.show()
+
+        return
+
 
 def main():
 
@@ -234,7 +275,7 @@ def main():
     apiKey4 = '***REMOVED***'
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
-    youtube = build('youtube', 'v3', developerKey=apiKey4)
+    youtube = build('youtube', 'v3', developerKey=apiKey3)
     layers = getLayers(youtube, videoId, width, depth)
 
     # write the result for layers into a log file 
