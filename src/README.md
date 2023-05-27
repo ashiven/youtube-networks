@@ -13,4 +13,8 @@ Options:
 
 -w [default = 2] : how wide should the search be e.g. '-w 3'
 
--D [default = "title"] : whether to display the video ids or titles as node labels e.g. '-D videoId' or also '-D channelId'
+-D [default = "title"] : whether to display the video ids or titles as node labels e.g. '-D videoId' '-D channelId' '-D channelName' '-D title'
+
+-l : add this flag to log the calculated layers in output.log 
+
+-g : add this flag to convert the tree to a graph representing the network surrounding the seed video (only works in combination with -D channelName)
