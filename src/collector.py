@@ -149,7 +149,7 @@ def getTree(layers: List[Dict]) -> tuple[nx.Graph, str]:
 
 # this function takes a tree with the node names being video Ids and converts that tree
 # into one that is labeled with the respective channel Ids belonging to the video Ids
-def convertTree(youtube: Any, T: nx.Graph, root: str, layers: List[Dict], display: str) -> None:
+def convertTree(youtube: Any, T: nx.Graph, root: str, layers: List[Dict], display: str, graph: bool) -> None:
     
     colors, labels = getColors(layers, T)
 
@@ -208,44 +208,32 @@ def convertTree(youtube: Any, T: nx.Graph, root: str, layers: List[Dict], displa
         plt.tight_layout
         plt.show()
 
-        G = nx.Graph()
+        if graph:
+            G = nx.Graph()
 
-        for edge in T.edges():
-            u,v = edge
-            U = channelDict[labels[u]]
-            V = channelDict[labels[v]]
-            if not (U,V) in G.edges() and U != V:
-                G.add_edge(U, V, weight=1)
-            elif (U,V) in G.edges():
-                G.edges[U, V]['weight'] -= 1
+            for edge in T.edges():
+                u,v = edge
+                U = channelDict[labels[u]]
+                V = channelDict[labels[v]]
+                if not (U,V) in G.edges() and U != V:
+                    G.add_edge(U, V, weight=1)
+                elif (U,V) in G.edges():
+                    G.edges[U, V]['weight'] -= 1
 
-        for edge in T.edges():
-            u,v = edge
-            U = channelDict[labels[u]]
-            V = channelDict[labels[v]]
-            if U == V and U in G.nodes():
-                for N in G.neighbors(U):
-                    G.edges[U, N]['weight'] += 1
+            for edge in T.edges():
+                u,v = edge
+                U = channelDict[labels[u]]
+                V = channelDict[labels[v]]
+                if U == V and U in G.nodes():
+                    for N in G.neighbors(U):
+                        G.edges[U, N]['weight'] += 1
 
-        nx.set_node_attributes(G, 1,'size')
-        for node in T.nodes():
-            U = channelDict[labels[node]]
-            G.nodes[U]['size'] += 1
+            nx.set_node_attributes(G, 10,'size')
+            for node in T.nodes():
+                U = channelDict[labels[node]]
+                G.nodes[U]['size'] += 10
 
-        # TODO: forget about drawing graph with nx and export as graphml to do it in gephi
-        plt.figure(figsize=(15, 10))
-        pos = hierarchy_pos(G, channelDict[labels[root]], width = 2*math.pi, xcenter=0)
-        new_pos = {u:(r*math.cos(theta),r*math.sin(theta)) for u, (theta, r) in pos.items()}
-        weights = nx.get_edge_attributes(G, 'weight')
-        sizes = nx.get_node_attributes(G, 'size')
-        scaledSizes = [100 * sizes[node] for node in G.nodes()]
-        nx.draw(G, pos=new_pos, with_labels=True, node_size=scaledSizes, font_size=9)
-        nx.draw_networkx_edge_labels(G, pos=new_pos, edge_labels=weights)
-
-        # show plot
-        plt.title('Channel Name Graph')
-        plt.tight_layout
-        plt.show()
+            nx.write_graphml(G, f'./data/{root}.graphml')
 
         return
 
@@ -259,6 +247,7 @@ def main():
     parser.add_argument('-s', '--seed', type=str, required=True, help='Initial Youtube Video Link')
     parser.add_argument('-D', '--display', type=str, default='title', help="Display Video Titles: 'title' | Video Ids: 'videoId' | Channel Ids: 'channelId'")
     parser.add_argument('-l', '--log', action='store_true', help="Enable logging into output.log")
+    parser.add_argument('-g', '--graph', action='store_true', help="Whether to convert the tree to a graph that will be exported to a graphML file(only works with -D channelName)")
     args = parser.parse_args()
 
     seed = args.seed 
@@ -267,6 +256,7 @@ def main():
     depth = args.depth
     display = args.display
     log = args.log
+    graph = args.graph
 
     # here we have a few api keys because the ratelimiting is bad...
     apiKey = '***REMOVED***'
@@ -275,7 +265,7 @@ def main():
     apiKey4 = '***REMOVED***'
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
-    youtube = build('youtube', 'v3', developerKey=apiKey3)
+    youtube = build('youtube', 'v3', developerKey=apiKey)
     layers = getLayers(youtube, videoId, width, depth)
 
     # write the result for layers into a log file 
@@ -302,7 +292,7 @@ def main():
     # display video titles as node labels
     elif display == 'title' or display == 'channelId' or display == 'channelName':
         T, root = getTree(layers) 
-        convertTree(youtube, T, root, layers, display)
+        convertTree(youtube, T, root, layers, display, graph)
     
     else:
         print('-D has to be either: title, videoId or channelId')
