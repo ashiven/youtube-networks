@@ -119,7 +119,11 @@ def getColors(layers: List[Dict], T: nx.Graph) -> tuple[List[str], Dict]:
     uniqueChannelIds = list(set(dict.values()))
     colors = ["gold", "violet", "blue", "silver", #TODO: this is a very shitty and temporary solution and needs to be changed because if we end up needing more colors we're f'd
               "limegreen", "orange", "darkorange",
-              "yellow", "green"]
+              "yellow", "green", "red","limegreen", "orange", "darkorange",
+              "yellow", "green", "red","gold", "violet", "blue", "silver",
+               "limegreen", "orange", "darkorange","yellow", "green", "red",
+               "gold", "violet", "blue", "silver",
+                "yellow", "green", "red","limegreen", "orange", "darkorange", ]
 
     # map every channelId to a color and after that map every node in the tree to the color corresponding with its channelId
     channelToColor = {channelId: colors[count] for count, channelId in enumerate(uniqueChannelIds)}
