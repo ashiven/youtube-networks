@@ -217,7 +217,7 @@ def convertTree(youtube: Any, T: nx.Graph, root: str, layers: List[Dict], displa
             if not (U,V) in G.edges() and U != V:
                 G.add_edge(U, V, weight=1)
             elif (U,V) in G.edges():
-                G.edges[U, V]['weight'] += 1
+                G.edges[U, V]['weight'] -= 1
 
         for edge in T.edges():
             u,v = edge
@@ -225,14 +225,14 @@ def convertTree(youtube: Any, T: nx.Graph, root: str, layers: List[Dict], displa
             V = channelDict[labels[v]]
             if U == V and U in G.nodes():
                 for N in G.neighbors(U):
-                    G.edges[U, N]['weight'] -= 1
+                    G.edges[U, N]['weight'] += 1
 
         nx.set_node_attributes(G, 1,'size')
         for node in T.nodes():
             U = channelDict[labels[node]]
             G.nodes[U]['size'] += 1
 
-        # draw the graph
+        # TODO: forget about drawing graph with nx and export as graphml to do it in gephi
         plt.figure(figsize=(15, 10))
         pos = hierarchy_pos(G, channelDict[labels[root]], width = 2*math.pi, xcenter=0)
         new_pos = {u:(r*math.cos(theta),r*math.sin(theta)) for u, (theta, r) in pos.items()}
