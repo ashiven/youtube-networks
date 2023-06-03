@@ -301,8 +301,8 @@ def main():
         T, root = getTree(layers) 
         convertTree(youtube, T, root, layers, display, graph)
 
-    layerList = []
-    if treeimport:
+    elif treeimport:
+        layerList = []
         with open('output.log', 'r') as logfile:
             for line in logfile:
                 layers = eval(line)
@@ -344,7 +344,7 @@ def main():
                 U = channelDict[labels[node]]
                 G.nodes[U]['size'] += 10
 
-        nx.write_graphml(G, f'./data/{root}.graphml')
+        nx.write_graphml(G, f'./data/import_log.graphml')
 
 
     else:
