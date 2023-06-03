@@ -248,19 +248,24 @@ def main():
     parser = argparse.ArgumentParser(description='Youtube Related Video Collector')
     parser.add_argument('-d', '--depth', type=int, default=3, help='Search Depth')
     parser.add_argument('-w', '--width', type=int, default=2, help='Search Width')
-    parser.add_argument('-s', '--seed', type=str, required=True, help='Initial Youtube Video Link')
+    parser.add_argument('-s', '--seed', type=str, help='Initial Youtube Video Link')
     parser.add_argument('-D', '--display', type=str, default='title', help="Display Video Titles: 'title' | Video Ids: 'videoId' | Channel Ids: 'channelId'")
     parser.add_argument('-l', '--log', action='store_true', help="Enable logging into output.log")
     parser.add_argument('-g', '--graph', action='store_true', help="Whether to convert the tree to a graph that will be exported to a graphML file(only works with -D channelName)")
+    parser.add_argument('-i', '--treeimport', action='store_true', help="import the trees in output.log and convert them to a graph")
     args = parser.parse_args()
 
     seed = args.seed 
-    videoId = parseVideoId(seed)
+    videoId = None
+    if(seed):
+        videoId = parseVideoId(seed)
     width = args.width
     depth = args.depth
     display = args.display
     log = args.log
     graph = args.graph
+    treeimport = args.treeimport
+
 
     # here we have a few api keys because the ratelimiting is bad...
     apiKey = '***REMOVED***'
@@ -270,15 +275,13 @@ def main():
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
     youtube = build('youtube', 'v3', developerKey=apiKey)
-    layers = getLayers(youtube, videoId, width, depth)
+    if(not treeimport):
+        layers = getLayers(youtube, videoId, width, depth)
 
     # write the result for layers into a log file 
     if log:
         with open('output.log', 'a', encoding='utf-8') as logFile:
-            for count, layer in enumerate(layers):
-                print('\n', file=logFile)
-                print(f'Layer {count}:\n', file=logFile)
-                print(layer, file=logFile)
+            print(layers, file=logFile)
     
     # display video ids as node labels
     if display == 'videoId':
@@ -294,10 +297,56 @@ def main():
         plt.show()
 
     # display video titles as node labels
-    elif display == 'title' or display == 'channelId' or display == 'channelName':
+    elif (display == 'title' or display == 'channelId' or display == 'channelName') and not treeimport:
         T, root = getTree(layers) 
         convertTree(youtube, T, root, layers, display, graph)
-    
+
+    layerList = []
+    if treeimport:
+        with open('output.log', 'r') as logfile:
+            for line in logfile:
+                layers = eval(line)
+                layerList.append(layers)
+
+        G = nx.Graph()
+        for layers in layerList:
+
+            T, root = getTree(layers)
+
+            # some stuff we need 
+            dict = layersToChannelDict(layers)
+            labels = {}
+            for node in T.nodes():
+                labels[node] = dict[node]
+            channelIdList = list(set(labels.values()))
+            channelDict = {channelId: getChannelName(youtube, channelId) for channelId in channelIdList}
+                        
+            for edge in T.edges():
+                u,v = edge
+                U = channelDict[labels[u]]
+                V = channelDict[labels[v]]
+                if not (U,V) in G.edges() and U != V:
+                    G.add_node(U, size=10)
+                    G.add_node(V, size=10)
+                    G.add_edge(U, V, weight=1)
+                elif (U,V) in G.edges():
+                    G.edges[U, V]['weight'] -= 1
+
+            for edge in T.edges():
+                u,v = edge
+                U = channelDict[labels[u]]
+                V = channelDict[labels[v]]
+                if U == V and U in G.nodes():
+                    for N in G.neighbors(U):
+                        G.edges[U, N]['weight'] += 1
+
+            for node in T.nodes():
+                U = channelDict[labels[node]]
+                G.nodes[U]['size'] += 10
+
+        nx.write_graphml(G, f'./data/{root}.graphml')
+
+
     else:
         print('-D has to be either: title, videoId or channelId')
 
