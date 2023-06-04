@@ -18,3 +18,5 @@ Options:
 -l : add this flag to log the calculated layers in output.log 
 
 -g : add this flag to convert the tree to a graph representing the network surrounding the seed video (only works in combination with -D channelName)
+
+-i : use this flag to convert all of the previously calculated trees, that you have logged with the -l flag, into a network graph (use without any other options) e.g. 'python collector.py -i'
