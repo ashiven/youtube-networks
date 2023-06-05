@@ -2,7 +2,6 @@ from googleapiclient.discovery import build
 import re
 import networkx as nx
 import matplotlib.pyplot as plt
-import math
 import argparse
 from library import hierarchy_pos
 from typing import *
@@ -238,8 +237,58 @@ def convertTree(youtube: Any, T: nx.Graph, root: str, layers: List[Dict], displa
                 G.nodes[U]['size'] += 10
 
             nx.write_graphml(G, f'./data/{root}.graphml')
+    return
+    
 
-        return
+# this function imports the trees saved in output.log and converts them to a network graph
+# this graph will then be saved as import_log.graphml in /data
+def convertImports(youtube: Any) -> None:
+
+    # we basically repeat what we are doing in convertTree() with -D channelName and -g with the trees from output.log
+    layerList = []
+    with open('output.log', 'r', encoding = 'utf-8') as logfile:
+        for line in logfile:
+            layers = eval(line)
+            layerList.append(layers)
+
+    G = nx.Graph()
+    for layers in layerList:
+
+        T, root = getTree(layers)
+
+        # some stuff we need 
+        dict = layersToChannelDict(layers)
+        labels = {}
+        for node in T.nodes():
+            labels[node] = dict[node]
+        channelIdList = list(set(labels.values()))
+        channelDict = {channelId: getChannelName(youtube, channelId) for channelId in channelIdList}
+                    
+        for edge in T.edges():
+            u,v = edge
+            U = channelDict[labels[u]]
+            V = channelDict[labels[v]]
+            if not (U,V) in G.edges() and U != V:
+                G.add_node(U, size=10)
+                G.add_node(V, size=10)
+                G.add_edge(U, V, weight=1)
+            elif (U,V) in G.edges():
+                G.edges[U, V]['weight'] -= 1
+
+        for edge in T.edges():
+            u,v = edge
+            U = channelDict[labels[u]]
+            V = channelDict[labels[v]]
+            if U == V and U in G.nodes():
+                for N in G.neighbors(U):
+                    G.edges[U, N]['weight'] += 1
+
+        for node in T.nodes():
+            U = channelDict[labels[node]]
+            G.nodes[U]['size'] += 10
+
+    nx.write_graphml(G, f'./data/import_log.graphml')
+    return 
 
 
 def main():
@@ -256,15 +305,15 @@ def main():
     args = parser.parse_args()
 
     seed = args.seed 
-    videoId = None
-    if(seed):
-        videoId = parseVideoId(seed)
     width = args.width
     depth = args.depth
     display = args.display
     log = args.log
     graph = args.graph
     treeimport = args.treeimport
+    videoId = None
+    if(seed):
+        videoId = parseVideoId(seed)
 
 
     # here we have a few api keys because the ratelimiting is bad...
@@ -274,7 +323,7 @@ def main():
     apiKey4 = '***REMOVED***'
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
-    youtube = build('youtube', 'v3', developerKey=apiKey)
+    youtube = build('youtube', 'v3', developerKey=apiKey4)
     if(not treeimport):
         layers = getLayers(youtube, videoId, width, depth)
 
@@ -301,54 +350,13 @@ def main():
         T, root = getTree(layers) 
         convertTree(youtube, T, root, layers, display, graph)
 
+    # import/convert trees from output.log
     elif treeimport:
-        layerList = []
-        with open('output.log', 'r', encoding = 'utf-8') as logfile:
-            for line in logfile:
-                layers = eval(line)
-                layerList.append(layers)
+        convertImports(youtube)
 
-        G = nx.Graph()
-        for layers in layerList:
-
-            T, root = getTree(layers)
-
-            # some stuff we need 
-            dict = layersToChannelDict(layers)
-            labels = {}
-            for node in T.nodes():
-                labels[node] = dict[node]
-            channelIdList = list(set(labels.values()))
-            channelDict = {channelId: getChannelName(youtube, channelId) for channelId in channelIdList}
-                        
-            for edge in T.edges():
-                u,v = edge
-                U = channelDict[labels[u]]
-                V = channelDict[labels[v]]
-                if not (U,V) in G.edges() and U != V:
-                    G.add_node(U, size=10)
-                    G.add_node(V, size=10)
-                    G.add_edge(U, V, weight=1)
-                elif (U,V) in G.edges():
-                    G.edges[U, V]['weight'] -= 1
-
-            for edge in T.edges():
-                u,v = edge
-                U = channelDict[labels[u]]
-                V = channelDict[labels[v]]
-                if U == V and U in G.nodes():
-                    for N in G.neighbors(U):
-                        G.edges[U, N]['weight'] += 1
-
-            for node in T.nodes():
-                U = channelDict[labels[node]]
-                G.nodes[U]['size'] += 10
-
-        nx.write_graphml(G, f'./data/import_log.graphml')
-
-
+    # invalid arguments
     else:
-        print('-D has to be either: title, videoId or channelId')
+        print('-D has to be either: title, videoId, channelId or channelName. If you want to import trees, provide the -i flag.')
 
 
 if __name__ == '__main__':
