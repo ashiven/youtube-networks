@@ -303,7 +303,7 @@ def main():
 
     elif treeimport:
         layerList = []
-        with open('output.log', 'r') as logfile:
+        with open('output.log', 'r', encoding = 'utf-8') as logfile:
             for line in logfile:
                 layers = eval(line)
                 layerList.append(layers)
