@@ -251,6 +251,7 @@ def convertImports(youtube: Any) -> None:
             layers = eval(line)
             layerList.append(layers)
 
+    fileName = None
     G = nx.Graph()
     for layers in layerList:
 
@@ -263,31 +264,39 @@ def convertImports(youtube: Any) -> None:
             labels[node] = dict[node]
         channelIdList = list(set(labels.values()))
         channelDict = {channelId: getChannelName(youtube, channelId) for channelId in channelIdList}
+
+        # we use the root of the first tree as the filename
+        if fileName == None:
+            fileName = channelDict[labels[root]]
                     
         for edge in T.edges():
             u,v = edge
             U = channelDict[labels[u]]
             V = channelDict[labels[v]]
             if not (U,V) in G.edges() and U != V:
-                G.add_node(U, size=10)
-                G.add_node(V, size=10)
+                G.add_node(U, size=1)
+                G.add_node(V, size=1)
                 G.add_edge(U, V, weight=1)
             elif (U,V) in G.edges():
-                G.edges[U, V]['weight'] -= 1
+                G.edges[U, V]['weight'] += 1
 
+        '''
         for edge in T.edges():
             u,v = edge
             U = channelDict[labels[u]]
             V = channelDict[labels[v]]
             if U == V and U in G.nodes():
                 for N in G.neighbors(U):
-                    G.edges[U, N]['weight'] += 1
+                    G.edges[U, N]['weight'] -= 1
+        '''
 
         for node in T.nodes():
             U = channelDict[labels[node]]
-            G.nodes[U]['size'] += 10
+            G.nodes[U]['size'] += 1
 
-    nx.write_graphml(G, f'./data/import_log.graphml')
+    fileName = re.sub(r'\s+', '_', fileName)
+    fileName = re.sub(r'[^\w\s-]', '', fileName)
+    nx.write_graphml(G, f'./data/{fileName}.graphml')
     return 
 
 
@@ -323,7 +332,7 @@ def main():
     apiKey4 = '***REMOVED***'
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
-    youtube = build('youtube', 'v3', developerKey=apiKey4)
+    youtube = build('youtube', 'v3', developerKey=apiKey)
     if(not treeimport):
         layers = getLayers(youtube, videoId, width, depth)
 
