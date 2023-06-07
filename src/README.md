@@ -20,3 +20,7 @@ Options:
 -g : add this flag to convert the tree to a graph representing the network surrounding the seed video (only works in combination with -D channelName)
 
 -i : use this flag to convert all of the previously calculated trees, that you have logged with the -l flag, into a network graph (use without any other options) e.g. 'python collector.py -i'
+
+-f : use this flag to calculate trees with specified width and depth until the quota of your api key has been exceeded 
+        1) with empty output.log file: 'python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -f'
+        2) if you have already called 1) and output.log is populated: 'python collector.py -f'

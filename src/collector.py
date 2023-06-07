@@ -220,22 +220,15 @@ def convertTree(youtube: Any, T: nx.Graph, root: str, layers: List[Dict], displa
                 U = channelDict[labels[u]]
                 V = channelDict[labels[v]]
                 if not (U,V) in G.edges() and U != V:
+                    G.add_node(U, size=1)
+                    G.add_node(V, size=1)
                     G.add_edge(U, V, weight=1)
                 elif (U,V) in G.edges():
-                    G.edges[U, V]['weight'] -= 1
+                    G.edges[U, V]['weight'] += 1
 
-            for edge in T.edges():
-                u,v = edge
-                U = channelDict[labels[u]]
-                V = channelDict[labels[v]]
-                if U == V and U in G.nodes():
-                    for N in G.neighbors(U):
-                        G.edges[U, N]['weight'] += 1
-
-            nx.set_node_attributes(G, 10,'size')
             for node in T.nodes():
                 U = channelDict[labels[node]]
-                G.nodes[U]['size'] += 10
+                G.nodes[U]['size'] += 1
 
             nx.write_graphml(G, f'./data/{root}.graphml')
     return
@@ -311,7 +304,7 @@ def getLeafTrees(rootLine: int, youtube: Any, width: int, depth: int) -> None:
 
 
 # this function keeps calling getLeafTrees until the quota has been exceded
-def forceUntilQuota(line: int, youtube: Any, width: int, depth: int):
+def forceUntilQuota(line: int, youtube: Any, width: int, depth: int) -> None:
     try:
         while(True):
             getLeafTrees(line, youtube, width, depth)
