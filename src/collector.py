@@ -331,6 +331,7 @@ def main():
     apiKey3 = '***REMOVED***'
     apiKey4 = '***REMOVED***'
     apiKey5 = '***REMOVED***'     # Elena
+    apiKey6 = '***REMOVED***'     # Elena
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
     youtube = build('youtube', 'v3', developerKey=apiKey)
