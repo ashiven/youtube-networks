@@ -1,8 +1,8 @@
 Install:
 
-- `1)` open a terminal inside of the /src directory
+- `1.` open a terminal inside of the /src directory
 
-- `2)` run 'pip install --user -r requirements.txt'
+- `2.` run `pip install --user -r requirements.txt`
 
 
 Options:
@@ -13,7 +13,7 @@ Options:
 
 - `-w` [default = 2] : How wide should the search be, e.g. `-w 3`
 
-- `-D` [default = 'title'] : What to display as node labels - options: - `title`, `videoId`, `channelId`, `channelName`
+- `-D` [default = title] : What to display as node labels - options: - `title`, `videoId`, `channelId`, `channelName`
 
 - `-l` : Add this flag to log the calculated tree(layers) in output.log 
 
