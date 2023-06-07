@@ -326,11 +326,12 @@ def main():
 
 
     # here we have a few api keys because the ratelimiting is bad...
-    apiKey = '***REMOVED***'
-    apiKey2 = '***REMOVED***'
-    apiKey3 = '***REMOVED***'
-    apiKey4 = '***REMOVED***'
+    apiKey = '***REMOVED***'      #Jannik
+    apiKey2 = '***REMOVED***'     #Jannik
+    apiKey3 = '***REMOVED***'     #Jonathan
+    apiKey4 = '***REMOVED***'     # Gunnar
     apiKey5 = '***REMOVED***'     # Elena
+    #Hier bitte noch dein API Key Egemen
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
     youtube = build('youtube', 'v3', developerKey=apiKey)
