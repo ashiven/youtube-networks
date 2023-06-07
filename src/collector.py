@@ -3,6 +3,7 @@ import re
 import networkx as nx
 import matplotlib.pyplot as plt
 import argparse
+import os
 from library import hierarchy_pos
 from typing import *
 
@@ -280,16 +281,6 @@ def convertImports(youtube: Any) -> None:
             elif (U,V) in G.edges():
                 G.edges[U, V]['weight'] += 1
 
-        '''
-        for edge in T.edges():
-            u,v = edge
-            U = channelDict[labels[u]]
-            V = channelDict[labels[v]]
-            if U == V and U in G.nodes():
-                for N in G.neighbors(U):
-                    G.edges[U, N]['weight'] -= 1
-        '''
-
         for node in T.nodes():
             U = channelDict[labels[node]]
             G.nodes[U]['size'] += 1
@@ -298,6 +289,39 @@ def convertImports(youtube: Any) -> None:
     fileName = re.sub(r'[^\w\s-]', '', fileName)
     nx.write_graphml(G, f'./data/{fileName}.graphml')
     return 
+
+
+# this function takes a rootLine indicating where the tree, whose leafs we are trying to convert into trees, is located in the file
+def getLeafTrees(rootLine: int, youtube: Any, width: int, depth: int) -> None:
+
+    # open output.log in read and append mode
+    with open('output.log', 'r', encoding = 'utf-8') as logfile:
+        for i, line in enumerate(logfile):
+            # read the tree in rootLine and get the leafs for that tree
+            if i == rootLine:
+                rootLayers = eval(line)
+                leafDict = rootLayers[-1]
+                leafIds = list(leafDict.keys())
+
+    with open('output.log', 'a', encoding = 'utf-8') as logfile:
+        # append the leaf trees to output.log
+        for leafId in leafIds:
+            layers = getLayers(youtube, leafId, width, depth)
+            print(layers, file=logfile)
+
+
+# this function keeps calling getLeafTrees until the quota has been exceded
+def forceUntilQuota(line: int, youtube: Any, width: int, depth: int):
+    try:
+        while(True):
+            getLeafTrees(line, youtube, width, depth)
+            print(f'calling getLeafTrees({line})')
+            line += 1
+    except: 
+        currentline = line - 1
+        with open('stop.txt', 'w') as file:
+            file.write(str(currentline))
+        print('seems like the quota has been exceeded :(')
 
 
 def main():
@@ -310,7 +334,8 @@ def main():
     parser.add_argument('-D', '--display', type=str, default='title', help="Display Video Titles: 'title' | Video Ids: 'videoId' | Channel Ids: 'channelId'")
     parser.add_argument('-l', '--log', action='store_true', help="Enable logging into output.log")
     parser.add_argument('-g', '--graph', action='store_true', help="Whether to convert the tree to a graph that will be exported to a graphML file(only works with -D channelName)")
-    parser.add_argument('-i', '--treeimport', action='store_true', help="import the trees in output.log and convert them to a graph")
+    parser.add_argument('-i', '--treeimport', action='store_true', help="Import the trees in output.log and convert them to a graph")
+    parser.add_argument('-f', '--force', action='store_true', help="Keep calculating trees and storing them in output.log until the quota is exceeded")
     args = parser.parse_args()
 
     seed = args.seed 
@@ -320,6 +345,7 @@ def main():
     log = args.log
     graph = args.graph
     treeimport = args.treeimport
+    force = args.force
     videoId = None
     if(seed):
         videoId = parseVideoId(seed)
@@ -336,15 +362,16 @@ def main():
 
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
-    youtube = build('youtube', 'v3', developerKey=apiKey)
-    if(not treeimport):
+    youtube = build('youtube', 'v3', developerKey=apiKey2)
+    if not treeimport and not force:
         layers = getLayers(youtube, videoId, width, depth)
 
-    # write the result for layers into a log file 
-    if log:
-        with open('output.log', 'a', encoding='utf-8') as logFile:
-            print(layers, file=logFile)
+        # write the result for layers into a log file 
+        if log:
+            with open('output.log', 'a', encoding='utf-8') as logfile:
+                print(layers, file=logfile)
     
+
     # display video ids as node labels
     if display == 'videoId':
         T, root = getTree(layers)
@@ -358,19 +385,47 @@ def main():
         plt.tight_layout
         plt.show()
 
+
     # display video titles as node labels
-    elif (display == 'title' or display == 'channelId' or display == 'channelName') and not treeimport:
+    elif (display == 'title' or display == 'channelId' or display == 'channelName') and not treeimport and not force:
         T, root = getTree(layers) 
         convertTree(youtube, T, root, layers, display, graph)
+
 
     # import/convert trees from output.log
     elif treeimport:
         convertImports(youtube)
 
+
+    # calculate trees until the quota is exceeded and save the stopping point in stop.txt
+    elif force:
+        if not os.path.isfile('output.log'):
+            open('output.log', "w", encoding='utf-8').close()
+
+        with open('output.log', 'r', encoding='utf-8') as logfile:
+            linecount = sum(1 for _ in logfile)
+        
+        if linecount == 0:
+            layers = getLayers(youtube, videoId, width, depth)
+            with open('output.log', 'a', encoding='utf-8') as logfile:
+                print(layers, file=logfile)
+            print('Starting tree calculation...')
+            forceUntilQuota(0, youtube, width, depth)
+        
+        else: 
+            with open('stop.txt', 'r') as file:
+                line = int(file.read().strip())
+            print(f'Continuing tree calculation from line: {line}')
+            forceUntilQuota(line, youtube, width, depth)
+
+
     # invalid arguments
     else:
-        print('-D has to be either: title, videoId, channelId or channelName. If you want to import trees, provide the -i flag.')
+        parser.print_usage()
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except:
+        print('seems like the quota has been exceeded :(')
