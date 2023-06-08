@@ -7,6 +7,7 @@ import os
 from library import hierarchy_pos
 from typing import *
 import ast
+import requests
 
 
 # this function uses a regular expression to extract the videoId parameter from any youtube link
@@ -31,8 +32,14 @@ def getVideoInfo(youtube: Any, videoId: str) -> tuple[str, str]:
 # this function takes a channel id and returns the name of the channel
 def getChannelName(youtube: Any, channelId: str) -> str:
     response = youtube.channels().list(part='snippet', id=channelId).execute()
-    
     return response['items'][0]['snippet']['title']
+
+
+# this function does the same starting with a video id and using oembed instead of the data api
+def getChannelNameEmbed(videoId: str) -> str:
+    response = requests.get('https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' + videoId)
+    dict = eval(response.text)
+    return dict['author_name']
 
 
 # this function takes as input a video Id and based on width returns 'width' amount of related videos 
@@ -249,17 +256,23 @@ def convertImports(youtube: Any, filename: str) -> None:
 
     fileName = None
     G = nx.Graph()
-    for layers in layerList:
+    for count, layers in enumerate(layerList):
 
+        
         T, root = getTree(layers)
+        print(f'Importing tree: {count} with root: {root}')
 
         # some stuff we need 
         dict = layersToChannelDict(layers)
         labels = {}
         for node in T.nodes():
             labels[node] = dict[node]
-        channelIdList = list(set(labels.values()))
-        channelDict = {channelId: getChannelName(youtube, channelId) for channelId in channelIdList}
+        #channelIdList = list(set(labels.values()))
+        #channelDict = {channelId: getChannelName(youtube, channelId) for channelId in channelIdList}
+
+        # use the embed version for large graphs that might exhaust the data api in their creation
+        videoIdTochannelName = {videoId: [getChannelNameEmbed(videoId), dict[videoId]] for videoId in T.nodes()}
+        channelDict = { channelId: channelName for channelName, channelId in videoIdTochannelName.values() }
 
         # we use the root of the first tree as the filename
         if fileName == None:
@@ -288,36 +301,43 @@ def convertImports(youtube: Any, filename: str) -> None:
 
 
 # this function takes a rootLine indicating where the tree, whose leafs we are trying to convert into trees, is located in the file
-def getLeafTrees(rootLine: int, youtube: Any, width: int, depth: int, videoId: str) -> None:
+def getLeafTrees(rootLine: int, leaf: int, youtube: Any, width: int, depth: int, videoId: str) -> bool:
 
     # open file in read mode
     with open(f'./data/{videoId}.log', 'r', encoding = 'utf-8') as logfile:
-        for i, line in enumerate(logfile):
+        for i, l in enumerate(logfile):
             # read the tree in rootLine and get the leafs for that tree
             if i == rootLine:
-                rootLayers = eval(line)
+                rootLayers = eval(l)
                 leafDict = rootLayers[-1]
                 leafIds = list(leafDict.keys())
 
     with open(f'./data/{videoId}.log', 'a', encoding = 'utf-8') as logfile:
         # append the leaf trees to the file
-        for leafId in leafIds:
-            layers = getLayers(youtube, leafId, width, depth)
-            print(layers, file=logfile)
+        for count, leafId in enumerate(leafIds):
+            if count >= leaf:
+                try:
+                    layers = getLayers(youtube, leafId, width, depth)
+                    print(layers, file=logfile)
+                    print(f'saved leafTree: {count}')
+                except:
+                    with open(f'./data/{videoId}_breakpoint.txt', 'w') as file:
+                        file.write(str(rootLine))
+                        file.write('\n')
+                        file.write(str(count))
+
+                    print('seems like the quota has been exceeded :(')
+                    return False
+    return True
 
 
 # this function keeps calling getLeafTrees until the quota has been exceded
-def forceUntilQuota(line: int, youtube: Any, width: int, depth: int, videoId: str) -> None:
-    try:
-        while(True):
-            getLeafTrees(line, youtube, width, depth, videoId)
-            print(f'calling getLeafTrees({line})')
-            line += 1
-    except: 
-        currentline = line - 1
-        with open(f'./data/{videoId}_breakpoint.txt', 'w') as file:
-            file.write(str(currentline))
-        print('seems like the quota has been exceeded :(')
+def forceUntilQuota(line: int, leaf: int, youtube: Any, width: int, depth: int, videoId: str) -> None:
+    loop = True
+    while(loop):
+        print(f'calling getLeafTrees({line})...')
+        loop = getLeafTrees(line, leaf, youtube, width, depth, videoId)
+        line += 1
 
 
 def getTitles(filename: str) -> None:
@@ -348,8 +368,8 @@ def main():
 
     # parse the arguments supplied by the user
     parser = argparse.ArgumentParser(description='Youtube Related Video Collector')
-    parser.add_argument('-d', '--depth', type=int, default=3, help='Search Depth')
-    parser.add_argument('-w', '--width', type=int, default=2, help='Search Width')
+    parser.add_argument('-d', '--depth', type=int, default=2, help='Search Depth')
+    parser.add_argument('-w', '--width', type=int, default=3, help='Search Width')
     parser.add_argument('-s', '--seed', type=str, help='Initial Youtube Video Link')
     parser.add_argument('-D', '--display', type=str, default='title', help="Display Video Titles: 'title' | Video Ids: 'videoId' | Channel Ids: 'channelId'")
     parser.add_argument('-l', '--log', action='store_true', help="Store the tree inside of a log file")
@@ -381,13 +401,13 @@ def main():
     apiKey5 = '***REMOVED***'     # Gunnar
     apiKey6 = '***REMOVED***'     # Elena
     apiKey7 = '***REMOVED***'     # Elena
-    apiKey8=  '***REMOVED***'     # Egemen
-    apiKey9= '***REMOVED***'      # Egemen
+    apiKey8 = '***REMOVED***'     # Egemen
+    apiKey9 = '***REMOVED***'     # Egemen
 
 
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
-    youtube = build('youtube', 'v3', developerKey=apiKey4)
+    youtube = build('youtube', 'v3', developerKey=apiKey)
     if not treeimport and not force and not titles:
         layers = getLayers(youtube, videoId, width, depth)
 
@@ -435,13 +455,19 @@ def main():
             with open(f'./data/{videoId}.log', 'a', encoding='utf-8') as logfile:
                 print(layers, file=logfile)
             print('Starting tree calculation...')
-            forceUntilQuota(0, youtube, width, depth, videoId)
+            forceUntilQuota(0, 0, youtube, width, depth, videoId)
         
         else: 
             with open(f'./data/{videoId}_breakpoint.txt', 'r') as file:
-                line = int(file.read().strip())
-            print(f'Continuing tree calculation from line: {line}')
-            forceUntilQuota(line, youtube, width, depth, videoId)
+                for i, l in enumerate(file):
+                    if i == 0:
+                        line = l
+                    if i == 1:
+                        leaf = l
+            line = int(line.strip())
+            leaf = int(leaf.strip())
+            print(f'Continuing tree calculation from line: {line} - leaf: {leaf}')
+            forceUntilQuota(line, leaf, youtube, width, depth, videoId)
 
 
     elif titles:

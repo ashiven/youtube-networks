@@ -10,10 +10,10 @@ Options:
 - `-s` [required] : The initial youtube link
     - example: `-s https://www.youtube.com/watch?v=StJremO4_Do`
 
-- `-d` [default = 3] : How deep should the search be
+- `-d` [default = 2] : How deep should the search be
     - example: `-d 5` 
 
-- `-w` [default = 2] : How wide should the search be
+- `-w` [default = 3] : How wide should the search be
     - example: `-w 3`
 
 - `-D` [default = title] : What to display as node labels 
