@@ -1,0 +1,1 @@
+do python title.py in your terminal and you will get a document with the titles of the videos in your output.log data

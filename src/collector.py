@@ -358,7 +358,7 @@ def main():
 
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
-    youtube = build('youtube', 'v3', developerKey=apiKey2)
+    youtube = build('youtube', 'v3', developerKey=apiKey8)
     if not treeimport and not force:
         layers = getLayers(youtube, videoId, width, depth)
 
