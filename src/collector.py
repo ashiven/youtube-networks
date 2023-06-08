@@ -6,6 +6,7 @@ import argparse
 import os
 from library import hierarchy_pos
 from typing import *
+import ast
 
 
 # this function uses a regular expression to extract the videoId parameter from any youtube link
@@ -318,6 +319,30 @@ def forceUntilQuota(line: int, youtube: Any, width: int, depth: int, videoId: st
         print('seems like the quota has been exceeded :(')
 
 
+def getTitles(filename: str) -> None:
+
+    # Load the file
+    with open(f'./data/{filename}', 'r') as file:
+        data = file.read()
+
+    # Convert the string representation to a list of dictionaries
+    data_list = ast.literal_eval(data)
+
+    # Extract the titles of YouTube videos
+    titles = []
+    for item in data_list:
+        for video_id, details in item.items():
+            title = details[1]
+            titles.append(title)
+
+    # Save the titles to titles.log
+    with open(f'./titles/{filename}', 'w') as file:
+        for title in titles:
+            file.write(title + '\n')
+
+    print(f'Extracted titles: ./titles/{filename}')
+
+
 def main():
 
     # parse the arguments supplied by the user
@@ -330,6 +355,7 @@ def main():
     parser.add_argument('-g', '--graph', action='store_true', help="Whether to convert the tree to a graph that will be exported to a graphML file(only works with -D channelName)")
     parser.add_argument('-i', '--treeimport', type=str, default=None, help="Import the trees for a given file and convert them to a graph")
     parser.add_argument('-f', '--force', action='store_true', help="Keep calculating trees and storing them in the specific file until the quota is exceeded")
+    parser.add_argument('-t', '--titles', type=str, default=None, help="Extract only the titles from a given file")
     args = parser.parse_args()
 
     seed = args.seed 
@@ -340,6 +366,7 @@ def main():
     graph = args.graph
     treeimport = args.treeimport
     force = args.force
+    titles = args.titles
     videoId = None
     if(seed):
         videoId = parseVideoId(seed)
@@ -360,7 +387,7 @@ def main():
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
     youtube = build('youtube', 'v3', developerKey=apiKey4)
-    if not treeimport and not force:
+    if not treeimport and not force and not titles:
         layers = getLayers(youtube, videoId, width, depth)
 
         # write the result for layers into a log file 
@@ -384,7 +411,7 @@ def main():
 
 
     # display video titles as node labels
-    elif (display == 'title' or display == 'channelId' or display == 'channelName') and not treeimport and not force:
+    elif (display == 'title' or display == 'channelId' or display == 'channelName') and not treeimport and not force and not titles:
         T, root = getTree(layers) 
         convertTree(youtube, T, root, layers, display, graph)
 
@@ -416,16 +443,17 @@ def main():
             forceUntilQuota(line, youtube, width, depth, videoId)
 
 
+    elif titles:
+        getTitles(titles)
+
+
     # invalid arguments
     else:
         parser.print_usage()
 
 
 if __name__ == '__main__':
-    '''
     try:
         main()
     except:
         print('seems like the quota has been exceeded :(')
-    '''
-    main()
