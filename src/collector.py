@@ -232,6 +232,7 @@ def convertTree(youtube: Any, T: nx.Graph, root: str, layers: List[Dict], displa
                 G.nodes[U]['size'] += 1
 
             nx.write_graphml(G, f'./graphs/{root}.graphml')
+            print(f'Created graph: ./graphs/{root}.graphml')
     return
     
 
