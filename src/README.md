@@ -22,5 +22,4 @@ Options:
 - `-i` : Use this flag to convert all of the trees(layers) inside of output.log, into a network graph e.g. `python collector.py -i`
 
 - `-f` : Use this flag to calculate trees with specified width and depth until the quota of your api key has been exceeded (You don't need to add `-l` here)
-    1. With an empty output.log file: `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -f`
-    2. Continue fetching more data where the script left off: `python collector.py -f`
+    1. example usage: `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -f`

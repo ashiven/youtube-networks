@@ -1,3 +1,5 @@
 /src/__pycache__/
 /src/data/*
 !/src/data/.gitkeep
+/src/graphs/*
+!/src/graphs/.gitkeep

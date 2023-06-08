@@ -230,17 +230,17 @@ def convertTree(youtube: Any, T: nx.Graph, root: str, layers: List[Dict], displa
                 U = channelDict[labels[node]]
                 G.nodes[U]['size'] += 1
 
-            nx.write_graphml(G, f'./data/{root}.graphml')
+            nx.write_graphml(G, f'./graphs/{root}.graphml')
     return
     
 
-# this function imports the trees saved in output.log and converts them to a network graph
-# this graph will then be saved as import_log.graphml in /data
-def convertImports(youtube: Any) -> None:
+# this function imports the trees saved in filename and converts them to a network graph
+# this graph will then be saved as import_log.graphml in /graphs
+def convertImports(youtube: Any, filename: str) -> None:
 
-    # we basically repeat what we are doing in convertTree() with -D channelName and -g with the trees from output.log
+    # we basically repeat what we are doing in convertTree() with -D channelName and -g with the trees from the import file
     layerList = []
-    with open('output.log', 'r', encoding = 'utf-8') as logfile:
+    with open(f'./data/{filename}', 'r', encoding = 'utf-8') as logfile:
         for line in logfile:
             layers = eval(line)
             layerList.append(layers)
@@ -280,15 +280,16 @@ def convertImports(youtube: Any) -> None:
 
     fileName = re.sub(r'\s+', '_', fileName)
     fileName = re.sub(r'[^\w\s-]', '', fileName)
-    nx.write_graphml(G, f'./data/{fileName}.graphml')
+    nx.write_graphml(G, f'./graphs/{fileName}.graphml')
+    print(f'Created graph: ./graphs/{fileName}.graphml')
     return 
 
 
 # this function takes a rootLine indicating where the tree, whose leafs we are trying to convert into trees, is located in the file
-def getLeafTrees(rootLine: int, youtube: Any, width: int, depth: int) -> None:
+def getLeafTrees(rootLine: int, youtube: Any, width: int, depth: int, videoId: str) -> None:
 
-    # open output.log in read and append mode
-    with open('output.log', 'r', encoding = 'utf-8') as logfile:
+    # open file in read mode
+    with open(f'./data/{videoId}.log', 'r', encoding = 'utf-8') as logfile:
         for i, line in enumerate(logfile):
             # read the tree in rootLine and get the leafs for that tree
             if i == rootLine:
@@ -296,23 +297,23 @@ def getLeafTrees(rootLine: int, youtube: Any, width: int, depth: int) -> None:
                 leafDict = rootLayers[-1]
                 leafIds = list(leafDict.keys())
 
-    with open('output.log', 'a', encoding = 'utf-8') as logfile:
-        # append the leaf trees to output.log
+    with open(f'./data/{videoId}.log', 'a', encoding = 'utf-8') as logfile:
+        # append the leaf trees to the file
         for leafId in leafIds:
             layers = getLayers(youtube, leafId, width, depth)
             print(layers, file=logfile)
 
 
 # this function keeps calling getLeafTrees until the quota has been exceded
-def forceUntilQuota(line: int, youtube: Any, width: int, depth: int) -> None:
+def forceUntilQuota(line: int, youtube: Any, width: int, depth: int, videoId: str) -> None:
     try:
         while(True):
-            getLeafTrees(line, youtube, width, depth)
+            getLeafTrees(line, youtube, width, depth, videoId)
             print(f'calling getLeafTrees({line})')
             line += 1
     except: 
         currentline = line - 1
-        with open('stop.txt', 'w') as file:
+        with open(f'./data/{videoId}_breakpoint.txt', 'w') as file:
             file.write(str(currentline))
         print('seems like the quota has been exceeded :(')
 
@@ -325,10 +326,10 @@ def main():
     parser.add_argument('-w', '--width', type=int, default=2, help='Search Width')
     parser.add_argument('-s', '--seed', type=str, help='Initial Youtube Video Link')
     parser.add_argument('-D', '--display', type=str, default='title', help="Display Video Titles: 'title' | Video Ids: 'videoId' | Channel Ids: 'channelId'")
-    parser.add_argument('-l', '--log', action='store_true', help="Enable logging into output.log")
+    parser.add_argument('-l', '--log', action='store_true', help="Store the tree inside of a log file")
     parser.add_argument('-g', '--graph', action='store_true', help="Whether to convert the tree to a graph that will be exported to a graphML file(only works with -D channelName)")
-    parser.add_argument('-i', '--treeimport', action='store_true', help="Import the trees in output.log and convert them to a graph")
-    parser.add_argument('-f', '--force', action='store_true', help="Keep calculating trees and storing them in output.log until the quota is exceeded")
+    parser.add_argument('-i', '--treeimport', type=str, default=None, help="Import the trees for a given file and convert them to a graph")
+    parser.add_argument('-f', '--force', action='store_true', help="Keep calculating trees and storing them in the specific file until the quota is exceeded")
     args = parser.parse_args()
 
     seed = args.seed 
@@ -352,19 +353,19 @@ def main():
     apiKey5 = '***REMOVED***'     # Gunnar
     apiKey6 = '***REMOVED***'     # Elena
     apiKey7 = '***REMOVED***'     # Elena
-    apiKey8=  '***REMOVED***'     #egemen
-    apiKey9= '***REMOVED***'      #egemen
+    apiKey8=  '***REMOVED***'     # Egemen
+    apiKey9= '***REMOVED***'      # Egemen
 
 
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
-    youtube = build('youtube', 'v3', developerKey=apiKey8)
+    youtube = build('youtube', 'v3', developerKey=apiKey4)
     if not treeimport and not force:
         layers = getLayers(youtube, videoId, width, depth)
 
         # write the result for layers into a log file 
         if log:
-            with open('output.log', 'a', encoding='utf-8') as logfile:
+            with open(f'./data/{videoId}.log', 'a', encoding='utf-8') as logfile:
                 print(layers, file=logfile)
     
 
@@ -388,31 +389,31 @@ def main():
         convertTree(youtube, T, root, layers, display, graph)
 
 
-    # import/convert trees from output.log
+    # import/convert trees saved in treeimport
     elif treeimport:
-        convertImports(youtube)
+        convertImports(youtube, treeimport)
 
 
-    # calculate trees until the quota is exceeded and save the stopping point in stop.txt
+    # calculate trees until the quota is exceeded and save the stopping point in {videoId}_breakpoint.txt
     elif force:
-        if not os.path.isfile('output.log'):
-            open('output.log', "w", encoding='utf-8').close()
+        if not os.path.isfile(f'./data/{videoId}.log'):
+            open(f'./data/{videoId}.log', "w", encoding='utf-8').close()
 
-        with open('output.log', 'r', encoding='utf-8') as logfile:
+        with open(f'./data/{videoId}.log', 'r', encoding='utf-8') as logfile:
             linecount = sum(1 for _ in logfile)
         
         if linecount == 0:
             layers = getLayers(youtube, videoId, width, depth)
-            with open('output.log', 'a', encoding='utf-8') as logfile:
+            with open(f'./data/{videoId}.log', 'a', encoding='utf-8') as logfile:
                 print(layers, file=logfile)
             print('Starting tree calculation...')
-            forceUntilQuota(0, youtube, width, depth)
+            forceUntilQuota(0, youtube, width, depth, videoId)
         
         else: 
-            with open('stop.txt', 'r') as file:
+            with open(f'./data/{videoId}_breakpoint.txt', 'r') as file:
                 line = int(file.read().strip())
             print(f'Continuing tree calculation from line: {line}')
-            forceUntilQuota(line, youtube, width, depth)
+            forceUntilQuota(line, youtube, width, depth, videoId)
 
 
     # invalid arguments
@@ -421,7 +422,10 @@ def main():
 
 
 if __name__ == '__main__':
+    '''
     try:
         main()
     except:
         print('seems like the quota has been exceeded :(')
+    '''
+    main()
