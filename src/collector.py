@@ -319,14 +319,14 @@ def getLeafTrees(rootLine: int, leaf: int, youtube: Any, width: int, depth: int,
                 try:
                     layers = getLayers(youtube, leafId, width, depth)
                     print(layers, file=logfile)
-                    print(f'saved leafTree: {count}')
+                    print(f'Saved leafTree: {count}')
                 except:
                     with open(f'./data/{videoId}_breakpoint.txt', 'w') as file:
                         file.write(str(rootLine))
                         file.write('\n')
                         file.write(str(count))
 
-                    print('seems like the quota has been exceeded :(')
+                    print('Seems like the quota has been exceeded :(')
                     return False
     return True
 
@@ -335,7 +335,7 @@ def getLeafTrees(rootLine: int, leaf: int, youtube: Any, width: int, depth: int,
 def forceUntilQuota(line: int, leaf: int, youtube: Any, width: int, depth: int, videoId: str) -> None:
     loop = True
     while(loop):
-        print(f'calling getLeafTrees({line})...')
+        print(f'Calling getLeafTrees({line})...')
         loop = getLeafTrees(line, leaf, youtube, width, depth, videoId)
         line += 1
 
