@@ -16,6 +16,9 @@ Options:
 - `-w` [default = 3] : How wide should the search be
     - example: `-w 3`
 
+- `-a` [default = 0] : Which api key should be used 
+    - example usage: `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -a 3`
+
 - `-D` [default = title] : What to display as node labels 
     - options: `title`, `videoId`, `channelId`, `channelName`
 
@@ -33,3 +36,6 @@ Options:
 
 - `-t` : Use this flag to extract only the titles for a file in /data 
     - example usage: `python collector.py -t LIVuZqs392k.log`
+
+- `-A` : Use this flag to do the same as with -f but with every available api key 
+    - example usage: `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -A`

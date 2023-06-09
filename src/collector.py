@@ -8,6 +8,7 @@ from library import hierarchy_pos
 from typing import *
 import ast
 import requests
+import subprocess
 
 
 # this function uses a regular expression to extract the videoId parameter from any youtube link
@@ -35,6 +36,7 @@ def getChannelName(youtube: Any, channelId: str) -> str:
     return response['items'][0]['snippet']['title']
 
 
+#TODO: when we call this function more than 30 times in quick succession(for large graphs) we get ratelimited. maybe implement proxying for requests
 # this function does the same starting with a video id and using oembed instead of the data api
 def getChannelNameEmbed(videoId: str) -> str:
     response = requests.get('https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' + videoId)
@@ -260,7 +262,7 @@ def convertImports(youtube: Any, filename: str) -> None:
 
         
         T, root = getTree(layers)
-        print(f'Importing tree: {count} with root: {root}')
+        print(f'Converting tree: {count} with root: {root}')
 
         # some stuff we need 
         dict = layersToChannelDict(layers)
@@ -290,8 +292,12 @@ def convertImports(youtube: Any, filename: str) -> None:
                 G.edges[U, V]['weight'] += 1
 
         for node in T.nodes():
-            U = channelDict[labels[node]]
-            G.nodes[U]['size'] += 1
+            if count == 0:
+                U = channelDict[labels[node]]
+                G.nodes[U]['size'] += 0.1
+            elif count > 0 and node != root:
+                U = channelDict[labels[node]]
+                G.nodes[U]['size'] += 0.1
 
     fileName = re.sub(r'\s+', '_', fileName)
     fileName = re.sub(r'[^\w\s-]', '', fileName)
@@ -337,6 +343,7 @@ def forceUntilQuota(line: int, leaf: int, youtube: Any, width: int, depth: int, 
     while(loop):
         print(f'Calling getLeafTrees({line})...')
         loop = getLeafTrees(line, leaf, youtube, width, depth, videoId)
+        leaf = 0 #we only need leaf to continue from breakpoint on the first call of gLT()
         line += 1
 
 
@@ -371,44 +378,50 @@ def main():
     parser.add_argument('-d', '--depth', type=int, default=2, help='Search Depth')
     parser.add_argument('-w', '--width', type=int, default=3, help='Search Width')
     parser.add_argument('-s', '--seed', type=str, help='Initial Youtube Video Link')
+    parser.add_argument('-a', '--apikey', type=int, default=0, help='Which API key should be used')
     parser.add_argument('-D', '--display', type=str, default='title', help="Display Video Titles: 'title' | Video Ids: 'videoId' | Channel Ids: 'channelId'")
     parser.add_argument('-l', '--log', action='store_true', help="Store the tree inside of a log file")
     parser.add_argument('-g', '--graph', action='store_true', help="Whether to convert the tree to a graph that will be exported to a graphML file(only works with -D channelName)")
     parser.add_argument('-i', '--treeimport', type=str, default=None, help="Import the trees for a given file and convert them to a graph")
     parser.add_argument('-f', '--force', action='store_true', help="Keep calculating trees and storing them in the specific file until the quota is exceeded")
     parser.add_argument('-t', '--titles', type=str, default=None, help="Extract only the titles from a given file")
+    parser.add_argument('-A', '--aggressive', action='store_true', help="Do the same as with -f but cycle through all available api keys")
     args = parser.parse_args()
 
     seed = args.seed 
     width = args.width
     depth = args.depth
+    apiIndex = args.apikey
     display = args.display
     log = args.log
     graph = args.graph
     treeimport = args.treeimport
     force = args.force
     titles = args.titles
+    aggressive = args.aggressive
     videoId = None
     if(seed):
         videoId = parseVideoId(seed)
 
 
     # here we have a few api keys because the ratelimiting is bad...
-    apiKey = '***REMOVED***'      # Jannik
-    apiKey2 = '***REMOVED***'     # Jannik
-    apiKey3 = '***REMOVED***'     # Jonathan
+    apiKey0 = '***REMOVED***'      # Jannik
+    apiKey1 = '***REMOVED***'     # Jannik
+    apiKey2 = '***REMOVED***'     # Jonathan
+    apiKey3 = '***REMOVED***'     # Gunnar
     apiKey4 = '***REMOVED***'     # Gunnar
-    apiKey5 = '***REMOVED***'     # Gunnar
+    apiKey5 = '***REMOVED***'     # Elena
     apiKey6 = '***REMOVED***'     # Elena
-    apiKey7 = '***REMOVED***'     # Elena
+    apiKey7 = '***REMOVED***'     # Egemen
     apiKey8 = '***REMOVED***'     # Egemen
-    apiKey9 = '***REMOVED***'     # Egemen
+
+    apiKeys = [apiKey0, apiKey1, apiKey2, apiKey3, apiKey4, apiKey5, apiKey6, apiKey7, apiKey8]
 
 
 
     # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
-    youtube = build('youtube', 'v3', developerKey=apiKey)
-    if not treeimport and not force and not titles:
+    youtube = build('youtube', 'v3', developerKey=apiKeys[apiIndex])
+    if not (treeimport or force or titles or aggressive):
         layers = getLayers(youtube, videoId, width, depth)
 
         # write the result for layers into a log file 
@@ -432,7 +445,7 @@ def main():
 
 
     # display video titles as node labels
-    elif (display == 'title' or display == 'channelId' or display == 'channelName') and not treeimport and not force and not titles:
+    elif (display == 'title' or display == 'channelId' or display == 'channelName') and not (treeimport or force or titles or aggressive):
         T, root = getTree(layers) 
         convertTree(youtube, T, root, layers, display, graph)
 
@@ -470,9 +483,21 @@ def main():
             forceUntilQuota(line, leaf, youtube, width, depth, videoId)
 
 
+    # extract only the tiles of a given logfile
     elif titles:
         getTitles(titles)
 
+
+    # call the force option with every available api key
+    elif aggressive:
+        for i in range(len(apiKeys)):
+            print(f'Using API-Key: {i}')
+            p = subprocess.Popen(["python", "collector.py", f"-s {seed}", "-f", f"-a {i}"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            #TODO: find a way to pipe the output of the subprocess to the parent process in realtime
+            while p.poll() is None:
+                line = p.stdout.readline()
+                print(line)
+            
 
     # invalid arguments
     else:
