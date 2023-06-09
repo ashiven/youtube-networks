@@ -36,12 +36,18 @@ def getChannelName(youtube: Any, channelId: str) -> str:
     return response['items'][0]['snippet']['title']
 
 
-#TODO: when we call this function more than 30 times in quick succession(for large graphs) we get ratelimited. maybe implement proxying for requests
 # this function does the same starting with a video id and using oembed instead of the data api
-def getChannelNameEmbed(videoId: str) -> str:
-    response = requests.get('https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' + videoId)
-    dict = eval(response.text)
-    return dict['author_name']
+def getChannelNameEmbed(videoId: str, method: str) -> str:
+
+    if method == 'noembed':
+        response = requests.get('https://noembed.com/embed?url=https://www.youtube.com/watch?v=' + videoId)
+    elif method == 'oembed':
+        response = requests.get('https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' + videoId)
+    try:
+        dict = eval(response.text)
+        return dict['author_name']
+    except:
+        return None
 
 
 # this function takes as input a video Id and based on width returns 'width' amount of related videos 
@@ -257,12 +263,21 @@ def convertImports(youtube: Any, filename: str) -> None:
             layerList.append(layers)
 
     fileName = None
+    methodCounter = 0
+    prevMethod = 'noembed'
+    currentMethod = 'oembed'
     G = nx.Graph()
     for count, layers in enumerate(layerList):
 
+        # swap between noembed and oembed every 20 iterations
+        if(methodCounter == 20):
+            temp = prevMethod
+            prevMethod = currentMethod
+            currentMethod = temp
+            methodCounter = 0
         
         T, root = getTree(layers)
-        print(f'Converting tree: {count} with root: {root}')
+        print(f'Converting tree: {count} with root: {root} - method: {currentMethod}')
 
         # some stuff we need 
         dict = layersToChannelDict(layers)
@@ -272,8 +287,16 @@ def convertImports(youtube: Any, filename: str) -> None:
         #channelIdList = list(set(labels.values()))
         #channelDict = {channelId: getChannelName(youtube, channelId) for channelId in channelIdList}
 
-        # use the embed version for large graphs that might exhaust the data api in their creation
-        videoIdTochannelName = {videoId: [getChannelNameEmbed(videoId), dict[videoId]] for videoId in T.nodes()}
+        # using the embed version for large graphs that might exhaust the data api in their creation
+        videoIdTochannelName = {}
+        for videoId in T.nodes():
+            channelName = getChannelNameEmbed(videoId, currentMethod)
+            if channelName:
+                videoIdTochannelName[videoId] = [channelName, dict[videoId]]
+            else: 
+                videoIdTochannelName[videoId] = ['Not Found', dict[videoId]]
+
+
         channelDict = { channelId: channelName for channelName, channelId in videoIdTochannelName.values() }
 
         # we use the root of the first tree as the filename
@@ -284,7 +307,9 @@ def convertImports(youtube: Any, filename: str) -> None:
             u,v = edge
             U = channelDict[labels[u]]
             V = channelDict[labels[v]]
-            if not (U,V) in G.edges() and U != V:
+            if U == 'Not Found' or V == 'Not Found':
+                continue
+            elif not (U,V) in G.edges() and U != V:
                 G.add_node(U, size=1)
                 G.add_node(V, size=1)
                 G.add_edge(U, V, weight=1)
@@ -292,12 +317,15 @@ def convertImports(youtube: Any, filename: str) -> None:
                 G.edges[U, V]['weight'] += 1
 
         for node in T.nodes():
-            if count == 0:
-                U = channelDict[labels[node]]
+            U = channelDict[labels[node]]
+            if U == 'Not Found':
+                continue
+            elif count == 0:
                 G.nodes[U]['size'] += 0.1
             elif count > 0 and node != root:
-                U = channelDict[labels[node]]
                 G.nodes[U]['size'] += 0.1
+
+        methodCounter += 1
 
     fileName = re.sub(r'\s+', '_', fileName)
     fileName = re.sub(r'[^\w\s-]', '', fileName)
@@ -505,7 +533,10 @@ def main():
 
 
 if __name__ == '__main__':
+    '''
     try:
         main()
     except:
         print('seems like the quota has been exceeded :(')
+    '''
+    main()
