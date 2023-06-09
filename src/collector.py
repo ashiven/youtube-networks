@@ -277,7 +277,7 @@ def convertImports(youtube: Any, filename: str) -> None:
             methodCounter = 0
         
         T, root = getTree(layers)
-        print(f'Converting tree: {count} with root: {root} - method: {currentMethod}')
+        print(f'Converting tree: {count} with root: {root}')
 
         # some stuff we need 
         dict = layersToChannelDict(layers)
@@ -292,6 +292,7 @@ def convertImports(youtube: Any, filename: str) -> None:
         for videoId in T.nodes():
             channelName = getChannelNameEmbed(videoId, currentMethod)
             if channelName:
+                channelName = re.sub(r'[^\w\s-]', '', channelName).strip()
                 videoIdTochannelName[videoId] = [channelName, dict[videoId]]
             else: 
                 videoIdTochannelName[videoId] = ['Not Found', dict[videoId]]
@@ -533,10 +534,7 @@ def main():
 
 
 if __name__ == '__main__':
-    '''
     try:
         main()
     except:
         print('seems like the quota has been exceeded :(')
-    '''
-    main()
