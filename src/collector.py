@@ -9,6 +9,7 @@ from typing import *
 import ast
 import requests
 import subprocess
+import math
 
 
 # this function uses a regular expression to extract the videoId parameter from any youtube link
@@ -23,12 +24,13 @@ def parseVideoId(link: str) -> Optional[str]:
         return videoId
     else:
         return None
+    
 
 # this function takes a video id and returns the title and channel id for that video
 def getVideoInfo(youtube: Any, videoId: str) -> tuple[str, str]:
     response = youtube.videos().list(part='snippet', id=videoId).execute()
-    
     return response['items'][0]['snippet']['title'], response['items'][0]['snippet']['channelId']
+
 
 # this function takes a channel id and returns the name of the channel
 def getChannelName(youtube: Any, channelId: str) -> str:
@@ -38,7 +40,6 @@ def getChannelName(youtube: Any, channelId: str) -> str:
 
 # this function does the same starting with a video id and using oembed instead of the data api
 def getChannelNameEmbed(videoId: str, method: str) -> str:
-
     if method == 'noembed':
         response = requests.get('https://noembed.com/embed?url=https://www.youtube.com/watch?v=' + videoId)
     elif method == 'oembed':
@@ -170,7 +171,6 @@ def getTree(layers: List[Dict]) -> tuple[nx.Graph, str]:
 # this function takes a tree with the node names being video Ids and converts that tree
 # into one that is labeled with the respective channel Ids belonging to the video Ids
 def convertTree(youtube: Any, T: nx.Graph, root: str, layers: List[Dict], display: str, graph: bool) -> None:
-    
     colors, labels = getColors(layers, T)
 
     if display == 'channelId':
@@ -263,6 +263,8 @@ def convertImports(youtube: Any, filename: str) -> None:
             layerList.append(layers)
 
     fileName = None
+    nodeTotal = 0
+    edgeTotal = 0
     methodCounter = 0
     prevMethod = 'noembed'
     currentMethod = 'oembed'
@@ -277,7 +279,7 @@ def convertImports(youtube: Any, filename: str) -> None:
             methodCounter = 0
         
         T, root = getTree(layers)
-        print(f'Converting tree: {count} with root: {root}')
+        print(f'Converting subtree: {count} with root: {root}')
 
         # some stuff we need 
         dict = layersToChannelDict(layers)
@@ -316,6 +318,7 @@ def convertImports(youtube: Any, filename: str) -> None:
                 G.add_edge(U, V, weight=1)
             elif (U,V) in G.edges():
                 G.edges[U, V]['weight'] += 1
+            edgeTotal += 1
 
         for node in T.nodes():
             U = channelDict[labels[node]]
@@ -325,11 +328,13 @@ def convertImports(youtube: Any, filename: str) -> None:
                 G.nodes[U]['size'] += 0.1
             elif count > 0 and node != root:
                 G.nodes[U]['size'] += 0.1
+            nodeTotal += 1
 
         methodCounter += 1
 
     fileName = re.sub(r'\s+', '_', fileName)
     fileName = re.sub(r'[^\w\s-]', '', fileName)
+    print(f'Converted tree T with V(T)={nodeTotal}, E(T)={edgeTotal}')
     nx.write_graphml(G, f'./graphs/{fileName}.graphml')
     print(f'Created graph: ./graphs/{fileName}.graphml')
     return 
@@ -360,8 +365,8 @@ def getLeafTrees(rootLine: int, leaf: int, youtube: Any, width: int, depth: int,
                         file.write(str(rootLine))
                         file.write('\n')
                         file.write(str(count))
-
-                    print('Seems like the quota has been exceeded :(')
+                    print(f'Saved logfile: ./data/{videoId}.log')
+                    print(f'Saved breakpoint: ./data/{videoId}_breakpoint.txt')
                     return False
     return True
 
@@ -434,7 +439,7 @@ def main():
 
 
     # here we have a few api keys because the ratelimiting is bad...
-    apiKey0 = '***REMOVED***'      # Jannik
+    apiKey0 = '***REMOVED***'     # Jannik
     apiKey1 = '***REMOVED***'     # Jannik
     apiKey2 = '***REMOVED***'     # Jonathan
     apiKey3 = '***REMOVED***'     # Gunnar
@@ -522,15 +527,17 @@ def main():
         for i in range(len(apiKeys)):
             print(f'Using API-Key: {i}')
             p = subprocess.Popen(["python", "collector.py", f"-s {seed}", "-f", f"-a {i}"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-            #TODO: find a way to pipe the output of the subprocess to the parent process in realtime
-            while p.poll() is None:
-                line = p.stdout.readline()
-                print(line)
+            for line in iter(p.stdout.readline, b''):
+                print(line.rstrip().decode())
             
 
     # invalid arguments
     else:
         parser.print_usage()
+
+
+    #TODO: Add an option to limit the depth of the total tree (now we only limit the depth of subtrees)
+    #TODO: Add an option to import/convert multiple logfiles into one network-graph
 
 
 if __name__ == '__main__':
