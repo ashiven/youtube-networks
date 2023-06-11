@@ -39,3 +39,6 @@ Options:
 
 - `-A` : Use this flag to do the same as with -f but with every available api key 
     - example usage: `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -A`
+
+- `-m` : Use this flag to specify a maximum depth for the tree being compiled with -f or -A (has to be a multiple of depth)
+    - example usage: `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -A -d 3 -m 6`

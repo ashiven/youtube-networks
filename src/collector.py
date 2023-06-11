@@ -341,7 +341,10 @@ def convertImports(youtube: Any, filename: str) -> None:
 
 
 # this function takes a rootLine indicating where the tree, whose leafs we are trying to convert into trees, is located in the file
-def getLeafTrees(rootLine: int, leaf: int, youtube: Any, width: int, depth: int, videoId: str) -> bool:
+def getLeafTrees(rootLine: int, leaf: int, currentLeafs: int, nextLeafs: int, currentDepth: int, youtube: Any, width: int, depth: int, maxDepth: int, videoId: str) -> tuple[bool, Optional[int], Optional[int]]:
+
+    flag1 = False
+    flag2 = False
 
     # open file in read mode
     with open(f'./data/{videoId}.log', 'r', encoding = 'utf-8') as logfile:
@@ -352,10 +355,39 @@ def getLeafTrees(rootLine: int, leaf: int, youtube: Any, width: int, depth: int,
                 leafDict = rootLayers[-1]
                 leafIds = list(leafDict.keys())
 
+                if currentLeafs == 0: # this only happens for the root node of the total tree
+                    currentLeafs = len(leafIds) + 1
+                    flag1 = True
+                elif currentLeafs != 0:
+                    nextLeafs += len(leafIds)
+                    flag2 = True
+
     with open(f'./data/{videoId}.log', 'a', encoding = 'utf-8') as logfile:
         # append the leaf trees to the file
         for count, leafId in enumerate(leafIds):
             if count >= leaf:
+                if(currentDepth >= maxDepth):
+                    print('Reached maxDepth. Quitting...')
+                    with open(f'./data/{videoId}_breakpoint.txt', 'w') as file:
+                        file.write(str(rootLine))
+                        file.write('\n')
+                        file.write(str(count))
+                        file.write('\n')
+                        if flag1:
+                            file.write(str(0))
+                        else:
+                            file.write(str(currentLeafs))
+                        file.write('\n')
+                        if flag2:
+                            file.write(str(nextLeafs - len(leafIds)))
+                        else:
+                            file.write(str(nextLeafs))
+                        file.write('\n')
+                        file.write(str(currentDepth))
+                    print(f'Saved logfile: ./data/{videoId}.log')
+                    print(f'Saved breakpoint: ./data/{videoId}_breakpoint.txt')
+                    return False, 0, 0
+
                 try:
                     layers = getLayers(youtube, leafId, width, depth)
                     print(layers, file=logfile)
@@ -365,19 +397,36 @@ def getLeafTrees(rootLine: int, leaf: int, youtube: Any, width: int, depth: int,
                         file.write(str(rootLine))
                         file.write('\n')
                         file.write(str(count))
+                        file.write('\n')
+                        if flag1:
+                            file.write(str(0))
+                        else:
+                            file.write(str(currentLeafs))
+                        file.write('\n')
+                        if flag2:
+                            file.write(str(nextLeafs - len(leafIds)))
+                        else:
+                            file.write(str(nextLeafs))
+                        file.write('\n')
+                        file.write(str(currentDepth))
                     print(f'Saved logfile: ./data/{videoId}.log')
                     print(f'Saved breakpoint: ./data/{videoId}_breakpoint.txt')
-                    return False
-    return True
+                    return False, 0, 0
+    return True, currentLeafs, nextLeafs 
 
 
 # this function keeps calling getLeafTrees until the quota has been exceded
-def forceUntilQuota(line: int, leaf: int, youtube: Any, width: int, depth: int, videoId: str) -> None:
+def forceUntilQuota(line: int, leaf: int, currentLeafs: int, nextLeafs: int, currentDepth: int, youtube: Any, width: int, depth: int,  maxDepth: int, videoId: str) -> None:
     loop = True
     while(loop):
         print(f'Calling getLeafTrees({line})...')
-        loop = getLeafTrees(line, leaf, youtube, width, depth, videoId)
+        if currentLeafs == 0:
+            currentDepth += depth
+            currentLeafs = nextLeafs
+            nextLeafs = 0
+        loop, currentLeafs, nextLeafs = getLeafTrees(line, leaf, currentLeafs, nextLeafs, currentDepth, youtube, width, depth, maxDepth, videoId)
         leaf = 0 #we only need leaf to continue from breakpoint on the first call of gLT()
+        currentLeafs -= 1
         line += 1
 
 
@@ -420,6 +469,7 @@ def main():
     parser.add_argument('-f', '--force', action='store_true', help="Keep calculating trees and storing them in the specific file until the quota is exceeded")
     parser.add_argument('-t', '--titles', type=str, default=None, help="Extract only the titles from a given file")
     parser.add_argument('-A', '--aggressive', action='store_true', help="Do the same as with -f but cycle through all available api keys")
+    parser.add_argument('-m', '--maxDepth', type=int, default=10000, help='Total depth of the tree to be built with -f or -A (must be a multiple of depth)')
     args = parser.parse_args()
 
     seed = args.seed 
@@ -433,6 +483,7 @@ def main():
     force = args.force
     titles = args.titles
     aggressive = args.aggressive
+    maxDepth = args.maxDepth
     videoId = None
     if(seed):
         videoId = parseVideoId(seed)
@@ -502,7 +553,7 @@ def main():
             with open(f'./data/{videoId}.log', 'a', encoding='utf-8') as logfile:
                 print(layers, file=logfile)
             print('Starting tree calculation...')
-            forceUntilQuota(0, 0, youtube, width, depth, videoId)
+            forceUntilQuota(0, 0, 0, 0, 0, youtube, width, depth, maxDepth, videoId)
         
         else: 
             with open(f'./data/{videoId}_breakpoint.txt', 'r') as file:
@@ -511,10 +562,19 @@ def main():
                         line = l
                     if i == 1:
                         leaf = l
+                    if i == 2:
+                        currentLeafs = l
+                    if i == 3:
+                        nextLeafs = l
+                    if i == 4:
+                        currentDepth = l
             line = int(line.strip())
             leaf = int(leaf.strip())
+            currentLeafs = int(currentLeafs.strip())
+            nextLeafs = int(nextLeafs.strip())
+            currentDepth = int(currentDepth.strip())
             print(f'Continuing tree calculation from line: {line} - leaf: {leaf}')
-            forceUntilQuota(line, leaf, youtube, width, depth, videoId)
+            forceUntilQuota(line, leaf, currentLeafs, nextLeafs, currentDepth, youtube, width, depth, maxDepth, videoId)
 
 
     # extract only the tiles of a given logfile
