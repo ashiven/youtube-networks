@@ -3,18 +3,18 @@ import torch
 import numpy as np
 from sklearn.cluster import KMeans
 
-# BERT-Modell und Tokenizer laden
+#  loading BERT-model and Tokenizer 
 model_name = 'bert-base-uncased'
 tokenizer = BertTokenizer.from_pretrained(model_name)
 model = BertModel.from_pretrained(model_name)
 
-# Dokument einlesen und in Sätze aufteilen
+# reading document and splitting in sentences
 with open('dein_dokument.txt', 'r', encoding='utf-8') as file:
     document = file.read()
 
-sentences = document.split('.')  # Annahme: Sätze werden durch Punkte getrennt
+sentences = document.split('.')  # splitting sentences at '.'
 
-# Titel extrahieren
+# extract titles
 titles = []
 for sentence in sentences:
     sentence = sentence.strip()
@@ -25,18 +25,18 @@ for sentence in sentences:
         sentence_embedding = torch.mean(embeddings, dim=1).squeeze().numpy()
         titles.append((sentence, sentence_embedding))
 
-# BERT-Embeddings für alle Titel erstellen
+# creating BERT-Embeddings for every title
 title_embeddings = np.array([title[1] for title in titles])
 
-# K-Means-Clustering durchführen
-num_clusters = 5  # Anzahl der gewünschten Themen
+# executing K-Means-Clustering
+num_clusters = 20  # number of topics
 kmeans = KMeans(n_clusters=num_clusters, random_state=0)
 kmeans.fit(title_embeddings)
 
-# Themen-Zuordnung für jeden Titel ermitteln
+# labeling topics
 topic_labels = kmeans.labels_
 
-# Themen extrahieren
+# extract topics
 topics = {}
 for i, title in enumerate(titles):
     topic = topic_labels[i]
