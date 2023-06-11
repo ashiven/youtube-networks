@@ -45,7 +45,7 @@ for i, title in enumerate(titles):
     else:
         topics[topic] = [title[0]]
 
-# Ausgabe der Themen
+# topic output
 for topic, titles in topics.items():
     print(f"Thema {topic+1}:")
     for title in titles:
