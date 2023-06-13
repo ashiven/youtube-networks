@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d1" for="edge" attr.name="weight" attr.type="long" />
+  <key id="d0" for="node" attr.name="size" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="CSGOpoetry">
+      <data key="d0">18.499999999999996</data>
+    </node>
+    <node id="CSGO Daily Stream">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Major League Gaming">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="SIMPLE - CSGO Highlights">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Focus Fire">
+      <data key="d0">3.7000000000000024</data>
+    </node>
+    <node id="FPL Stream battles">
+      <data key="d0">6.799999999999993</data>
+    </node>
+    <node id="ESL Archives">
+      <data key="d0">6.999999999999992</data>
+    </node>
+    <node id="BR Gaming">
+      <data key="d0">1.9000000000000008</data>
+    </node>
+    <node id="CSGO wols">
+      <data key="d0">1.9000000000000008</data>
+    </node>
+    <node id="Gamers Galore - CSGO">
+      <data key="d0">2.100000000000001</data>
+    </node>
+    <node id="Snipe2DieTV - CSGO Channel">
+      <data key="d0">3.9000000000000026</data>
+    </node>
+    <node id="Skooby">
+      <data key="d0">6.099999999999995</data>
+    </node>
+    <node id="TheWarOwl">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Cloud9 VODs">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="stewie2k">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Vital CSGO">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="enjoyCS">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="XANTARES">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Rentgen CSGO">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="NS Community">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Ruffi CSGO">
+      <data key="d0">1.1</data>
+    </node>
+    <edge source="CSGOpoetry" target="CSGO Daily Stream">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="CSGOpoetry" target="SIMPLE - CSGO Highlights">
+      <data key="d1">4</data>
+    </edge>
+    <edge source="CSGOpoetry" target="ESL Archives">
+      <data key="d1">9</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Snipe2DieTV - CSGO Channel">
+      <data key="d1">25</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Skooby">
+      <data key="d1">29</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Rentgen CSGO">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="CSGO Daily Stream" target="Major League Gaming">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="CSGO Daily Stream" target="SIMPLE - CSGO Highlights">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="Major League Gaming" target="Focus Fire">
+      <data key="d1">2</data>
+    </edge>
+    <edge source="Major League Gaming" target="BR Gaming">
+      <data key="d1">3</data>
+    </edge>
+    <edge source="SIMPLE - CSGO Highlights" target="FPL Stream battles">
+      <data key="d1">5</data>
+    </edge>
+    <edge source="SIMPLE - CSGO Highlights" target="Gamers Galore - CSGO">
+      <data key="d1">3</data>
+    </edge>
+    <edge source="SIMPLE - CSGO Highlights" target="Rentgen CSGO">
+      <data key="d1">3</data>
+    </edge>
+    <edge source="SIMPLE - CSGO Highlights" target="NS Community">
+      <data key="d1">3</data>
+    </edge>
+    <edge source="Focus Fire" target="ESL Archives">
+      <data key="d1">11</data>
+    </edge>
+    <edge source="Focus Fire" target="enjoyCS">
+      <data key="d1">3</data>
+    </edge>
+    <edge source="FPL Stream battles" target="XANTARES">
+      <data key="d1">5</data>
+    </edge>
+    <edge source="ESL Archives" target="Snipe2DieTV - CSGO Channel">
+      <data key="d1">5</data>
+    </edge>
+    <edge source="ESL Archives" target="BR Gaming">
+      <data key="d1">3</data>
+    </edge>
+    <edge source="BR Gaming" target="CSGO wols">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="BR Gaming" target="Snipe2DieTV - CSGO Channel">
+      <data key="d1">5</data>
+    </edge>
+    <edge source="BR Gaming" target="TheWarOwl">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="BR Gaming" target="Cloud9 VODs">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="Skooby">
+      <data key="d1">11</data>
+    </edge>
+    <edge source="Cloud9 VODs" target="stewie2k">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="Cloud9 VODs" target="Vital CSGO">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="XANTARES" target="NS Community">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="NS Community" target="Ruffi CSGO">
+      <data key="d1">1</data>
+    </edge>
+  </graph>
+</graphml>
