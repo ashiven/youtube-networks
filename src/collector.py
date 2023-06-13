@@ -310,7 +310,11 @@ def convertImports(youtube: Any, filename: str) -> None:
             u,v = edge
             U = channelDict[labels[u]]
             V = channelDict[labels[v]]
-            if U == 'Not Found' or V == 'Not Found':
+            if not V in G.nodes() and U == 'Not Found' and V != 'Not Found':
+                G.add_node(V, size=1)
+                continue
+            elif not U in G.nodes() and V == 'Not Found' and U != 'Not Found':
+                G.add_node(U, size=1)
                 continue
             elif not (U,V) in G.edges() and U != V:
                 G.add_node(U, size=1)
@@ -366,7 +370,7 @@ def getLeafTrees(rootLine: int, leaf: int, currentLeafs: int, nextLeafs: int, cu
         # append the leaf trees to the file
         for count, leafId in enumerate(leafIds):
             if count >= leaf:
-                if(currentDepth >= maxDepth):
+                if currentDepth >= maxDepth:
                     print('Reached maxDepth. Quitting...')
                     with open(f'./data/{videoId}_breakpoint.txt', 'w') as file:
                         file.write(str(rootLine))
