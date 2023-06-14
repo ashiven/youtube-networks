@@ -501,10 +501,14 @@ def main():
     apiKey4 = '***REMOVED***'     # Gunnar
     apiKey5 = '***REMOVED***'     # Elena
     apiKey6 = '***REMOVED***'     # Elena
-    apiKey7 = '***REMOVED***'     # Egemen
-    apiKey8 = '***REMOVED***'     # Egemen
+    apiKey7 = '***REMOVED***'     # Elena
+    apiKey8 = '***REMOVED***'     # Elena
+    apiKey9 = '***REMOVED***'     # Elena
+    apiKey10 = '***REMOVED***'    # Elena
+    apiKey11 = '***REMOVED***'    # Egemen
+    apiKey12 = '***REMOVED***'    # Egemen
 
-    apiKeys = [apiKey0, apiKey1, apiKey2, apiKey3, apiKey4, apiKey5, apiKey6, apiKey7, apiKey8]
+    apiKeys = [apiKey0, apiKey1, apiKey2, apiKey3, apiKey4, apiKey5, apiKey6, apiKey7, apiKey8, apiKey9, apiKey10, apiKey11, apiKey12]
 
 
 
