@@ -146,7 +146,7 @@ def getColors(layers: List[Dict], T: nx.Graph) -> tuple[List[str], Dict]:
     channelToColor = {channelId: colors[count] for count, channelId in enumerate(uniqueChannelIds)}
     nodeToColor = {node: channelToColor[labels[node]] for node in T.nodes()}
 
-    # now finally we create the list of colors that will be used for the nodes, red being the default color for undefined channelIds aka the root node
+    # now finally we create the list of colors that will be used for the nodes, red being the default color for undefined channelIds
     return [nodeToColor.get(node, 'red') for node in T.nodes()], labels
 
 
@@ -510,10 +510,10 @@ def main():
     apiKey13 = 'AIzaSyC-DFQ4ayefiTyuikxAw81DQJUIK6a5Cdc'    #Jonathan
     apiKey14 = 'AIzaSyDTjdiFBRlTz0WoChHp08DMew7epq2MkPQ'    #Jonathan
     apiKey15 = 'AIzaSyCsablwpeXxJ5FtuOQRbei1WNmloGR04D8'    #Jonathan
-    apikey16 = 'AIzaSyB-ZH3P_j-bmhNsNgF9gOy05L8lTZ3M7C4'    #Jonathan
+    apiKey16 = 'AIzaSyB-ZH3P_j-bmhNsNgF9gOy05L8lTZ3M7C4'    #Jonathan
     apiKey17 = 'AIzaSyBNNCbn7QOHPn7OY9UfUhR_FGPfhVpIo1I'    #Jonathan
 
-    apiKeys = [apiKey0, apiKey1, apiKey2, apiKey3, apiKey4, apiKey5, apiKey6, apiKey7, apiKey8, apiKey9, apiKey10, apiKey11, apiKey12]
+    apiKeys = [apiKey0, apiKey1, apiKey2, apiKey3, apiKey4, apiKey5, apiKey6, apiKey7, apiKey8, apiKey9, apiKey10, apiKey11, apiKey12, apiKey13, apiKey14, apiKey15, apiKey16, apiKey17]
 
 
 
