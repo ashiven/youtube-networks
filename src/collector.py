@@ -257,7 +257,7 @@ def convertImports(youtube: Any, filename: str) -> None:
 
     # we basically repeat what we are doing in convertTree() with -D channelName and -g with the trees from the import file
     layerList = []
-    with open(f'./data/{filename}', 'r', encoding = 'utf-8') as logfile:
+    with open(f'./data/{filename}', 'r', encoding='utf-8') as logfile:
         for line in logfile:
             layers = eval(line)
             layerList.append(layers)
@@ -351,7 +351,7 @@ def getLeafTrees(rootLine: int, leaf: int, currentLeafs: int, nextLeafs: int, cu
     flag2 = False
 
     # open file in read mode
-    with open(f'./data/{videoId}.log', 'r', encoding = 'utf-8') as logfile:
+    with open(f'./data/{videoId}.log', 'r', encoding='utf-8') as logfile:
         for i, l in enumerate(logfile):
             # read the tree in rootLine and get the leafs for that tree
             if i == rootLine:
@@ -366,7 +366,7 @@ def getLeafTrees(rootLine: int, leaf: int, currentLeafs: int, nextLeafs: int, cu
                     nextLeafs += len(leafIds)
                     flag2 = True
 
-    with open(f'./data/{videoId}.log', 'a', encoding = 'utf-8') as logfile:
+    with open(f'./data/{videoId}.log', 'a', encoding='utf-8') as logfile:
         # append the leaf trees to the file
         for count, leafId in enumerate(leafIds):
             if count >= leaf:
@@ -436,23 +436,20 @@ def forceUntilQuota(line: int, leaf: int, currentLeafs: int, nextLeafs: int, cur
 
 def getTitles(filename: str) -> None:
 
+    video_titles = []
+
     # Load the file
-    with open(f'./data/{filename}', 'r') as file:
+    with open(f'./data/{filename}', 'r', encoding='utf-8') as file:
         data = file.read()
 
-    # Convert the string representation to a list of dictionaries
-    data_list = ast.literal_eval(data)
-
-    # Extract the titles of YouTube videos
-    titles = []
-    for item in data_list:
-        for video_id, details in item.items():
-            title = details[1]
-            titles.append(title)
+    items = data.split('}, {')
+    for item in items:
+        video_info = item.split(': [')[1].split(', ')[1].strip("'")
+        video_titles.append(video_info)
 
     # Save the titles to titles.log
-    with open(f'./titles/{filename}', 'w') as file:
-        for title in titles:
+    with open(f'./titles/{filename}', 'w', encoding='utf-8') as file:
+        for title in video_titles:
             file.write(title + '\n')
 
     print(f'Extracted titles: ./titles/{filename}')
@@ -507,13 +504,14 @@ def main():
     apiKey10 = '***REMOVED***'    # Elena
     apiKey11 = '***REMOVED***'    # Egemen
     apiKey12 = '***REMOVED***'    # Egemen
-    apiKey13 = 'AIzaSyC-DFQ4ayefiTyuikxAw81DQJUIK6a5Cdc'    #Jonathan
-    apiKey14 = 'AIzaSyDTjdiFBRlTz0WoChHp08DMew7epq2MkPQ'    #Jonathan
-    apiKey15 = 'AIzaSyCsablwpeXxJ5FtuOQRbei1WNmloGR04D8'    #Jonathan
-    apiKey16 = 'AIzaSyB-ZH3P_j-bmhNsNgF9gOy05L8lTZ3M7C4'    #Jonathan
-    apiKey17 = 'AIzaSyBNNCbn7QOHPn7OY9UfUhR_FGPfhVpIo1I'    #Jonathan
+    apiKey13 = 'AIzaSyC-DFQ4ayefiTyuikxAw81DQJUIK6a5Cdc'    # Jonathan
+    apiKey14 = 'AIzaSyDTjdiFBRlTz0WoChHp08DMew7epq2MkPQ'    # Jonathan
+    apiKey15 = 'AIzaSyCsablwpeXxJ5FtuOQRbei1WNmloGR04D8'    # Jonathan
+    apiKey16 = 'AIzaSyB-ZH3P_j-bmhNsNgF9gOy05L8lTZ3M7C4'    # Jonathan
+    apiKey17 = 'AIzaSyBNNCbn7QOHPn7OY9UfUhR_FGPfhVpIo1I'    # Jonathan
 
-    apiKeys = [apiKey0, apiKey1, apiKey2, apiKey3, apiKey4, apiKey5, apiKey6, apiKey7, apiKey8, apiKey9, apiKey10, apiKey11, apiKey12, apiKey13, apiKey14, apiKey15, apiKey16, apiKey17]
+    apiKeys = [apiKey0, apiKey1, apiKey2, apiKey3, apiKey4, apiKey5, apiKey6, apiKey7, apiKey8,
+               apiKey9, apiKey10, apiKey11, apiKey12, apiKey13, apiKey14, apiKey15, apiKey16, apiKey17]
 
 
 
