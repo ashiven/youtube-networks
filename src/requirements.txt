@@ -1,4 +1,11 @@
+emoji==2.5.1
 google_api_python_client==2.86.0
 matplotlib==3.7.0
 networkx==3.1
+nltk==3.8.1
+numpy==1.24.2
+pandas==2.0.2
 Requests==2.31.0
+scikit_learn==1.2.2
+torch==2.0.1
+transformers==4.30.2
