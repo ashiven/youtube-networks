@@ -28,9 +28,9 @@ df['Text'] = df['Text'].apply(lambda x: re.sub(special_chars_pattern, '', x))
 
 
 # Liste mit den zu löschenden Wörtern definieren und aus den Daten löschen
-stopwords = set(stopwords.words('english'))
-stopwords.update(set(stopwords.words('german')))
-words_to_delete = list(stopwords)
+words_to_delete = set(stopwords.words('english'))
+words_to_delete.update(set(stopwords.words('german')))
+words_to_delete = list(words_to_delete)
 
 df['Text'] = df['Text'].apply(lambda x: ' '.join([word for word in x.split() if word not in words_to_delete]))
 
