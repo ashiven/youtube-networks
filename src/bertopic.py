@@ -1,7 +1,5 @@
 import pandas as pd
 from bertopic import BERTopic
-from bertopic.plotting import visualize_topics
-import matplotlib.pyplot as plt
 import emoji
 import re
 
