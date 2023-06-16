@@ -1,6 +1,8 @@
 import pandas as pd
 from bertopic import BERTopic
 import emoji
+from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.corpus import stopwords
 import re
 
 
@@ -14,7 +16,7 @@ Data Cleaning
 
 # Funktion zum Entfernen von Emojis
 def remove_emojis(text):
-    return emoji.demojize(text)
+    return emoji.demojize(text) #😎
 
 df['Text'] = df['Text'].apply(remove_emojis)
 
@@ -26,20 +28,9 @@ df['Text'] = df['Text'].apply(lambda x: re.sub(special_chars_pattern, '', x))
 
 
 # Liste mit den zu löschenden Wörtern definieren und aus den Daten löschen
-words_to_delete = ['der', 'Der', 'die', 'Die', 'das', 'Das', 'den', 'Den', 'dem', 'Dem',
-                   'ein', 'Ein', 'einen', 'Einen', 'einer', 'Einer', 'eines','eine', 'kein', 'keinen', 'keiner',
-                   'in', 'im', 'zu', 'Zu', 'ZU', 'zum', 'zur', 'und', 'auf', 'mit', 'über', 'von', 'dass',
-                   'für', 'aus', 'mit', 'von', 'vom', 'denn', 'bei', 'nach', 'statt',
-                   'ist', 'Ist', 'mal', 'k', 'o'  'hier', 'fr', 'co', 'Co', 'klartext', 'HD', 'I', 'jetzt', 'Jetzt', 'aust'
-                   'Sie', 'er', 'Er', 'sie', 'es', 'Es', 'wir', 'Wir', 'ihr', 'ihn', 'ihr', 'ich', 'unsere', 'unseren', 'unserem', 'unserer',
-                   'sein', 'seinen', 'seinem', 'seiner', 'ihrer', 'ihren', 'ihrem', 'ihres', 'eure', 'euren', 'eurem', 'eurer',
-                   '1990', '1991', '1992', '1993', '1994', '1995',
-                   '1996', '1997', '1998', '1999' '2000', '2001', '2002', '2003', '2004',
-                   '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013',
-                   '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022',
-                   '2023', '1983', '1989', '53', 'Januar', 'Februar', 'Mart', 'April', 'Mai',
-                   'Juni', 'Juli', 'August', 'September', 'Oktober', 'Novemder', 'Dezember',
-                   'it', 'you', 'this', 'did', 'what', 'about', 'all', 'vs']
+stopwords = set(stopwords.words('english'))
+stopwords.update(set(stopwords.words('german')))
+words_to_delete = list(stopwords)
 
 df['Text'] = df['Text'].apply(lambda x: ' '.join([word for word in x.split() if word not in words_to_delete]))
 
