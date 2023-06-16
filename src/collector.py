@@ -497,22 +497,24 @@ def main():
     apiKey3 = '***REMOVED***'     # Gunnar
     apiKey4 = '***REMOVED***'     # Gunnar
     apiKey5 = '***REMOVED***'     # Gunnar
-    apiKey6 = '***REMOVED***'     # Elena
+    apiKey6 = '***REMOVED***'     # Gunnar
     apiKey7 = '***REMOVED***'     # Elena
     apiKey8 = '***REMOVED***'     # Elena
     apiKey9 = '***REMOVED***'     # Elena
     apiKey10 = '***REMOVED***'    # Elena
     apiKey11 = '***REMOVED***'    # Elena
-    apiKey12 = '***REMOVED***'    # Egemen
+    apiKey12 = '***REMOVED***'    # Elena
     apiKey13 = '***REMOVED***'    # Egemen
-    apiKey14 = 'AIzaSyC-DFQ4ayefiTyuikxAw81DQJUIK6a5Cdc'    # Jonathan
-    apiKey15 = 'AIzaSyDTjdiFBRlTz0WoChHp08DMew7epq2MkPQ'    # Jonathan
-    apiKey16 = 'AIzaSyCsablwpeXxJ5FtuOQRbei1WNmloGR04D8'    # Jonathan
-    apiKey17 = 'AIzaSyB-ZH3P_j-bmhNsNgF9gOy05L8lTZ3M7C4'    # Jonathan
-    apiKey18 = 'AIzaSyBNNCbn7QOHPn7OY9UfUhR_FGPfhVpIo1I'    # Jonathan
+    apiKey14 = '***REMOVED***'    # Egemen
+    apiKey15 = 'AIzaSyC-DFQ4ayefiTyuikxAw81DQJUIK6a5Cdc'    # Jonathan
+    apiKey16 = 'AIzaSyDTjdiFBRlTz0WoChHp08DMew7epq2MkPQ'    # Jonathan
+    apiKey17 = 'AIzaSyCsablwpeXxJ5FtuOQRbei1WNmloGR04D8'    # Jonathan
+    apiKey18 = 'AIzaSyB-ZH3P_j-bmhNsNgF9gOy05L8lTZ3M7C4'    # Jonathan
+    apiKey19 = 'AIzaSyBNNCbn7QOHPn7OY9UfUhR_FGPfhVpIo1I'    # Jonathan
 
     apiKeys = [apiKey0, apiKey1, apiKey2, apiKey3, apiKey4, apiKey5, apiKey6, apiKey7, apiKey8,
-               apiKey9, apiKey10, apiKey11, apiKey12, apiKey13, apiKey14, apiKey15, apiKey16, apiKey17,apiKey18]
+               apiKey9, apiKey10, apiKey11, apiKey12, apiKey13, apiKey14, apiKey15, apiKey16, apiKey17,
+               apiKey18, apiKey19]
 
 
 
