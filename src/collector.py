@@ -506,7 +506,7 @@ def main():
     apiKey12 = '***REMOVED***'    # Elena
     apiKey13 = '***REMOVED***'    # Egemen
     apiKey14 = '***REMOVED***'    # Egemen
-    apiKey15 = 'AIzaSyC-DFQ4ayefiTyuikxAw81DQJUIK6a5Cdc'    # Jonathan
+    apiKey15 = '***REMOVED***'    # Jonathan
     apiKey16 = 'AIzaSyDTjdiFBRlTz0WoChHp08DMew7epq2MkPQ'    # Jonathan
     apiKey17 = 'AIzaSyCsablwpeXxJ5FtuOQRbei1WNmloGR04D8'    # Jonathan
     apiKey18 = 'AIzaSyB-ZH3P_j-bmhNsNgF9gOy05L8lTZ3M7C4'    # Jonathan
