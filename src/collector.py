@@ -506,15 +506,13 @@ def main():
     apiKey12 = '***REMOVED***'    # Elena
     apiKey13 = '***REMOVED***'    # Egemen
     apiKey14 = '***REMOVED***'    # Egemen
-    apiKey15 = 'AIzaSyC-DFQ4ayefiTyuikxAw81DQJUIK6a5Cdc'    # Jonathan
-    apiKey16 = 'AIzaSyDTjdiFBRlTz0WoChHp08DMew7epq2MkPQ'    # Jonathan
-    apiKey17 = 'AIzaSyCsablwpeXxJ5FtuOQRbei1WNmloGR04D8'    # Jonathan
-    apiKey18 = 'AIzaSyB-ZH3P_j-bmhNsNgF9gOy05L8lTZ3M7C4'    # Jonathan
-    apiKey19 = 'AIzaSyBNNCbn7QOHPn7OY9UfUhR_FGPfhVpIo1I'    # Jonathan
+    apiKey15 = '***REMOVED***'    # Jonathan
+    apiKey16 = '***REMOVED***'    # Jonathan
+    apiKey17 = '***REMOVED***'    # Jonathan
+
 
     apiKeys = [apiKey0, apiKey1, apiKey2, apiKey3, apiKey4, apiKey5, apiKey6, apiKey7, apiKey8,
-               apiKey9, apiKey10, apiKey11, apiKey12, apiKey13, apiKey14, apiKey15, apiKey16, apiKey17,
-               apiKey18, apiKey19]
+               apiKey9, apiKey10, apiKey11, apiKey12, apiKey13, apiKey14, apiKey15, apiKey16, apiKey17]
 
 
 
