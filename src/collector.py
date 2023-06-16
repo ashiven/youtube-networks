@@ -512,8 +512,7 @@ def main():
 
 
     apiKeys = [apiKey0, apiKey1, apiKey2, apiKey3, apiKey4, apiKey5, apiKey6, apiKey7, apiKey8,
-               apiKey9, apiKey10, apiKey11, apiKey12, apiKey13, apiKey14, apiKey15, apiKey16, apiKey17,
-               apiKey18, apiKey19]
+               apiKey9, apiKey10, apiKey11, apiKey12, apiKey13, apiKey14, apiKey15, apiKey16, apiKey17]
 
 
 
