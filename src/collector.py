@@ -6,10 +6,8 @@ import argparse
 import os
 from library import hierarchy_pos
 from typing import *
-import ast
 import requests
 import subprocess
-import math
 
 
 # this function uses a regular expression to extract the videoId parameter from any youtube link
