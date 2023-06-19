@@ -596,7 +596,7 @@ def main():
     elif aggressive:
         for i in range(len(apiKeys)):
             print(f'Using API-Key: {i}')
-            p = subprocess.Popen(["python", "collector.py", f"-s {seed}", f"-w {width}", f"-d {depth}", "-f", f"-a {i}"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            p = subprocess.Popen(["python", "collector.py", f"-s {seed}", f"-w {width}", f"-d {depth}", f"-m {maxDepth}", "-f", f"-a {i}"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             for line in iter(p.stdout.readline, b''):
                 print(line.rstrip().decode())
             
