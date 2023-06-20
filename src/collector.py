@@ -504,16 +504,16 @@ def main():
     apiKey12 = '***REMOVED***'    # Elena
     apiKey13 = '***REMOVED***'    # Egemen
     apiKey14 = '***REMOVED***'    # Egemen
-    apikey18 = "***REMOVED***"    # Egemen
-    apiKey19 = '***REMOVED***'    # Egemen
-    apiKey15 = '***REMOVED***'    # Jonathan
-    apiKey16 = '***REMOVED***'    # Jonathan
+    apiKey15 = "***REMOVED***"    # Egemen
+    apiKey16 = '***REMOVED***'    # Egemen
     apiKey17 = '***REMOVED***'    # Jonathan
+    apiKey18 = '***REMOVED***'    # Jonathan
+    apiKey19 = '***REMOVED***'    # Jonathan
     
 
 
     apiKeys = [apiKey0, apiKey1, apiKey2, apiKey3, apiKey4, apiKey5, apiKey6, apiKey7, apiKey8,
-               apiKey9, apiKey10, apiKey11, apiKey12, apiKey13, apiKey14, apiKey15, apiKey16, apiKey17]
+               apiKey9, apiKey10, apiKey11, apiKey12, apiKey13, apiKey14, apiKey15, apiKey16, apiKey17, apiKey18, apiKey19]
 
 
 
