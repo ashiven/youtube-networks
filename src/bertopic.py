@@ -15,14 +15,9 @@ Data Cleaning
 df['Text'] = df['Text'].apply(lambda x: x.lower())
 
 
-# alle Zahlen Entfernen
-#df['Text'] = df['Text'].apply(lambda x: re.sub(r'\d+', '', x) if isinstance(x, str) else x)
-
-
 # Funktion zum Entfernen von Emojis
 def remove_emojis(text):
     return emoji.demojize(text)
-
 
 df['Text'] = df['Text'].apply(remove_emojis)
 
