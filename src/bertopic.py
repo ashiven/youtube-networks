@@ -1,28 +1,29 @@
 import pandas as pd
 from bertopic import BERTopic
 import emoji
-from nltk.tokenize import sent_tokenize, word_tokenize
-from nltk.corpus import stopwords
 import re
-
+from nltk.corpus import stopwords
 
 # DataFrame aus der CSV-Datei erstellen
-df = pd.read_csv('It_Takes_Two.csv')                # Hier immer Datei-Name Anpassen
-
+df = pd.read_csv('Gitarre.csv')  # Hier immer Datei-Name Anpassen
 
 """""""""""""""""""""""""""
 Data Cleaning
 """""""""""""""""""""""""""
 
+# Großbuchstaben in Kleinbuchstaben umwandeln
+df['Text'] = df['Text'].apply(lambda x: x.lower())
+
+
 # Funktion zum Entfernen von Emojis
 def remove_emojis(text):
-    return emoji.demojize(text) #😎
+    return emoji.demojize(text)
 
 df['Text'] = df['Text'].apply(remove_emojis)
 
 
 # Muster für Sonderzeichen definieren und aus den Daten löschen
-special_chars_pattern = r'[!\?\/\,\:\-\_\(\)\[\]\;\"\'\&\–\„\“\|\.\+\#\%\@\^\*\<\>\`\~\,]'
+special_chars_pattern = r'[!\?\/\,\:\-\_\(\)\[\]\;\"\'\&\–\„\“\|\.\+\#\%\@\^\*\<\>\`\~\,\...]'
 
 df['Text'] = df['Text'].apply(lambda x: re.sub(special_chars_pattern, '', x))
 
@@ -33,7 +34,6 @@ words_to_delete.update(set(stopwords.words('german')))
 words_to_delete = list(words_to_delete)
 
 df['Text'] = df['Text'].apply(lambda x: ' '.join([word for word in x.split() if word not in words_to_delete]))
-
 
 # Aktualisierte CSV-Datei speichern
 df.to_csv('clear.csv', index=False)
