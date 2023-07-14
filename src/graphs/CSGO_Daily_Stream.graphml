@@ -1,0 +1,2126 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="weight" attr.type="long" />
+  <key id="d1" for="node" attr.name="size" attr.type="long" />
+  <key id="d0" for="node" attr.name="size" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="CSGOpoetry">
+      <data key="d0">11.099999999999978</data>
+    </node>
+    <node id="CSGO Daily Stream">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Major League Gaming">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="NadeKing">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="FPL Stream battles">
+      <data key="d0">58.90000000000057</data>
+    </node>
+    <node id="BR Gaming">
+      <data key="d0">4.100000000000002</data>
+    </node>
+    <node id="Snipe2DieTV - CSGO Channel">
+      <data key="d0">2.8000000000000016</data>
+    </node>
+    <node id="R41 E-Sports">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="G2 CS">
+      <data key="d0">6.899999999999992</data>
+    </node>
+    <node id="Skooby">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ESL Archives">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="theScore esports">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Punho do Dragão">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="Cachorro1337">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="voo CSGO">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="ESL Counter-Strike Highlights">
+      <data key="d0">2.200000000000001</data>
+    </node>
+    <node id="MantarayCSGO">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Fraakarts">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Vital CSGO">
+      <data key="d0">10.39999999999998</data>
+    </node>
+    <node id="ESL Counter-Strike">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="lucasburn">
+      <data key="d0">7.49999999999999</data>
+    </node>
+    <node id="ScoutFPS">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Bapperson">
+      <data key="d0">9.899999999999983</data>
+    </node>
+    <node id="clipado">
+      <data key="d0">2.5000000000000013</data>
+    </node>
+    <node id="Gaules">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="mch">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="eRival - CSGO">
+      <data key="d0">2.5000000000000013</data>
+    </node>
+    <node id="Bod">
+      <data key="d1">1</data>
+    </node>
+    <node id="Oh Long Johnson">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Cloud9 VODs">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="ph4ntasm">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="karrigan">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="vLADOPARD 5">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="Plump CSGO">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Eryk">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Pshybysz">
+      <data key="d1">1</data>
+    </node>
+    <node id="stewie2k">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Gaming Flavorz">
+      <data key="d0">2.6000000000000014</data>
+    </node>
+    <node id="Nerdgazm CSGO">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Matuss">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Pasza CsGoHighlights">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="FACEIT">
+      <data key="d0">3.9000000000000026</data>
+    </node>
+    <node id="Gouldy - CSGO Channel">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="CSGO GOD">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Twitchverso Clipes">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="GoatguyfWasTaken">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Badaras Gameplays">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TQR CLIPS">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="CSGO Scenery">
+      <data key="d1">1</data>
+    </node>
+    <node id="Rentgen CSGO">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Lobanjica">
+      <data key="d0">2.300000000000001</data>
+    </node>
+    <node id="FORMULA 1">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="emperoru CSGO">
+      <data key="d1">1</data>
+    </node>
+    <node id="PimpCSGO">
+      <data key="d1">1</data>
+    </node>
+    <node id="ProGuides CSGO Tips Tricks and Guides">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Sparkles">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="TDM_Heyzeus">
+      <data key="d0">3.100000000000002</data>
+    </node>
+    <node id="Keyush Animation">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Counter Strike Proland">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Beyond the Summit">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Spiritzera">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="DreamHack Counter-Strike">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Holk CSGO">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Matz - CSGO Channel">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="StarCraft Esports">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="FaZe Esports">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Focus Fire">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="chhrz">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Enzo - CSGO">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="izak LIVE">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="locco - CSGO HIGHLIGHTS">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="betway esports">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="G2 Esports">
+      <data key="d0">2.8000000000000016</data>
+    </node>
+    <node id="Lukas">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="VaKarM - Vidéos CSGO">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="PGL">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Mr Spotter - CSGO Highlights">
+      <data key="d1">1</data>
+    </node>
+    <node id="sapphiRe">
+      <data key="d1">1</data>
+    </node>
+    <node id="tarik">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="poNderGO">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Yahoo Esports">
+      <data key="d0">2.300000000000001</data>
+    </node>
+    <node id="CS BRASIL">
+      <data key="d1">1</data>
+    </node>
+    <node id="Weak Mix">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Pecex">
+      <data key="d1">1</data>
+    </node>
+    <node id="INDUSTRIES">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="WafelTV">
+      <data key="d1">1</data>
+    </node>
+    <node id="Rainbow Six Esports Match Vods">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Team Liquid CSGO">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ohnepixel raw">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="FelipeNz">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Stela Clips">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Utopia">
+      <data key="d1">1</data>
+    </node>
+    <node id="Motivarei">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="The Noite com Danilo Gentili">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Cortes Podcast">
+      <data key="d1">1</data>
+    </node>
+    <node id="Virre CSGO">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Ace Productions">
+      <data key="d1">1</data>
+    </node>
+    <node id="Zenesky Prime">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="CSGO MANIA">
+      <data key="d1">1</data>
+    </node>
+    <node id="Flip Animais">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Problems">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="Geleia">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="MasterReset">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Portuga GAMES">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Motorsports on NBC">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ImPeterKe - CSGO">
+      <data key="d1">1</data>
+    </node>
+    <node id="lau">
+      <data key="d1">1</data>
+    </node>
+    <node id="Hyuns Dojo Community">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="LICHTENSTEIN">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="BLAST Premier">
+      <data key="d0">2.300000000000001</data>
+    </node>
+    <node id="THETA tv">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Upcomer">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="ENCE TV">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Drututt">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Cortes do Gaules OFICIAL">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="mute">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Tribonera Family">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Burn - CS 2">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="DreamHack">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Freakazoid">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="1pv CS">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="vLADOPARD 3">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="vuzzey">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="MatheoTheGaming">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="DeeX">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="raidd">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="DEXERTO CSGO">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Not Found">
+      <data key="d1">1</data>
+    </node>
+    <node id="enjoyCS">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="GO ECO RUSH">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="vLADOPARD">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Its a Disastah">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Cezik">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Ch3steR">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="hOlyhexOr">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ESL">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="EVE MOTIVATION">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ThatNerdIsCool">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Video Advice">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Clash Royale">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Netflix">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="NexPLMovies">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ceesik">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="WIRED">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Passenger">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Bruns">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Sovereign Guides">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TimeIsButaWindow">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Elmapuddy">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="VaKarM - Old Channel - New one  httpswwwyoutubecomcVaKarMVidC3A9osCSGO">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="krzz - CSGO">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="COMBO CORTES OFICIAL">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Mellow">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="M3GA SHOTY">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Jaron">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="BadzmyPowazni">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Mervo">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="SkyeN">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="MAESTRO">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="deprescs">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Metallica">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Daily Dose of OhnePixel">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Ale APOKA">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Fã Clube Dizerah">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="SS Clips">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="CalangoLive">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Jolivi Saúde">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Motivação Hub">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Talk Flow">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Cortes do Inteligência OFICIAL">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="fallenINSIDER">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Flow Podcast">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Tribo Moments">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Hypu">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="NBA Max">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="dime">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Cordell Green">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="KingSwish">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Maurício Valenti">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Clipes da Tribo">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Cassianoo">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Lives do alanzoka">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Gaules Vods OFICIAL">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="RadioCSBrasil">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="R41 Cortes">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Fábrica de Pratas">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="PAULINHO O LOKO">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="CS Ghost Animation">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Cortes do Flow OFICIAL">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Podpah Best Moments">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="8Galego">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Tribo CSGO">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Anomaly 3">
+      <data key="d0">3.6000000000000023</data>
+    </node>
+    <node id="HaiX">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="LIM-CSGO POV">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="CSGO VODs Maincast">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="ARAGORN">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="Plat Chat VALORANT">
+      <data key="d0">2.7000000000000015</data>
+    </node>
+    <node id="CSGO NEWS LIVE">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Astralis CSGO">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Team Vitality">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="b4nshee">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Daily Mail">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Koenigsegg">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="FNATIC">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Syncitup Csgo">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="dima_wallhacks">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Just Random Recorded Stuff">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="PRO CSGO Highlights">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="VALORANT Champions Tour">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="LoL Esports VODs and Highlights">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Eternal Fire">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="NartOutHere">
+      <data key="d0">1.1</data>
+    </node>
+    <edge source="CSGOpoetry" target="CSGO Daily Stream">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CSGOpoetry" target="BR Gaming">
+      <data key="d2">254</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Snipe2DieTV - CSGO Channel">
+      <data key="d2">132</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Skooby">
+      <data key="d2">55</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Major League Gaming">
+      <data key="d2">54</data>
+    </edge>
+    <edge source="CSGOpoetry" target="ESL Counter-Strike Highlights">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Oh Long Johnson">
+      <data key="d2">25</data>
+    </edge>
+    <edge source="CSGOpoetry" target="NadeKing">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Fraakarts">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Pasza CsGoHighlights">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CSGOpoetry" target="CSGO Scenery">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Plump CSGO">
+      <data key="d2">15</data>
+    </edge>
+    <edge source="CSGOpoetry" target="emperoru CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Gaming Flavorz">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Counter Strike Proland">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Rentgen CSGO">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="CSGOpoetry" target="karrigan">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Not Found">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CSGOpoetry" target="MantarayCSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Gouldy - CSGO Channel">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="CSGOpoetry" target="ScoutFPS">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="CSGOpoetry" target="ESL Archives">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="CSGOpoetry" target="FPL Stream battles">
+      <data key="d2">50</data>
+    </edge>
+    <edge source="CSGOpoetry" target="BLAST Premier">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="CSGOpoetry" target="G2 CS">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Sparkles">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="CSGOpoetry" target="Virre CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CSGO Daily Stream" target="Major League Gaming">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CSGO Daily Stream" target="NadeKing">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CSGO Daily Stream" target="FPL Stream battles">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Major League Gaming" target="BR Gaming">
+      <data key="d2">171</data>
+    </edge>
+    <edge source="Major League Gaming" target="R41 E-Sports">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="Major League Gaming" target="Snipe2DieTV - CSGO Channel">
+      <data key="d2">84</data>
+    </edge>
+    <edge source="Major League Gaming" target="theScore esports">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="Major League Gaming" target="ESL Archives">
+      <data key="d2">16</data>
+    </edge>
+    <edge source="Major League Gaming" target="Vital CSGO">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Major League Gaming" target="mch">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Major League Gaming" target="Cloud9 VODs">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Major League Gaming" target="Matz - CSGO Channel">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Major League Gaming" target="Skooby">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Major League Gaming" target="ESL Counter-Strike">
+      <data key="d2">24</data>
+    </edge>
+    <edge source="Major League Gaming" target="TQR CLIPS">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Major League Gaming" target="G2 CS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Major League Gaming" target="ESL Counter-Strike Highlights">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="Major League Gaming" target="Punho do Dragão">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="Major League Gaming" target="Cachorro1337">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Major League Gaming" target="Focus Fire">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Major League Gaming" target="emperoru CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Major League Gaming" target="Syncitup Csgo">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Major League Gaming" target="dima_wallhacks">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Major League Gaming" target="Plat Chat VALORANT">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Major League Gaming" target="Just Random Recorded Stuff">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Major League Gaming" target="Fraakarts">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NadeKing" target="voo CSGO">
+      <data key="d2">35</data>
+    </edge>
+    <edge source="NadeKing" target="Fraakarts">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="NadeKing" target="Snipe2DieTV - CSGO Channel">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="NadeKing" target="PimpCSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NadeKing" target="Keyush Animation">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="NadeKing" target="Holk CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NadeKing" target="Anomaly 3">
+      <data key="d2">26</data>
+    </edge>
+    <edge source="NadeKing" target="HaiX">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NadeKing" target="Oh Long Johnson">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NadeKing" target="lau">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NadeKing" target="ProGuides CSGO Tips Tricks and Guides">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NadeKing" target="ESL Counter-Strike Highlights">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="FPL Stream battles" target="G2 CS">
+      <data key="d2">75</data>
+    </edge>
+    <edge source="FPL Stream battles" target="eRival - CSGO">
+      <data key="d2">56</data>
+    </edge>
+    <edge source="FPL Stream battles" target="BR Gaming">
+      <data key="d2">37</data>
+    </edge>
+    <edge source="FPL Stream battles" target="Rentgen CSGO">
+      <data key="d2">15</data>
+    </edge>
+    <edge source="FPL Stream battles" target="CSGO Scenery">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="FPL Stream battles" target="Plump CSGO">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="FPL Stream battles" target="stewie2k">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="FPL Stream battles" target="Holk CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="FPL Stream battles" target="Gouldy - CSGO Channel">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="FPL Stream battles" target="Lobanjica">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="FPL Stream battles" target="Snipe2DieTV - CSGO Channel">
+      <data key="d2">65</data>
+    </edge>
+    <edge source="FPL Stream battles" target="Skooby">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="BR Gaming" target="ESL Archives">
+      <data key="d2">157</data>
+    </edge>
+    <edge source="BR Gaming" target="Snipe2DieTV - CSGO Channel">
+      <data key="d2">60</data>
+    </edge>
+    <edge source="BR Gaming" target="Fraakarts">
+      <data key="d2">35</data>
+    </edge>
+    <edge source="BR Gaming" target="Vital CSGO">
+      <data key="d2">69</data>
+    </edge>
+    <edge source="BR Gaming" target="ESL Counter-Strike">
+      <data key="d2">94</data>
+    </edge>
+    <edge source="BR Gaming" target="Skooby">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BR Gaming" target="Cloud9 VODs">
+      <data key="d2">26</data>
+    </edge>
+    <edge source="BR Gaming" target="ph4ntasm">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="BR Gaming" target="Eryk">
+      <data key="d2">18</data>
+    </edge>
+    <edge source="BR Gaming" target="Pshybysz">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="BR Gaming" target="Pasza CsGoHighlights">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="BR Gaming" target="FACEIT">
+      <data key="d2">15</data>
+    </edge>
+    <edge source="BR Gaming" target="ESL Counter-Strike Highlights">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="BR Gaming" target="DreamHack Counter-Strike">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="BR Gaming" target="Holk CSGO">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="BR Gaming" target="Enzo - CSGO">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="BR Gaming" target="izak LIVE">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="BR Gaming" target="locco - CSGO HIGHLIGHTS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BR Gaming" target="Yahoo Esports">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="BR Gaming" target="Rainbow Six Esports Match Vods">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BR Gaming" target="Team Liquid CSGO">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="BR Gaming" target="TQR CLIPS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BR Gaming" target="BLAST Premier">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="BR Gaming" target="THETA tv">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BR Gaming" target="DreamHack">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="BR Gaming" target="MatheoTheGaming">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="BR Gaming" target="DeeX">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="BR Gaming" target="PGL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BR Gaming" target="Mellow">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BR Gaming" target="Virre CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BR Gaming" target="Metallica">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BR Gaming" target="Focus Fire">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="BR Gaming" target="Plat Chat VALORANT">
+      <data key="d2">15</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="Skooby">
+      <data key="d2">34</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="MantarayCSGO">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="G2 CS">
+      <data key="d2">16</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="ESL Archives">
+      <data key="d2">31</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="Vital CSGO">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="Fraakarts">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="Gouldy - CSGO Channel">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="ESL Counter-Strike Highlights">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="Focus Fire">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="chhrz">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="theScore esports">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="Gaming Flavorz">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="ohnepixel raw">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="VaKarM - Vidéos CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="CSGO Scenery">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="Plump CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="1pv CS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="Rentgen CSGO">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="Mr Spotter - CSGO Highlights">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="Nerdgazm CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="GoatguyfWasTaken">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="ImPeterKe - CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="BLAST Premier">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="Virre CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="Counter Strike Proland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Snipe2DieTV - CSGO Channel" target="stewie2k">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="R41 E-Sports" target="Punho do Dragão">
+      <data key="d2">61</data>
+    </edge>
+    <edge source="R41 E-Sports" target="Cachorro1337">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="R41 E-Sports" target="clipado">
+      <data key="d2">16</data>
+    </edge>
+    <edge source="R41 E-Sports" target="Gaules">
+      <data key="d2">37</data>
+    </edge>
+    <edge source="R41 E-Sports" target="ScoutFPS">
+      <data key="d2">51</data>
+    </edge>
+    <edge source="R41 E-Sports" target="ph4ntasm">
+      <data key="d2">15</data>
+    </edge>
+    <edge source="R41 E-Sports" target="Twitchverso Clipes">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="R41 E-Sports" target="Plump CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="R41 E-Sports" target="Badaras Gameplays">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="R41 E-Sports" target="mch">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="R41 E-Sports" target="CSGO MANIA">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="R41 E-Sports" target="Tribonera Family">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="R41 E-Sports" target="CS BRASIL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="R41 E-Sports" target="FelipeNz">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="R41 E-Sports" target="TQR CLIPS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="R41 E-Sports" target="Cassianoo">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="R41 E-Sports" target="R41 Cortes">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="R41 E-Sports" target="Burn - CS 2">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="G2 CS" target="ESL Counter-Strike Highlights">
+      <data key="d2">19</data>
+    </edge>
+    <edge source="G2 CS" target="Bod">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="G2 CS" target="theScore esports">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="G2 CS" target="FORMULA 1">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="G2 CS" target="emperoru CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="G2 CS" target="Sparkles">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="G2 CS" target="Fraakarts">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="G2 CS" target="Plump CSGO">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="G2 CS" target="G2 Esports">
+      <data key="d2">18</data>
+    </edge>
+    <edge source="G2 CS" target="Rentgen CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="G2 CS" target="LIM-CSGO POV">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="G2 CS" target="CSGO NEWS LIVE">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="G2 CS" target="karrigan">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="G2 CS" target="voo CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Skooby" target="karrigan">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Skooby" target="vLADOPARD 5">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="Skooby" target="MantarayCSGO">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Skooby" target="Gouldy - CSGO Channel">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Skooby" target="Plump CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Skooby" target="Rentgen CSGO">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Skooby" target="Gaming Flavorz">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Skooby" target="Vital CSGO">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Skooby" target="Virre CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Skooby" target="Fraakarts">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Skooby" target="locco - CSGO HIGHLIGHTS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Skooby" target="vLADOPARD">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Skooby" target="Team Liquid CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Skooby" target="stewie2k">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Archives" target="StarCraft Esports">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ESL Archives" target="vLADOPARD 5">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ESL Archives" target="FACEIT">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ESL Archives" target="ESL Counter-Strike Highlights">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ESL Archives" target="Vital CSGO">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="ESL Archives" target="ENCE TV">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ESL Archives" target="Matz - CSGO Channel">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Archives" target="Not Found">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Archives" target="DreamHack">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Archives" target="ESL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Archives" target="DreamHack Counter-Strike">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Archives" target="ESL Counter-Strike">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Archives" target="CSGO VODs Maincast">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ESL Archives" target="Virre CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Archives" target="Fraakarts">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="theScore esports" target="ESL Counter-Strike">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="theScore esports" target="Gaming Flavorz">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="theScore esports" target="Beyond the Summit">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="theScore esports" target="karrigan">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="theScore esports" target="FaZe Esports">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="theScore esports" target="Cloud9 VODs">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="theScore esports" target="hOlyhexOr">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="theScore esports" target="poNderGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="theScore esports" target="Vital CSGO">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="theScore esports" target="INDUSTRIES">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="theScore esports" target="Pasza CsGoHighlights">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="theScore esports" target="Rentgen CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="theScore esports" target="ImPeterKe - CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="theScore esports" target="Virre CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="theScore esports" target="ProGuides CSGO Tips Tricks and Guides">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="theScore esports" target="CSGO Scenery">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Punho do Dragão" target="lucasburn">
+      <data key="d2">36</data>
+    </edge>
+    <edge source="Punho do Dragão" target="ScoutFPS">
+      <data key="d2">44</data>
+    </edge>
+    <edge source="Punho do Dragão" target="Bapperson">
+      <data key="d2">57</data>
+    </edge>
+    <edge source="Punho do Dragão" target="Cachorro1337">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="Punho do Dragão" target="clipado">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Punho do Dragão" target="Gaules">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Punho do Dragão" target="Spiritzera">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Punho do Dragão" target="FelipeNz">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Punho do Dragão" target="Clipes da Tribo">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="Punho do Dragão" target="TQR CLIPS">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Cachorro1337" target="mch">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Cachorro1337" target="Badaras Gameplays">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Cachorro1337" target="TQR CLIPS">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Cachorro1337" target="lucasburn">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Cachorro1337" target="Bapperson">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Cachorro1337" target="CSGO MANIA">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Cachorro1337" target="ScoutFPS">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Cachorro1337" target="Problems">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Cachorro1337" target="Keyush Animation">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Cachorro1337" target="Geleia">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Cachorro1337" target="MasterReset">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Cachorro1337" target="Portuga GAMES">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Cachorro1337" target="FelipeNz">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Cachorro1337" target="Gaules Vods OFICIAL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Cachorro1337" target="RadioCSBrasil">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Cachorro1337" target="PAULINHO O LOKO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Cachorro1337" target="Podpah Best Moments">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="voo CSGO" target="PimpCSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="voo CSGO" target="Gouldy - CSGO Channel">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="voo CSGO" target="lau">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="voo CSGO" target="ProGuides CSGO Tips Tricks and Guides">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="Fraakarts">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="Rentgen CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="emperoru CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="Matz - CSGO Channel">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="Gouldy - CSGO Channel">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="Team Vitality">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="BLAST Premier">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="tarik">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="PRO CSGO Highlights">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="VALORANT Champions Tour">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="CSGO VODs Maincast">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="Counter Strike Proland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="ESL Counter-Strike">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Counter-Strike Highlights" target="LoL Esports VODs and Highlights">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="MantarayCSGO" target="Plump CSGO">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="MantarayCSGO" target="Gaming Flavorz">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="MantarayCSGO" target="CSGO Scenery">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="MantarayCSGO" target="Rentgen CSGO">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="MantarayCSGO" target="Gouldy - CSGO Channel">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="MantarayCSGO" target="ohnepixel raw">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="MantarayCSGO" target="Jaron">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fraakarts" target="stewie2k">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="Fraakarts" target="Gaming Flavorz">
+      <data key="d2">20</data>
+    </edge>
+    <edge source="Fraakarts" target="vLADOPARD 3">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Fraakarts" target="Virre CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fraakarts" target="Gouldy - CSGO Channel">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Fraakarts" target="Vital CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fraakarts" target="TimeIsButaWindow">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fraakarts" target="Sparkles">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Fraakarts" target="Astralis CSGO">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Fraakarts" target="ESL Counter-Strike">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Fraakarts" target="ImPeterKe - CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fraakarts" target="Gaules Vods OFICIAL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fraakarts" target="Matz - CSGO Channel">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Vital CSGO" target="Cloud9 VODs">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Vital CSGO" target="stewie2k">
+      <data key="d2">20</data>
+    </edge>
+    <edge source="Vital CSGO" target="Beyond the Summit">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Vital CSGO" target="locco - CSGO HIGHLIGHTS">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Vital CSGO" target="ohnepixel raw">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ESL Counter-Strike" target="Nerdgazm CSGO">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="ESL Counter-Strike" target="Matuss">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="ESL Counter-Strike" target="Gouldy - CSGO Channel">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ESL Counter-Strike" target="Upcomer">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="ESL Counter-Strike" target="Enzo - CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Counter-Strike" target="ph4ntasm">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Counter-Strike" target="Focus Fire">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Counter-Strike" target="karrigan">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Counter-Strike" target="Matz - CSGO Channel">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ESL Counter-Strike" target="ScoutFPS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="lucasburn" target="FelipeNz">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="lucasburn" target="Stela Clips">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="lucasburn" target="Utopia">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="lucasburn" target="Bapperson">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="lucasburn" target="Ale APOKA">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="lucasburn" target="fallenINSIDER">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ScoutFPS" target="Gaules">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="ScoutFPS" target="CS BRASIL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ScoutFPS" target="FelipeNz">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ScoutFPS" target="CSGO MANIA">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bapperson" target="CSGO GOD">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="clipado" target="Twitchverso Clipes">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="clipado" target="GoatguyfWasTaken">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Gaules" target="Zenesky Prime">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Gaules" target="Cortes do Gaules OFICIAL">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gaules" target="Lives do alanzoka">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="mch" target="TQR CLIPS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="mch" target="Tribo CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="mch" target="Spiritzera">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="eRival - CSGO" target="CSGO Scenery">
+      <data key="d2">22</data>
+    </edge>
+    <edge source="eRival - CSGO" target="Plump CSGO">
+      <data key="d2">22</data>
+    </edge>
+    <edge source="eRival - CSGO" target="Lobanjica">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="eRival - CSGO" target="Gaming Flavorz">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="eRival - CSGO" target="Rentgen CSGO">
+      <data key="d2">19</data>
+    </edge>
+    <edge source="eRival - CSGO" target="ARAGORN">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Bod" target="PimpCSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bod" target="ProGuides CSGO Tips Tricks and Guides">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bod" target="Sparkles">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bod" target="TDM_Heyzeus">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Oh Long Johnson" target="Keyush Animation">
+      <data key="d2">20</data>
+    </edge>
+    <edge source="Oh Long Johnson" target="Counter Strike Proland">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Oh Long Johnson" target="emperoru CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Cloud9 VODs" target="Beyond the Summit">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Cloud9 VODs" target="stewie2k">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Cloud9 VODs" target="Holk CSGO">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Cloud9 VODs" target="Its a Disastah">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ph4ntasm" target="Spiritzera">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ph4ntasm" target="CS BRASIL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ph4ntasm" target="Burn - CS 2">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="karrigan" target="FaZe Esports">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="karrigan" target="Gouldy - CSGO Channel">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="vLADOPARD 5" target="Matz - CSGO Channel">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Plump CSGO" target="Rentgen CSGO">
+      <data key="d2">23</data>
+    </edge>
+    <edge source="Plump CSGO" target="Gouldy - CSGO Channel">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Plump CSGO" target="CSGO Scenery">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Plump CSGO" target="ohnepixel raw">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Plump CSGO" target="Gaming Flavorz">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Plump CSGO" target="1pv CS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Plump CSGO" target="LIM-CSGO POV">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Plump CSGO" target="Eternal Fire">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Eryk" target="betway esports">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Eryk" target="G2 Esports">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Eryk" target="Lukas">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Eryk" target="VaKarM - Vidéos CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Eryk" target="1pv CS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Eryk" target="VaKarM - Old Channel - New one  httpswwwyoutubecomcVaKarMVidC3A9osCSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Pshybysz" target="PGL">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Pshybysz" target="Mr Spotter - CSGO Highlights">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Pshybysz" target="sapphiRe">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="stewie2k" target="tarik">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="stewie2k" target="Beyond the Summit">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="stewie2k" target="poNderGO">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="stewie2k" target="Rentgen CSGO">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="stewie2k" target="Team Liquid CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="stewie2k" target="Holk CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gaming Flavorz" target="locco - CSGO HIGHLIGHTS">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gaming Flavorz" target="Elmapuddy">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gaming Flavorz" target="Rentgen CSGO">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="Gaming Flavorz" target="CSGO Scenery">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Nerdgazm CSGO" target="Pasza CsGoHighlights">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Nerdgazm CSGO" target="Weak Mix">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Nerdgazm CSGO" target="Pecex">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Nerdgazm CSGO" target="Holk CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Nerdgazm CSGO" target="Rentgen CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Nerdgazm CSGO" target="Mellow">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Matuss" target="INDUSTRIES">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Matuss" target="WafelTV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Matuss" target="vuzzey">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Matuss" target="izak LIVE">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Matuss" target="BadzmyPowazni">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Matuss" target="Mervo">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Matuss" target="Enzo - CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Matuss" target="SkyeN">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Pasza CsGoHighlights" target="Holk CSGO">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Pasza CsGoHighlights" target="PGL">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Pasza CsGoHighlights" target="Freakazoid">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Pasza CsGoHighlights" target="Enzo - CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gouldy - CSGO Channel" target="ohnepixel raw">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Gouldy - CSGO Channel" target="GoatguyfWasTaken">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gouldy - CSGO Channel" target="Drututt">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gouldy - CSGO Channel" target="Holk CSGO">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Gouldy - CSGO Channel" target="raidd">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gouldy - CSGO Channel" target="Rentgen CSGO">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="CSGO GOD" target="Motivarei">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="CSGO GOD" target="The Noite com Danilo Gentili">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CSGO GOD" target="Cortes Podcast">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CSGO GOD" target="Flow Podcast">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CSGO GOD" target="Tribo Moments">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Twitchverso Clipes" target="GoatguyfWasTaken">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Twitchverso Clipes" target="CSGO MANIA">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Twitchverso Clipes" target="Maurício Valenti">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="GoatguyfWasTaken" target="Virre CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="GoatguyfWasTaken" target="Ace Productions">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GoatguyfWasTaken" target="locco - CSGO HIGHLIGHTS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Badaras Gameplays" target="Flip Animais">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Badaras Gameplays" target="Spiritzera">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Badaras Gameplays" target="FelipeNz">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Badaras Gameplays" target="TQR CLIPS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="TQR CLIPS" target="Cortes do Flow OFICIAL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="TQR CLIPS" target="fallenINSIDER">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="TQR CLIPS" target="Talk Flow">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="TQR CLIPS" target="Tribo CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CSGO Scenery" target="Rentgen CSGO">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="CSGO Scenery" target="Eternal Fire">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="CSGO Scenery" target="Counter Strike Proland">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Rentgen CSGO" target="emperoru CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Rentgen CSGO" target="Sparkles">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="FORMULA 1" target="Motorsports on NBC">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="FORMULA 1" target="Koenigsegg">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="emperoru CSGO" target="ImPeterKe - CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="PimpCSGO" target="lau">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="PimpCSGO" target="Astralis CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ProGuides CSGO Tips Tricks and Guides" target="Sparkles">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Keyush Animation" target="Hyuns Dojo Community">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Keyush Animation" target="LICHTENSTEIN">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Keyush Animation" target="CS Ghost Animation">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Counter Strike Proland" target="Not Found">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Beyond the Summit" target="mute">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Spiritzera" target="FelipeNz">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Spiritzera" target="Flip Animais">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Spiritzera" target="Fábrica de Pratas">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Holk CSGO" target="Freakazoid">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Holk CSGO" target="Enzo - CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Holk CSGO" target="izak LIVE">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Holk CSGO" target="ceesik">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Holk CSGO" target="poNderGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Holk CSGO" target="NartOutHere">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Matz - CSGO Channel" target="Not Found">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="FaZe Esports" target="DEXERTO CSGO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="FaZe Esports" target="Team Liquid CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Focus Fire" target="enjoyCS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="chhrz" target="GO ECO RUSH">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Enzo - CSGO" target="Cezik">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Enzo - CSGO" target="Ch3steR">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Enzo - CSGO" target="INDUSTRIES">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Enzo - CSGO" target="WafelTV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="izak LIVE" target="INDUSTRIES">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="locco - CSGO HIGHLIGHTS" target="vLADOPARD 3">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="locco - CSGO HIGHLIGHTS" target="PGL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="locco - CSGO HIGHLIGHTS" target="Virre CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="G2 Esports" target="EVE MOTIVATION">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="G2 Esports" target="ThatNerdIsCool">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="G2 Esports" target="Video Advice">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Lukas" target="Clash Royale">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Lukas" target="Netflix">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="PGL" target="NexPLMovies">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="PGL" target="GO ECO RUSH">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="PGL" target="sapphiRe">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Mr Spotter - CSGO Highlights" target="ceesik">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Mr Spotter - CSGO Highlights" target="WIRED">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Mr Spotter - CSGO Highlights" target="Passenger">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="sapphiRe" target="GO ECO RUSH">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="sapphiRe" target="Bruns">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="sapphiRe" target="ESL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tarik" target="Sovereign Guides">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CS BRASIL" target="krzz - CSGO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CS BRASIL" target="COMBO CORTES OFICIAL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Weak Mix" target="INDUSTRIES">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Weak Mix" target="Cezik">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Weak Mix" target="M3GA SHOTY">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Pecex" target="ohnepixel raw">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Pecex" target="Jaron">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="INDUSTRIES" target="Freakazoid">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WafelTV" target="vuzzey">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WafelTV" target="MAESTRO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WafelTV" target="deprescs">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ohnepixel raw" target="Daily Dose of OhnePixel">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="FelipeNz" target="Fábrica de Pratas">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Stela Clips" target="Fã Clube Dizerah">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Stela Clips" target="SS Clips">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Utopia" target="SS Clips">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Utopia" target="CalangoLive">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Motivarei" target="Jolivi Saúde">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Motivarei" target="Motivação Hub">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Cortes Podcast" target="Talk Flow">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Cortes Podcast" target="Cortes do Gaules OFICIAL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Cortes Podcast" target="Cortes do Inteligência OFICIAL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Virre CSGO" target="Hypu">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Virre CSGO" target="lau">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Ace Productions" target="NBA Max">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Ace Productions" target="dime">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Ace Productions" target="Cordell Green">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Ace Productions" target="KingSwish">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CSGO MANIA" target="Burn - CS 2">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Flip Animais" target="Cortes do Gaules OFICIAL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Flip Animais" target="Clipes da Tribo">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Portuga GAMES" target="8Galego">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Motorsports on NBC" target="b4nshee">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Motorsports on NBC" target="Daily Mail">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ImPeterKe - CSGO" target="FNATIC">
+      <data key="d2">1</data>
+    </edge>
+  </graph>
+</graphml>

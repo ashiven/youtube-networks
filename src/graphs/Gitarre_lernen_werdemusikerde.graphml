@@ -1,0 +1,1493 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="weight" attr.type="long" />
+  <key id="d1" for="node" attr.name="size" attr.type="long" />
+  <key id="d0" for="node" attr.name="size" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="Gitarre lernen werdemusikerde">
+      <data key="d0">18.599999999999998</data>
+    </node>
+    <node id="Guitar Master Plan">
+      <data key="d0">7.6999999999999895</data>
+    </node>
+    <node id="session">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Fingerfux">
+      <data key="d0">7.799999999999989</data>
+    </node>
+    <node id="GitarrenTunes">
+      <data key="d0">6.899999999999992</data>
+    </node>
+    <node id="Bernd Kiltz - Gitarrenvideos">
+      <data key="d0">4.999999999999999</data>
+    </node>
+    <node id="tomatolix">
+      <data key="d0">4.500000000000001</data>
+    </node>
+    <node id="Onlinegitarrenschule">
+      <data key="d0">11.999999999999975</data>
+    </node>
+    <node id="RTL Talkshow">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="The Tonight Show Starring Jimmy Fallon">
+      <data key="d0">2.200000000000001</data>
+    </node>
+    <node id="Spielend-Gitarre-Lernen">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Christoph Melzer GitarrenTalk">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="Gitarrenvideounterricht">
+      <data key="d0">2.5000000000000013</data>
+    </node>
+    <node id="Tomary">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Bonedo Synthesizers">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Mercury">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Sebastian Bluschke">
+      <data key="d0">2.100000000000001</data>
+    </node>
+    <node id="Purple Maniac">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Purple Snake">
+      <data key="d1">1</data>
+    </node>
+    <node id="DeepPurpleVEVO">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="NEA ZIXNH">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Deep Purple Official">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Jamflix">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Guitar-TV">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="Andi Saitenhieb - Musiker  Bluesgitarre-Coach">
+      <data key="d0">2.200000000000001</data>
+    </node>
+    <node id="emusika Academy">
+      <data key="d1">1</data>
+    </node>
+    <node id="delamar Guitar">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="LiebensteinMovies">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Universal Sounds Switzerland">
+      <data key="d1">1</data>
+    </node>
+    <node id="Istvan Sky">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Georg Norberg  Der Gitarrenlehrer">
+      <data key="d0">4.200000000000002</data>
+    </node>
+    <node id="Andertons Music Co">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="RockGuitarChannel">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="SUPERGAIN the guitar academy">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Horst Keller VIP-Guitar">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="PULS Reportage">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Bayerischer Rundfunk">
+      <data key="d1">1</data>
+    </node>
+    <node id="AndiT">
+      <data key="d0">3.8000000000000025</data>
+    </node>
+    <node id="BBC Radio 1">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Dark Alzar">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Rolling Stone">
+      <data key="d1">1</data>
+    </node>
+    <node id="TikTok Ice">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="RockMilady">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="STAHLVERBIEGER">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="TV Noir">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="The Crosbys">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="VENOM Presents">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Thomanns Guitars  Basses">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="HowToPlayGreenDay by GV">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Leigh Fuge">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Rick Beato">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="SRGuitar">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TV total Classics">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Elisey Mysin">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Talent Recap">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Patrik Pietschmann">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Jacobs Piano">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Golden Pinga">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ChristiansHowToPlays">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="HDPinkFloyd">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="Reina del Cid">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="JustinGuitar Songs">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Pink Floyd">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="swiftlessons">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="JustinGuitar">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Paul Davids">
+      <data key="d0">9.999999999999982</data>
+    </node>
+    <node id="Alessandro Milea">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Shutup  Play - Guitar Tutorials">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Hector Aldao">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Led Zeppelin">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="David Gilmour">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Jimmy Der Gitarren-Chef">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="MusikschuleTV">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Patrick - Gitarre lernen mit System">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Basscoach Denis Busch">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Taylor Danley">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Zach Brobst">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Gitarrenhits">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Creative Strings - kreativ mit der Gitarre">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Estas Tonne">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="meingitarrenvideokurs">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Darrell Braun Guitar">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="RHINO">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Radio-Beatle Legends">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Maxmachtmusik">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Active Melody">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Guitarschool - Gitarre lernen">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Rhett Shull">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="JHS Pedals">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="GB Music Lab">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="ShapeYourTone">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The Live Sound">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Scott Uhl">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Michael W Westbrook">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Phillip McKnight">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="CoreyCongilio">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="PRS Guitars">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Quarks">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Fender">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Max Freist">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="ToneJunkie TV">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="tonymckenziecom">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Hogans Hideout">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="STAHLVERBIEGERS BlogHütte">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Bares für Rares">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="SWR Landesschau Rheinland-Pfalz">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Sadowsky Guitars">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="MusicStoreTV">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Frei Klavier Spielen">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="KDH">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="SWR Handwerkskunst">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Andy Guitar">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Reinhardt Buhr">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="easykrohn">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Dr med Ulrich Bauhofer  ganzheitlich gesund">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="SWR Doku">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="DER SPIEGEL">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="TRU DOKU">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Not Found">
+      <data key="d1">1</data>
+    </node>
+    <node id="Violet Orlandi">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The Voice Global">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Country CastNet Presents WELCOME TO THE FISHBOWL">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="MusikMan">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Rhythm Recess">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="The Voice  la plus belle voix">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Java Rockingland">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="PretzelFarmer">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Best of The Voice">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Guitar Gathering">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TrueFire">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TechZone">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Independent Guitar Coaching">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="WELT Nachrichtensender">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="MusicRadar">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Troy Grady">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Sven F">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="guitarraviva">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Joey Siedl">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="carl anslow">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Quiet Lane">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="zattopekk">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Frank Mayer">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Gitarren-Akademie-Online">
+      <data key="d0">4.000000000000003</data>
+    </node>
+    <node id="BluesGtWorlds Lick Diary">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="Oliver Leu">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Justin Guitar auf Deutsch">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Garrett Gagnon">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Mozi Star">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="lucid">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Heart">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="00steini">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Sound Guitar Lessons with Jared">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Disturbed">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Capital FM">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Magic Radio">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="F TW">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Fedot Vascov">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Tori Kelly">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Taratata">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Nobel Peace Prize Concert">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Dry Bar Comedy">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Saturday Night Live">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The New York Times">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Charlie Puth">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="The Late Late Show with James Corden">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TOPSIFY">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Ed Sheeran">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="BANGTANTV">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Dire Straits">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Rey Music Collection">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ebass-lernen de">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="BILD">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="DW Deutsch">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Richie Zellon">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Dennis-Gitarrenakademie">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="MusikDurchblick">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TV Cifras">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Chris Norman">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Sidimar Antunes">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="이성식 기타교실">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Dreamcatcher Events">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Pickup Music">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="codyates2181">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Martin Guitar">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Norbert Wolf">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="OneChart guitar lessons">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The-Art-of-Guitar">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Tutarras  Tutoriales en guitarra">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Sped Spedding">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Music is Win">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="five watt world">
+      <data key="d0">1.1</data>
+    </node>
+    <edge source="Gitarre lernen werdemusikerde" target="Guitar Master Plan">
+      <data key="d2">48</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="session">
+      <data key="d2">16</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Fingerfux">
+      <data key="d2">118</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="GitarrenTunes">
+      <data key="d2">26</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="tomatolix">
+      <data key="d2">23</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Onlinegitarrenschule">
+      <data key="d2">101</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="RTL Talkshow">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Spielend-Gitarre-Lernen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Gitarrenvideounterricht">
+      <data key="d2">20</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Bonedo Synthesizers">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Christoph Melzer GitarrenTalk">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Mercury">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="DeepPurpleVEVO">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Georg Norberg  Der Gitarrenlehrer">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Bernd Kiltz - Gitarrenvideos">
+      <data key="d2">24</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="AndiT">
+      <data key="d2">24</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="RockMilady">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="The Crosbys">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="VENOM Presents">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Thomanns Guitars  Basses">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="HowToPlayGreenDay by GV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Leigh Fuge">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="ChristiansHowToPlays">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Horst Keller VIP-Guitar">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="NEA ZIXNH">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Reina del Cid">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="JustinGuitar Songs">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Jimmy Der Gitarren-Chef">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="MusikschuleTV">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Violet Orlandi">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="The Voice Global">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Country CastNet Presents WELCOME TO THE FISHBOWL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="The Voice  la plus belle voix">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Guitar Gathering">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="TrueFire">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="WELT Nachrichtensender">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="MusicRadar">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="SUPERGAIN the guitar academy">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Sebastian Bluschke">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Justin Guitar auf Deutsch">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Garrett Gagnon">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Paul Davids">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Disturbed">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarre lernen werdemusikerde" target="Jamflix">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="Bernd Kiltz - Gitarrenvideos">
+      <data key="d2">67</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="Onlinegitarrenschule">
+      <data key="d2">77</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="GitarrenTunes">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="Guitar-TV">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="delamar Guitar">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="LiebensteinMovies">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="Spielend-Gitarre-Lernen">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="Fingerfux">
+      <data key="d2">36</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="Sebastian Bluschke">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="Gitarrenvideounterricht">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="SUPERGAIN the guitar academy">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="Gitarrenhits">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="session">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="Darrell Braun Guitar">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="RHINO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="Radio-Beatle Legends">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="meingitarrenvideokurs">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="Georg Norberg  Der Gitarrenlehrer">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="SWR Handwerkskunst">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Guitar Master Plan" target="Oliver Leu">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="session" target="tomatolix">
+      <data key="d2">22</data>
+    </edge>
+    <edge source="session" target="GitarrenTunes">
+      <data key="d2">62</data>
+    </edge>
+    <edge source="session" target="Bonedo Synthesizers">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="session" target="Gitarrenvideounterricht">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="session" target="RockGuitarChannel">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="session" target="delamar Guitar">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="session" target="Horst Keller VIP-Guitar">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="session" target="Patrick - Gitarre lernen mit System">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="session" target="Fender">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="session" target="Bernd Kiltz - Gitarrenvideos">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="session" target="Max Freist">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="session" target="MusicStoreTV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="session" target="Georg Norberg  Der Gitarrenlehrer">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="session" target="SWR Handwerkskunst">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="session" target="Fingerfux">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="session" target="Onlinegitarrenschule">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="session" target="SUPERGAIN the guitar academy">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fingerfux" target="Onlinegitarrenschule">
+      <data key="d2">113</data>
+    </edge>
+    <edge source="Fingerfux" target="Jamflix">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Fingerfux" target="Gitarrenvideounterricht">
+      <data key="d2">45</data>
+    </edge>
+    <edge source="Fingerfux" target="Guitar-TV">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Fingerfux" target="Georg Norberg  Der Gitarrenlehrer">
+      <data key="d2">41</data>
+    </edge>
+    <edge source="Fingerfux" target="GitarrenTunes">
+      <data key="d2">73</data>
+    </edge>
+    <edge source="Fingerfux" target="AndiT">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Fingerfux" target="Andi Saitenhieb - Musiker  Bluesgitarre-Coach">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="Fingerfux" target="emusika Academy">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fingerfux" target="Creative Strings - kreativ mit der Gitarre">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="Fingerfux" target="Spielend-Gitarre-Lernen">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Fingerfux" target="Horst Keller VIP-Guitar">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Fingerfux" target="Andertons Music Co">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fingerfux" target="Paul Davids">
+      <data key="d2">64</data>
+    </edge>
+    <edge source="Fingerfux" target="MusikMan">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Fingerfux" target="Rhythm Recess">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Fingerfux" target="Bernd Kiltz - Gitarrenvideos">
+      <data key="d2">26</data>
+    </edge>
+    <edge source="Fingerfux" target="tomatolix">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="Fingerfux" target="BluesGtWorlds Lick Diary">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Fingerfux" target="Gitarren-Akademie-Online">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Fingerfux" target="SUPERGAIN the guitar academy">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fingerfux" target="Andy Guitar">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fingerfux" target="STAHLVERBIEGER">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Fingerfux" target="codyates2181">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Fingerfux" target="OneChart guitar lessons">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fingerfux" target="Music is Win">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GitarrenTunes" target="Sebastian Bluschke">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="GitarrenTunes" target="SUPERGAIN the guitar academy">
+      <data key="d2">21</data>
+    </edge>
+    <edge source="GitarrenTunes" target="Gitarrenvideounterricht">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="GitarrenTunes" target="RockGuitarChannel">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GitarrenTunes" target="Basscoach Denis Busch">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GitarrenTunes" target="delamar Guitar">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="GitarrenTunes" target="Bernd Kiltz - Gitarrenvideos">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="GitarrenTunes" target="Paul Davids">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GitarrenTunes" target="STAHLVERBIEGERS BlogHütte">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GitarrenTunes" target="KDH">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GitarrenTunes" target="Andy Guitar">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GitarrenTunes" target="Reinhardt Buhr">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GitarrenTunes" target="easykrohn">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GitarrenTunes" target="TechZone">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="GitarrenTunes" target="Onlinegitarrenschule">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="GitarrenTunes" target="Sound Guitar Lessons with Jared">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="GitarrenTunes" target="Martin Guitar">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Andertons Music Co">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Christoph Melzer GitarrenTalk">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Gitarrenvideounterricht">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="delamar Guitar">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Zach Brobst">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Phillip McKnight">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="SWR Handwerkskunst">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Darrell Braun Guitar">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="SUPERGAIN the guitar academy">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="meingitarrenvideokurs">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Guitarschool - Gitarre lernen">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="AndiT">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Georg Norberg  Der Gitarrenlehrer">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Onlinegitarrenschule">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="ebass-lernen de">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Deep Purple Official">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Dreamcatcher Events">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Andi Saitenhieb - Musiker  Bluesgitarre-Coach">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Sebastian Bluschke">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="Creative Strings - kreativ mit der Gitarre">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bernd Kiltz - Gitarrenvideos" target="The-Art-of-Guitar">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tomatolix" target="Tomary">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="tomatolix" target="PULS Reportage">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="tomatolix" target="Bayerischer Rundfunk">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tomatolix" target="Quarks">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="tomatolix" target="DER SPIEGEL">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="tomatolix" target="TRU DOKU">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tomatolix" target="Not Found">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="Christoph Melzer GitarrenTalk">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="Andi Saitenhieb - Musiker  Bluesgitarre-Coach">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="Sebastian Bluschke">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="TV Noir">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="Georg Norberg  Der Gitarrenlehrer">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="emusika Academy">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="Independent Guitar Coaching">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="Joey Siedl">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="Horst Keller VIP-Guitar">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="Quiet Lane">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="Gitarren-Akademie-Online">
+      <data key="d2">15</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="Not Found">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="Oliver Leu">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="Gitarrenvideounterricht">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="00steini">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="Dennis-Gitarrenakademie">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="MusikDurchblick">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Onlinegitarrenschule" target="TV Cifras">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="RTL Talkshow" target="The Tonight Show Starring Jimmy Fallon">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="RTL Talkshow" target="BBC Radio 1">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="RTL Talkshow" target="Dark Alzar">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="RTL Talkshow" target="Heart">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The Tonight Show Starring Jimmy Fallon" target="Rolling Stone">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="The Tonight Show Starring Jimmy Fallon" target="TikTok Ice">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="The Tonight Show Starring Jimmy Fallon" target="Dry Bar Comedy">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The Tonight Show Starring Jimmy Fallon" target="Saturday Night Live">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Spielend-Gitarre-Lernen" target="Georg Norberg  Der Gitarrenlehrer">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Spielend-Gitarre-Lernen" target="Gitarrenvideounterricht">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Spielend-Gitarre-Lernen" target="STAHLVERBIEGER">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Spielend-Gitarre-Lernen" target="Bayerischer Rundfunk">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Spielend-Gitarre-Lernen" target="DER SPIEGEL">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Christoph Melzer GitarrenTalk" target="Sebastian Bluschke">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="Christoph Melzer GitarrenTalk" target="Shutup  Play - Guitar Tutorials">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Christoph Melzer GitarrenTalk" target="Georg Norberg  Der Gitarrenlehrer">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Christoph Melzer GitarrenTalk" target="carl anslow">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Christoph Melzer GitarrenTalk" target="Tutarras  Tutoriales en guitarra">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarrenvideounterricht" target="Bonedo Synthesizers">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Gitarrenvideounterricht" target="delamar Guitar">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Gitarrenvideounterricht" target="Georg Norberg  Der Gitarrenlehrer">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Gitarrenvideounterricht" target="Paul Davids">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gitarrenvideounterricht" target="Patrick - Gitarre lernen mit System">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarrenvideounterricht" target="meingitarrenvideokurs">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gitarrenvideounterricht" target="RockGuitarChannel">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gitarrenvideounterricht" target="SUPERGAIN the guitar academy">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Gitarrenvideounterricht" target="STAHLVERBIEGER">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarrenvideounterricht" target="Richie Zellon">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Gitarrenvideounterricht" target="Sebastian Bluschke">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Tomary" target="TV total Classics">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Tomary" target="Patrik Pietschmann">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Tomary" target="Frei Klavier Spielen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Mercury" target="Purple Maniac">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Mercury" target="Purple Snake">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Purple Maniac" target="Hector Aldao">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Purple Maniac" target="Purple Snake">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DeepPurpleVEVO" target="NEA ZIXNH">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="DeepPurpleVEVO" target="Deep Purple Official">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="DeepPurpleVEVO" target="Led Zeppelin">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DeepPurpleVEVO" target="MusikschuleTV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NEA ZIXNH" target="HDPinkFloyd">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="NEA ZIXNH" target="Deep Purple Official">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NEA ZIXNH" target="Java Rockingland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NEA ZIXNH" target="PretzelFarmer">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Deep Purple Official" target="Led Zeppelin">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Jamflix" target="Patrick - Gitarre lernen mit System">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Guitar-TV" target="emusika Academy">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Andi Saitenhieb - Musiker  Bluesgitarre-Coach" target="Pickup Music">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="delamar Guitar" target="Maxmachtmusik">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="delamar Guitar" target="Active Melody">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="delamar Guitar" target="meingitarrenvideokurs">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="delamar Guitar" target="Guitarschool - Gitarre lernen">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="delamar Guitar" target="STAHLVERBIEGERS BlogHütte">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="delamar Guitar" target="Bares für Rares">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="LiebensteinMovies" target="Universal Sounds Switzerland">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="LiebensteinMovies" target="Istvan Sky">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Universal Sounds Switzerland" target="Estas Tonne">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Georg Norberg  Der Gitarrenlehrer" target="Paul Davids">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Andertons Music Co" target="Leigh Fuge">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Andertons Music Co" target="Taylor Danley">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Andertons Music Co" target="Darrell Braun Guitar">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Andertons Music Co" target="Rhett Shull">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Andertons Music Co" target="JHS Pedals">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Andertons Music Co" target="GB Music Lab">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Andertons Music Co" target="Rick Beato">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Andertons Music Co" target="Zach Brobst">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="RockGuitarChannel" target="Alessandro Milea">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SUPERGAIN the guitar academy" target="AndiT">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="SUPERGAIN the guitar academy" target="Hogans Hideout">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="SUPERGAIN the guitar academy" target="STAHLVERBIEGERS BlogHütte">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="PULS Reportage" target="Dr med Ulrich Bauhofer  ganzheitlich gesund">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="PULS Reportage" target="Bayerischer Rundfunk">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bayerischer Rundfunk" target="SWR Doku">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bayerischer Rundfunk" target="Quarks">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BBC Radio 1" target="Capital FM">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BBC Radio 1" target="The New York Times">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Dark Alzar" target="F TW">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Dark Alzar" target="Taratata">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Rolling Stone" target="The New York Times">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Rolling Stone" target="Charlie Puth">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="TikTok Ice" target="Charlie Puth">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="TikTok Ice" target="BANGTANTV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="RockMilady" target="Dire Straits">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="RockMilady" target="Rey Music Collection">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="STAHLVERBIEGER" target="Norbert Wolf">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="VENOM Presents" target="Mozi Star">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="VENOM Presents" target="lucid">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Leigh Fuge" target="Rick Beato">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Leigh Fuge" target="SRGuitar">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="TV total Classics" target="Elisey Mysin">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="TV total Classics" target="Talent Recap">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Patrik Pietschmann" target="Jacobs Piano">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Patrik Pietschmann" target="Golden Pinga">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="HDPinkFloyd" target="Hector Aldao">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="JustinGuitar Songs" target="Pink Floyd">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="JustinGuitar Songs" target="swiftlessons">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="JustinGuitar Songs" target="JustinGuitar">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Shutup  Play - Guitar Tutorials" target="Sped Spedding">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Led Zeppelin" target="David Gilmour">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Taylor Danley" target="Max Freist">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Zach Brobst" target="Scott Uhl">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Zach Brobst" target="Michael W Westbrook">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Darrell Braun Guitar" target="Hogans Hideout">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Darrell Braun Guitar" target="KDH">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GB Music Lab" target="ShapeYourTone">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GB Music Lab" target="The Live Sound">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Phillip McKnight" target="CoreyCongilio">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Phillip McKnight" target="PRS Guitars">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Max Freist" target="ToneJunkie TV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Max Freist" target="tonymckenziecom">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Hogans Hideout" target="Sadowsky Guitars">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Bares für Rares" target="SWR Landesschau Rheinland-Pfalz">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Landesschau Rheinland-Pfalz" target="SWR Handwerkskunst">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="BILD">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="DW Deutsch">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="MusikMan" target="TV Cifras">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The Voice  la plus belle voix" target="Best of The Voice">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="MusicRadar" target="Troy Grady">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="MusicRadar" target="Sven F">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="MusicRadar" target="guitarraviva">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Quiet Lane" target="zattopekk">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Quiet Lane" target="Frank Mayer">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Oliver Leu" target="Justin Guitar auf Deutsch">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Capital FM" target="Magic Radio">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="F TW" target="Fedot Vascov">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="F TW" target="Tori Kelly">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Taratata" target="Nobel Peace Prize Concert">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The New York Times" target="The Late Late Show with James Corden">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Charlie Puth" target="TOPSIFY">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Charlie Puth" target="Ed Sheeran">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Charlie Puth" target="BANGTANTV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="TV Cifras" target="Sidimar Antunes">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="TV Cifras" target="이성식 기타교실">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Music is Win" target="five watt world">
+      <data key="d2">1</data>
+    </edge>
+  </graph>
+</graphml>

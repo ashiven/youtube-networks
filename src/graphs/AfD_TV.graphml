@@ -1,0 +1,2909 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="weight" attr.type="long" />
+  <key id="d1" for="node" attr.name="size" attr.type="long" />
+  <key id="d0" for="node" attr.name="size" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="tagesschau">
+      <data key="d0">22.500000000000053</data>
+    </node>
+    <node id="AfD TV">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="MrWissen2go">
+      <data key="d0">19.40000000000001</data>
+    </node>
+    <node id="phoenix">
+      <data key="d0">4.100000000000002</data>
+    </node>
+    <node id="WELT Nachrichtensender">
+      <data key="d0">10.999999999999979</data>
+    </node>
+    <node id="ZDFheute Nachrichten">
+      <data key="d0">2.4000000000000012</data>
+    </node>
+    <node id="NZZ Standpunkte">
+      <data key="d0">5.099999999999999</data>
+    </node>
+    <node id="Terra X History">
+      <data key="d0">21.60000000000004</data>
+    </node>
+    <node id="SWR Doku">
+      <data key="d0">4.400000000000001</data>
+    </node>
+    <node id="ZDF heute-show">
+      <data key="d0">27.80000000000013</data>
+    </node>
+    <node id="Deutschlandfunk Nova">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="DER SPIEGEL">
+      <data key="d0">68.60000000000038</data>
+    </node>
+    <node id="extra 3">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Aktien mit Kopf">
+      <data key="d0">2.200000000000001</data>
+    </node>
+    <node id="STRG_F">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Terra X Lesch  Co">
+      <data key="d0">34.70000000000022</data>
+    </node>
+    <node id="SWR Marktcheck">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="ZDF MAGAZIN ROYALE">
+      <data key="d0">11.999999999999975</data>
+    </node>
+    <node id="rbb">
+      <data key="d0">3.6000000000000023</data>
+    </node>
+    <node id="ARTEde">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="BR24">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Not Found">
+      <data key="d1">1</data>
+    </node>
+    <node id="WDR Doku">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="NDR Doku">
+      <data key="d0">2.5000000000000013</data>
+    </node>
+    <node id="ZDFinfo Dokus  Reportagen">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Weltspiegel">
+      <data key="d1">1</data>
+    </node>
+    <node id="Urknall Weltall und das Leben">
+      <data key="d0">4.200000000000002</data>
+    </node>
+    <node id="SWR">
+      <data key="d0">2.6000000000000014</data>
+    </node>
+    <node id="SWR Handwerkskunst">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="National Geographic Deutschland">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Hessischer Rundfunk">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Comedy  Satire im Ersten">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Universität Stuttgart">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="BewusstseinOnlineMag">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Modysee  Die Welt der Odysseen">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="AmicoFfm">
+      <data key="d1">1</data>
+    </node>
+    <node id="Doku HD 247">
+      <data key="d0">2.9000000000000017</data>
+    </node>
+    <node id="stern TV Talks">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Zeitlose Geschichte">
+      <data key="d1">1</data>
+    </node>
+    <node id="Wydawnictwo Esprit">
+      <data key="d0">3.0000000000000018</data>
+    </node>
+    <node id="faz">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="3nach9">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="MrWissen2go Geschichte  Terra X">
+      <data key="d0">1.9000000000000008</data>
+    </node>
+    <node id="Universität Bayreuth">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Der Stadtbewohner">
+      <data key="d0">2.100000000000001</data>
+    </node>
+    <node id="Only Human Deutschland">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="NWZonline">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="SRF Kultur Sternstunden">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="SaddleStories">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="NDR aufm Land">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Perfect Green">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Die Autodoktoren - offizieller Kanal">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Oli investiert">
+      <data key="d1">1</data>
+    </node>
+    <node id="Die Autogesellschaft Dresden">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="stern TV">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Cutting Edge Engineering Australia">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="René will Rendite">
+      <data key="d1">1</data>
+    </node>
+    <node id="Universität Konstanz">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="WELT Doku">
+      <data key="d0">2.200000000000001</data>
+    </node>
+    <node id="Real Stories Deutschland">
+      <data key="d0">2.100000000000001</data>
+    </node>
+    <node id="Militär News">
+      <data key="d1">1</data>
+    </node>
+    <node id="GERMAN TELEVISION">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="WDR">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="rbb Doku">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="mediacccde">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="forexmaniaXL">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="sommteck">
+      <data key="d1">1</data>
+    </node>
+    <node id="OSTPUNKT TV-Sendungen">
+      <data key="d0">1.9000000000000008</data>
+    </node>
+    <node id="FRONTLINE PBS  Official">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Bugatti">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="CarRanger">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Kabel Eins">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Deutsche Hanf-Akademie eV">
+      <data key="d1">1</data>
+    </node>
+    <node id="DIE WELTWOCHE">
+      <data key="d1">1</data>
+    </node>
+    <node id="Moconomy - Wirtschaft  Finanzen">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="GRIP - Das Motormagazin">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Steffen Hartmann">
+      <data key="d1">1</data>
+    </node>
+    <node id="SKAIgr">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="DIE DA OBEN">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="MDR DOK">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="WDR Comedy  Satire">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Stuttgarter Zeitung  Stuttgarter Nachrichten">
+      <data key="d1">1</data>
+    </node>
+    <node id="DraufgaengerTV">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Galileo">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Claws Deutsch">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Belko Wood">
+      <data key="d1">1</data>
+    </node>
+    <node id="All process of world">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TINCON">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="WELT Netzreporter">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Ladykracher">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Bayerischer Rundfunk">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Schuler Fragen was ist">
+      <data key="d1">1</data>
+    </node>
+    <node id="Fraktion DIE LINKE im Bundestag">
+      <data key="d1">1</data>
+    </node>
+    <node id="NDR Ratgeber">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Klein gegen Groß">
+      <data key="d0">4.100000000000002</data>
+    </node>
+    <node id="Niklas Steenfatt">
+      <data key="d0">2.7000000000000015</data>
+    </node>
+    <node id="The Morpheus">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Dobra Nowina">
+      <data key="d0">2.100000000000001</data>
+    </node>
+    <node id="PUDELEK">
+      <data key="d0">2.300000000000001</data>
+    </node>
+    <node id="Ksiądz Michał Chaciński">
+      <data key="d0">3.6000000000000023</data>
+    </node>
+    <node id="Sahra Wagenknecht">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="WELT Documentary">
+      <data key="d0">3.400000000000002</data>
+    </node>
+    <node id="Bundeswehr">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="Vermietertagebuch - Alexander Raue">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="MDR Mitteldeutscher Rundfunk">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="follow mereports">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="Breaking Lab">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="Onetz">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Aramis Merlin">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="ATV - Die Reportage">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="reporter">
+      <data key="d0">3.7000000000000024</data>
+    </node>
+    <node id="MySpass Stand-up">
+      <data key="d0">1.9000000000000008</data>
+    </node>
+    <node id="SWR1 Leute">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ZDFbesseresser">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Liebscher  Bracht  Die Schmerzspezialisten">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="Die Maus">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Scobel">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="The University of Arizona">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="ARD Reisen">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Ruhi Çenet Deutsch">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Alley Girl">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Zwen Snoden">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Alltagskulturen im Rheinland">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Benedikt Kuby Filmproduktion">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TV Solution">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TechZone">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Torsten Lieb">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Miniatur Wunderland">
+      <data key="d0">2.6000000000000014</data>
+    </node>
+    <node id="Willi wills wissen">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Halle77 Dortmund">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Timeline Deutschland">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TaxPro GmbH">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="DeutschlandErkenntSepsis">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="MDR SPASSZONE">
+      <data key="d0">4.8999999999999995</data>
+    </node>
+    <node id="AfD-Fraktion Bundestag">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="DW Deutsch">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="FOCUS TV Reportage">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="Udo Lindenberg - UTube">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Spiel und Zeug">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="Hartmut Conrad">
+      <data key="d0">2.100000000000001</data>
+    </node>
+    <node id="frontal">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Mario Lochner">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Finanztip">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Wall Street Journal">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Deutscher Bundestag">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="QuantenPhysik">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Dinge Erklärt  Kurzgesagt">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Geographie - simpleclub">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="BILD">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="Unglaubliche Fakten">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Military Update">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Tiny Home Tours">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="hr Comedy">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Hangar18b">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="MISS-VERSTEHEN SIE MICH RICHTIG">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Sportschau">
+      <data key="d0">2.9000000000000017</data>
+    </node>
+    <node id="Uni Mainz">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Kurzgesagt  In a Nutshell">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="DiePARTEIHH">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Dorf TV">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Jolly Roger">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="mmwenzel2009">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="republizieren">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Bibel TV">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Ridddle DE">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Familie Rockt Media">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="DW Documentary">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Faszination Wirtschaft">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Bernd Hackl">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Spark">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Porsche">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Nürburgring">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Er Maneesh Genesan">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="IQ 12">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="NBC News">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Chris Wolf">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Achtung Reichelt">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="SRF Dok">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="oneblord">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="Volksfestfilme">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Tipps  Tricks rund ums Haus">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Andy Wards Ancient Pottery">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="CREATIVE COUPLE">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Gabriele vom Kunzenhof">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Quarks">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Universum in Dir">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="DETEK Schädlingsbekämpfung">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="The Dodo">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Hanfbaukollektiv">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="sportstudio fußball">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="National Geographic">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="FORMULA 1">
+      <data key="d0">2.7000000000000015</data>
+    </node>
+    <node id="Love YourSelf">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ZDF Satire">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ΕΡΤ ΑΕ">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Άδωνις Γεωργιάδης Adonis Georgiadis">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="SPORT24">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Thomas Müller">
+      <data key="d0">2.9000000000000017</data>
+    </node>
+    <node id="WalorTV">
+      <data key="d0">2.100000000000001</data>
+    </node>
+    <node id="AeroNewsGermany">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="PETONIs Landleben">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="HISTORY">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Apna 31">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Fatih Altaylı">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Akte">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="MSNBC">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="NBA">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="DashcamDriversGermany">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Politik Aktuell">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ifo Institut">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Jared Owen">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="SWR Spätschicht">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="DAI Heidelberg">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Jürgen von der Lippe">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Die Harald Schmidt Show">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="Opernhaus Zürich">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="GCN Racing auf Deutsch">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Browser Ballett">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="Daniel Wierbicki">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Motoren Zimmer">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="НовиниLIVE">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Einfach Bauer">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Thomas kocht">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Yummy Yammy">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Prof Dr Christian Rieck">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Krissy Rieger">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="PureBreedFactory">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Głos Pustyni">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Frank Elstner">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="RCTV">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Hörbuchwelt">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="Shi Heng Yi Online">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Robert Marc Lehmann - Mission Erde">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Unser Land">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="World Table Tennis">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="HANDY TIPS">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Future Machine Tech">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The Sense">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="WOW Tech">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Discovering Skills">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="GommeBlogit Car  Performance">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Kai Zorn Wetter">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Berichte aus der Ukraine">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Tichys Einblick">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="ZDF">
+      <data key="d0">3.0000000000000018</data>
+    </node>
+    <node id="Leuphana Universität Lüneburg">
+      <data key="d0">5.199999999999998</data>
+    </node>
+    <node id="Polizei Hessen Karriere">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Tamina  Johannes">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="City Trucker">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Achtung Abzocke">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="InfraRot - Sicht ins Dunkel">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Alexander Estate">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="HKCM">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="WerteUnion">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Toni Karli">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Bibliothek der Sachgeschichten">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="CGS Tech">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Lehm-Laden">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Pirna - Sandstein voller Leben">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="The Ocean Race">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Alte Schule - die goldene Ära des Automobils">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Subi Performance">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Maxim Röder">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="MONSTERBASS">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Dokumacher">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="TimeLens">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="Bares für Rares">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="sportstudio">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="SEVENTEEN">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="funk">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Wondery">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Y-Kollektiv">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Hazel  Thomas">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TV total Classics">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="SWR Landesschau Rheinland-Pfalz">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Jamie Roseanne">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="weitze45">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="DW News">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ntv Nachrichten">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Metallindustrie">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Deutsches Museum">
+      <data key="d0">1.1</data>
+    </node>
+    <edge source="tagesschau" target="AfD TV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tagesschau" target="phoenix">
+      <data key="d2">234</data>
+    </edge>
+    <edge source="tagesschau" target="Terra X History">
+      <data key="d2">82</data>
+    </edge>
+    <edge source="tagesschau" target="NZZ Standpunkte">
+      <data key="d2">395</data>
+    </edge>
+    <edge source="tagesschau" target="SWR Doku">
+      <data key="d2">18</data>
+    </edge>
+    <edge source="tagesschau" target="ZDFheute Nachrichten">
+      <data key="d2">415</data>
+    </edge>
+    <edge source="tagesschau" target="ZDF heute-show">
+      <data key="d2">107</data>
+    </edge>
+    <edge source="tagesschau" target="WELT Nachrichtensender">
+      <data key="d2">195</data>
+    </edge>
+    <edge source="tagesschau" target="DER SPIEGEL">
+      <data key="d2">264</data>
+    </edge>
+    <edge source="tagesschau" target="rbb">
+      <data key="d2">19</data>
+    </edge>
+    <edge source="tagesschau" target="Deutschlandfunk Nova">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="tagesschau" target="Terra X Lesch  Co">
+      <data key="d2">213</data>
+    </edge>
+    <edge source="tagesschau" target="Aktien mit Kopf">
+      <data key="d2">15</data>
+    </edge>
+    <edge source="tagesschau" target="extra 3">
+      <data key="d2">26</data>
+    </edge>
+    <edge source="tagesschau" target="WDR Doku">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="tagesschau" target="Comedy  Satire im Ersten">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="tagesschau" target="SWR">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="tagesschau" target="stern TV Talks">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tagesschau" target="Wydawnictwo Esprit">
+      <data key="d2">26</data>
+    </edge>
+    <edge source="tagesschau" target="faz">
+      <data key="d2">47</data>
+    </edge>
+    <edge source="tagesschau" target="3nach9">
+      <data key="d2">207</data>
+    </edge>
+    <edge source="tagesschau" target="NDR Doku">
+      <data key="d2">26</data>
+    </edge>
+    <edge source="tagesschau" target="ARTEde">
+      <data key="d2">22</data>
+    </edge>
+    <edge source="tagesschau" target="NWZonline">
+      <data key="d2">29</data>
+    </edge>
+    <edge source="tagesschau" target="Universität Konstanz">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="tagesschau" target="Klein gegen Groß">
+      <data key="d2">31</data>
+    </edge>
+    <edge source="tagesschau" target="Niklas Steenfatt">
+      <data key="d2">17</data>
+    </edge>
+    <edge source="tagesschau" target="The Morpheus">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tagesschau" target="MrWissen2go Geschichte  Terra X">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="tagesschau" target="SWR1 Leute">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="tagesschau" target="Sahra Wagenknecht">
+      <data key="d2">40</data>
+    </edge>
+    <edge source="tagesschau" target="Udo Lindenberg - UTube">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="tagesschau" target="Spiel und Zeug">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="tagesschau" target="Hartmut Conrad">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="tagesschau" target="Galileo">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="tagesschau" target="Geographie - simpleclub">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tagesschau" target="BILD">
+      <data key="d2">23</data>
+    </edge>
+    <edge source="tagesschau" target="Sportschau">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tagesschau" target="MDR Mitteldeutscher Rundfunk">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tagesschau" target="Weltspiegel">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tagesschau" target="ZDF Satire">
+      <data key="d2">81</data>
+    </edge>
+    <edge source="tagesschau" target="reporter">
+      <data key="d2">15</data>
+    </edge>
+    <edge source="tagesschau" target="Browser Ballett">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="tagesschau" target="Not Found">
+      <data key="d2">22</data>
+    </edge>
+    <edge source="tagesschau" target="World Table Tennis">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tagesschau" target="Schuler Fragen was ist">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="tagesschau" target="Bares für Rares">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="tagesschau" target="SEVENTEEN">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="tagesschau" target="funk">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tagesschau" target="Wondery">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tagesschau" target="MDR SPASSZONE">
+      <data key="d2">39</data>
+    </edge>
+    <edge source="tagesschau" target="Hazel  Thomas">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tagesschau" target="Jamie Roseanne">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="tagesschau" target="sportstudio">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tagesschau" target="ntv Nachrichten">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tagesschau" target="Fraktion DIE LINKE im Bundestag">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="AfD TV" target="MrWissen2go">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="AfD TV" target="phoenix">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="MrWissen2go" target="ZDFheute Nachrichten">
+      <data key="d2">76</data>
+    </edge>
+    <edge source="MrWissen2go" target="NZZ Standpunkte">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="MrWissen2go" target="Terra X History">
+      <data key="d2">40</data>
+    </edge>
+    <edge source="MrWissen2go" target="DER SPIEGEL">
+      <data key="d2">62</data>
+    </edge>
+    <edge source="MrWissen2go" target="extra 3">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="MrWissen2go" target="WELT Nachrichtensender">
+      <data key="d2">69</data>
+    </edge>
+    <edge source="MrWissen2go" target="ARTEde">
+      <data key="d2">18</data>
+    </edge>
+    <edge source="MrWissen2go" target="BR24">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="MrWissen2go" target="Not Found">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="MrWissen2go" target="WDR Doku">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="MrWissen2go" target="SWR Doku">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="MrWissen2go" target="NDR Doku">
+      <data key="d2">52</data>
+    </edge>
+    <edge source="MrWissen2go" target="STRG_F">
+      <data key="d2">29</data>
+    </edge>
+    <edge source="MrWissen2go" target="Terra X Lesch  Co">
+      <data key="d2">51</data>
+    </edge>
+    <edge source="MrWissen2go" target="SWR Marktcheck">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="MrWissen2go" target="stern TV">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="MrWissen2go" target="FRONTLINE PBS  Official">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="MrWissen2go" target="MrWissen2go Geschichte  Terra X">
+      <data key="d2">49</data>
+    </edge>
+    <edge source="MrWissen2go" target="ZDFinfo Dokus  Reportagen">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="MrWissen2go" target="DIE DA OBEN">
+      <data key="d2">37</data>
+    </edge>
+    <edge source="MrWissen2go" target="Aktien mit Kopf">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="MrWissen2go" target="Oli investiert">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="MrWissen2go" target="Deutschlandfunk Nova">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="MrWissen2go" target="SWR">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="phoenix" target="WELT Nachrichtensender">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="phoenix" target="ZDFheute Nachrichten">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="phoenix" target="Deutschlandfunk Nova">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="phoenix" target="Comedy  Satire im Ersten">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="phoenix" target="3nach9">
+      <data key="d2">33</data>
+    </edge>
+    <edge source="phoenix" target="NWZonline">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="phoenix" target="René will Rendite">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="phoenix" target="faz">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="phoenix" target="DER SPIEGEL">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="phoenix" target="Terra X Lesch  Co">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="phoenix" target="ARTEde">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="phoenix" target="Schuler Fragen was ist">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="phoenix" target="NZZ Standpunkte">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="phoenix" target="SWR">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="phoenix" target="Fraktion DIE LINKE im Bundestag">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="NZZ Standpunkte">
+      <data key="d2">54</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="DER SPIEGEL">
+      <data key="d2">109</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="ZDFheute Nachrichten">
+      <data key="d2">98</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Terra X History">
+      <data key="d2">38</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="SWR Doku">
+      <data key="d2">24</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="SWR Marktcheck">
+      <data key="d2">82</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Universität Stuttgart">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="BR24">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Not Found">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="ARTEde">
+      <data key="d2">27</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="ZDFinfo Dokus  Reportagen">
+      <data key="d2">28</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Aktien mit Kopf">
+      <data key="d2">21</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="SWR">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="NDR Doku">
+      <data key="d2">71</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="National Geographic Deutschland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="WDR Doku">
+      <data key="d2">30</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="AmicoFfm">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Bugatti">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Terra X Lesch  Co">
+      <data key="d2">39</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="SKAIgr">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="DraufgaengerTV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Weltspiegel">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Belko Wood">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="All process of world">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="extra 3">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="WELT Netzreporter">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Ladykracher">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Fraktion DIE LINKE im Bundestag">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="WELT Documentary">
+      <data key="d2">24</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Bundeswehr">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Hessischer Rundfunk">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Breaking Lab">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="ZDFbesseresser">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Liebscher  Bracht  Die Schmerzspezialisten">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Miniatur Wunderland">
+      <data key="d2">16</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Willi wills wissen">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Oli investiert">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="stern TV">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="DW Deutsch">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="FOCUS TV Reportage">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="ZDF heute-show">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="SWR Handwerkskunst">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Real Stories Deutschland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="NDR aufm Land">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Militär News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Deutscher Bundestag">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="BewusstseinOnlineMag">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="sommteck">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Modysee  Die Welt der Odysseen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Spark">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Porsche">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Nürburgring">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="CarRanger">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="DIE WELTWOCHE">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Steffen Hartmann">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Thomas Müller">
+      <data key="d2">19</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="HISTORY">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="sportstudio fußball">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="faz">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="WELT Doku">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="Galileo">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Nachrichtensender" target="TimeLens">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="DER SPIEGEL">
+      <data key="d2">163</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="Aktien mit Kopf">
+      <data key="d2">67</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="STRG_F">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="ZDF heute-show">
+      <data key="d2">29</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="Terra X History">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="NZZ Standpunkte">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="Deutschlandfunk Nova">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="Terra X Lesch  Co">
+      <data key="d2">140</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="Hessischer Rundfunk">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="NDR Doku">
+      <data key="d2">15</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="Not Found">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="Weltspiegel">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="ARTEde">
+      <data key="d2">39</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="SWR Doku">
+      <data key="d2">62</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="ZDFinfo Dokus  Reportagen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="Bayerischer Rundfunk">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="MDR Mitteldeutscher Rundfunk">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="SWR Marktcheck">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="SWR">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="Deutscher Bundestag">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="Moconomy - Wirtschaft  Finanzen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="WDR Doku">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="NWZonline">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="extra 3">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="stern TV Talks">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="ZDF">
+      <data key="d2">20</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="Sportschau">
+      <data key="d2">19</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="DIE WELTWOCHE">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="Hartmut Conrad">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="TimeLens">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="faz">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="ZDF Satire">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="DW News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ZDFheute Nachrichten" target="Deutsches Museum">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NZZ Standpunkte" target="Aktien mit Kopf">
+      <data key="d2">23</data>
+    </edge>
+    <edge source="NZZ Standpunkte" target="SWR">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="NZZ Standpunkte" target="MrWissen2go Geschichte  Terra X">
+      <data key="d2">49</data>
+    </edge>
+    <edge source="NZZ Standpunkte" target="DER SPIEGEL">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="NZZ Standpunkte" target="3nach9">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="NZZ Standpunkte" target="TimeLens">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Terra X History" target="Terra X Lesch  Co">
+      <data key="d2">197</data>
+    </edge>
+    <edge source="Terra X History" target="extra 3">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Terra X History" target="National Geographic Deutschland">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Terra X History" target="ZDFinfo Dokus  Reportagen">
+      <data key="d2">39</data>
+    </edge>
+    <edge source="Terra X History" target="DER SPIEGEL">
+      <data key="d2">54</data>
+    </edge>
+    <edge source="Terra X History" target="MrWissen2go Geschichte  Terra X">
+      <data key="d2">18</data>
+    </edge>
+    <edge source="Terra X History" target="AmicoFfm">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Terra X History" target="WELT Doku">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="Terra X History" target="WDR Doku">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="Terra X History" target="MDR DOK">
+      <data key="d2">26</data>
+    </edge>
+    <edge source="Terra X History" target="SWR">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Terra X History" target="Steffen Hartmann">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Terra X History" target="ARTEde">
+      <data key="d2">25</data>
+    </edge>
+    <edge source="Terra X History" target="stern TV Talks">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Terra X History" target="SWR Doku">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="Terra X History" target="Zeitlose Geschichte">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Terra X History" target="Not Found">
+      <data key="d2">19</data>
+    </edge>
+    <edge source="Terra X History" target="OSTPUNKT TV-Sendungen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Terra X History" target="Vermietertagebuch - Alexander Raue">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Terra X History" target="NDR Doku">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Terra X History" target="ifo Institut">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Terra X History" target="Robert Marc Lehmann - Mission Erde">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Terra X History" target="Willi wills wissen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Terra X History" target="STRG_F">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="SWR Doku" target="SWR Marktcheck">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="SWR Doku" target="ZDF heute-show">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="SWR Doku" target="Aktien mit Kopf">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="NDR Doku">
+      <data key="d2">30</data>
+    </edge>
+    <edge source="SWR Doku" target="SWR Handwerkskunst">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="SWR Doku" target="National Geographic Deutschland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="Not Found">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="ZDFinfo Dokus  Reportagen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="Weltspiegel">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="SWR Doku" target="Der Stadtbewohner">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="SWR Doku" target="Only Human Deutschland">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="SWR Doku" target="STRG_F">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="SWR Doku" target="DER SPIEGEL">
+      <data key="d2">51</data>
+    </edge>
+    <edge source="SWR Doku" target="SaddleStories">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="SWR Doku" target="Oli investiert">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR Doku" target="Die Autogesellschaft Dresden">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR Doku" target="rbb Doku">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="SWR Doku" target="René will Rendite">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR Doku" target="AmicoFfm">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="SWR Doku" target="Hessischer Rundfunk">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="Kabel Eins">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR Doku" target="Terra X Lesch  Co">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="SWR Doku" target="DIE WELTWOCHE">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR Doku" target="WELT Doku">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="SWR Doku" target="ARTEde">
+      <data key="d2">22</data>
+    </edge>
+    <edge source="SWR Doku" target="NDR aufm Land">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="ARD Reisen">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="SWR Doku" target="Ruhi Çenet Deutsch">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="Militär News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="WDR Doku">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="SWR Doku" target="FOCUS TV Reportage">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="SWR Doku" target="sommteck">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="OSTPUNKT TV-Sendungen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="Universum in Dir">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="Vermietertagebuch - Alexander Raue">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="SWR Doku" target="Love YourSelf">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="SWR1 Leute">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="Motoren Zimmer">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR Doku" target="GERMAN TELEVISION">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR Doku" target="DashcamDriversGermany">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR Doku" target="Hörbuchwelt">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="SWR Doku" target="SWR">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="Tichys Einblick">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="SWR Doku" target="Real Stories Deutschland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Doku" target="Polizei Hessen Karriere">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="SWR Doku" target="Timeline Deutschland">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="SWR Doku" target="Pirna - Sandstein voller Leben">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="SWR Doku" target="Achtung Abzocke">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="SWR Doku" target="Achtung Reichelt">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="ZDF heute-show" target="ZDF MAGAZIN ROYALE">
+      <data key="d2">33</data>
+    </edge>
+    <edge source="ZDF heute-show" target="Terra X Lesch  Co">
+      <data key="d2">26</data>
+    </edge>
+    <edge source="ZDF heute-show" target="SWR Marktcheck">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ZDF heute-show" target="ARTEde">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="ZDF heute-show" target="DER SPIEGEL">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ZDF heute-show" target="extra 3">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="ZDF heute-show" target="DIE DA OBEN">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ZDF heute-show" target="TINCON">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ZDF heute-show" target="DIE WELTWOCHE">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Deutschlandfunk Nova" target="Not Found">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="ARTEde">
+      <data key="d2">39</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="STRG_F">
+      <data key="d2">68</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="ZDFinfo Dokus  Reportagen">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="extra 3">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="Weltspiegel">
+      <data key="d2">45</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="WDR Doku">
+      <data key="d2">17</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="NDR Doku">
+      <data key="d2">101</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="Terra X Lesch  Co">
+      <data key="d2">67</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="National Geographic Deutschland">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="rbb">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="Not Found">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="Galileo">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="stern TV Talks">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="SRF Kultur Sternstunden">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="Oli investiert">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="WDR">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="rbb Doku">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="FORMULA 1">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="SWR">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="sportstudio fußball">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="Fatih Altaylı">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="Shi Heng Yi Online">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="TINCON">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="WELT Netzreporter">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DER SPIEGEL" target="Only Human Deutschland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="extra 3" target="ARTEde">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="extra 3" target="WDR Doku">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="extra 3" target="Comedy  Satire im Ersten">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="extra 3" target="Aktien mit Kopf">
+      <data key="d2">18</data>
+    </edge>
+    <edge source="extra 3" target="Terra X Lesch  Co">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="extra 3" target="SWR">
+      <data key="d2">18</data>
+    </edge>
+    <edge source="extra 3" target="Not Found">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="extra 3" target="ZDF Satire">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Aktien mit Kopf" target="Terra X Lesch  Co">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Aktien mit Kopf" target="ARTEde">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Aktien mit Kopf" target="follow mereports">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Aktien mit Kopf" target="Vermietertagebuch - Alexander Raue">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Aktien mit Kopf" target="Prof Dr Christian Rieck">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Aktien mit Kopf" target="Kai Zorn Wetter">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Aktien mit Kopf" target="Die Autodoktoren - offizieller Kanal">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Aktien mit Kopf" target="Maxim Röder">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Aktien mit Kopf" target="HKCM">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Aktien mit Kopf" target="TimeLens">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="STRG_F" target="NDR Doku">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="STRG_F" target="WDR Doku">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="STRG_F" target="ZDFinfo Dokus  Reportagen">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="STRG_F" target="reporter">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="STRG_F" target="ARTEde">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="STRG_F" target="Hessischer Rundfunk">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="STRG_F" target="ZDF MAGAZIN ROYALE">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="STRG_F" target="Terra X Lesch  Co">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="STRG_F" target="Not Found">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="STRG_F" target="rbb">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="STRG_F" target="Weltspiegel">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="STRG_F" target="SRF Dok">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="STRG_F" target="stern TV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="Urknall Weltall und das Leben">
+      <data key="d2">44</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="ARTEde">
+      <data key="d2">38</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="René will Rendite">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="BR24">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="WDR Doku">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="ZDFinfo Dokus  Reportagen">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="Universität Bayreuth">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="WELT Doku">
+      <data key="d2">21</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="NWZonline">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="Oli investiert">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="Universität Konstanz">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="NDR Doku">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="Universität Stuttgart">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="Not Found">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="Moconomy - Wirtschaft  Finanzen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="Steffen Hartmann">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="DIE DA OBEN">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="Vermietertagebuch - Alexander Raue">
+      <data key="d2">48</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="DAI Heidelberg">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="stern TV Talks">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="WELT Netzreporter">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="Leuphana Universität Lüneburg">
+      <data key="d2">58</data>
+    </edge>
+    <edge source="Terra X Lesch  Co" target="Schuler Fragen was ist">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="NDR Doku">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="Perfect Green">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="Die Autodoktoren - offizieller Kanal">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="stern TV">
+      <data key="d2">18</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="ARTEde">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="CarRanger">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="WELT Doku">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="SWR Handwerkskunst">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="NDR Ratgeber">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="rbb Doku">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="TaxPro GmbH">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="WDR">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="sommteck">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="DETEK Schädlingsbekämpfung">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="Apna 31">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="DeutschlandErkenntSepsis">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="Real Stories Deutschland">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="НовиниLIVE">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="SWR Marktcheck" target="BewusstseinOnlineMag">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ZDF MAGAZIN ROYALE" target="NWZonline">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="ZDF MAGAZIN ROYALE" target="SWR">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="rbb" target="Not Found">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="rbb" target="MISS-VERSTEHEN SIE MICH RICHTIG">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="rbb" target="TINCON">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="rbb" target="InfraRot - Sicht ins Dunkel">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="rbb" target="Alexander Estate">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="rbb" target="AmicoFfm">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="rbb" target="ZDFinfo Dokus  Reportagen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ARTEde" target="BewusstseinOnlineMag">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="ARTEde" target="Modysee  Die Welt der Odysseen">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ARTEde" target="AmicoFfm">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="ARTEde" target="Zeitlose Geschichte">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ARTEde" target="ZDFinfo Dokus  Reportagen">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="ARTEde" target="NDR Doku">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ARTEde" target="Weltspiegel">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="ARTEde" target="Deutsche Hanf-Akademie eV">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="ARTEde" target="WELT Doku">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="ARTEde" target="Steffen Hartmann">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ARTEde" target="SWR">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ARTEde" target="DIE WELTWOCHE">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ARTEde" target="Schuler Fragen was ist">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ARTEde" target="rbb Doku">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ARTEde" target="Vermietertagebuch - Alexander Raue">
+      <data key="d2">17</data>
+    </edge>
+    <edge source="ARTEde" target="Wall Street Journal">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ARTEde" target="MDR SPASSZONE">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ARTEde" target="WDR">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ARTEde" target="AfD-Fraktion Bundestag">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="ARTEde" target="Bibel TV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ARTEde" target="Ridddle DE">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ARTEde" target="Real Stories Deutschland">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ARTEde" target="Moconomy - Wirtschaft  Finanzen">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ARTEde" target="WDR Doku">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ARTEde" target="frontal">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ARTEde" target="Not Found">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ARTEde" target="AeroNewsGermany">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="ARTEde" target="GCN Racing auf Deutsch">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ARTEde" target="DashcamDriversGermany">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ARTEde" target="sportstudio fußball">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="ARTEde" target="Prof Dr Christian Rieck">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ARTEde" target="Achtung Reichelt">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ARTEde" target="TimeLens">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ARTEde" target="Timeline Deutschland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BR24" target="Doku HD 247">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BR24" target="NDR Doku">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Not Found" target="WDR Doku">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Not Found" target="Die Autogesellschaft Dresden">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Not Found" target="Weltspiegel">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Not Found" target="TINCON">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Not Found" target="MrWissen2go Geschichte  Terra X">
+      <data key="d2">19</data>
+    </edge>
+    <edge source="Not Found" target="Universität Bayreuth">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Not Found" target="NDR Doku">
+      <data key="d2">22</data>
+    </edge>
+    <edge source="Not Found" target="frontal">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Not Found" target="DIE WELTWOCHE">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Not Found" target="FORMULA 1">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="Not Found" target="National Geographic Deutschland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Not Found" target="sportstudio fußball">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Not Found" target="Comedy  Satire im Ersten">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="WDR Doku" target="Weltspiegel">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="WDR Doku" target="WDR">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="WDR Doku" target="ZDFinfo Dokus  Reportagen">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="WDR Doku" target="NDR Doku">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="WDR Doku" target="rbb Doku">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="WDR Doku" target="AmicoFfm">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="WDR Doku" target="Quarks">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WDR Doku" target="National Geographic">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="WDR Doku" target="MDR DOK">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WDR Doku" target="Jared Owen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WDR Doku" target="Bayerischer Rundfunk">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="WDR Doku" target="SRF Dok">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="WDR Doku" target="Y-Kollektiv">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="Doku HD 247">
+      <data key="d2">24</data>
+    </edge>
+    <edge source="NDR Doku" target="NDR aufm Land">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="NDR Doku" target="SWR Handwerkskunst">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="NDR Doku" target="Real Stories Deutschland">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="NDR Doku" target="Militär News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="GERMAN TELEVISION">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="ZDFinfo Dokus  Reportagen">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="Die Autogesellschaft Dresden">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="Die Autodoktoren - offizieller Kanal">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="NDR Doku" target="Alley Girl">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="Zwen Snoden">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="Perfect Green">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="Torsten Lieb">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="Timeline Deutschland">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="NDR Doku" target="MDR SPASSZONE">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="Breaking Lab">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="rbb Doku">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="Hessischer Rundfunk">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="WDR">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="stern TV">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="Achtung Reichelt">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="Vermietertagebuch - Alexander Raue">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="Moconomy - Wirtschaft  Finanzen">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="NDR Doku" target="Akte">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="Steffen Hartmann">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="Motoren Zimmer">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="Modysee  Die Welt der Odysseen">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="WELT Doku">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="SWR">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="3nach9">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="NDR Doku" target="Tamina  Johannes">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="Jürgen von der Lippe">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="City Trucker">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="Achtung Abzocke">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="AmicoFfm">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="Kai Zorn Wetter">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="The Ocean Race">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR Doku" target="MONSTERBASS">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="NDR Doku" target="SWR Landesschau Rheinland-Pfalz">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Doku" target="NDR Ratgeber">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="ZDFinfo Dokus  Reportagen" target="MrWissen2go Geschichte  Terra X">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="ZDFinfo Dokus  Reportagen" target="DW Deutsch">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Weltspiegel" target="NDR Ratgeber">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Weltspiegel" target="Y-Kollektiv">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Urknall Weltall und das Leben" target="Universität Bayreuth">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="Urknall Weltall und das Leben" target="Doku HD 247">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Urknall Weltall und das Leben" target="Onetz">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Urknall Weltall und das Leben" target="Universität Konstanz">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Urknall Weltall und das Leben" target="DAI Heidelberg">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Urknall Weltall und das Leben" target="Universität Stuttgart">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR" target="SRF Kultur Sternstunden">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="SWR" target="faz">
+      <data key="d2">23</data>
+    </edge>
+    <edge source="SWR" target="Stuttgarter Zeitung  Stuttgarter Nachrichten">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="SWR" target="Hessischer Rundfunk">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR" target="Die Maus">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR" target="Galileo">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR" target="DIE DA OBEN">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR" target="MDR DOK">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR" target="sportstudio">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="SWR" target="Leuphana Universität Lüneburg">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR" target="NWZonline">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SWR" target="weitze45">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Handwerkskunst" target="Oli investiert">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Handwerkskunst" target="Cutting Edge Engineering Australia">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Handwerkskunst" target="Bayerischer Rundfunk">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="SWR Handwerkskunst" target="GERMAN TELEVISION">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Handwerkskunst" target="Alltagskulturen im Rheinland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Handwerkskunst" target="Benedikt Kuby Filmproduktion">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Handwerkskunst" target="René will Rendite">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="SWR Handwerkskunst" target="Bernd Hackl">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Handwerkskunst" target="WELT Doku">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Handwerkskunst" target="Thomas kocht">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SWR Handwerkskunst" target="Yummy Yammy">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="National Geographic Deutschland" target="AfD-Fraktion Bundestag">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="National Geographic Deutschland" target="DashcamDriversGermany">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="National Geographic Deutschland" target="Vermietertagebuch - Alexander Raue">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="National Geographic Deutschland" target="Politik Aktuell">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="National Geographic Deutschland" target="Claws Deutsch">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Hessischer Rundfunk" target="WELT Doku">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Hessischer Rundfunk" target="Real Stories Deutschland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Hessischer Rundfunk" target="Moconomy - Wirtschaft  Finanzen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Hessischer Rundfunk" target="Chris Wolf">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Hessischer Rundfunk" target="Steffen Hartmann">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Comedy  Satire im Ersten" target="3nach9">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Comedy  Satire im Ersten" target="NWZonline">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Comedy  Satire im Ersten" target="WDR Comedy  Satire">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Comedy  Satire im Ersten" target="MySpass Stand-up">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Comedy  Satire im Ersten" target="hr Comedy">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Comedy  Satire im Ersten" target="ZDF Satire">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Comedy  Satire im Ersten" target="Jürgen von der Lippe">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Universität Stuttgart" target="mediacccde">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Universität Stuttgart" target="Uni Mainz">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Universität Stuttgart" target="Kurzgesagt  In a Nutshell">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Universität Stuttgart" target="Sahra Wagenknecht">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Universität Stuttgart" target="QuantenPhysik">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BewusstseinOnlineMag" target="forexmaniaXL">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="BewusstseinOnlineMag" target="sommteck">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BewusstseinOnlineMag" target="republizieren">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BewusstseinOnlineMag" target="Real Stories Deutschland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BewusstseinOnlineMag" target="Only Human Deutschland">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BewusstseinOnlineMag" target="oneblord">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="BewusstseinOnlineMag" target="Volksfestfilme">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="BewusstseinOnlineMag" target="Bibliothek der Sachgeschichten">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Modysee  Die Welt der Odysseen" target="René will Rendite">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Modysee  Die Welt der Odysseen" target="WELT Doku">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Modysee  Die Welt der Odysseen" target="MDR SPASSZONE">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="AmicoFfm" target="OSTPUNKT TV-Sendungen">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="AmicoFfm" target="SRF Dok">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Doku HD 247" target="Moconomy - Wirtschaft  Finanzen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Doku HD 247" target="GRIP - Das Motormagazin">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Doku HD 247" target="Faszination Wirtschaft">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="stern TV Talks" target="Claws Deutsch">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="stern TV Talks" target="sportstudio fußball">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Zeitlose Geschichte" target="MrWissen2go Geschichte  Terra X">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Wydawnictwo Esprit" target="Dobra Nowina">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="Wydawnictwo Esprit" target="PUDELEK">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="Wydawnictwo Esprit" target="Ksiądz Michał Chaciński">
+      <data key="d2">26</data>
+    </edge>
+    <edge source="Wydawnictwo Esprit" target="WalorTV">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="Wydawnictwo Esprit" target="Głos Pustyni">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Wydawnictwo Esprit" target="RCTV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="faz" target="Stuttgarter Zeitung  Stuttgarter Nachrichten">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="faz" target="Sahra Wagenknecht">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="faz" target="Die Harald Schmidt Show">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="faz" target="NWZonline">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="3nach9" target="NWZonline">
+      <data key="d2">18</data>
+    </edge>
+    <edge source="3nach9" target="MySpass Stand-up">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="MrWissen2go Geschichte  Terra X" target="DIE WELTWOCHE">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Universität Bayreuth" target="Frank Elstner">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Universität Bayreuth" target="TV total Classics">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Der Stadtbewohner" target="Aramis Merlin">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Der Stadtbewohner" target="Only Human Deutschland">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Der Stadtbewohner" target="Hangar18b">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Only Human Deutschland" target="ATV - Die Reportage">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Only Human Deutschland" target="Real Stories Deutschland">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Only Human Deutschland" target="InfraRot - Sicht ins Dunkel">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Only Human Deutschland" target="Dokumacher">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="NWZonline" target="Schuler Fragen was ist">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SRF Kultur Sternstunden" target="Scobel">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SRF Kultur Sternstunden" target="The University of Arizona">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SRF Kultur Sternstunden" target="Stuttgarter Zeitung  Stuttgarter Nachrichten">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="SaddleStories" target="ARD Reisen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NDR aufm Land" target="Unser Land">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Perfect Green" target="TV Solution">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Perfect Green" target="TechZone">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Die Autodoktoren - offizieller Kanal" target="Motoren Zimmer">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Die Autodoktoren - offizieller Kanal" target="WELT Doku">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Oli investiert" target="Vermietertagebuch - Alexander Raue">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Oli investiert" target="Prof Dr Christian Rieck">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Die Autogesellschaft Dresden" target="Vermietertagebuch - Alexander Raue">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Die Autogesellschaft Dresden" target="Halle77 Dortmund">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Die Autogesellschaft Dresden" target="Alte Schule - die goldene Ära des Automobils">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Die Autogesellschaft Dresden" target="Subi Performance">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="stern TV" target="DeutschlandErkenntSepsis">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="stern TV" target="Hangar18b">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="René will Rendite" target="Mario Lochner">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="René will Rendite" target="Finanztip">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Universität Konstanz" target="QuantenPhysik">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Universität Konstanz" target="Dinge Erklärt  Kurzgesagt">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Universität Konstanz" target="Daniel Wierbicki">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="WELT Doku" target="CarRanger">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="WELT Doku" target="Moconomy - Wirtschaft  Finanzen">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Doku" target="The Dodo">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Doku" target="Steffen Hartmann">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="WELT Doku" target="PureBreedFactory">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="WELT Doku" target="Berichte aus der Ukraine">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Doku" target="Vermietertagebuch - Alexander Raue">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Doku" target="DashcamDriversGermany">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Doku" target="Real Stories Deutschland">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="WELT Doku" target="Achtung Reichelt">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Doku" target="Toni Karli">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Real Stories Deutschland" target="MDR DOK">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Militär News" target="Unglaubliche Fakten">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Militär News" target="Military Update">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GERMAN TELEVISION" target="GRIP - Das Motormagazin">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GERMAN TELEVISION" target="Halle77 Dortmund">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GERMAN TELEVISION" target="Tiny Home Tours">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="mediacccde" target="DiePARTEIHH">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="mediacccde" target="Galileo">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="forexmaniaXL" target="Dorf TV">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="forexmaniaXL" target="Jolly Roger">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="forexmaniaXL" target="mmwenzel2009">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="sommteck" target="Dorf TV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="OSTPUNKT TV-Sendungen" target="Familie Rockt Media">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="FRONTLINE PBS  Official" target="DW Documentary">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="FRONTLINE PBS  Official" target="NBC News">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="FRONTLINE PBS  Official" target="MSNBC">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="FRONTLINE PBS  Official" target="Wall Street Journal">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="FRONTLINE PBS  Official" target="NBA">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bugatti" target="Er Maneesh Genesan">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bugatti" target="GRIP - Das Motormagazin">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bugatti" target="IQ 12">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CarRanger" target="Halle77 Dortmund">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="CarRanger" target="GRIP - Das Motormagazin">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Kabel Eins" target="NDR Ratgeber">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Deutsche Hanf-Akademie eV" target="Tipps  Tricks rund ums Haus">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Deutsche Hanf-Akademie eV" target="Andy Wards Ancient Pottery">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Deutsche Hanf-Akademie eV" target="CREATIVE COUPLE">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Deutsche Hanf-Akademie eV" target="Gabriele vom Kunzenhof">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Deutsche Hanf-Akademie eV" target="Galileo">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Deutsche Hanf-Akademie eV" target="Hanfbaukollektiv">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Deutsche Hanf-Akademie eV" target="PETONIs Landleben">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Deutsche Hanf-Akademie eV" target="CGS Tech">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Deutsche Hanf-Akademie eV" target="Lehm-Laden">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DIE WELTWOCHE" target="Sahra Wagenknecht">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DIE WELTWOCHE" target="Vermietertagebuch - Alexander Raue">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DIE WELTWOCHE" target="Prof Dr Christian Rieck">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DIE WELTWOCHE" target="DIE DA OBEN">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DIE WELTWOCHE" target="Krissy Rieger">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DIE WELTWOCHE" target="HKCM">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DIE WELTWOCHE" target="WerteUnion">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Moconomy - Wirtschaft  Finanzen" target="Bayerischer Rundfunk">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="GRIP - Das Motormagazin" target="Galileo">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SKAIgr" target="ΕΡΤ ΑΕ">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SKAIgr" target="Άδωνις Γεωργιάδης Adonis Georgiadis">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="SKAIgr" target="SPORT24">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WDR Comedy  Satire" target="ZDF Satire">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WDR Comedy  Satire" target="SWR Spätschicht">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Stuttgarter Zeitung  Stuttgarter Nachrichten" target="Opernhaus Zürich">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="DraufgaengerTV" target="Udo Lindenberg - UTube">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DraufgaengerTV" target="Einfach Bauer">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Claws Deutsch" target="BILD">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Belko Wood" target="HANDY TIPS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Belko Wood" target="Future Machine Tech">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Belko Wood" target="The Sense">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Belko Wood" target="WOW Tech">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="All process of world" target="Discovering Skills">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="All process of world" target="GommeBlogit Car  Performance">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Ladykracher" target="Vermietertagebuch - Alexander Raue">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Ladykracher" target="Berichte aus der Ukraine">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bayerischer Rundfunk" target="MDR SPASSZONE">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Bayerischer Rundfunk" target="Sportschau">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fraktion DIE LINKE im Bundestag" target="TimeLens">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Fraktion DIE LINKE im Bundestag" target="ntv Nachrichten">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Ratgeber" target="Achtung Abzocke">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NDR Ratgeber" target="Metallindustrie">
+      <data key="d2">2</data>
+    </edge>
+  </graph>
+</graphml>
