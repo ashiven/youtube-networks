@@ -1,0 +1,3440 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="weight" attr.type="long" />
+  <key id="d1" for="node" attr.name="size" attr.type="long" />
+  <key id="d0" for="node" attr.name="size" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="Johnny Harris">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="74 Gear">
+      <data key="d0">22.800000000000058</data>
+    </node>
+    <node id="The Space Race">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="StarTalk">
+      <data key="d0">7.899999999999989</data>
+    </node>
+    <node id="Vox">
+      <data key="d0">4.100000000000002</data>
+    </node>
+    <node id="60 Minutes Australia">
+      <data key="d0">2.7000000000000015</data>
+    </node>
+    <node id="Vsauce">
+      <data key="d0">3.300000000000002</data>
+    </node>
+    <node id="Professor Dave Explains">
+      <data key="d0">3.6000000000000023</data>
+    </node>
+    <node id="HISTORY">
+      <data key="d0">7.49999999999999</data>
+    </node>
+    <node id="7NEWS Spotlight">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="60 Minutes">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Free Documentary - History">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Penguin Books UK">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="VICE News">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="National Geographic">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="NASA Jet Propulsion Laboratory">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="AE">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Lex Fridman">
+      <data key="d0">2.100000000000001</data>
+    </node>
+    <node id="Element 18">
+      <data key="d0">1.9000000000000008</data>
+    </node>
+    <node id="ScienceClic English">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="The B1M">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Financial Times">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="Wall Street Journal">
+      <data key="d0">2.7000000000000015</data>
+    </node>
+    <node id="VICE">
+      <data key="d0">2.200000000000001</data>
+    </node>
+    <node id="USA TODAY">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Science Channel">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Banijay History">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Spark">
+      <data key="d0">2.200000000000001</data>
+    </node>
+    <node id="NOVA PBS Official">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="BBC World Service">
+      <data key="d0">2.7000000000000015</data>
+    </node>
+    <node id="Today I Found Out">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Agatan Foundation">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Safety Third">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="FRONTLINE PBS  Official">
+      <data key="d0">5.999999999999996</data>
+    </node>
+    <node id="DW Documentary">
+      <data key="d0">4.100000000000002</data>
+    </node>
+    <node id="Odyssey - Ancient History Documentaries">
+      <data key="d0">2.9000000000000017</data>
+    </node>
+    <node id="ReYOUniverse">
+      <data key="d1">1</data>
+    </node>
+    <node id="Green Dot Aviation">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="What about it">
+      <data key="d0">1.9000000000000008</data>
+    </node>
+    <node id="World Science Festival">
+      <data key="d0">3.400000000000002</data>
+    </node>
+    <node id="Real Engineering">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Big Think">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="History of the Universe">
+      <data key="d0">3.200000000000002</data>
+    </node>
+    <node id="Andrews Campfire">
+      <data key="d1">1</data>
+    </node>
+    <node id="Veritasium">
+      <data key="d0">1.9000000000000008</data>
+    </node>
+    <node id="Arvin Ash">
+      <data key="d0">5.799999999999996</data>
+    </node>
+    <node id="Oceanliner Designs">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="CNBC">
+      <data key="d0">3.9000000000000026</data>
+    </node>
+    <node id="Insider Business">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="CNET Highlights">
+      <data key="d1">1</data>
+    </node>
+    <node id="Nathan Brookhart">
+      <data key="d1">1</data>
+    </node>
+    <node id="Johnny Carson">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Smithsonian National Air and Space Museum">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TODAY">
+      <data key="d1">1</data>
+    </node>
+    <node id="Manufacturing Intellect">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Progress - Technology History Documentaries">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="Homemade Documentaries">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="ElderFox Documentaries">
+      <data key="d0">1.9000000000000008</data>
+    </node>
+    <node id="HBO">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Richard Dawkins Foundation for Reason  Science">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Larry King">
+      <data key="d0">2.6000000000000014</data>
+    </node>
+    <node id="Moyers  Company">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="H3 Podcast">
+      <data key="d0">2.300000000000001</data>
+    </node>
+    <node id="Dave McKeegan">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="ABC News In-depth">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Real Royalty">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Not Found">
+      <data key="d1">1</data>
+    </node>
+    <node id="Democracy Now">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Free High-Quality Documentaries">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Real Wild">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Getfactual">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Fall of Civilizations">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Sean Carroll">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Smithsonian Channel Aviation Nation">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Curious Natural World">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="ITV News">
+      <data key="d1">1</data>
+    </node>
+    <node id="48 Hours">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Extreme Mysteries">
+      <data key="d0">3.500000000000002</data>
+    </node>
+    <node id="Andrew Huberman">
+      <data key="d0">2.8000000000000016</data>
+    </node>
+    <node id="Shawn Ryan Show">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="DroneScapes">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="WELT Documentary">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Top Luxury">
+      <data key="d0">2.5000000000000013</data>
+    </node>
+    <node id="Task  Purpose">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="The Real News Network">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Sabine Hossenfelder">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Talks at Google">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="Cleo Abram">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="carlsagandotcom">
+      <data key="d0">2.5000000000000013</data>
+    </node>
+    <node id="Zach Star">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="Numberphile">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Yahoo Finance">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="History on Maps">
+      <data key="d1">1</data>
+    </node>
+    <node id="CrashCourse">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Mentour Pilot">
+      <data key="d0">2.4000000000000012</data>
+    </node>
+    <node id="Mustard">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="Jared Owen">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="CBS Sunday Morning">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Scripps News">
+      <data key="d1">1</data>
+    </node>
+    <node id="CNN">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="PBS NewsHour">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Global News">
+      <data key="d1">1</data>
+    </node>
+    <node id="WIRED">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="FS MaNiA">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Rebuild Rescue">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Accidental Aviator">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Aperture Aviation">
+      <data key="d1">1</data>
+    </node>
+    <node id="On-Air Club">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="mtbdesignworks Miegakure 4D Toys">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Matthew Travis">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="American Film Institute">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Space Center Hou">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="NASA">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Retro Space HD">
+      <data key="d1">1</data>
+    </node>
+    <node id="Los Angeles Times Events">
+      <data key="d1">1</data>
+    </node>
+    <node id="lunarmodule5">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Curious Refuge">
+      <data key="d1">1</data>
+    </node>
+    <node id="Sandboxx">
+      <data key="d1">1</data>
+    </node>
+    <node id="The Infographics Show">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Kosmo">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Free Documentary">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="melodysheep">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Wisdom for Life">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Apollo 11 - Apollo Flight Journal">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Binge Society">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Epic History TV">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Real Crime">
+      <data key="d1">1</data>
+    </node>
+    <node id="History of the Earth">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Sideprojects">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Got Questions Ministries">
+      <data key="d1">1</data>
+    </node>
+    <node id="The 92nd Street Y New York">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="Intelligence Squared">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="The Diary Of A CEO">
+      <data key="d0">2.5000000000000013</data>
+    </node>
+    <node id="Piers Morgan Uncensored">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Muhammad Shahzad">
+      <data key="d1">1</data>
+    </node>
+    <node id="The New York Times">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Bloomberg Television">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Boxoffice  Full Movies in English">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Relaxation Film">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="WildEarth">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Free Documentary - Nature">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="All Out History - Premium History Documentaries">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Best Documentary">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Engineering with Rosie">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="BBC News">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Timeline - World History Documentaries">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="On The Move">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="GREAT SPACEX">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="NASASpaceflight">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Everyday Astronaut">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Scott Manley">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="CSI Starbase">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Marcus House">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="American Experience  PBS">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="GQ">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="Buffalo Toronto Public Media">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Tom Bilyeu">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Fox Business">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="NewsNation">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The Deal Guy">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ZDoggMD">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Sam Eckholm">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="space and science">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Lucas T Jahn">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Van Halteren Technologies">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Erik Johnston">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="BC Student Government">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="The Jax Jones and Martin Warner Show">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="MIT Venture Capital  Innovation">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Closer To Truth">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TH - Inspiration  Motivation">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="JRE Clips">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="MotivationHub">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Science Time">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="PowerfulJRE">
+      <data key="d0">3.400000000000002</data>
+    </node>
+    <node id="Geography Lessons">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Chicago Humanities Festival">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Sky News">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="PBS America">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Domain of Science">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="New Media Academy Life">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="The Wonderful Truth">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Carl Sagan Institute">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Space SPAN">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="World Government Summit">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Christopher Lum">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="PBS Space Time">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="Wondrium">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Jacob Yatsko">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="DNG">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="The Action Lab">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Science ABC">
+      <data key="d0">2.200000000000001</data>
+    </node>
+    <node id="Smart by Design">
+      <data key="d0">2.200000000000001</data>
+    </node>
+    <node id="Kurzgesagt  In a Nutshell">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="TED-Ed">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="LondonCityGirl">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="minutephysics">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="This Morning">
+      <data key="d0">4.200000000000002</data>
+    </node>
+    <node id="MSNBC">
+      <data key="d0">2.100000000000001</data>
+    </node>
+    <node id="CBC News">
+      <data key="d0">3.7000000000000024</data>
+    </node>
+    <node id="Channel 4 News">
+      <data key="d0">1.9000000000000008</data>
+    </node>
+    <node id="Forbes Breaking News">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="British GQ">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="The Royal Institution">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Ligonier Ministries">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Fermilab">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="TED">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Discovery Science">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="TEDx Talks">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Hoover Institution">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="African Diaspora News Channel">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="izzitEDU">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="jeffostroff">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="TLDR News EU">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="neo">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Insider Food">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Better Than Yesterday">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="Baseball Doesnt Exist">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="Antonio the Optometrist">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Let Me Explain">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Mark Rober">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="The Guardian">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="MagnatesMedia">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Al Jazeera English">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="WonderWhy">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Marti Gruppe">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="Map Pack">
+      <data key="d0">1.6000000000000005</data>
+    </node>
+    <node id="WWLTV">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Rick Steves Europe">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="History Time">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Echoboom Sports">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="DailyTop10s">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Coby Explanes">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Archies Archive">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Domingo Espetacular">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="CBC">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Skyscrapers MY">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Ryan Shirley">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TheRichest">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Architectural Digest">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="John Coogan">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="NATO">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="National Constitution Center">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="NowThis News">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Yuval Noah Harari">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Thomas Flight">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Vanity Fair">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="PARAGRAPHIC">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Class Creatives">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ImageworksVFX">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ScreenCrush">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="CNA Insider">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Fanpageit">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="LADbible TV">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="VASAviation -">
+      <data key="d0">2.6000000000000014</data>
+    </node>
+    <node id="Skyships Eng">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="Paper Skies">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="AirTrafficVisualised">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Jimmys World">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="Beyond Facts">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="PlaneJunkies">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="INZEAIR84">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="ECD Aviation">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="FlyDay Aviation">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Guido Warnecke">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Mike Patey">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Pedro no Canadá">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="FedScoop">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="CitationMax">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="You can see ATC">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Director of Household Affairs">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Baron Pilot">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Not What You Think">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="The Recreational Pilot">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="ATC Recordings">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The Pilot Channel">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Caner Acarbay">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The Royal Institution of Australia">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="KyleKallgrenBHH">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="Qiskit">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="American Museum of Natural History">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="The Late Show with Stephen Colbert">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Socratica">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="iGen Politics Podcast">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Astronio">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="3Blue1Brown">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Insider">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The Science Asylum">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="AVweb">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Launch Pad Astronomy">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="SWAYS UNIVERSE">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Cool Worlds">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Jonathan Mickelson">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="8 News NOW Las Vegas">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Archy A">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Mind Landfill">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="pianopappy">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Universal Pictures">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="zellco321">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="tnmoc">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TheLBJLibrary">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Movieclips">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="KHOU 11">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="AIRBOYD">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Space Oral History">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Biographer">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Don Giller">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="History of Morgantown WV People">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Mayberry Man">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="CuriousMarc">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Vhs Archives">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Bloomberg Originals">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="CBS News">
+      <data key="d0">1.3000000000000003</data>
+    </node>
+    <node id="ABC News">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="CBS Mornings">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Discovery UK">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="NBC News">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Event Horizon">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="City of Allen - ACTV">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Practical Engineering">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Daily Mail">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Mr Beat">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Science Museum">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Bart D Ehrman">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Capturing Christianity">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The Secrets of the Universe">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="WESH 2 News">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The Space Archive">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="SpaceX">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="EYES 200M">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="SmarterEveryDay">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="San Diego Air and Space Museum Archives">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="SEA">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Fran Blanche">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ONE Media">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The FBI Files">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The New Detectives">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="EWU Crime Storytime">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="touropia">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The Graham Norton Show">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="7NEWS Australia">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="KTLA 5">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Peter Attia MD">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Dhru Purohit">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="US National Archives">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Kings and Generals">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Absolute History">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Jordan B Peterson">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="LawCrime Network">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Astrum">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Real Men Real Style">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Megaprojects">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Biola University">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Kirk Cameron on TBN">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Alisa Childers">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Sean McDowell">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Berkley Center">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="BBC Newsnight">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="TheHitchensArchive">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="NileBlue">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="NileRed">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Rebel News">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="William Osman">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Boy Boy">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Biographics">
+      <data key="d0">1.7000000000000006</data>
+    </node>
+    <node id="A J Merrick">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="AJ">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="Fraser Cain">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Iron Sights">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="SBS Dateline">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Real Stories">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ENR">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Geo History">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Fluctus">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="ayuta">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Underworld">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Wolfram">
+      <data key="d0">2.000000000000001</data>
+    </node>
+    <node id="Channel 5">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Freethink">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="The University of Manchester">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="WATOP">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Sky Scholar">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="Stargaze">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="FOX 5 New York">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="CodeParade">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Gresham College">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Shalom World">
+      <data key="d0">1.4000000000000004</data>
+    </node>
+    <node id="Dr James Tour">
+      <data key="d0">1.5000000000000004</data>
+    </node>
+    <node id="blancolirio">
+      <data key="d0">1.8000000000000007</data>
+    </node>
+    <node id="AVIATION HUB">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="driving 4 answers">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Scammer Payback">
+      <data key="d0">1.1</data>
+    </node>
+    <node id="Frankie HM Channel  Plane Spotting">
+      <data key="d0">1.9000000000000008</data>
+    </node>
+    <node id="Skywagon University">
+      <data key="d0">1.2000000000000002</data>
+    </node>
+    <node id="REAL ATC">
+      <data key="d0">1.1</data>
+    </node>
+    <edge source="Johnny Harris" target="74 Gear">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Harris" target="StarTalk">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Johnny Harris" target="Vox">
+      <data key="d2">47</data>
+    </edge>
+    <edge source="Johnny Harris" target="The Space Race">
+      <data key="d2">15</data>
+    </edge>
+    <edge source="Johnny Harris" target="HISTORY">
+      <data key="d2">39</data>
+    </edge>
+    <edge source="Johnny Harris" target="60 Minutes Australia">
+      <data key="d2">32</data>
+    </edge>
+    <edge source="Johnny Harris" target="7NEWS Spotlight">
+      <data key="d2">25</data>
+    </edge>
+    <edge source="Johnny Harris" target="VICE News">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Johnny Harris" target="National Geographic">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Johnny Harris" target="Element 18">
+      <data key="d2">23</data>
+    </edge>
+    <edge source="Johnny Harris" target="FRONTLINE PBS  Official">
+      <data key="d2">39</data>
+    </edge>
+    <edge source="Johnny Harris" target="Wall Street Journal">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Johnny Harris" target="Democracy Now">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Harris" target="The Real News Network">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Johnny Harris" target="The New York Times">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Harris" target="Bloomberg Television">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Johnny Harris" target="Professor Dave Explains">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Harris" target="DW Documentary">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Johnny Harris" target="Biographics">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Johnny Harris" target="Veritasium">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Johnny Harris" target="A J Merrick">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Harris" target="AJ">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Johnny Harris" target="TED-Ed">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Harris" target="VICE">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Harris" target="The 92nd Street Y New York">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Johnny Harris" target="WIRED">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Johnny Harris" target="Insider">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Johnny Harris" target="Insider Business">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Harris" target="Lex Fridman">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Johnny Harris" target="Vsauce">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Harris" target="Geo History">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Harris" target="Fluctus">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="74 Gear" target="The Space Race">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="74 Gear" target="StarTalk">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="74 Gear" target="Nathan Brookhart">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="74 Gear" target="Mentour Pilot">
+      <data key="d2">23</data>
+    </edge>
+    <edge source="74 Gear" target="VASAviation -">
+      <data key="d2">16</data>
+    </edge>
+    <edge source="74 Gear" target="Skyships Eng">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="74 Gear" target="Paper Skies">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="74 Gear" target="On-Air Club">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="74 Gear" target="Mike Patey">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="74 Gear" target="Green Dot Aviation">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="74 Gear" target="60 Minutes Australia">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="74 Gear" target="FedScoop">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="74 Gear" target="You can see ATC">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="74 Gear" target="Caner Acarbay">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="74 Gear" target="Free Documentary">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="74 Gear" target="blancolirio">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="74 Gear" target="Frankie HM Channel  Plane Spotting">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="74 Gear" target="CBS Sunday Morning">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="74 Gear" target="REAL ATC">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The Space Race" target="60 Minutes Australia">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="The Space Race" target="Vsauce">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="The Space Race" target="Professor Dave Explains">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="StarTalk" target="Professor Dave Explains">
+      <data key="d2">43</data>
+    </edge>
+    <edge source="StarTalk" target="ScienceClic English">
+      <data key="d2">30</data>
+    </edge>
+    <edge source="StarTalk" target="Penguin Books UK">
+      <data key="d2">20</data>
+    </edge>
+    <edge source="StarTalk" target="Big Think">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="StarTalk" target="Arvin Ash">
+      <data key="d2">46</data>
+    </edge>
+    <edge source="StarTalk" target="Talks at Google">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="StarTalk" target="NOVA PBS Official">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="StarTalk" target="Cleo Abram">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="StarTalk" target="carlsagandotcom">
+      <data key="d2">24</data>
+    </edge>
+    <edge source="StarTalk" target="Not Found">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="StarTalk" target="World Science Festival">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="StarTalk" target="The Jax Jones and Martin Warner Show">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="StarTalk" target="MIT Venture Capital  Innovation">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="StarTalk" target="The 92nd Street Y New York">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="StarTalk" target="JRE Clips">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="StarTalk" target="MotivationHub">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="StarTalk" target="The Diary Of A CEO">
+      <data key="d2">28</data>
+    </edge>
+    <edge source="StarTalk" target="Science Time">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="StarTalk" target="Larry King">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="StarTalk" target="Agatan Foundation">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="StarTalk" target="CrashCourse">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="StarTalk" target="PowerfulJRE">
+      <data key="d2">24</data>
+    </edge>
+    <edge source="StarTalk" target="Geography Lessons">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="StarTalk" target="World Government Summit">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="StarTalk" target="History of the Universe">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="StarTalk" target="Science ABC">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="StarTalk" target="Smart by Design">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="StarTalk" target="Kurzgesagt  In a Nutshell">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="StarTalk" target="TED-Ed">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="StarTalk" target="Veritasium">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="StarTalk" target="LondonCityGirl">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="StarTalk" target="minutephysics">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="StarTalk" target="Fermilab">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="StarTalk" target="The Royal Institution of Australia">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="StarTalk" target="The Royal Institution">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="StarTalk" target="The Wonderful Truth">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="StarTalk" target="Vsauce">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="StarTalk" target="American Museum of Natural History">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="StarTalk" target="The Late Show with Stephen Colbert">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="StarTalk" target="Socratica">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="StarTalk" target="iGen Politics Podcast">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="StarTalk" target="Astronio">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="StarTalk" target="Piers Morgan Uncensored">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="StarTalk" target="Dave McKeegan">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="StarTalk" target="The Science Asylum">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="StarTalk" target="AVweb">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="StarTalk" target="Launch Pad Astronomy">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="StarTalk" target="SWAYS UNIVERSE">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="StarTalk" target="LADbible TV">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="StarTalk" target="Muhammad Shahzad">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="StarTalk" target="Practical Engineering">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="StarTalk" target="Underworld">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="StarTalk" target="FOX 5 New York">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Vox" target="The B1M">
+      <data key="d2">18</data>
+    </edge>
+    <edge source="Vox" target="Financial Times">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Vox" target="Wall Street Journal">
+      <data key="d2">20</data>
+    </edge>
+    <edge source="Vox" target="VICE">
+      <data key="d2">18</data>
+    </edge>
+    <edge source="Vox" target="VICE News">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="Vox" target="Oceanliner Designs">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Vox" target="History on Maps">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Vox" target="DW Documentary">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Vox" target="CrashCourse">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Vox" target="Mentour Pilot">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Vox" target="Mustard">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Vox" target="CNBC">
+      <data key="d2">17</data>
+    </edge>
+    <edge source="Vox" target="WIRED">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="Vox" target="izzitEDU">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Vox" target="HISTORY">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Vox" target="Better Than Yesterday">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="Vox" target="Baseball Doesnt Exist">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Vox" target="GQ">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Vox" target="Antonio the Optometrist">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Vox" target="TED-Ed">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Vox" target="Let Me Explain">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Vox" target="Al Jazeera English">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Vox" target="WonderWhy">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Vox" target="WWLTV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Vox" target="FRONTLINE PBS  Official">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Vox" target="History Time">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Vox" target="60 Minutes Australia">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Vox" target="Echoboom Sports">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Vox" target="DailyTop10s">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Vox" target="Timeline - World History Documentaries">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Vox" target="Archies Archive">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Vox" target="Thomas Flight">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Vox" target="Vanity Fair">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Vox" target="National Geographic">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Vox" target="PARAGRAPHIC">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Vox" target="TED">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Vox" target="The Infographics Show">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Vox" target="Smithsonian Channel Aviation Nation">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="60 Minutes">
+      <data key="d2">19</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="Free Documentary - History">
+      <data key="d2">17</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="Penguin Books UK">
+      <data key="d2">21</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="7NEWS Spotlight">
+      <data key="d2">36</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="HISTORY">
+      <data key="d2">36</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="AE">
+      <data key="d2">28</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="BBC World Service">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="ABC News In-depth">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="Wall Street Journal">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="BBC News">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="DW Documentary">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="GQ">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="VICE">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="VICE News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="FRONTLINE PBS  Official">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="NASA">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="HBO">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="NASA Jet Propulsion Laboratory">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="Apollo 11 - Apollo Flight Journal">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="CNA Insider">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="touropia">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="NOVA PBS Official">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="The Graham Norton Show">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="Lex Fridman">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="TLDR News EU">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes Australia" target="SBS Dateline">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Vsauce" target="Safety Third">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Vsauce" target="Andrews Campfire">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Vsauce" target="Professor Dave Explains">
+      <data key="d2">32</data>
+    </edge>
+    <edge source="Vsauce" target="The Action Lab">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Vsauce" target="WIRED">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Vsauce" target="Lex Fridman">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Dave McKeegan">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Lex Fridman">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="History of the Universe">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="World Science Festival">
+      <data key="d2">30</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="This Morning">
+      <data key="d2">29</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Zach Star">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="MSNBC">
+      <data key="d2">25</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Spark">
+      <data key="d2">24</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="CBC News">
+      <data key="d2">27</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Veritasium">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Channel 4 News">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Forbes Breaking News">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="British GQ">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="The Royal Institution">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Ligonier Ministries">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="TED">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Discovery Science">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="TEDx Talks">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Hoover Institution">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="African Diaspora News Channel">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="HISTORY">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="WIRED">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Insider">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="The University of Manchester">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Big Think">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="WATOP">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Sky Scholar">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Stargaze">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Wolfram">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Gresham College">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Shalom World">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Dr James Tour">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Biola University">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="3Blue1Brown">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Professor Dave Explains" target="Real Engineering">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="HISTORY" target="NASA Jet Propulsion Laboratory">
+      <data key="d2">48</data>
+    </edge>
+    <edge source="HISTORY" target="AE">
+      <data key="d2">53</data>
+    </edge>
+    <edge source="HISTORY" target="7NEWS Spotlight">
+      <data key="d2">89</data>
+    </edge>
+    <edge source="HISTORY" target="NOVA PBS Official">
+      <data key="d2">80</data>
+    </edge>
+    <edge source="HISTORY" target="Odyssey - Ancient History Documentaries">
+      <data key="d2">95</data>
+    </edge>
+    <edge source="HISTORY" target="ReYOUniverse">
+      <data key="d2">67</data>
+    </edge>
+    <edge source="HISTORY" target="Green Dot Aviation">
+      <data key="d2">17</data>
+    </edge>
+    <edge source="HISTORY" target="Science Channel">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="HISTORY" target="Banijay History">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="HISTORY" target="Today I Found Out">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="HISTORY" target="FRONTLINE PBS  Official">
+      <data key="d2">16</data>
+    </edge>
+    <edge source="HISTORY" target="Not Found">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="HISTORY" target="Extreme Mysteries">
+      <data key="d2">27</data>
+    </edge>
+    <edge source="HISTORY" target="Spark">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="HISTORY" target="Progress - Technology History Documentaries">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="HISTORY" target="Element 18">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="HISTORY" target="National Geographic">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="HISTORY" target="Lex Fridman">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="HISTORY" target="Wall Street Journal">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="HISTORY" target="DW Documentary">
+      <data key="d2">30</data>
+    </edge>
+    <edge source="HISTORY" target="Oceanliner Designs">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="HISTORY" target="CBS Sunday Morning">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="HISTORY" target="CNN">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="HISTORY" target="Sandboxx">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="HISTORY" target="Daily Mail">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="HISTORY" target="Free Documentary - History">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="HISTORY" target="Fall of Civilizations">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="HISTORY" target="World Science Festival">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="Lex Fridman">
+      <data key="d2">42</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="FRONTLINE PBS  Official">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="ITV News">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="AE">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="48 Hours">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="VICE">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="Real Crime">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="Odyssey - Ancient History Documentaries">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="CNA Insider">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="BBC World Service">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="Sandboxx">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="DW Documentary">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="World Science Festival">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="7NEWS Spotlight" target="WELT Documentary">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes" target="USA TODAY">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="60 Minutes" target="Science Channel">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="60 Minutes" target="Penguin Books UK">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="60 Minutes" target="BBC World Service">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="60 Minutes" target="Wisdom for Life">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes" target="FRONTLINE PBS  Official">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="60 Minutes" target="Bloomberg Originals">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="60 Minutes" target="HBO">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="60 Minutes" target="Mr Beat">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes" target="NASA Jet Propulsion Laboratory">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes" target="The B1M">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes" target="Wall Street Journal">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="60 Minutes" target="Lex Fridman">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="60 Minutes" target="World Science Festival">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Free Documentary - History" target="Banijay History">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Free Documentary - History" target="Spark">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Free Documentary - History" target="NOVA PBS Official">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Free Documentary - History" target="BBC World Service">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Free Documentary - History" target="Penguin Books UK">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Free Documentary - History" target="NASA Jet Propulsion Laboratory">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Penguin Books UK" target="Today I Found Out">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Penguin Books UK" target="Agatan Foundation">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Penguin Books UK" target="Larry King">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Penguin Books UK" target="Science Channel">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Penguin Books UK" target="The 92nd Street Y New York">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Penguin Books UK" target="BBC World Service">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Penguin Books UK" target="Dave McKeegan">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="VICE News" target="FRONTLINE PBS  Official">
+      <data key="d2">26</data>
+    </edge>
+    <edge source="VICE News" target="DW Documentary">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="VICE News" target="ABC News In-depth">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="VICE News" target="VICE">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="VICE News" target="Insider Business">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="VICE News" target="Insider">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="National Geographic" target="Odyssey - Ancient History Documentaries">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="National Geographic" target="Free High-Quality Documentaries">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="National Geographic" target="Real Wild">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="National Geographic" target="Getfactual">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="National Geographic" target="Oceanliner Designs">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="National Geographic" target="ABC News In-depth">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="National Geographic" target="NOVA PBS Official">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="National Geographic" target="Boxoffice  Full Movies in English">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="National Geographic" target="Relaxation Film">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="National Geographic" target="WildEarth">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="National Geographic" target="Free Documentary - Nature">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="National Geographic" target="All Out History - Premium History Documentaries">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="National Geographic" target="Curious Natural World">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="National Geographic" target="Extreme Mysteries">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="National Geographic" target="FRONTLINE PBS  Official">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="National Geographic" target="Jared Owen">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="National Geographic" target="CBS Sunday Morning">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="National Geographic" target="VICE">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NASA Jet Propulsion Laboratory" target="What about it">
+      <data key="d2">20</data>
+    </edge>
+    <edge source="NASA Jet Propulsion Laboratory" target="NOVA PBS Official">
+      <data key="d2">16</data>
+    </edge>
+    <edge source="NASA Jet Propulsion Laboratory" target="World Science Festival">
+      <data key="d2">14</data>
+    </edge>
+    <edge source="NASA Jet Propulsion Laboratory" target="Progress - Technology History Documentaries">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="NASA Jet Propulsion Laboratory" target="Homemade Documentaries">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="NASA Jet Propulsion Laboratory" target="Banijay History">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NASA Jet Propulsion Laboratory" target="ElderFox Documentaries">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="NASA Jet Propulsion Laboratory" target="Spark">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="NASA Jet Propulsion Laboratory" target="DroneScapes">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="NASA Jet Propulsion Laboratory" target="ENR">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="AE" target="Curious Natural World">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="AE" target="48 Hours">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="AE" target="ABC News In-depth">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="AE" target="ITV News">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="AE" target="VICE">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="AE" target="LawCrime Network">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="AE" target="Iron Sights">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="AE" target="The New Detectives">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="AE" target="Real Stories">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Lex Fridman" target="World Science Festival">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Lex Fridman" target="Andrew Huberman">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="Lex Fridman" target="Shawn Ryan Show">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Lex Fridman" target="H3 Podcast">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Lex Fridman" target="Tom Bilyeu">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Lex Fridman" target="ZDoggMD">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Lex Fridman" target="Financial Times">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Lex Fridman" target="Today I Found Out">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Lex Fridman" target="KTLA 5">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Lex Fridman" target="Peter Attia MD">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Lex Fridman" target="Dhru Purohit">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Lex Fridman" target="US National Archives">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Lex Fridman" target="TEDx Talks">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Lex Fridman" target="Wolfram">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Lex Fridman" target="Task  Purpose">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Lex Fridman" target="CNET Highlights">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Element 18" target="The B1M">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="Element 18" target="Spark">
+      <data key="d2">15</data>
+    </edge>
+    <edge source="Element 18" target="Real Engineering">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="Element 18" target="DroneScapes">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Element 18" target="CNBC">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Element 18" target="space and science">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ScienceClic English" target="History of the Universe">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="ScienceClic English" target="Andrews Campfire">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="ScienceClic English" target="Veritasium">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="ScienceClic English" target="Arvin Ash">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="ScienceClic English" target="Christopher Lum">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ScienceClic English" target="Cool Worlds">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ScienceClic English" target="Astrum">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The B1M" target="NOVA PBS Official">
+      <data key="d2">24</data>
+    </edge>
+    <edge source="The B1M" target="WELT Documentary">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="The B1M" target="Top Luxury">
+      <data key="d2">26</data>
+    </edge>
+    <edge source="The B1M" target="Veritasium">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="The B1M" target="CNBC">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="The B1M" target="Spark">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The B1M" target="TLDR News EU">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="The B1M" target="neo">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="The B1M" target="WIRED">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The B1M" target="Marti Gruppe">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="The B1M" target="Map Pack">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="The B1M" target="Insider Business">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The B1M" target="TheRichest">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The B1M" target="Architectural Digest">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The B1M" target="Freethink">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Financial Times" target="Wall Street Journal">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="Financial Times" target="CNBC">
+      <data key="d2">11</data>
+    </edge>
+    <edge source="Financial Times" target="FRONTLINE PBS  Official">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Financial Times" target="Scripps News">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Financial Times" target="DW Documentary">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Financial Times" target="Sabine Hossenfelder">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Financial Times" target="Real Engineering">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Financial Times" target="NOVA PBS Official">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Wall Street Journal" target="FRONTLINE PBS  Official">
+      <data key="d2">28</data>
+    </edge>
+    <edge source="Wall Street Journal" target="Insider Business">
+      <data key="d2">38</data>
+    </edge>
+    <edge source="Wall Street Journal" target="CNET Highlights">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Wall Street Journal" target="Yahoo Finance">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="Wall Street Journal" target="CNBC">
+      <data key="d2">8</data>
+    </edge>
+    <edge source="Wall Street Journal" target="DW Documentary">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Wall Street Journal" target="VICE">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="VICE" target="DW Documentary">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="VICE" target="Mark Rober">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="VICE" target="The Guardian">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="VICE" target="MagnatesMedia">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="VICE" target="GQ">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="VICE" target="ABC News In-depth">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="VICE" target="Fanpageit">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="VICE" target="LADbible TV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="VICE" target="Not Found">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="VICE" target="Free Documentary">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="USA TODAY" target="Johnny Carson">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="USA TODAY" target="Smithsonian National Air and Space Museum">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="USA TODAY" target="TODAY">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="USA TODAY" target="Manufacturing Intellect">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="USA TODAY" target="Epic History TV">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="USA TODAY" target="Vanity Fair">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="USA TODAY" target="Retro Space HD">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Science Channel" target="BBC World Service">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Science Channel" target="Curious Refuge">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Science Channel" target="Sandboxx">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Science Channel" target="The Infographics Show">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Science Channel" target="8 News NOW Las Vegas">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Science Channel" target="Practical Engineering">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Science Channel" target="Veritasium">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Banijay History" target="Spark">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Banijay History" target="Progress - Technology History Documentaries">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Banijay History" target="What about it">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Banijay History" target="Jonathan Mickelson">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Banijay History" target="Free Documentary">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Banijay History" target="Epic History TV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Spark" target="Homemade Documentaries">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Spark" target="DroneScapes">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Spark" target="History of the Universe">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Spark" target="Progress - Technology History Documentaries">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="Spark" target="What about it">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Spark" target="Kosmo">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Spark" target="Sean Carroll">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Spark" target="CNBC">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Spark" target="Free Documentary">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Spark" target="Van Halteren Technologies">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Spark" target="Real Engineering">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Spark" target="World Science Festival">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Spark" target="DW Documentary">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Spark" target="NOVA PBS Official">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Spark" target="Insider Business">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Spark" target="ReYOUniverse">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Spark" target="lunarmodule5">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Spark" target="Wisdom for Life">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Spark" target="SmarterEveryDay">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NOVA PBS Official" target="ElderFox Documentaries">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="NOVA PBS Official" target="BBC World Service">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NOVA PBS Official" target="DW Documentary">
+      <data key="d2">26</data>
+    </edge>
+    <edge source="NOVA PBS Official" target="Big Think">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NOVA PBS Official" target="Not Found">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="NOVA PBS Official" target="FRONTLINE PBS  Official">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="NOVA PBS Official" target="History of the Universe">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="NOVA PBS Official" target="Talks at Google">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NOVA PBS Official" target="PBS America">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="NOVA PBS Official" target="Arvin Ash">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="NOVA PBS Official" target="Odyssey - Ancient History Documentaries">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BBC World Service" target="HBO">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="BBC World Service" target="Today I Found Out">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="BBC World Service" target="TODAY">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BBC World Service" target="Progress - Technology History Documentaries">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BBC World Service" target="ElderFox Documentaries">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BBC World Service" target="Matthew Travis">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BBC World Service" target="Apollo 11 - Apollo Flight Journal">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="BBC World Service" target="CBS News">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="BBC World Service" target="American Film Institute">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="BBC World Service" target="Manufacturing Intellect">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="BBC World Service" target="Science Museum">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BBC World Service" target="Free Documentary">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BBC World Service" target="PBS NewsHour">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BBC World Service" target="SmarterEveryDay">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="BBC World Service" target="Epic History TV">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="BBC World Service" target="San Diego Air and Space Museum Archives">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Today I Found Out" target="History of the Earth">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Today I Found Out" target="Sideprojects">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Today I Found Out" target="Got Questions Ministries">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Today I Found Out" target="Fall of Civilizations">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Today I Found Out" target="neo">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Today I Found Out" target="KyleKallgrenBHH">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Today I Found Out" target="History of the Universe">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Today I Found Out" target="FRONTLINE PBS  Official">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Today I Found Out" target="Task  Purpose">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Today I Found Out" target="Bart D Ehrman">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Today I Found Out" target="Capturing Christianity">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Today I Found Out" target="Real Men Real Style">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Today I Found Out" target="Megaprojects">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Agatan Foundation" target="Richard Dawkins Foundation for Reason  Science">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Agatan Foundation" target="Larry King">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Agatan Foundation" target="Moyers  Company">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Agatan Foundation" target="The 92nd Street Y New York">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Agatan Foundation" target="Muhammad Shahzad">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Agatan Foundation" target="The Diary Of A CEO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Agatan Foundation" target="TheHitchensArchive">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Safety Third" target="H3 Podcast">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Safety Third" target="NileBlue">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Safety Third" target="Fall of Civilizations">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Safety Third" target="NileRed">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Safety Third" target="Rebel News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Safety Third" target="William Osman">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Safety Third" target="Boy Boy">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="FRONTLINE PBS  Official" target="Real Royalty">
+      <data key="d2">15</data>
+    </edge>
+    <edge source="FRONTLINE PBS  Official" target="Not Found">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="FRONTLINE PBS  Official" target="Yahoo Finance">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="FRONTLINE PBS  Official" target="CNBC">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="FRONTLINE PBS  Official" target="DW Documentary">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="FRONTLINE PBS  Official" target="Scripps News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="FRONTLINE PBS  Official" target="Insider Business">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="FRONTLINE PBS  Official" target="PBS NewsHour">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DW Documentary" target="History on Maps">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DW Documentary" target="Rick Steves Europe">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DW Documentary" target="Al Jazeera English">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DW Documentary" target="Marcus House">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DW Documentary" target="ABC News In-depth">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Odyssey - Ancient History Documentaries" target="Timeline - World History Documentaries">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Odyssey - Ancient History Documentaries" target="Fall of Civilizations">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Odyssey - Ancient History Documentaries" target="Kings and Generals">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Odyssey - Ancient History Documentaries" target="Absolute History">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ReYOUniverse" target="Fall of Civilizations">
+      <data key="d2">17</data>
+    </edge>
+    <edge source="ReYOUniverse" target="Sean Carroll">
+      <data key="d2">12</data>
+    </edge>
+    <edge source="Green Dot Aviation" target="Smithsonian Channel Aviation Nation">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Green Dot Aviation" target="Mentour Pilot">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="What about it" target="Engineering with Rosie">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="What about it" target="GREAT SPACEX">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="What about it" target="NASASpaceflight">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="What about it" target="Everyday Astronaut">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="What about it" target="Scott Manley">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="What about it" target="CSI Starbase">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="What about it" target="Marcus House">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="What about it" target="TLDR News EU">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="World Science Festival" target="History of the Universe">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="World Science Festival" target="Veritasium">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="World Science Festival" target="Fraser Cain">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Real Engineering" target="Task  Purpose">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Real Engineering" target="Sandboxx">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Real Engineering" target="Mentour Pilot">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Real Engineering" target="Dave McKeegan">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Big Think" target="Sabine Hossenfelder">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Big Think" target="Closer To Truth">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Big Think" target="TH - Inspiration  Motivation">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="History of the Universe" target="Arvin Ash">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="History of the Universe" target="PBS Space Time">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="History of the Universe" target="Veritasium">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="History of the Universe" target="Wondrium">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="History of the Universe" target="TLDR News EU">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="History of the Universe" target="Wisdom for Life">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Andrews Campfire" target="Zach Star">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Andrews Campfire" target="Numberphile">
+      <data key="d2">6</data>
+    </edge>
+    <edge source="Andrews Campfire" target="mtbdesignworks Miegakure 4D Toys">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Andrews Campfire" target="Jacob Yatsko">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Andrews Campfire" target="Arvin Ash">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Andrews Campfire" target="The Action Lab">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Andrews Campfire" target="CodeParade">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Veritasium" target="Zach Star">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Veritasium" target="Numberphile">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Veritasium" target="ayuta">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Oceanliner Designs" target="Jared Owen">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Oceanliner Designs" target="CBS Sunday Morning">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Oceanliner Designs" target="jeffostroff">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Oceanliner Designs" target="Channel 5">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CNBC" target="Mentour Pilot">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="CNBC" target="Coby Explanes">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CNBC" target="Yahoo Finance">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CNBC" target="Scripps News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CNBC" target="Insider Business">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="CNBC" target="John Coogan">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Insider Business" target="Insider Food">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Insider Business" target="Top Luxury">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Insider Business" target="NATO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Insider Business" target="TLDR News EU">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CNET Highlights" target="Yahoo Finance">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="CNET Highlights" target="CNN">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CNET Highlights" target="PBS NewsHour">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CNET Highlights" target="Global News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CNET Highlights" target="CBS Mornings">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CNET Highlights" target="Wolfram">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Nathan Brookhart" target="FS MaNiA">
+      <data key="d2">13</data>
+    </edge>
+    <edge source="Nathan Brookhart" target="Rebuild Rescue">
+      <data key="d2">10</data>
+    </edge>
+    <edge source="Nathan Brookhart" target="Accidental Aviator">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Nathan Brookhart" target="Aperture Aviation">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Nathan Brookhart" target="On-Air Club">
+      <data key="d2">9</data>
+    </edge>
+    <edge source="Nathan Brookhart" target="Pedro no Canadá">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Nathan Brookhart" target="CitationMax">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Nathan Brookhart" target="Skywagon University">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Johnny Carson" target="Matthew Travis">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Johnny Carson" target="American Film Institute">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Johnny Carson" target="TODAY">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Carson" target="Archy A">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Carson" target="Mind Landfill">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Carson" target="pianopappy">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Carson" target="Smithsonian National Air and Space Museum">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Carson" target="Space Oral History">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Carson" target="Retro Space HD">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Carson" target="lunarmodule5">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Carson" target="Manufacturing Intellect">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Johnny Carson" target="Binge Society">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Smithsonian National Air and Space Museum" target="Space Center Hou">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Smithsonian National Air and Space Museum" target="American Film Institute">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Smithsonian National Air and Space Museum" target="tnmoc">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Smithsonian National Air and Space Museum" target="TheLBJLibrary">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Smithsonian National Air and Space Museum" target="AIRBOYD">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Smithsonian National Air and Space Museum" target="CNN">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Smithsonian National Air and Space Museum" target="lunarmodule5">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="TODAY" target="NASA">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Manufacturing Intellect" target="Retro Space HD">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Manufacturing Intellect" target="Los Angeles Times Events">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Manufacturing Intellect" target="lunarmodule5">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Manufacturing Intellect" target="The Late Show with Stephen Colbert">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Manufacturing Intellect" target="Vhs Archives">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Progress - Technology History Documentaries" target="Epic History TV">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Progress - Technology History Documentaries" target="Homemade Documentaries">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Homemade Documentaries" target="lunarmodule5">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Homemade Documentaries" target="Free Documentary">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Homemade Documentaries" target="The Secrets of the Universe">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Homemade Documentaries" target="WESH 2 News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Homemade Documentaries" target="The Space Archive">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Homemade Documentaries" target="Epic History TV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ElderFox Documentaries" target="melodysheep">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="HBO" target="Apollo 11 - Apollo Flight Journal">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="HBO" target="Binge Society">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="HBO" target="Epic History TV">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Richard Dawkins Foundation for Reason  Science" target="The 92nd Street Y New York">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Richard Dawkins Foundation for Reason  Science" target="Intelligence Squared">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Richard Dawkins Foundation for Reason  Science" target="The Diary Of A CEO">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Richard Dawkins Foundation for Reason  Science" target="Moyers  Company">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="Richard Dawkins Foundation for Reason  Science" target="Piers Morgan Uncensored">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Larry King" target="Moyers  Company">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Larry King" target="The 92nd Street Y New York">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Larry King" target="The Diary Of A CEO">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="Moyers  Company" target="Piers Morgan Uncensored">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="H3 Podcast" target="TEDx Talks">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Dave McKeegan" target="This Morning">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="ABC News In-depth" target="Not Found">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ABC News In-depth" target="TLDR News EU">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ABC News In-depth" target="7NEWS Australia">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Real Royalty" target="ITV News">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Not Found" target="The 92nd Street Y New York">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Not Found" target="The Diary Of A CEO">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Not Found" target="Real Wild">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Not Found" target="ITV News">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Not Found" target="Aperture Aviation">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Democracy Now" target="The Real News Network">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Free High-Quality Documentaries" target="Real Wild">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Free High-Quality Documentaries" target="Free Documentary">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Real Wild" target="Getfactual">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Real Wild" target="Curious Natural World">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Getfactual" target="Best Documentary">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Getfactual" target="Extreme Mysteries">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Fall of Civilizations" target="Sean Carroll">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Sean Carroll" target="Jordan B Peterson">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Smithsonian Channel Aviation Nation" target="On The Move">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Smithsonian Channel Aviation Nation" target="The New Detectives">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ITV News" target="Real Crime">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ITV News" target="American Experience  PBS">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="48 Hours" target="MSNBC">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Extreme Mysteries" target="Buffalo Toronto Public Media">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Shawn Ryan Show" target="Fox Business">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Shawn Ryan Show" target="NewsNation">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Shawn Ryan Show" target="The Deal Guy">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DroneScapes" target="Sam Eckholm">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="DroneScapes" target="Erik Johnston">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Documentary" target="Lucas T Jahn">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Documentary" target="Top Luxury">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WELT Documentary" target="Skyscrapers MY">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Top Luxury" target="Ryan Shirley">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The Real News Network" target="BC Student Government">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Sabine Hossenfelder" target="Qiskit">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Sabine Hossenfelder" target="WIRED">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Talks at Google" target="Chicago Humanities Festival">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Talks at Google" target="Sky News">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Cleo Abram" target="Domain of Science">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Cleo Abram" target="New Media Academy Life">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Cleo Abram" target="MIT Venture Capital  Innovation">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="carlsagandotcom" target="The Wonderful Truth">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="carlsagandotcom" target="Carl Sagan Institute">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="carlsagandotcom" target="Space SPAN">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Zach Star" target="Numberphile">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Zach Star" target="mtbdesignworks Miegakure 4D Toys">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Numberphile" target="DNG">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Numberphile" target="The Action Lab">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Numberphile" target="mtbdesignworks Miegakure 4D Toys">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Yahoo Finance" target="Scripps News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Yahoo Finance" target="National Constitution Center">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Yahoo Finance" target="NowThis News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Yahoo Finance" target="CNN">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="History on Maps" target="Al Jazeera English">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="History on Maps" target="CrashCourse">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CrashCourse" target="Al Jazeera English">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Jared Owen" target="Domingo Espetacular">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CBS Sunday Morning" target="CBC">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CNN" target="MSNBC">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="CNN" target="PBS NewsHour">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="CNN" target="Global News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Global News" target="Forbes Breaking News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Global News" target="Yuval Noah Harari">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Global News" target="NowThis News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WIRED" target="Class Creatives">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WIRED" target="ImageworksVFX">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="WIRED" target="ScreenCrush">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="FS MaNiA" target="AirTrafficVisualised">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="FS MaNiA" target="ATC Recordings">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="FS MaNiA" target="AVIATION HUB">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Rebuild Rescue" target="Jimmys World">
+      <data key="d2">7</data>
+    </edge>
+    <edge source="Rebuild Rescue" target="Beyond Facts">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Rebuild Rescue" target="driving 4 answers">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Accidental Aviator" target="PlaneJunkies">
+      <data key="d2">4</data>
+    </edge>
+    <edge source="Accidental Aviator" target="INZEAIR84">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Accidental Aviator" target="CitationMax">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Accidental Aviator" target="The Pilot Channel">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Aperture Aviation" target="ECD Aviation">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Aperture Aviation" target="FlyDay Aviation">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Aperture Aviation" target="Guido Warnecke">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="On-Air Club" target="Director of Household Affairs">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="On-Air Club" target="Baron Pilot">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="On-Air Club" target="Not What You Think">
+      <data key="d2">3</data>
+    </edge>
+    <edge source="On-Air Club" target="The Recreational Pilot">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="On-Air Club" target="Scammer Payback">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="mtbdesignworks Miegakure 4D Toys" target="3Blue1Brown">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Matthew Travis" target="Universal Pictures">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Matthew Travis" target="zellco321">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Matthew Travis" target="NASA">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Matthew Travis" target="Binge Society">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Space Center Hou" target="Movieclips">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Space Center Hou" target="KHOU 11">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="NASA" target="Binge Society">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Retro Space HD" target="Binge Society">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Los Angeles Times Events" target="Biographer">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Los Angeles Times Events" target="Don Giller">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Los Angeles Times Events" target="History of Morgantown WV People">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Los Angeles Times Events" target="Mayberry Man">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="lunarmodule5" target="Universal Pictures">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="lunarmodule5" target="CuriousMarc">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Curious Refuge" target="The New York Times">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Curious Refuge" target="ABC News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Curious Refuge" target="CBS Mornings">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Curious Refuge" target="Discovery UK">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Sandboxx" target="NBC News">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Sandboxx" target="Event Horizon">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The Infographics Show" target="City of Allen - ACTV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The Infographics Show" target="TLDR News EU">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Kosmo" target="melodysheep">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Free Documentary" target="SpaceX">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Free Documentary" target="Epic History TV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="melodysheep" target="EYES 200M">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Wisdom for Life" target="SEA">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Apollo 11 - Apollo Flight Journal" target="Epic History TV">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Apollo 11 - Apollo Flight Journal" target="Fran Blanche">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Binge Society" target="ONE Media">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Binge Society" target="Universal Pictures">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Real Crime" target="The FBI Files">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Real Crime" target="The New Detectives">
+      <data key="d2">2</data>
+    </edge>
+    <edge source="Real Crime" target="EWU Crime Storytime">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="History of the Earth" target="Astrum">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Sideprojects" target="Cool Worlds">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Got Questions Ministries" target="Biola University">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Got Questions Ministries" target="Kirk Cameron on TBN">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Got Questions Ministries" target="Alisa Childers">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Got Questions Ministries" target="Sean McDowell">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The 92nd Street Y New York" target="The Diary Of A CEO">
+      <data key="d2">5</data>
+    </edge>
+    <edge source="The 92nd Street Y New York" target="Piers Morgan Uncensored">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="The 92nd Street Y New York" target="Muhammad Shahzad">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Intelligence Squared" target="Berkley Center">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Intelligence Squared" target="BBC Newsnight">
+      <data key="d2">1</data>
+    </edge>
+    <edge source="Muhammad Shahzad" target="The Late Show with Stephen Colbert">
+      <data key="d2">1</data>
+    </edge>
+  </graph>
+</graphml>
