@@ -1,3 +1,3 @@
-# PPOSD Youtube Network
+### About 
 
-Research into the networks and potential echo chambers forming around youtube videos.
+This is a simple tool that can be used for network analysis around Youtube videos. It was developed as part of a university project at TU Berlin. For more information about the features please refer to the [documentation](src/README.md).
