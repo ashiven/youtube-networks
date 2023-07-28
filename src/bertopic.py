@@ -4,12 +4,15 @@ import emoji
 import re
 from nltk.corpus import stopwords
 
+
 # DataFrame aus der CSV-Datei erstellen
-df = pd.read_csv('Gitarre.csv')  # Hier immer Datei-Name Anpassen
+df = pd.read_csv('scholz.csv')  # Hier immer Datei-Name Anpassen
 
 """""""""""""""""""""""""""
 Data Cleaning
 """""""""""""""""""""""""""
+df['Text'] = df['Text'].apply(lambda x: str(x).lower() if not pd.isnull(x) else '')
+
 
 # Großbuchstaben in Kleinbuchstaben umwandeln
 df['Text'] = df['Text'].apply(lambda x: x.lower())
@@ -17,13 +20,17 @@ df['Text'] = df['Text'].apply(lambda x: x.lower())
 
 # Funktion zum Entfernen von Emojis
 def remove_emojis(text):
-    return emoji.demojize(text)
+    if isinstance(text, str):
+        return emoji.demojize(text)
+    else:
+        return ''
+
 
 df['Text'] = df['Text'].apply(remove_emojis)
 
 
 # Muster für Sonderzeichen definieren und aus den Daten löschen
-special_chars_pattern = r'[!\?\/\,\:\-\_\(\)\[\]\;\"\'\&\–\„\“\|\.\+\#\%\@\^\*\<\>\`\~\,\...]'
+special_chars_pattern = r'[!\?\/\,\:\-\_\(\)\[\]\;\"\'\&\–\„\“\|\.\+\#\%\@\^\*\<\>\`\~\,\...\$\】\【\■\—\…\’\”\№]'
 
 df['Text'] = df['Text'].apply(lambda x: re.sub(special_chars_pattern, '', x))
 
@@ -45,6 +52,8 @@ Bert Topic Modeling
 """""""""""""""""""""""""""
 # DataFrame aus der CSV-Datei erstellen
 df = pd.read_csv('clear.csv')
+
+df['Text'] = df['Text'].astype(str)
 
 # BERTopic-Modell initialisieren
 model = BERTopic(verbose=True)
@@ -73,13 +82,21 @@ Visualisierung
 """""""""""""""""""""""""""
 
 # Intertopic Distance Map
-v = model.visualize_topics()
+#v = model.visualize_topics()
 
 # Topic Word Scores
-# v = model.visualize_barchart()
+#v = model.visualize_barchart()
 
-# Hierarchical Clustering
-# hierarchical_topics = model.hierarchical_topics(docs)
-# v = model.visualize_hierarchy(hierarchical_topics=hierarchical_topics)
+# Term score decline
+#v = model.visualize_term_rank()
+
+# Hierarchical Clustering mit Topics
+hierarchical_topics = model.hierarchical_topics(docs)
+v = model.visualize_hierarchy(hierarchical_topics=hierarchical_topics)
+#v = model.visualize_hierarchy()
+
+# Similarity Matrix
+v_1 = model.visualize_heatmap()
 
 v.show()
+v_1.show()
