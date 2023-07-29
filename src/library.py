@@ -2,7 +2,6 @@ import networkx as nx
 import random
 
 
-# [I didn't write this function!!!] had to use this function from stackoverflow because there is no way to get pygraphviz working on windows
 def hierarchy_pos(G, root=None, width=1.0, vert_gap=0.2, vert_loc=0, xcenter=0.5):
     """
     From Joel's answer at https://stackoverflow.com/a/29597209/2966723.
