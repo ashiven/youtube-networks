@@ -10,7 +10,7 @@ import requests
 import subprocess
 
 
-# this function uses a regular expression to extract the videoId parameter from any youtube link
+# uses a regular expression to extract the videoId parameter from any youtube link
 def parseVideoId(link: str) -> Optional[str]:
     # regular expression for extracting videoId
     regex = r"(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/)([^?&\/]+)"
@@ -23,7 +23,7 @@ def parseVideoId(link: str) -> Optional[str]:
         return None
 
 
-# this function takes a video id and returns the title and channel id for that video
+# takes a video id and returns the title and channel id for that video
 def getVideoInfo(youtube: Any, videoId: str) -> tuple[str, str]:
     response = youtube.videos().list(part="snippet", id=videoId).execute()
     return (
@@ -32,13 +32,13 @@ def getVideoInfo(youtube: Any, videoId: str) -> tuple[str, str]:
     )
 
 
-# this function takes a channel id and returns the name of the channel
+# takes a channel id and returns the name of the channel
 def getChannelName(youtube: Any, channelId: str) -> str:
     response = youtube.channels().list(part="snippet", id=channelId).execute()
     return response["items"][0]["snippet"]["title"]
 
 
-# this function does the same starting with a video id and using oembed instead of the data api
+# does the same starting with a video id and using oembed instead of the data api
 def getChannelNameEmbed(videoId: str, method: str) -> str:
     if method == "noembed":
         response = requests.get(
@@ -56,7 +56,7 @@ def getChannelNameEmbed(videoId: str, method: str) -> str:
         return None
 
 
-# this function takes as input a video Id and based on width returns 'width' amount of related videos
+# takes as input a video Id and based on width returns 'width' amount of related videos
 def getRelated(youtube: Any, videoId: str, width: int) -> Dict:
     # query youtube api for related videos
     response = (
@@ -76,7 +76,7 @@ def getRelated(youtube: Any, videoId: str, width: int) -> Dict:
     return related
 
 
-# this function will calculate our layers of related videos by repeatedly calling getRelated() on every video for every layer
+# will calculate our layers of related videos by repeatedly calling getRelated() on every video for every layer
 def getLayers(youtube: Any, videoId: str, width: int, depth: int) -> List[Dict]:
     # initialize array that will hold one dictionary per layer
     layers = [{} for _ in range(depth + 1)]
@@ -95,7 +95,7 @@ def getLayers(youtube: Any, videoId: str, width: int, depth: int) -> List[Dict]:
     return layers
 
 
-# this function takes our layers and converts them to a dict with key: video Id, value: video Title
+# takes our layers and converts them to a dict with key: video Id, value: video Title
 def layersToTitleDict(layers: List[Dict]) -> Dict:
     dict = {}
     for layer in layers:
@@ -105,7 +105,7 @@ def layersToTitleDict(layers: List[Dict]) -> Dict:
     return dict
 
 
-# this function takes our layers and converts them to a dict with key: video Id, value: channel Id
+# takes our layers and converts them to a dict with key: video Id, value: channel Id
 def layersToChannelDict(layers: List[Dict]) -> Dict:
     dict = {}
     for layer in layers:
@@ -115,7 +115,7 @@ def layersToChannelDict(layers: List[Dict]) -> Dict:
     return dict
 
 
-# this function takes the dictionary from layersToDict() and uses it to return the matching video Title
+# takes the dictionary from layersToDict() and uses it to return the matching video Title
 def keyToTitle(dict: Dict, videoId: str) -> str:
     if videoId in dict:
         return dict[videoId]
@@ -123,7 +123,7 @@ def keyToTitle(dict: Dict, videoId: str) -> str:
         return None
 
 
-# this function takes our layers and tree and so on and returns a list with the colors for the tree according to channelIds and a dict labels for labeling nodes with channelIds
+# takes our layers and tree and so on and returns a list with the colors for the tree according to channelIds and a dict labels for labeling nodes with channelIds
 def getColors(layers: List[Dict], T: nx.Graph) -> tuple[List[str], Dict]:
     # convert layers to a dictionary with key: videoId, value: channelId
     dict = layersToChannelDict(layers)
@@ -184,7 +184,7 @@ def getColors(layers: List[Dict], T: nx.Graph) -> tuple[List[str], Dict]:
     return [nodeToColor.get(node, "red") for node in T.nodes()], labels
 
 
-# this function will convert our layers from a list of dictionaries to a tree which can then be visualized
+# will convert our layers from a list of dictionaries to a tree which can then be visualized
 def getTree(layers: List[Dict]) -> tuple[nx.Graph, str]:
     # create a new graph with undirected edges
     T = nx.Graph()
@@ -201,7 +201,7 @@ def getTree(layers: List[Dict]) -> tuple[nx.Graph, str]:
     return T, root
 
 
-# this function takes a tree with the node names being video Ids and converts that tree
+# takes a tree with the node names being video Ids and converts that tree
 # into one that is labeled with the respective channel Ids belonging to the video Ids
 def convertTree(
     youtube: Any, T: nx.Graph, root: str, layers: List[Dict], display: str, graph: bool
@@ -288,7 +288,7 @@ def convertTree(
     return
 
 
-# this function imports the trees saved in filename and converts them to a network graph
+# imports the trees saved in filename and converts them to a network graph
 # this graph will then be saved as import_log.graphml in /graphs
 def convertImports(youtube: Any, filename: str) -> None:
     # we basically repeat what we are doing in convertTree() with -D channelName and -g with the trees from the import file
@@ -381,7 +381,7 @@ def convertImports(youtube: Any, filename: str) -> None:
     return
 
 
-# this function takes a rootLine indicating where the tree, whose leafs we are trying to convert into trees, is located in the file
+# takes a rootLine indicating where the tree, whose leafs we are trying to convert into trees, is located in the file
 def getLeafTrees(
     rootLine: int,
     leaf: int,
@@ -468,7 +468,7 @@ def getLeafTrees(
     return True, currentLeafs, nextLeafs
 
 
-# this function keeps calling getLeafTrees until the quota has been exceded
+# keeps calling getLeafTrees until the quota has been exceded
 def forceUntilQuota(
     line: int,
     leaf: int,
@@ -505,6 +505,7 @@ def forceUntilQuota(
         line += 1
 
 
+# extracts the video titles from a specified logfile
 def getTitles(filename: str) -> None:
     video_titles = []
 
