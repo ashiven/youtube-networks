@@ -1,44 +1,54 @@
 ### Install
 
-1.  Open a terminal inside the **src**  directory.
+1. Open a terminal inside the **src**  directory.
 
-2.  Run `pip install --user -r requirements.txt`.
-
+2. Run `pip install --user -r requirements.txt`.
 
 ### Options
 
-- `-s` [ required ] : The initial Youtube link.
-    - `-s https://www.youtube.com/watch?v=StJremO4_Do`
+-  `-s` [ required ] : The initial Youtube link.
 
-- `-d` [ default = 2 ] : How deep should the search be?
-    - `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -d 5` 
+   -  `-s https://www.youtube.com/watch?v=StJremO4_Do`
 
-- `-w` [ default = 3 ] : How wide should the search be?
-    - `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -w 3`
+-  `-d` [ default = 2 ] : How deep should the search be?
 
-- `-a` [ default = 0 ] : Which API key should be used?
-    - `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -a 3`
+   -  `python main.py -s https://www.youtube.com/watch?v=StJremO4_Do -d 5`
 
-- `-D` [ default = title ] : What to display as node labels.
-    - `title`, `videoId`, `channelId`, `channelName`
+-  `-w` [ default = 3 ] : How wide should the search be?
 
-- `-l` : Add this flag to log the calculated tree in a log file.
-    - `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -l`
+   -  `python main.py -s https://www.youtube.com/watch?v=StJremO4_Do -w 3`
 
-- `-g` : Add this flag to convert a single tree into a network graph (it only works in combination with `-D channelName`).
-    - `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -D channelName -g`
+-  `-a` [ default = 0 ] : Which API key should be used?
 
-- `-i` : Use this flag to convert all of the trees inside a log file into a network graph.
-    - `python collector.py -i LIVuZqs392k.log`
+   -  `python main.py -s https://www.youtube.com/watch?v=StJremO4_Do -a 3`
 
-- `-f` : Use this flag to compile subtrees into a larger tree until the API key quota has been exceeded. (You don't need to add `-l` here.)
-    - `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -f`
+-  `-D` [ default = title ] : What to display as node labels.
 
-- `-t` : Use this flag to extract the titles for a log file in **data**. 
-    - `python collector.py -t LIVuZqs392k.log`
+   -  `title`, `videoId`, `channelId`, `channelName`
 
-- `-A` : Use this flag to do the same as with `-f`, cycling through every available API key.
-    - `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -A`
+-  `-l` : Add this flag to log the calculated tree in a log file.
 
-- `-m` [ default = 10000 ] : Use this flag to specify a maximum depth for the tree being compiled with `-f` or `-A` (it has to be a multiple of depth).
-    - `python collector.py -s https://www.youtube.com/watch?v=StJremO4_Do -A -d 3 -m 6`
+   -  `python main.py -s https://www.youtube.com/watch?v=StJremO4_Do -l`
+
+-  `-g` : Add this flag to convert a single tree into a network graph (it only works in combination with `-D channelName`).
+
+   -  `python main.py -s https://www.youtube.com/watch?v=StJremO4_Do -D channelName -g`
+
+-  `-i` : Use this flag to convert all of the trees inside a log file into a network graph.
+
+   -  `python main.py -i LIVuZqs392k.log`
+
+-  `-f` : Use this flag to compile subtrees into a larger tree until the API key quota has been exceeded. (You don't need to add `-l` here.)
+
+   -  `python main.py -s https://www.youtube.com/watch?v=StJremO4_Do -f`
+
+-  `-t` : Use this flag to extract the titles for a log file in **data**.
+
+   -  `python main.py -t LIVuZqs392k.log`
+
+-  `-A` : Use this flag to do the same as with `-f`, cycling through every available API key.
+
+   -  `python main.py -s https://www.youtube.com/watch?v=StJremO4_Do -A`
+
+-  `-m` [ default = 10000 ] : Use this flag to specify a maximum depth for the tree being compiled with `-f` or `-A` (it has to be a multiple of depth).
+   -  `python main.py -s https://www.youtube.com/watch?v=StJremO4_Do -A -d 3 -m 6`
