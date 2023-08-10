@@ -284,8 +284,6 @@ def getTree(layers: List[Dict]) -> tuple[nx.Graph, str]:
     return T, root
 
 
-# takes a tree with the node names being video Ids and converts that tree
-# into one that is labeled with the respective channel Ids belonging to the video Ids
 def convertTree(
     youtube: Any, T: nx.Graph, root: str, layers: List[Dict], display: str, graph: bool
 ) -> None:
