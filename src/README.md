@@ -1,9 +1,3 @@
-### Install
-
-1. Open a terminal inside the **src**  directory.
-
-2. Run `pip install --user -r requirements.txt`.
-
 ### Options
 
 -  `-s` [ required ] : The initial Youtube link.
