@@ -22,7 +22,7 @@ python main.py -s https://www.youtube.com/watch?v=StJremO4_Do -w 3
 python main.py -s https://www.youtube.com/watch?v=StJremO4_Do -a 3
 ```
 
-#### `-D` [ `title`, `videoId`, `channelId`, `channelName` ] : What should be displayed for the tree nodes?
+#### `-D` : What should be displayed for the tree nodes? [ `title`, `videoId`, `channelId`, `channelName` ] 
 ```bash
 python main.py -s https://www.youtube.com/watch?v=StJremO4_Do -D title
 ```
