@@ -2,7 +2,7 @@
 
 ## About 
 
-This is a simple tool that can be used for network analysis around Youtube videos. It was developed as part of a programming project at TU Berlin. For more information about the features, please refer to the [documentation](src/README.md).
+This is a simple tool that can be used to analyze the channel landscape around concrete YouTube videos. It was developed as part of a programming project at TU Berlin. For more information on the functionalities, please refer to the [documentation](src/README.md).
 
 ## Getting Started
 
