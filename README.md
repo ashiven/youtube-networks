@@ -9,10 +9,11 @@ This is a simple tool that can be used for network analysis around Youtube video
 ### Prerequisites
 
 - Download and install the latest versions of [python](https://www.python.org/downloads/) and [pip](https://pypi.org/project/pip/).
+- Register for the [YouTube Data API](https://developers.google.com/youtube/v3/getting-started) and retrieve your API key.
 
 ### Setup
 
-1. Clone the service to your local machine as follows:
+1. Clone the repository to your local machine as follows:
    ```bash
    git clone https://github.com/ashiven/YouTube-Network-Analyzer.git
    ```
@@ -28,6 +29,7 @@ This is a simple tool that can be used for network analysis around Youtube video
    pip install --user -r requirements.txt
    ```
 
+4. Edit the file **main.py** and insert your personal API key.
 
 ---
 
