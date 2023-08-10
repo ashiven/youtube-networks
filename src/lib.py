@@ -7,21 +7,36 @@ from typing import *
 import requests
 
 
-# uses a regular expression to extract the videoId parameter from any youtube link
 def parseVideoId(link: str) -> Optional[str]:
-    # regular expression for extracting videoId
+    """Uses a regular expression to extract the video ID  from a Youtube link
+
+    Args:
+        link (str): The link of the Youtube video
+
+    Returns:
+        Optional[str]: The extracted video ID if the link was valid
+    """
+
     regex = r"(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/)([^?&\/]+)"
     res = re.search(regex, link)
 
     if res:
         videoId = res.group(1)
         return videoId
-    else:
-        return None
+    return None
 
 
-# takes a video id and returns the title and channel id for that video
 def getVideoInfo(youtube: Any, videoId: str) -> tuple[str, str]:
+    """Takes a Youtube video ID and returns the title and channel ID of the video
+
+    Args:
+        youtube (Any): The Youtube Data API object
+        videoId (str): The ID of the video (retrievable via parseVideoId)
+
+    Returns:
+        tuple[str, str]: A tuple containing the title and the channel ID of the video
+    """
+
     response = youtube.videos().list(part="snippet", id=videoId).execute()
     return (
         response["items"][0]["snippet"]["title"],
@@ -29,40 +44,68 @@ def getVideoInfo(youtube: Any, videoId: str) -> tuple[str, str]:
     )
 
 
-# takes a channel id and returns the name of the channel
 def getChannelName(youtube: Any, channelId: str) -> str:
+    """Takes a Youtube channel ID and returns the name of the channel
+
+    Args:
+        youtube (Any): The Youtube Data API object
+        channelId (str): The ID of the Youtube channel
+
+    Returns:
+        str: The name of the Youtube channel
+    """
+
     response = youtube.channels().list(part="snippet", id=channelId).execute()
     return response["items"][0]["snippet"]["title"]
 
 
-# does the same starting with a video id and using oembed instead of the data api
-def getChannelNameEmbed(videoId: str, method: str) -> str:
-    if method == "noembed":
-        response = requests.get(
-            "https://noembed.com/embed?url=https://www.youtube.com/watch?v=" + videoId
-        )
-    elif method == "oembed":
-        response = requests.get(
-            "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v="
-            + videoId
-        )
+def getChannelNameEmbed(videoId: str, method: str) -> Optional[str]:
+    """Takes a Youtube channel ID and returns the name of the channel without using the Youtube Data API
+
+    Args:
+        videoId (str): The ID of the Youtube video (retrievable via parseVideoId)
+        method (str): Specify if the channel name should be retrieved via oembed or noembed
+
+    Returns:
+        Optional[str]: The name of the Youtube channel
+    """
+
     try:
+        if method == "noembed":
+            response = requests.get(
+                "https://noembed.com/embed?url=https://www.youtube.com/watch?v="
+                + videoId
+            )
+        elif method == "oembed":
+            response = requests.get(
+                "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v="
+                + videoId
+            )
         dict = eval(response.text)
         return dict["author_name"]
     except:
         return None
 
 
-# takes as input a video Id and based on width returns 'width' amount of related videos
 def getRelated(youtube: Any, videoId: str, width: int) -> Dict:
-    # query youtube api for related videos
+    """Takes a video ID and returns related videos via the Youtube Data API
+
+    Args:
+        youtube (Any): The Youtube Data API object
+        videoId (str): The ID of the Youtube video (retrievable via ParseVideoId)
+        width (int): Specifies how many related videos should be fetched
+
+    Returns:
+        Dict: A dictionary with the video ID of the related videos as keys and a list containing the title, parent video ID, and channel ID as values.
+
+    """
+
     response = (
         youtube.search()
         .list(part="snippet", relatedToVideoId=videoId, maxResults=width, type="video")
         .execute()
     )
 
-    # store related videos in a dictionary with key: videoId , value: title
     related = {}
     for item in response["items"]:
         title = item["snippet"]["title"]
@@ -73,14 +116,23 @@ def getRelated(youtube: Any, videoId: str, width: int) -> Dict:
     return related
 
 
-# will calculate our layers of related videos by repeatedly calling getRelated() on every video for every layer
 def getLayers(youtube: Any, videoId: str, width: int, depth: int) -> List[Dict]:
-    # initialize array that will hold one dictionary per layer
+    """Calculates the layers of related videos with the help of getRelated
+
+    Args:
+        youtube (Any): The Youtube Data API object
+        videoId (str): The ID of the Youtube video (retrievable via ParseVideoId)
+        width (int): The number of related videos per video
+        depth (int): The number of layers to be calculated
+
+    Returns:
+        List[Dict]: A list containing one dictionary with video metadata(see getRelated) per layer
+    """
+
     layers = [{} for _ in range(depth + 1)]
     title, channelId = getVideoInfo(youtube, videoId)
     layers[0] = {videoId: [None, title, channelId]}
 
-    # call getRelated() for retrieving related videos from layer 1 to 'depth'
     for i in range(1, depth + 1):
         if i == 1:
             layers[i] = getRelated(youtube, videoId, width)
@@ -92,51 +144,81 @@ def getLayers(youtube: Any, videoId: str, width: int, depth: int) -> List[Dict]:
     return layers
 
 
-# takes our layers and converts them to a dict with key: video Id, value: video Title
 def layersToTitleDict(layers: List[Dict]) -> Dict:
-    dict = {}
+    """Takes the layers returned by getLayers and converts them into a dictionary for quickly converting video IDs to their respective titles
+
+    Args:
+        layers (List[Dict]): The layers that were returned by getLayers
+
+    Returns:
+        Dict: A dictionary containing video IDs as keys and video titles as values
+    """
+
+    d = {}
     for layer in layers:
         for key, value in layer.items():
-            dict[key] = value[1]
+            d[key] = value[1]
+    return d
 
-    return dict
 
-
-# takes our layers and converts them to a dict with key: video Id, value: channel Id
 def layersToChannelDict(layers: List[Dict]) -> Dict:
-    dict = {}
+    """Takes the layers returned by getLayers and converts them into a dictionary for quickly converting video IDs to their respective channel IDs
+
+    Args:
+        layers (List[Dict]): The layers that were returned by getLayers
+
+    Returns:
+        Dict: A dictionary containing video IDs as keys and channel IDs as values
+    """
+
+    d = {}
     for layer in layers:
         for key, value in layer.items():
-            dict[key] = value[2]
-
-    return dict
+            d[key] = value[2]
+    return d
 
 
 # takes the dictionary from layersToDict() and uses it to return the matching video Title
-def keyToTitle(dict: Dict, videoId: str) -> str:
-    if videoId in dict:
-        return dict[videoId]
-    else:
-        return None
+def keyToTitle(d: Dict, videoId: str) -> Optional[str]:
+    """Returns the title for a given video ID via the dictionary that was generated in layersToDict
+
+    Args:
+        dict (Dict): The dictionary generated in layersToDict
+        videoId (str): The ID of the Youtube video
+
+    Returns:
+        Optional[str]: The title of the Youtube video if it is contained in the dictionary
+    """
+
+    if videoId in d:
+        return d[videoId]
+    return None
 
 
-# takes our layers and tree and so on and returns a list with the colors for the tree according to channelIds and a dict labels for labeling nodes with channelIds
 def getColors(layers: List[Dict], T: nx.Graph) -> tuple[List[str], Dict]:
+    """Takes the layers generated in getLayers and their tree representation and returns a coloring according to the Youtube channels
+
+    Args:
+        layers (List[Dict]): The layers generated via getLayers
+        T (nx.Graph): The tree representation of layers (retrievable via getTree)
+
+    Returns:
+        tuple[List[str], Dict]: A tuple containing the list of colors and a dictionary for converting video IDs to channel IDs
+    """
+
     # convert layers to a dictionary with key: videoId, value: channelId
     dict = layersToChannelDict(layers)
-
     # give every node its appropriate channelId label, replacing its previous videoId labels
     labels = {}
     for node in T.nodes():
         labels[node] = dict[node]
-
     # create a list of unique channel Ids and then create a list of colors with one color for each channel Id
     uniqueChannelIds = list(set(dict.values()))
     colors = [
         "gold",
         "violet",
         "blue",
-        "silver",  # TODO: this is a very shitty and temporary solution and needs to be changed because if we end up needing more colors we're f'd
+        "silver",
         "limegreen",
         "orange",
         "darkorange",
@@ -176,17 +258,22 @@ def getColors(layers: List[Dict], T: nx.Graph) -> tuple[List[str], Dict]:
         channelId: colors[count] for count, channelId in enumerate(uniqueChannelIds)
     }
     nodeToColor = {node: channelToColor[labels[node]] for node in T.nodes()}
-
-    # now finally we create the list of colors that will be used for the nodes, red being the default color for undefined channelIds
+    # finally, return the list of colors that will be used for the nodes, red being the default color for undefined channelIds
     return [nodeToColor.get(node, "red") for node in T.nodes()], labels
 
 
-# will convert our layers from a list of dictionaries to a tree which can then be visualized
 def getTree(layers: List[Dict]) -> tuple[nx.Graph, str]:
-    # create a new graph with undirected edges
-    T = nx.Graph()
+    """Converts the layers generated in getLayers to a tree, which can then be visualized
 
-    # iterate through layers and add edges according to parent node specified in value[0]
+    Args:
+        layers (List[Dict]): The layers generated in getLayers
+
+    Returns:
+        tuple[nx.Graph, str]: A tuple containing the tree representation of layers as a NetworkX graph, and the name of the root node
+    """
+
+    T = nx.Graph()
+    # iterate over layers and add edges according to parent node specified in value[0]
     for layer in layers:
         for key, value in layer.items():
             if not T.has_node(key) and value[0] != None:
@@ -194,7 +281,6 @@ def getTree(layers: List[Dict]) -> tuple[nx.Graph, str]:
                 parentKey = value[0]
                 T.add_edge(parentKey, key)
     root = next(iter(layers[1].values()))[0]
-
     return T, root
 
 
@@ -203,6 +289,17 @@ def getTree(layers: List[Dict]) -> tuple[nx.Graph, str]:
 def convertTree(
     youtube: Any, T: nx.Graph, root: str, layers: List[Dict], display: str, graph: bool
 ) -> None:
+    """Takes the tree retrieved from getTree, the list of colors generated in getColors, and a label specification to further embellish the tree, and then displays it
+
+    Args:
+        youtube (Any): The Youtube Data API object
+        T (nx.Graph): The tree that was generated in getTree
+        root (str): The name of the root node
+        layers (List[Dict]): The layers that were generated in getLayers
+        display (str): Gives the option to choose whether to display the titles of the Youtube videos, their IDs, their channel IDs, or their channel names
+        graph (bool): An option that can be enabled in conjunction with the display option 'channelName' to convert the tree into its network graph representation
+    """
+
     colors, labels = getColors(layers, T)
 
     if display == "channelId":
@@ -285,10 +382,14 @@ def convertTree(
     return
 
 
-# imports the trees saved in filename and converts them to a network graph
-# this graph will then be saved as import_log.graphml in /graphs
 def convertImports(youtube: Any, filename: str) -> None:
-    # we basically repeat what we are doing in convertTree() with -D channelName and -g with the trees from the import file
+    """Given the name of a logfile that contains multiple layers derived with getLayers, converts this set of layers into one network graph that will be saved in the graphs folder
+
+    Args:
+        youtube (Any): The Youtube Data API object
+        filename (str): The name of the logfile (logfiles can be found in the data folder)
+    """
+
     layerList = []
     with open(f"./data/{filename}", "r", encoding="utf-8") as logfile:
         for line in logfile:
@@ -313,7 +414,6 @@ def convertImports(youtube: Any, filename: str) -> None:
         T, root = getTree(layers)
         print(f"Converting subtree: {count} with root: {root}")
 
-        # some stuff we need
         dict = layersToChannelDict(layers)
         labels = {}
         for node in T.nodes():
@@ -336,7 +436,7 @@ def convertImports(youtube: Any, filename: str) -> None:
             for channelName, channelId in videoIdTochannelName.values()
         }
 
-        # we use the root of the first tree as the filename
+        # use the root of the first tree as the filename
         if fileName == None:
             fileName = channelDict[labels[root]]
 
@@ -378,7 +478,6 @@ def convertImports(youtube: Any, filename: str) -> None:
     return
 
 
-# takes a rootLine indicating where the tree, whose leafs we are trying to convert into trees, is located in the file
 def getLeafTrees(
     rootLine: int,
     leaf: int,
@@ -391,6 +490,24 @@ def getLeafTrees(
     maxDepth: int,
     videoId: str,
 ) -> tuple[bool, Optional[int], Optional[int]]:
+    """Starting at the line number specified in the <rootLine> parameter, calculates the layers for all of the leaf nodes of the tree that can be found at <rootLine> in the file: <videoId>.log
+
+    Args:
+        rootLine (int): The line in the specified logfile where the layers of the tree, whose leafs will be converted into trees and saved in the logfile, have been logged.
+        leaf (int): The line number of the leaf where the calculation has been interrupted due to overleveraging the Youtube Data API
+        currentLeafs (int): How many leafs there are left to calculate for the current layer (increases dynamically)
+        nextLeafs (int): How many leafs the next layer contains (increases dynamically)
+        currentDepth (int): The overall depth that is currently being calculated
+        youtube (Any): The Youtube Data API object
+        width (int): The width of one tree
+        depth (int): The depth of one tree
+        maxDepth (int): Once <currentDepth> reaches this threshhold, the calculation of trees terminates
+        videoId (str): The ID of the Youtube video, which will also be the name of the logfile: <videoId>.log
+
+    Returns:
+        tuple[bool, Optional[int], Optional[int]]: A tuple containing a boolean value that tells the function forceUntilQuota whether the calculation has to be interrupted, <currentLeafs>, and <nextLeafs>
+    """
+
     flag1 = False
     flag2 = False
 
@@ -465,7 +582,6 @@ def getLeafTrees(
     return True, currentLeafs, nextLeafs
 
 
-# keeps calling getLeafTrees until the quota has been exceded
 def forceUntilQuota(
     line: int,
     leaf: int,
@@ -478,6 +594,21 @@ def forceUntilQuota(
     maxDepth: int,
     videoId: str,
 ) -> None:
+    """Repeatedly calls the function getLeafTrees until either the API usage limit has been exceeded, or <maxDepth> has been reached
+
+    Args:
+        line (int): The line number in the logfile where the calculation has previously been interrupted
+        leaf (int): The number of the leaf of the current tree where the calculation has previously been interrupted
+        currentLeafs (int): The number of leaves left in the current depth layer
+        nextLeafs (int): The number of leaves coming up for the next depth layer
+        currentDepth (int): The current overall depth
+        youtube (Any): The Youtube Data API object
+        width (int): The width of one tree
+        depth (int): The depth of one tree
+        maxDepth (int): The maximum overall depth that should not be exceeded
+        videoId (str): The ID of the Youtube video
+    """
+
     loop = True
     while loop:
         print(f"Calling getLeafTrees({line})...")
@@ -502,8 +633,12 @@ def forceUntilQuota(
         line += 1
 
 
-# extracts the video titles from a specified logfile
 def getTitles(filename: str) -> None:
+    """Extracts the titles of every video from a specified logfile in the data folder and saves them in the titles folder
+
+    Args:
+        filename (str): The name of the file whose titles should be extracted
+    """
     video_titles = []
 
     # Load the file
@@ -521,6 +656,7 @@ def getTitles(filename: str) -> None:
             file.write(title + "\n")
 
     print(f"Extracted titles: ./titles/{filename}")
+    return
 
 
 def hierarchy_pos(G, root=None, width=1.0, vert_gap=0.2, vert_loc=0, xcenter=0.5):
