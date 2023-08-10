@@ -1,3 +1,35 @@
-### About 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## About 
 
 This is a simple tool that can be used for network analysis around Youtube videos. It was developed as part of a programming project at TU Berlin. For more information about the features, please refer to the [documentation](src/README.md).
+
+## Getting Started
+
+### Prerequisites
+
+- Download and install the latest versions of [python](https://www.python.org/downloads/) and [pip](https://pypi.org/project/pip/).
+
+### Setup
+
+1. Clone the service to your local machine as follows:
+   ```bash
+   git clone https://github.com/ashiven/YouTube-Network-Analyzer.git
+   ```
+2. Navigate to the **src** directory.
+
+   ```bash
+   cd ./src
+   ```
+   
+3. Install the necessary dependencies.
+   
+   ```bash
+   pip install --user -r requirements.txt
+   ```
+
+
+---
+
+> GitHub [@ashiven](https://github.com/Ashiven) &nbsp;&middot;&nbsp;
+> Twitter [ashiven_](https://twitter.com/ashiven_)
