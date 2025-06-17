@@ -2,7 +2,7 @@
 
 ## About
 
-This is a simple tool that can be used to analyze the channel landscape around concrete YouTube videos. It was developed as part of a programming project at TU Berlin. For more information on the functionalities, please refer to the [documentation](docs/README.md).
+This script can be used to map out the channel landscape surrounding specific YouTube videos. It was developed as part of a programming project at TU Berlin. For more information on the functionalities, please refer to the [documentation](docs/README.md).
 
 ## Getting Started
 
