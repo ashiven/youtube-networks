@@ -8,7 +8,7 @@ This script can be used to map out the channel landscape surrounding specific Yo
 
 ### Prerequisites
 
--  Download and install the latest versions of [python](https://www.python.org/downloads/) and [pip](https://pypi.org/project/pip/).
+-  Download and install the latest versions of [Python](https://www.python.org/downloads/) and [Pip](https://pypi.org/project/pip/).
 -  Register for the [YouTube Data API](https://developers.google.com/youtube/v3/getting-started) and retrieve your API key.
 
 ### Setup
