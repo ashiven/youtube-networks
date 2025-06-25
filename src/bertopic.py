@@ -1,65 +1,74 @@
-import pandas as pd
-from bertopic import BERTopic
-import emoji
+"""
+BERTopic Topic Modeling
+This script performs topic modeling using the BERTopic library on a dataset stored in a CSV file.
+"""
+
 import re
+
+import emoji
+import pandas as pd
 from nltk.corpus import stopwords
 
+from bertopic import BERTopic  # pylint: disable=W0406
 
 # DataFrame aus der CSV-Datei erstellen
-df = pd.read_csv('scholz.csv')  # Hier immer Datei-Name Anpassen
+df = pd.read_csv("scholz.csv")  # Hier immer Datei-Name Anpassen
 
-"""""""""""""""""""""""""""
-Data Cleaning
-"""""""""""""""""""""""""""
-df['Text'] = df['Text'].apply(lambda x: str(x).lower() if not pd.isnull(x) else '')
+###
+# Data Cleaning
+###
+df["Text"] = df["Text"].apply(lambda x: str(x).lower() if not pd.isnull(x) else "")
 
 
 # Großbuchstaben in Kleinbuchstaben umwandeln
-df['Text'] = df['Text'].apply(lambda x: x.lower())
+df["Text"] = df["Text"].apply(lambda x: x.lower())
 
 
 # Funktion zum Entfernen von Emojis
 def remove_emojis(text):
+    """Entfernt Emojis aus dem Text."""
     if isinstance(text, str):
         return emoji.demojize(text)
     else:
-        return ''
+        return ""
 
 
-df['Text'] = df['Text'].apply(remove_emojis)
+df["Text"] = df["Text"].apply(remove_emojis)
 
 
 # Muster für Sonderzeichen definieren und aus den Daten löschen
-special_chars_pattern = r'[!\?\/\,\:\-\_\(\)\[\]\;\"\'\&\–\„\“\|\.\+\#\%\@\^\*\<\>\`\~\,\...\$\】\【\■\—\…\’\”\№]'
+SPECIAL_CHARS_PATTERN = r"[!\?\/\,\:\-\_\(\)\[\]\;\"\'\&\–\„\“\|\.\+\#\%\@\^\*\<\>\`\~\,\...\$\】\【\■\—\…\’\”\№]"  # pylint: disable=line-too-long
 
-df['Text'] = df['Text'].apply(lambda x: re.sub(special_chars_pattern, '', x))
+df["Text"] = df["Text"].apply(lambda x: re.sub(SPECIAL_CHARS_PATTERN, "", x))
 
 
 # Liste mit den zu löschenden Wörtern definieren und aus den Daten löschen
-words_to_delete = set(stopwords.words('english'))
-words_to_delete.update(set(stopwords.words('german')))
+words_to_delete = set(stopwords.words("english"))
+words_to_delete.update(set(stopwords.words("german")))
 words_to_delete = list(words_to_delete)
 
-df['Text'] = df['Text'].apply(lambda x: ' '.join([word for word in x.split() if word not in words_to_delete]))
+df["Text"] = df["Text"].apply(
+    lambda x: " ".join([word for word in x.split() if word not in words_to_delete])
+)
 
 # Aktualisierte CSV-Datei speichern
-df.to_csv('clear.csv', index=False)
+df.to_csv("clear.csv", index=False)
 
 
+###
+# Bert Topic Modeling
+###
 
-"""""""""""""""""""""""""""
-Bert Topic Modeling
-"""""""""""""""""""""""""""
 # DataFrame aus der CSV-Datei erstellen
-df = pd.read_csv('clear.csv')
+df = pd.read_csv("clear.csv")
 
-df['Text'] = df['Text'].astype(str)
+df["Text"] = df["Text"].astype(str)
 
 # BERTopic-Modell initialisieren
 model = BERTopic(verbose=True)
 
 # convert to list
-docs = df['Text'].to_list()
+docs = df["Text"].to_list()
 
 # BERTopic-Modell trainieren
 topics, probabilities = model.fit_transform(docs)
@@ -71,29 +80,28 @@ topic_details = model.get_topic_info()
 df_topic_details = pd.DataFrame(topic_details)
 
 # DataFrame in eine CSV-Datei speichern
-df_topic_details.to_csv('topic.csv', index=False)
+df_topic_details.to_csv("topic.csv", index=False)
 
 # print(model.get_topic(0))
 
 
-
-"""""""""""""""""""""""""""
-Visualisierung
-"""""""""""""""""""""""""""
+###
+# Visualisierung
+###
 
 # Intertopic Distance Map
-#v = model.visualize_topics()
+# v = model.visualize_topics()
 
 # Topic Word Scores
-#v = model.visualize_barchart()
+# v = model.visualize_barchart()
 
 # Term score decline
-#v = model.visualize_term_rank()
+# v = model.visualize_term_rank()
 
 # Hierarchical Clustering mit Topics
 hierarchical_topics = model.hierarchical_topics(docs)
 v = model.visualize_hierarchy(hierarchical_topics=hierarchical_topics)
-#v = model.visualize_hierarchy()
+# v = model.visualize_hierarchy()
 
 # Similarity Matrix
 v_1 = model.visualize_heatmap()

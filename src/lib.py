@@ -15,11 +15,8 @@ import requests
 def parse_video_id(link: str) -> Optional[str]:
     """Uses a regular expression to extract the video ID  from a Youtube link
 
-    Args:
-        link (str): The link of the Youtube video
-
-    Returns:
-        Optional[str]: The extracted video ID if the link was valid
+    :param link: The Youtube link from which the video ID should be extracted
+    :return: The video ID if the link is valid, otherwise None
     """
     regex = r"(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/)([^?&\/]+)"
     res = re.search(regex, link)
@@ -33,12 +30,9 @@ def parse_video_id(link: str) -> Optional[str]:
 def get_video_info(youtube: Any, video_id: str) -> tuple[str, str]:
     """Takes a Youtube video ID and returns the title and channel ID of the video
 
-    Args:
-        youtube (Any): The Youtube Data API object
-        video_id (str): The ID of the video (retrievable via parseVideoId)
-
-    Returns:
-        tuple[str, str]: A tuple containing the title and the channel ID of the video
+    :param youtube: The Youtube Data API object
+    :param video_id: The ID of the Youtube video
+    :return: A tuple containing the title and channel ID of the video
     """
     response = youtube.videos().list(part="snippet", id=video_id).execute()
     return (
@@ -50,12 +44,9 @@ def get_video_info(youtube: Any, video_id: str) -> tuple[str, str]:
 def get_channel_name(youtube: Any, channel_id: str) -> str:
     """Takes a Youtube channel ID and returns the name of the channel
 
-    Args:
-        youtube (Any): The Youtube Data API object
-        channel_id (str): The ID of the Youtube channel
-
-    Returns:
-        str: The name of the Youtube channel
+    :param youtube: The Youtube Data API object
+    :param channel_id: The ID of the Youtube channel
+    :return: The name of the Youtube channel
     """
     response = youtube.channels().list(part="snippet", id=channel_id).execute()
     return response["items"][0]["snippet"]["title"]
@@ -64,12 +55,10 @@ def get_channel_name(youtube: Any, channel_id: str) -> str:
 def get_channel_name_embed(video_id: str, noembed: bool) -> Optional[str]:
     """Takes a Youtube channel ID and returns the name of the channel using oembed or noembed
 
-    Args:
-        video_id (str): The ID of the Youtube video (retrievable via parseVideoId)
-        noembed (bool): Specify if the channel name should be retrieved via oembed or noembed
-
-    Returns:
-        Optional[str]: The name of the Youtube channel
+    :param video_id: The ID of the Youtube video
+    :param noembed: If True, uses noembed.com to fetch the channel name,
+    otherwise uses youtube.com/oembed
+    :return: The name of the Youtube channel or None if the request fails
     """
     try:
         if noembed:
@@ -95,14 +84,11 @@ def get_channel_name_embed(video_id: str, noembed: bool) -> Optional[str]:
 def get_related(youtube: Any, video_id: str, width: int) -> Dict:
     """Takes a video ID and returns related videos via the Youtube Data API
 
-    Args:
-        youtube (Any): The Youtube Data API object
-        videoId (str): The ID of the Youtube video (retrievable via ParseVideoId)
-        width (int): Specifies how many related videos should be fetched
-
-    Returns:
-        Dict: A dictionary with the video ID of the related videos as keys
-        and a list containing the title, parent video ID, and channel ID as values.
+    :param youtube: The Youtube Data API object
+    :param video_id: The ID of the Youtube video
+    :param width: The number of related videos to retrieve
+    :return: A dictionary containing related video IDs as keys and a list of
+    [video_id, title, channel_id] as values
     """
     response = (
         youtube.search()
@@ -123,39 +109,35 @@ def get_related(youtube: Any, video_id: str, width: int) -> Dict:
 def get_layers(youtube: Any, video_id: str, width: int, depth: int) -> List[Dict]:
     """Calculates the layers of related videos with the help of get_related
 
-    Args:
-        youtube (Any): The Youtube Data API object
-        videoId (str): The ID of the Youtube video (retrievable via ParseVideoId)
-        width (int): The number of related videos per video
-        depth (int): The number of layers to be calculated
-
-    Returns:
-        List[Dict]: A list containing one dictionary with video metadata(see getRelated) per layer
+    :param youtube: The Youtube Data API object
+    :param video_id: The ID of the Youtube video to start with
+    :param width: The number of related videos to retrieve at each layer
+    :param depth: The number of layers to retrieve
+    :return: A list of dictionaries, where each dictionary represents a layer
+    of related videos. Each dictionary contains video IDs as keys and a list of
+    [related_to, title, channel_id] as values
     """
-    layers = [{} for _ in range(depth + 1)]
     title, channel_id = get_video_info(youtube, video_id)
+    layers = [{} for _ in range(depth + 1)]
     layers[0] = {video_id: [None, title, channel_id]}
 
-    for i in range(1, depth + 1):
-        if i == 1:
-            layers[i] = get_related(youtube, video_id, width)
+    for layer_depth in range(1, depth + 1):
+        if layer_depth == 1:
+            layers[layer_depth] = get_related(youtube, video_id, width)
         else:
-            for video in layers[i - 1]:
+            for video in layers[layer_depth - 1]:
                 related = get_related(youtube, video, width)
-                layers[i].update(related)
+                layers[layer_depth].update(related)
 
     return layers
 
 
 def layers_to_title_dict(layers: List[Dict]) -> Dict:
-    """Takes the layers returned by getLayers and converts them into a dictionary
-    for quickly converting video IDs to their respective titles
+    """Takes the layers returned by get_layers and converts them into a dictionary
+    mapping video IDs to video titles
 
-    Args:
-        layers (List[Dict]): The layers that were returned by getLayers
-
-    Returns:
-        Dict: A dictionary containing video IDs as keys and video titles as values
+    :param layers (List[Dict]): The layers that were returned by get_layers
+    :return: A dictionary containing video IDs as keys and titles as values
     """
     video_id_to_title = {}
     for layer in layers:
@@ -165,14 +147,11 @@ def layers_to_title_dict(layers: List[Dict]) -> Dict:
 
 
 def layers_to_channel_dict(layers: List[Dict]) -> Dict:
-    """Takes the layers returned by getLayers and converts them into a dictionary
-    for quickly converting video IDs to their respective channel IDs
+    """Takes the layers returned by get_layers and converts them into a dictionary
+    mapping video IDs to channel IDs
 
-    Args:
-        layers (List[Dict]): The layers that were returned by getLayers
-
-    Returns:
-        Dict: A dictionary containing video IDs as keys and channel IDs as values
+    :param layers (List[Dict]): The layers that were returned by get_layers
+    :return: A dictionary containing video IDs as keys and channel IDs as values
     """
     video_id_to_channel_id = {}
     for layer in layers:
@@ -182,16 +161,13 @@ def layers_to_channel_dict(layers: List[Dict]) -> Dict:
 
 
 def get_colors(layers: List[Dict], tree: nx.Graph) -> tuple[List[str], Dict]:
-    """Takes the layers generated in getLayers and their tree representation
+    """Takes the layers generated in get_layers and their tree representation
     and returns a coloring according to the Youtube channels
 
-    Args:
-        layers (List[Dict]): The layers generated via getLayers
-        T (nx.Graph): The tree representation of layers (retrievable via getTree)
-
-    Returns:
-        tuple[List[str], Dict]: A tuple containing the list of colors and a dictionary
-        for converting video IDs to channel IDs
+    :param layers (List[Dict]): The layers that were returned by get_layers
+    :param tree (nx.Graph): The tree representation of the layers
+    :return: A tuple containing a list of colors for each node in the tree
+    and a dictionary mapping video IDs to channel IDs
     """
     video_id_to_channel_id = layers_to_channel_dict(layers)
     video_id_to_channel_id = {
@@ -227,14 +203,10 @@ def get_colors(layers: List[Dict], tree: nx.Graph) -> tuple[List[str], Dict]:
 
 
 def get_tree(layers: List[Dict]) -> tuple[nx.Graph, str]:
-    """Converts the layers generated in getLayers to a tree, which can then be visualized
+    """Converts the layers generated in get_layers to a tree, which can then be visualized
 
-    Args:
-        layers (List[Dict]): The layers generated in getLayers
-
-    Returns:
-        tuple[nx.Graph, str]: A tuple containing the tree representation
-        of layers as a NetworkX graph, and the name of the root node
+    :param layers (List[Dict]): The layers that were returned by get_layers
+    :return: A tuple containing the tree as a networkx Graph and the root node ID
     """
     tree = nx.Graph()
     for layer in layers:
@@ -256,18 +228,15 @@ def convert_tree(
     display: str,
     convert_graph: bool,
 ) -> None:
-    """Takes the tree retrieved from getTree, the list of colors generated in getColors,
-    and a label specification to further embellish the tree, and then displays it
+    """Takes the tree retrieved from get_tree, visualizes it, and optionally converts it to a graph
 
-    Args:
-        youtube (Any): The Youtube Data API object
-        T (nx.Graph): The tree that was generated in getTree
-        root (str): The name of the root node
-        layers (List[Dict]): The layers that were generated in getLayers
-        display (str): Choose whether to display the titles of the Youtube videos,
-        their IDs, their channel IDs, or their channel names
-        graph (bool): Can be enabled in conjunction with the display option 'channelName'
-        to convert the tree into its network graph representation
+    :param youtube: The Youtube Data API object
+    :param tree: The tree representation of the layers
+    :param root: The root node ID of the tree
+    :param layers: The layers that were returned by get_layers
+    :param display: The type of display for the tree ('videoId', 'title', 'channelId', 'channelName')
+    :param convert_graph: If True, converts the tree to a graph and saves it as a GraphML file
+    :return: None
     """
 
     def _draw_tree(tree: nx.Graph, colors: List[str], labels: Dict, title: str) -> None:
@@ -353,12 +322,11 @@ def convert_tree(
 
 
 def convert_imports(filename: str) -> None:
-    """Given the name of a logfile that contains multiple layers derived with getLayers,
+    """Given the path to a logfile that contains multiple layers derived with get_layers,
     converts this set of layers into one network graph that will be saved in the graphs folder
 
-    Args:
-        youtube (Any): The Youtube Data API object
-        filename (str): The name of the logfile (logfiles can be found in the data folder)
+    :param filename: The name of the logfile containing the layers
+    :return: None
     """
     layers_list = []
     with open(f"./data/{filename}", "r", encoding="utf-8") as logfile:
@@ -470,30 +438,21 @@ def get_leaf_trees(
     max_depth: int,
     video_id: str,
 ) -> tuple[bool, Optional[int], Optional[int]]:
-    """Starting at the line number specified in the <rootLine> parameter, calculates the layers for
-    all of the leaf nodes of the tree that can be found at <rootLine> in the file: <videoId>.log
+    """Starting at the line number specified in the start_line parameter, calculates the layers for
+    all of the leaf nodes of the tree in the logfile <video_id>.log.
 
-    Args:
-        rootLine (int): The line in the specified logfile where the layers of the tree,
-        whose leafs will be converted into trees and saved in the logfile, have been logged.
-        leaf (int): The line number of the leaf where the calculation has been interrupted
-        due to overleveraging the Youtube Data API
-        currentLeafs (int): How many leafs there are left to calculate for the current
-        layer (increases dynamically)
-        nextLeafs (int): How many leafs the next layer contains (increases dynamically)
-        currentDepth (int): The overall depth that is currently being calculated
-        youtube (Any): The Youtube Data API object
-        width (int): The width of one tree
-        depth (int): The depth of one tree
-        maxDepth (int): Once <currentDepth> reaches this threshhold, the calculation
-        of trees terminates
-        videoId (str): The ID of the Youtube video, which will also be the name of
-        the logfile: <videoId>.log
-
-    Returns:
-        tuple[bool, Optional[int], Optional[int]]: A tuple containing a boolean value
-        that tells the function forceUntilQuota whether the calculation
-        has to be interrupted, <currentLeafs>, and <nextLeafs>
+    :param start_line: The line number in the logfile where the calculation should start
+    :param current_leaf_index: The index of the current leaf node in the layer
+    :param current_leafs: The number of leaf nodes left in the current layer
+    :param next_leafs: The number of leaf nodes in the next layer
+    :param current_depth: The current overall depth of the tree
+    :param youtube: The Youtube Data API object
+    :param width: The width of one tree (number of related videos per layer)
+    :param depth: The depth of one tree (number of layers)
+    :param max_depth: The maximum overall depth that should not be exceeded
+    :param video_id: The ID of the Youtube video for which the layers should be calculated
+    :return: A tuple containing a boolean indicating whether the evaluation should continue,
+    the number of current leafs left, and the number of next leafs to be evaluated
     """
 
     def _save_breakpoint(
@@ -582,22 +541,20 @@ def force_until_quota(
     max_depth: int,
     video_id: str,
 ) -> None:
-    """Repeatedly calls the function getLeafTrees until either the API usage limit
-    has been exceeded, or <maxDepth> has been reached
+    """Repeatedly calls the function get_leaf_trees until either the API usage limit
+    has been exceeded, or max_depth has been reached
 
-    Args:
-        line (int): The line number in the logfile where the calculation
-        has previously been interrupted
-        leaf (int): The number of the leaf of the current tree where the calculation
-        has previously been interrupted
-        currentLeafs (int): The number of leaves left in the current depth layer
-        nextLeafs (int): The number of leaves coming up for the next depth layer
-        currentDepth (int): The current overall depth
-        youtube (Any): The Youtube Data API object
-        width (int): The width of one tree
-        depth (int): The depth of one tree
-        maxDepth (int): The maximum overall depth that should not be exceeded
-        videoId (str): The ID of the Youtube video
+    :param start_line: The line number in the logfile where the calculation should start
+    :param current_leaf_index: The index of the current leaf node in the layer
+    :param current_leafs: The number of leaf nodes left in the current layer
+    :param next_leafs: The number of leaf nodes in the next layer
+    :param current_depth: The current overall depth of the tree
+    :param youtube: The Youtube Data API object
+    :param width: The width of one tree (number of related videos per layer)
+    :param depth: The depth of one tree (number of layers)
+    :param max_depth: The maximum overall depth that should not be exceeded
+    :param video_id: The ID of the Youtube video for which the layers should be calculated
+    :return: None
     """
     continue_eval = True
     while continue_eval:
@@ -618,7 +575,7 @@ def force_until_quota(
             max_depth,
             video_id,
         )
-        # leaf needs to continue from breakpoint on the first call of get_leaf_trees()
+        # current_leaf_index needs to continue from breakpoint on the first call of get_leaf_trees()
         current_leaf_index = 0
         current_leafs -= 1
         start_line += 1
@@ -628,8 +585,8 @@ def get_titles(filename: str) -> None:
     """Extracts the titles of every video from a specified logfile in the data
     folder and saves them in the titles folder
 
-    Args:
-        filename (str): The name of the file whose titles should be extracted
+    :param filename: The name of the logfile containing the layers
+    :return: None
     """
     video_titles = []
     with open(f"./data/{filename}", "r", encoding="utf-8") as file:
