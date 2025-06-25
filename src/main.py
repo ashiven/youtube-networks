@@ -1,15 +1,36 @@
-from googleapiclient.discovery import build, HttpError
-import networkx as nx
-import matplotlib.pyplot as plt
+"""
+This script collects related videos from YouTube using the YouTube Data API.
+It builds a tree structure of related videos starting from a given video ID,
+and allows for various configurations such as depth, width, and display options.
+"""
+
 import argparse
 import os
-from lib import *
-from typing import *
 import subprocess
+
+import matplotlib.pyplot as plt
+import networkx as nx
+from googleapiclient.discovery import HttpError, build
+
+from lib import (
+    convert_imports,
+    convert_tree,
+    force_until_quota,
+    get_colors,
+    get_layers,
+    get_titles,
+    get_tree,
+    hierarchy_pos,
+    parse_video_id,
+)
 
 
 def main():
-    # parse the arguments supplied by the user
+    """
+    Main function to parse arguments and execute the YouTube related video collector.
+    It initializes the YouTube API client, retrieves related videos, and processes
+    them based on user-defined parameters.
+    """
     parser = argparse.ArgumentParser(description="Youtube Related Video Collector")
     parser.add_argument("-d", "--depth", type=int, default=2, help="Search Depth")
     parser.add_argument("-w", "--width", type=int, default=3, help="Search Width")
@@ -31,7 +52,8 @@ def main():
         "-g",
         "--graph",
         action="store_true",
-        help="Whether to convert the tree to a graph that will be exported to a graphML file(only works with -D channelName)",
+        help="""Whether to convert the tree to a graph that will be exported to a
+ graphML file(only works with -D channelName)""",
     )
     parser.add_argument(
         "-i",
@@ -44,7 +66,7 @@ def main():
         "-f",
         "--force",
         action="store_true",
-        help="Keep calculating trees and storing them in the specific file until the quota is exceeded",
+        help="Keep calculating trees until the quota is exceeded",
     )
     parser.add_argument(
         "-t",
@@ -61,7 +83,7 @@ def main():
     )
     parser.add_argument(
         "-m",
-        "--maxDepth",
+        "--maxdepth",
         type=int,
         default=10000,
         help="Total depth of the tree to be built with -f or -A (must be a multiple of depth)",
@@ -71,7 +93,7 @@ def main():
     seed = args.seed
     width = args.width
     depth = args.depth
-    apiIndex = args.apikey
+    api_index = args.apikey
     display = args.display
     log = args.log
     graph = args.graph
@@ -79,144 +101,140 @@ def main():
     force = args.force
     titles = args.titles
     aggressive = args.aggressive
-    maxDepth = args.maxDepth
-    videoId = None
-    if seed:
-        videoId = parseVideoId(seed)
+    max_depth = args.maxdepth
+    video_id = parse_video_id(seed) if seed else None
 
-    # TODO: Add your own API keys here!!
-    apiKey0 = ""
-    apiKey1 = ""
-    apiKey2 = ""
-    apiKey3 = ""
-    apiKey4 = ""
-    apiKey5 = ""
-    apiKey6 = ""
-    apiKey7 = ""
-    apiKey8 = ""
-    apiKey9 = ""
-    apiKey10 = ""
-    apiKey11 = ""
-    apiKey12 = ""
-    apiKey13 = ""
-    apiKey14 = ""
-    apiKey15 = ""
-    apiKey16 = ""
-    apiKey17 = ""
-    apiKey18 = ""
-    apiKey19 = ""
+    # Add your own API keys here!!!
+    api_key0 = ""
+    api_key1 = ""
+    api_key2 = ""
+    api_key3 = ""
+    api_key4 = ""
+    api_key5 = ""
+    api_key6 = ""
+    api_key7 = ""
+    api_key8 = ""
+    api_key9 = ""
+    api_key10 = ""
+    api_key11 = ""
+    api_key12 = ""
+    api_key13 = ""
+    api_key14 = ""
+    api_key15 = ""
+    api_key16 = ""
+    api_key17 = ""
+    api_key18 = ""
+    api_key19 = ""
 
-    apiKeys = [
-        apiKey0,
-        apiKey1,
-        apiKey2,
-        apiKey3,
-        apiKey4,
-        apiKey5,
-        apiKey6,
-        apiKey7,
-        apiKey8,
-        apiKey9,
-        apiKey10,
-        apiKey11,
-        apiKey12,
-        apiKey13,
-        apiKey14,
-        apiKey15,
-        apiKey16,
-        apiKey17,
-        apiKey18,
-        apiKey19,
+    api_keys = [
+        api_key0,
+        api_key1,
+        api_key2,
+        api_key3,
+        api_key4,
+        api_key5,
+        api_key6,
+        api_key7,
+        api_key8,
+        api_key9,
+        api_key10,
+        api_key11,
+        api_key12,
+        api_key13,
+        api_key14,
+        api_key15,
+        api_key16,
+        api_key17,
+        api_key18,
+        api_key19,
     ]
 
-    # we create the youtube object for interacting with the API and getLayers() to retrieve the layers of related videos
-    youtube = build("youtube", "v3", developerKey=apiKeys[apiIndex])
+    youtube = build("youtube", "v3", developerKey=api_keys[api_index])
     if not (treeimport or force or titles or aggressive):
-        layers = getLayers(youtube, videoId, width, depth)
-
-        # write the result for layers into a log file
+        layers = get_layers(youtube, video_id, width, depth)
         if log:
-            with open(f"./data/{videoId}.log", "a", encoding="utf-8") as logfile:
+            with open(f"./data/{video_id}.log", "a", encoding="utf-8") as logfile:
                 print(layers, file=logfile)
 
     # display video ids as node labels
     if display == "videoId":
-        T, root = getTree(layers)
-        colors = getColors(layers, T)[0]
+        tree, root = get_tree(layers)
+        colors = get_colors(layers, tree)[0]
 
-        # draw the graph
         plt.figure(figsize=(15, 10))
-        pos = hierarchy_pos(T, root)
-        nx.draw(T, pos=pos, with_labels=True, font_size=9, node_color=colors)
+        pos = hierarchy_pos(tree, root)
+        nx.draw(tree, pos=pos, with_labels=True, font_size=9, node_color=colors)
         plt.title("Related Videos")
-        plt.tight_layout
         plt.show()
 
     # display video titles as node labels
     elif (
         display == "title" or display == "channelId" or display == "channelName"
     ) and not (treeimport or force or titles or aggressive):
-        T, root = getTree(layers)
-        convertTree(youtube, T, root, layers, display, graph)
+        tree, root = get_tree(layers)
+        convert_tree(youtube, tree, root, layers, display, graph)
 
     # import/convert trees saved in treeimport
     elif treeimport:
-        convertImports(youtube, treeimport)
+        convert_imports(treeimport)
 
-    # calculate trees until the quota is exceeded and save the stopping point in {videoId}_breakpoint.txt
+    # calculate trees until the quota is exceeded
     elif force:
-        if not os.path.isfile(f"./data/{videoId}.log"):
-            open(f"./data/{videoId}.log", "w", encoding="utf-8").close()
+        if not os.path.isfile(f"./data/{video_id}.log"):
+            open(f"./data/{video_id}.log", "w", encoding="utf-8").close()
 
-        with open(f"./data/{videoId}.log", "r", encoding="utf-8") as logfile:
+        with open(f"./data/{video_id}.log", "r", encoding="utf-8") as logfile:
             linecount = sum(1 for _ in logfile)
 
         if linecount == 0:
-            layers = getLayers(youtube, videoId, width, depth)
-            with open(f"./data/{videoId}.log", "a", encoding="utf-8") as logfile:
+            layers = get_layers(youtube, video_id, width, depth)
+            with open(f"./data/{video_id}.log", "a", encoding="utf-8") as logfile:
                 print(layers, file=logfile)
             print("Starting tree calculation...")
-            forceUntilQuota(0, 0, 0, 0, 0, youtube, width, depth, maxDepth, videoId)
+            force_until_quota(0, 0, 0, 0, 0, youtube, width, depth, max_depth, video_id)
 
         else:
-            with open(f"./data/{videoId}_breakpoint.txt", "r") as file:
+            line, leaf, current_leafs, next_leafs, current_depth = 0, 0, 0, 0, 0
+            with open(
+                f"./data/{video_id}_breakpoint.txt", "r", encoding="utf-8"
+            ) as file:
                 for i, l in enumerate(file):
                     if i == 0:
                         line = l
                     if i == 1:
                         leaf = l
                     if i == 2:
-                        currentLeafs = l
+                        current_leafs = l
                     if i == 3:
-                        nextLeafs = l
+                        next_leafs = l
                     if i == 4:
-                        currentDepth = l
+                        current_depth = l
             line = int(line.strip())
             leaf = int(leaf.strip())
-            currentLeafs = int(currentLeafs.strip())
-            nextLeafs = int(nextLeafs.strip())
-            currentDepth = int(currentDepth.strip())
+            current_leafs = int(current_leafs.strip())
+            next_leafs = int(next_leafs.strip())
+            current_depth = int(current_depth.strip())
             print(f"Continuing tree calculation from line: {line} - leaf: {leaf}")
-            forceUntilQuota(
+            force_until_quota(
                 line,
                 leaf,
-                currentLeafs,
-                nextLeafs,
-                currentDepth,
+                current_leafs,
+                next_leafs,
+                current_depth,
                 youtube,
                 width,
                 depth,
-                maxDepth,
-                videoId,
+                max_depth,
+                video_id,
             )
 
     # extract only the tiles of a given logfile
     elif titles:
-        getTitles(titles)
+        get_titles(titles)
 
     # call the force option with every available api key
     elif aggressive:
-        for i in range(len(apiKeys)):
+        for i in range(len(api_keys)):
             print(f"Using API-Key: {i}")
             p = subprocess.Popen(
                 [
@@ -225,7 +243,7 @@ def main():
                     f"-s {seed}",
                     f"-w {width}",
                     f"-d {depth}",
-                    f"-m {maxDepth}",
+                    f"-m {max_depth}",
                     "-f",
                     f"-a {i}",
                 ],
@@ -238,8 +256,6 @@ def main():
     # invalid arguments
     else:
         parser.print_usage()
-
-    # TODO: Add an option to import/convert multiple logfiles into one network-graph
 
 
 if __name__ == "__main__":

@@ -1,13 +1,18 @@
-import networkx as nx
+"""
+This file contains functions to interact with the Youtube Data API
+and to visualize related videos as a graph.
+"""
+
 import random
 import re
-import networkx as nx
+from typing import Any, Dict, List, Optional
+
 import matplotlib.pyplot as plt
-from typing import *
+import networkx as nx
 import requests
 
 
-def parseVideoId(link: str) -> Optional[str]:
+def parse_video_id(link: str) -> Optional[str]:
     """Uses a regular expression to extract the video ID  from a Youtube link
 
     Args:
@@ -16,78 +21,78 @@ def parseVideoId(link: str) -> Optional[str]:
     Returns:
         Optional[str]: The extracted video ID if the link was valid
     """
-
     regex = r"(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/)([^?&\/]+)"
     res = re.search(regex, link)
 
     if res:
-        videoId = res.group(1)
-        return videoId
+        video_id = res.group(1)
+        return video_id
     return None
 
 
-def getVideoInfo(youtube: Any, videoId: str) -> tuple[str, str]:
+def get_video_info(youtube: Any, video_id: str) -> tuple[str, str]:
     """Takes a Youtube video ID and returns the title and channel ID of the video
 
     Args:
         youtube (Any): The Youtube Data API object
-        videoId (str): The ID of the video (retrievable via parseVideoId)
+        video_id (str): The ID of the video (retrievable via parseVideoId)
 
     Returns:
         tuple[str, str]: A tuple containing the title and the channel ID of the video
     """
-
-    response = youtube.videos().list(part="snippet", id=videoId).execute()
+    response = youtube.videos().list(part="snippet", id=video_id).execute()
     return (
         response["items"][0]["snippet"]["title"],
         response["items"][0]["snippet"]["channelId"],
     )
 
 
-def getChannelName(youtube: Any, channelId: str) -> str:
+def get_channel_name(youtube: Any, channel_id: str) -> str:
     """Takes a Youtube channel ID and returns the name of the channel
 
     Args:
         youtube (Any): The Youtube Data API object
-        channelId (str): The ID of the Youtube channel
+        channel_id (str): The ID of the Youtube channel
 
     Returns:
         str: The name of the Youtube channel
     """
-
-    response = youtube.channels().list(part="snippet", id=channelId).execute()
+    response = youtube.channels().list(part="snippet", id=channel_id).execute()
     return response["items"][0]["snippet"]["title"]
 
 
-def getChannelNameEmbed(videoId: str, method: str) -> Optional[str]:
-    """Takes a Youtube channel ID and returns the name of the channel without using the Youtube Data API
+def get_channel_name_embed(video_id: str, noembed: bool) -> Optional[str]:
+    """Takes a Youtube channel ID and returns the name of the channel using oembed or noembed
 
     Args:
-        videoId (str): The ID of the Youtube video (retrievable via parseVideoId)
-        method (str): Specify if the channel name should be retrieved via oembed or noembed
+        video_id (str): The ID of the Youtube video (retrievable via parseVideoId)
+        noembed (bool): Specify if the channel name should be retrieved via oembed or noembed
 
     Returns:
         Optional[str]: The name of the Youtube channel
     """
-
     try:
-        if method == "noembed":
+        if noembed:
             response = requests.get(
                 "https://noembed.com/embed?url=https://www.youtube.com/watch?v="
-                + videoId
+                + video_id,
+                timeout=10,
             )
-        elif method == "oembed":
+        else:
             response = requests.get(
                 "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v="
-                + videoId
+                + video_id,
+                timeout=10,
             )
-        dict = eval(response.text)
-        return dict["author_name"]
-    except:
+        response.raise_for_status()
+        video_info = response.json()
+        return video_info["author_name"]
+
+    except requests.RequestException:
         return None
 
 
-def getRelated(youtube: Any, videoId: str, width: int) -> Dict:
+def get_related(youtube: Any, video_id: str, width: int) -> Dict:
     """Takes a video ID and returns related videos via the Youtube Data API
 
     Args:
@@ -96,28 +101,27 @@ def getRelated(youtube: Any, videoId: str, width: int) -> Dict:
         width (int): Specifies how many related videos should be fetched
 
     Returns:
-        Dict: A dictionary with the video ID of the related videos as keys and a list containing the title, parent video ID, and channel ID as values.
-
+        Dict: A dictionary with the video ID of the related videos as keys
+        and a list containing the title, parent video ID, and channel ID as values.
     """
-
     response = (
         youtube.search()
-        .list(part="snippet", relatedToVideoId=videoId, maxResults=width, type="video")
+        .list(part="snippet", relatedToVideoId=video_id, maxResults=width, type="video")
         .execute()
     )
 
-    related = {}
+    related_videos = {}
     for item in response["items"]:
+        related_video_id = item["id"]["videoId"]
         title = item["snippet"]["title"]
-        id = item["id"]["videoId"]
-        channelId = item["snippet"]["channelId"]
-        related[id] = [videoId, title, channelId]
+        channel_id = item["snippet"]["channelId"]
+        related_videos[related_video_id] = [video_id, title, channel_id]
 
-    return related
+    return related_videos
 
 
-def getLayers(youtube: Any, videoId: str, width: int, depth: int) -> List[Dict]:
-    """Calculates the layers of related videos with the help of getRelated
+def get_layers(youtube: Any, video_id: str, width: int, depth: int) -> List[Dict]:
+    """Calculates the layers of related videos with the help of get_related
 
     Args:
         youtube (Any): The Youtube Data API object
@@ -128,24 +132,24 @@ def getLayers(youtube: Any, videoId: str, width: int, depth: int) -> List[Dict]:
     Returns:
         List[Dict]: A list containing one dictionary with video metadata(see getRelated) per layer
     """
-
     layers = [{} for _ in range(depth + 1)]
-    title, channelId = getVideoInfo(youtube, videoId)
-    layers[0] = {videoId: [None, title, channelId]}
+    title, channel_id = get_video_info(youtube, video_id)
+    layers[0] = {video_id: [None, title, channel_id]}
 
     for i in range(1, depth + 1):
         if i == 1:
-            layers[i] = getRelated(youtube, videoId, width)
+            layers[i] = get_related(youtube, video_id, width)
         else:
             for video in layers[i - 1]:
-                related = getRelated(youtube, video, width)
+                related = get_related(youtube, video, width)
                 layers[i].update(related)
 
     return layers
 
 
-def layersToTitleDict(layers: List[Dict]) -> Dict:
-    """Takes the layers returned by getLayers and converts them into a dictionary for quickly converting video IDs to their respective titles
+def layers_to_title_dict(layers: List[Dict]) -> Dict:
+    """Takes the layers returned by getLayers and converts them into a dictionary
+    for quickly converting video IDs to their respective titles
 
     Args:
         layers (List[Dict]): The layers that were returned by getLayers
@@ -153,16 +157,16 @@ def layersToTitleDict(layers: List[Dict]) -> Dict:
     Returns:
         Dict: A dictionary containing video IDs as keys and video titles as values
     """
-
-    d = {}
+    video_id_to_title = {}
     for layer in layers:
-        for key, value in layer.items():
-            d[key] = value[1]
-    return d
+        for video_id, video_info in layer.items():
+            video_id_to_title[video_id] = video_info[1]
+    return video_id_to_title
 
 
-def layersToChannelDict(layers: List[Dict]) -> Dict:
-    """Takes the layers returned by getLayers and converts them into a dictionary for quickly converting video IDs to their respective channel IDs
+def layers_to_channel_dict(layers: List[Dict]) -> Dict:
+    """Takes the layers returned by getLayers and converts them into a dictionary
+    for quickly converting video IDs to their respective channel IDs
 
     Args:
         layers (List[Dict]): The layers that were returned by getLayers
@@ -170,50 +174,33 @@ def layersToChannelDict(layers: List[Dict]) -> Dict:
     Returns:
         Dict: A dictionary containing video IDs as keys and channel IDs as values
     """
-
-    d = {}
+    video_id_to_channel_id = {}
     for layer in layers:
-        for key, value in layer.items():
-            d[key] = value[2]
-    return d
+        for video_id, video_info in layer.items():
+            video_id_to_channel_id[video_id] = video_info[2]
+    return video_id_to_channel_id
 
 
-# takes the dictionary from layersToDict() and uses it to return the matching video Title
-def keyToTitle(d: Dict, videoId: str) -> Optional[str]:
-    """Returns the title for a given video ID via the dictionary that was generated in layersToDict
-
-    Args:
-        dict (Dict): The dictionary generated in layersToDict
-        videoId (str): The ID of the Youtube video
-
-    Returns:
-        Optional[str]: The title of the Youtube video if it is contained in the dictionary
-    """
-
-    if videoId in d:
-        return d[videoId]
-    return None
-
-
-def getColors(layers: List[Dict], T: nx.Graph) -> tuple[List[str], Dict]:
-    """Takes the layers generated in getLayers and their tree representation and returns a coloring according to the Youtube channels
+def get_colors(layers: List[Dict], tree: nx.Graph) -> tuple[List[str], Dict]:
+    """Takes the layers generated in getLayers and their tree representation
+    and returns a coloring according to the Youtube channels
 
     Args:
         layers (List[Dict]): The layers generated via getLayers
         T (nx.Graph): The tree representation of layers (retrievable via getTree)
 
     Returns:
-        tuple[List[str], Dict]: A tuple containing the list of colors and a dictionary for converting video IDs to channel IDs
+        tuple[List[str], Dict]: A tuple containing the list of colors and a dictionary
+        for converting video IDs to channel IDs
     """
+    video_id_to_channel_id = layers_to_channel_dict(layers)
+    video_id_to_channel_id = {
+        node: video_id_to_channel_id[node]
+        for node in tree.nodes()
+        if node in video_id_to_channel_id
+    }
+    unique_channel_ids = list(set(video_id_to_channel_id.values()))
 
-    # convert layers to a dictionary with key: videoId, value: channelId
-    dict = layersToChannelDict(layers)
-    # give every node its appropriate channelId label, replacing its previous videoId labels
-    labels = {}
-    for node in T.nodes():
-        labels[node] = dict[node]
-    # create a list of unique channel Ids and then create a list of colors with one color for each channel Id
-    uniqueChannelIds = list(set(dict.values()))
     colors = [
         "gold",
         "violet",
@@ -226,377 +213,383 @@ def getColors(layers: List[Dict], T: nx.Graph) -> tuple[List[str], Dict]:
         "green",
         "red",
         "limegreen",
-        "orange",
-        "darkorange",
-        "yellow",
-        "green",
-        "red",
-        "gold",
-        "violet",
-        "blue",
-        "silver",
-        "limegreen",
-        "orange",
-        "darkorange",
-        "yellow",
-        "green",
-        "red",
-        "gold",
-        "violet",
-        "blue",
-        "silver",
-        "yellow",
-        "green",
-        "red",
-        "limegreen",
-        "orange",
-        "darkorange",
-    ]
+    ] * 10
 
-    # map every channelId to a color and after that map every node in the tree to the color corresponding with its channelId
-    channelToColor = {
-        channelId: colors[count] for count, channelId in enumerate(uniqueChannelIds)
+    channel_id_to_color = {
+        channel_id: colors[i] for i, channel_id in enumerate(unique_channel_ids)
     }
-    nodeToColor = {node: channelToColor[labels[node]] for node in T.nodes()}
-    # finally, return the list of colors that will be used for the nodes, red being the default color for undefined channelIds
-    return [nodeToColor.get(node, "red") for node in T.nodes()], labels
+    node_to_color = {
+        node: channel_id_to_color[video_id_to_channel_id[node]] for node in tree.nodes()
+    }
+    colorings = [node_to_color.get(node, "red") for node in tree.nodes()]
+
+    return colorings, video_id_to_channel_id
 
 
-def getTree(layers: List[Dict]) -> tuple[nx.Graph, str]:
+def get_tree(layers: List[Dict]) -> tuple[nx.Graph, str]:
     """Converts the layers generated in getLayers to a tree, which can then be visualized
 
     Args:
         layers (List[Dict]): The layers generated in getLayers
 
     Returns:
-        tuple[nx.Graph, str]: A tuple containing the tree representation of layers as a NetworkX graph, and the name of the root node
+        tuple[nx.Graph, str]: A tuple containing the tree representation
+        of layers as a NetworkX graph, and the name of the root node
     """
-
-    T = nx.Graph()
-    # iterate over layers and add edges according to parent node specified in value[0]
+    tree = nx.Graph()
     for layer in layers:
-        for key, value in layer.items():
-            if not T.has_node(key) and value[0] != None:
-                T.add_node(key)
-                parentKey = value[0]
-                T.add_edge(parentKey, key)
+        for video_id, video_info in layer.items():
+            related_to = video_info[0]
+            if not tree.has_node(video_id) and related_to is not None:
+                tree.add_node(video_id)
+                parent_video_id = related_to
+                tree.add_edge(parent_video_id, video_id)
     root = next(iter(layers[1].values()))[0]
-    return T, root
+    return tree, root
 
 
-def convertTree(
-    youtube: Any, T: nx.Graph, root: str, layers: List[Dict], display: str, graph: bool
+def convert_tree(
+    youtube: Any,
+    tree: nx.Graph,
+    root: str,
+    layers: List[Dict],
+    display: str,
+    convert_graph: bool,
 ) -> None:
-    """Takes the tree retrieved from getTree, the list of colors generated in getColors, and a label specification to further embellish the tree, and then displays it
+    """Takes the tree retrieved from getTree, the list of colors generated in getColors,
+    and a label specification to further embellish the tree, and then displays it
 
     Args:
         youtube (Any): The Youtube Data API object
         T (nx.Graph): The tree that was generated in getTree
         root (str): The name of the root node
         layers (List[Dict]): The layers that were generated in getLayers
-        display (str): Gives the option to choose whether to display the titles of the Youtube videos, their IDs, their channel IDs, or their channel names
-        graph (bool): An option that can be enabled in conjunction with the display option 'channelName' to convert the tree into its network graph representation
+        display (str): Choose whether to display the titles of the Youtube videos,
+        their IDs, their channel IDs, or their channel names
+        graph (bool): Can be enabled in conjunction with the display option 'channelName'
+        to convert the tree into its network graph representation
     """
 
-    colors, labels = getColors(layers, T)
+    def _draw_tree(tree: nx.Graph, colors: List[str], labels: Dict, title: str) -> None:
+        """Helper function to draw the tree with the specified parameters"""
+        plt.figure(figsize=(15, 10))
+        pos = hierarchy_pos(tree, root)
+        nx.draw(tree, pos=pos, with_labels=False, node_color=colors)
+        nx.draw_networkx_labels(tree, pos, labels, font_size=9)
+        plt.title(title)
+        plt.show()
 
+    def _convert_graph(
+        tree: nx.Graph,
+        root: str,
+        video_id_to_channel_id: Dict,
+        channel_id_to_channel_name: Dict,
+    ) -> None:
+        """Helper function to convert the tree into a network graph"""
+        graph = nx.Graph()
+        for edge in tree.edges():
+            u_video_id, v_video_id = edge
+            u_channel_name = channel_id_to_channel_name[
+                video_id_to_channel_id[u_video_id]
+            ]
+            v_channel_name = channel_id_to_channel_name[
+                video_id_to_channel_id[v_video_id]
+            ]
+            if (
+                not (u_channel_name, v_channel_name) in graph.edges()
+                and u_channel_name != v_channel_name
+            ):
+                graph.add_node(u_channel_name, size=1)
+                graph.add_node(v_channel_name, size=1)
+                graph.add_edge(u_channel_name, v_channel_name, weight=1)
+            elif (u_channel_name, v_channel_name) in graph.edges():
+                graph.edges[u_channel_name, v_channel_name]["weight"] += 1
+
+        for node in tree.nodes():
+            u_channel_name = channel_id_to_channel_name[video_id_to_channel_id[node]]
+            graph.nodes[u_channel_name]["size"] += 1
+
+        nx.write_graphml(graph, f"./graphs/{root}.graphml")
+        print(f"Created graph: ./graphs/{root}.graphml")
+
+    colors, video_id_to_channel_id = get_colors(layers, tree)
     if display == "channelId":
-        # draw the graph
-        plt.figure(figsize=(15, 10))
-        pos = hierarchy_pos(T, root)
-        nx.draw(T, pos=pos, with_labels=False, node_color=colors)
-        nx.draw_networkx_labels(T, pos, labels, font_size=9)
-
-        # show plot
-        plt.title("Channel Id Tree")
-        plt.tight_layout
-        plt.show()
-
+        labels = {node: video_id_to_channel_id[node] for node in tree.nodes()}
+        _draw_tree(
+            tree,
+            colors,
+            labels,
+            "Channel ID Tree",
+        )
     elif display == "title":
-        # convert layers to a dictionary with key: videoId, value: title
-        dict = layersToTitleDict(layers)
-
-        # give every node its appropriate title label, replacing its previous videoId labels
-        labels = {}
-        for node in T.nodes():
-            labels[node] = dict[node]
-
-        # draw the graph
-        plt.figure(figsize=(15, 10))
-        pos = hierarchy_pos(T, root)
-        nx.draw(T, pos=pos, with_labels=False, node_color=colors)
-        nx.draw_networkx_labels(T, pos, labels, font_size=9)
-
-        # show plot
-        plt.title("Title Tree")
-        plt.tight_layout
-        plt.show()
-
+        video_id_to_title = layers_to_title_dict(layers)
+        labels = {node: video_id_to_title[node] for node in tree.nodes()}
+        _draw_tree(
+            tree,
+            colors,
+            labels,
+            "Video Title Tree",
+        )
     elif display == "channelName":
-        # list with unique channel Ids
-        channelIdList = list(set(labels.values()))
-
-        # create dict with key: channelId ,value: channelName
-        channelDict = {
-            channelId: getChannelName(youtube, channelId) for channelId in channelIdList
+        unique_channel_ids = list(set(video_id_to_channel_id.values()))
+        channel_id_to_channel_name = {
+            channel_id: get_channel_name(youtube, channel_id)
+            for channel_id in unique_channel_ids
         }
-
-        # give every node its appropriate channelName label, replacing its previous videoId labels
-        channelLabels = {}
-        for node in T.nodes():
-            channelLabels[node] = channelDict[labels[node]]
-
-        # draw the graph
-        plt.figure(figsize=(15, 10))
-        pos = hierarchy_pos(T, root)
-        nx.draw(T, pos=pos, with_labels=False, node_color=colors)
-        nx.draw_networkx_labels(T, pos, channelLabels, font_size=9)
-
-        # show plot
-        plt.title("Channel Name Tree")
-        plt.tight_layout
-        plt.show()
-
-        if graph:
-            G = nx.Graph()
-
-            for edge in T.edges():
-                u, v = edge
-                U = channelDict[labels[u]]
-                V = channelDict[labels[v]]
-                if not (U, V) in G.edges() and U != V:
-                    G.add_node(U, size=1)
-                    G.add_node(V, size=1)
-                    G.add_edge(U, V, weight=1)
-                elif (U, V) in G.edges():
-                    G.edges[U, V]["weight"] += 1
-
-            for node in T.nodes():
-                U = channelDict[labels[node]]
-                G.nodes[U]["size"] += 1
-
-            nx.write_graphml(G, f"./graphs/{root}.graphml")
-            print(f"Created graph: ./graphs/{root}.graphml")
-    return
+        labels = {
+            node: channel_id_to_channel_name[video_id_to_channel_id[node]]
+            for node in tree.nodes()
+        }
+        _draw_tree(
+            tree,
+            colors,
+            labels,
+            "Channel Name Tree",
+        )
+        if convert_graph:
+            _convert_graph(
+                tree, root, video_id_to_channel_id, channel_id_to_channel_name
+            )
 
 
-def convertImports(youtube: Any, filename: str) -> None:
-    """Given the name of a logfile that contains multiple layers derived with getLayers, converts this set of layers into one network graph that will be saved in the graphs folder
+def convert_imports(filename: str) -> None:
+    """Given the name of a logfile that contains multiple layers derived with getLayers,
+    converts this set of layers into one network graph that will be saved in the graphs folder
 
     Args:
         youtube (Any): The Youtube Data API object
         filename (str): The name of the logfile (logfiles can be found in the data folder)
     """
-
-    layerList = []
+    layers_list = []
     with open(f"./data/{filename}", "r", encoding="utf-8") as logfile:
         for line in logfile:
-            layers = eval(line)
-            layerList.append(layers)
+            layers = eval(line)  # pylint: disable=eval-used
+            layers_list.append(layers)
 
-    fileName = None
-    nodeTotal = 0
-    edgeTotal = 0
-    methodCounter = 0
-    prevMethod = "noembed"
-    currentMethod = "oembed"
-    G = nx.Graph()
-    for count, layers in enumerate(layerList):
+    file_name = None
+    use_noembed = True
+    node_total = 0
+    edge_total = 0
+    graph = nx.Graph()
+    for log_line, layers in enumerate(layers_list):
+        tree, root = get_tree(layers)
+        print(f"Converting subtree: {log_line} with root: {root}")
+
+        # name the file after the root of the first tree
+        if file_name is None:
+            file_name = channel_id_to_channel_name[video_id_to_channel_id[root]]
+
         # swap between noembed and oembed every 20 iterations
-        if methodCounter == 20:
-            temp = prevMethod
-            prevMethod = currentMethod
-            currentMethod = temp
-            methodCounter = 0
+        if log_line % 20 == 0 and log_line > 0:
+            use_noembed = not use_noembed
 
-        T, root = getTree(layers)
-        print(f"Converting subtree: {count} with root: {root}")
-
-        dict = layersToChannelDict(layers)
-        labels = {}
-        for node in T.nodes():
-            labels[node] = dict[node]
-        # channelIdList = list(set(labels.values()))
-        # channelDict = {channelId: getChannelName(youtube, channelId) for channelId in channelIdList}
-
-        # using the embed version for large graphs that might exhaust the data api in their creation
-        videoIdTochannelName = {}
-        for videoId in T.nodes():
-            channelName = getChannelNameEmbed(videoId, currentMethod)
-            if channelName:
-                channelName = re.sub(r"[^\w\s-]", "", channelName).strip()
-                videoIdTochannelName[videoId] = [channelName, dict[videoId]]
+        # create a bunch of mappings between video IDs, channel IDs, and channel names
+        video_id_to_channel_id = layers_to_channel_dict(layers)
+        video_id_to_channel_id = {
+            node: video_id_to_channel_id[node] for node in tree.nodes()
+        }
+        video_id_to_channel_info = {}
+        for video_id in tree.nodes():
+            channel_name = get_channel_name_embed(video_id, use_noembed)
+            if channel_name:
+                channel_name = re.sub(r"[^\w\s-]", "", channel_name).strip()
+                video_id_to_channel_info[video_id] = [
+                    channel_name,
+                    video_id_to_channel_id[video_id],
+                ]
             else:
-                videoIdTochannelName[videoId] = ["Not Found", dict[videoId]]
-
-        channelDict = {
-            channelId: channelName
-            for channelName, channelId in videoIdTochannelName.values()
+                video_id_to_channel_info[video_id] = [
+                    "Not Found",
+                    video_id_to_channel_id[video_id],
+                ]
+        channel_id_to_channel_name = {
+            channel_id: channel_name
+            for channel_name, channel_id in video_id_to_channel_info.values()
         }
 
-        # use the root of the first tree as the filename
-        if fileName == None:
-            fileName = channelDict[labels[root]]
-
-        for edge in T.edges():
-            u, v = edge
-            U = channelDict[labels[u]]
-            V = channelDict[labels[v]]
-            if not V in G.nodes() and U == "Not Found" and V != "Not Found":
-                G.add_node(V, size=1)
+        # add nodes and edges to the graph for each tree
+        for edge in tree.edges():
+            u_video_id, v_video_id = edge
+            u_channel_name = channel_id_to_channel_name[
+                video_id_to_channel_id[u_video_id]
+            ]
+            v_channel_name = channel_id_to_channel_name[
+                video_id_to_channel_id[v_video_id]
+            ]
+            if (
+                not v_channel_name in graph.nodes()
+                and u_channel_name == "Not Found"
+                and v_channel_name != "Not Found"
+            ):
+                graph.add_node(v_channel_name, size=1)
                 continue
-            elif not U in G.nodes() and V == "Not Found" and U != "Not Found":
-                G.add_node(U, size=1)
+            elif (
+                not u_channel_name in graph.nodes()
+                and v_channel_name == "Not Found"
+                and u_channel_name != "Not Found"
+            ):
+                graph.add_node(u_channel_name, size=1)
                 continue
-            elif not (U, V) in G.edges() and U != V:
-                G.add_node(U, size=1)
-                G.add_node(V, size=1)
-                G.add_edge(U, V, weight=1)
-            elif (U, V) in G.edges():
-                G.edges[U, V]["weight"] += 1
-            edgeTotal += 1
+            elif (
+                not (u_channel_name, v_channel_name) in graph.edges()
+                and u_channel_name != v_channel_name
+            ):
+                graph.add_node(u_channel_name, size=1)
+                graph.add_node(v_channel_name, size=1)
+                graph.add_edge(u_channel_name, v_channel_name, weight=1)
+            elif (u_channel_name, v_channel_name) in graph.edges():
+                graph.edges[u_channel_name, v_channel_name]["weight"] += 1
+            edge_total += 1
 
-        for node in T.nodes():
-            U = channelDict[labels[node]]
-            if U == "Not Found":
+        for node in tree.nodes():
+            u_channel_name = channel_id_to_channel_name[video_id_to_channel_id[node]]
+            if u_channel_name == "Not Found":
                 continue
-            elif count == 0:
-                G.nodes[U]["size"] += 0.1
-            elif count > 0 and node != root:
-                G.nodes[U]["size"] += 0.1
-            nodeTotal += 1
+            elif log_line == 0:
+                graph.nodes[u_channel_name]["size"] += 0.1
+            elif log_line > 0 and node != root:
+                graph.nodes[u_channel_name]["size"] += 0.1
+            node_total += 1
 
-        methodCounter += 1
-
-    fileName = re.sub(r"\s+", "_", fileName)
-    fileName = re.sub(r"[^\w\s-]", "", fileName)
-    print(f"Converted tree T with V(T)={nodeTotal}, E(T)={edgeTotal}")
-    nx.write_graphml(G, f"./graphs/{fileName}.graphml")
-    print(f"Created graph: ./graphs/{fileName}.graphml")
-    return
+    file_name = re.sub(r"\s+", "_", file_name)
+    file_name = re.sub(r"[^\w\s-]", "", file_name)
+    print(f"Converted tree T with V(T)={node_total}, E(T)={edge_total}")
+    nx.write_graphml(graph, f"./graphs/{file_name}.graphml")
+    print(f"Created graph: ./graphs/{file_name}.graphml")
 
 
-def getLeafTrees(
-    rootLine: int,
-    leaf: int,
-    currentLeafs: int,
-    nextLeafs: int,
-    currentDepth: int,
+def get_leaf_trees(
+    start_line: int,
+    current_leaf_index: int,
+    current_leafs: int,
+    next_leafs: int,
+    current_depth: int,
     youtube: Any,
     width: int,
     depth: int,
-    maxDepth: int,
-    videoId: str,
+    max_depth: int,
+    video_id: str,
 ) -> tuple[bool, Optional[int], Optional[int]]:
-    """Starting at the line number specified in the <rootLine> parameter, calculates the layers for all of the leaf nodes of the tree that can be found at <rootLine> in the file: <videoId>.log
+    """Starting at the line number specified in the <rootLine> parameter, calculates the layers for
+    all of the leaf nodes of the tree that can be found at <rootLine> in the file: <videoId>.log
 
     Args:
-        rootLine (int): The line in the specified logfile where the layers of the tree, whose leafs will be converted into trees and saved in the logfile, have been logged.
-        leaf (int): The line number of the leaf where the calculation has been interrupted due to overleveraging the Youtube Data API
-        currentLeafs (int): How many leafs there are left to calculate for the current layer (increases dynamically)
+        rootLine (int): The line in the specified logfile where the layers of the tree,
+        whose leafs will be converted into trees and saved in the logfile, have been logged.
+        leaf (int): The line number of the leaf where the calculation has been interrupted
+        due to overleveraging the Youtube Data API
+        currentLeafs (int): How many leafs there are left to calculate for the current
+        layer (increases dynamically)
         nextLeafs (int): How many leafs the next layer contains (increases dynamically)
         currentDepth (int): The overall depth that is currently being calculated
         youtube (Any): The Youtube Data API object
         width (int): The width of one tree
         depth (int): The depth of one tree
-        maxDepth (int): Once <currentDepth> reaches this threshhold, the calculation of trees terminates
-        videoId (str): The ID of the Youtube video, which will also be the name of the logfile: <videoId>.log
+        maxDepth (int): Once <currentDepth> reaches this threshhold, the calculation
+        of trees terminates
+        videoId (str): The ID of the Youtube video, which will also be the name of
+        the logfile: <videoId>.log
 
     Returns:
-        tuple[bool, Optional[int], Optional[int]]: A tuple containing a boolean value that tells the function forceUntilQuota whether the calculation has to be interrupted, <currentLeafs>, and <nextLeafs>
+        tuple[bool, Optional[int], Optional[int]]: A tuple containing a boolean value
+        that tells the function forceUntilQuota whether the calculation
+        has to be interrupted, <currentLeafs>, and <nextLeafs>
     """
 
-    flag1 = False
-    flag2 = False
+    def _save_breakpoint(
+        start_line: int,
+        leaf_index: int,
+        current_leafs: int,
+        next_leafs: int,
+        current_depth: int,
+        leaf_ids: List[str],
+        evaluating_root: bool,
+    ) -> None:
+        """Saves the current state of the calculation to a breakpoint file"""
+        with open(f"./data/{video_id}_breakpoint.txt", "w", encoding="utf-8") as file:
+            file.write(str(start_line) + "\n")
+            file.write(str(leaf_index) + "\n")
+            if evaluating_root:
+                file.write(str(0) + "\n")
+                file.write(str(next_leafs) + "\n")
+            else:
+                file.write(str(current_leafs) + "\n")
+                file.write(str(next_leafs - len(leaf_ids)) + "\n")
+            file.write(str(current_depth))
+        print(f"Saved logfile: ./data/{video_id}.log")
+        print(f"Saved breakpoint: ./data/{video_id}_breakpoint.txt")
 
-    # open file in read mode
-    with open(f"./data/{videoId}.log", "r", encoding="utf-8") as logfile:
-        for i, l in enumerate(logfile):
-            # read the tree in rootLine and get the leafs for that tree
-            if i == rootLine:
-                rootLayers = eval(l)
-                leafDict = rootLayers[-1]
-                leafIds = list(leafDict.keys())
+    evaluating_root = False
+    with open(f"./data/{video_id}.log", "r", encoding="utf-8") as logfile:
+        for line_number, line in enumerate(logfile):
+            if line_number == start_line:
+                start_layers = eval(line)  # pylint: disable=eval-used
+                leaf_layer = start_layers[-1]
+                leaf_layer_video_ids = list(leaf_layer.keys())
+                if current_leafs == 0:
+                    current_leafs = len(leaf_layer_video_ids) + 1
+                    evaluating_root = True
+                else:
+                    next_leafs += len(leaf_layer_video_ids)
 
-                if (
-                    currentLeafs == 0
-                ):  # this only happens for the root node of the total tree
-                    currentLeafs = len(leafIds) + 1
-                    flag1 = True
-                elif currentLeafs != 0:
-                    nextLeafs += len(leafIds)
-                    flag2 = True
-
-    with open(f"./data/{videoId}.log", "a", encoding="utf-8") as logfile:
-        # append the leaf trees to the file
-        for count, leafId in enumerate(leafIds):
-            if count >= leaf:
-                if currentDepth >= maxDepth:
+    with open(f"./data/{video_id}.log", "a", encoding="utf-8") as logfile:
+        for leaf_index, leaf_video_id in enumerate(leaf_layer_video_ids):
+            if leaf_index >= current_leaf_index:
+                if current_depth >= max_depth:
                     print("Reached maxDepth. Quitting...")
-                    with open(f"./data/{videoId}_breakpoint.txt", "w") as file:
-                        file.write(str(rootLine))
-                        file.write("\n")
-                        file.write(str(count))
-                        file.write("\n")
-                        if flag1:
-                            file.write(str(0))
-                        else:
-                            file.write(str(currentLeafs))
-                        file.write("\n")
-                        if flag2:
-                            file.write(str(nextLeafs - len(leafIds)))
-                        else:
-                            file.write(str(nextLeafs))
-                        file.write("\n")
-                        file.write(str(currentDepth))
-                    print(f"Saved logfile: ./data/{videoId}.log")
-                    print(f"Saved breakpoint: ./data/{videoId}_breakpoint.txt")
-                    return False, 0, 0
+                    _save_breakpoint(
+                        start_line,
+                        leaf_index,
+                        current_leafs,
+                        next_leafs,
+                        current_depth,
+                        leaf_layer_video_ids,
+                        evaluating_root,
+                    )
+                    continue_eval, current_leafs, next_leafs = False, 0, 0
+                    return continue_eval, current_leafs, next_leafs
 
                 try:
-                    layers = getLayers(youtube, leafId, width, depth)
+                    layers = get_layers(youtube, leaf_video_id, width, depth)
                     print(layers, file=logfile)
-                    print(f"Saved leafTree: {count}")
-                except:
-                    with open(f"./data/{videoId}_breakpoint.txt", "w") as file:
-                        file.write(str(rootLine))
-                        file.write("\n")
-                        file.write(str(count))
-                        file.write("\n")
-                        if flag1:
-                            file.write(str(0))
-                        else:
-                            file.write(str(currentLeafs))
-                        file.write("\n")
-                        if flag2:
-                            file.write(str(nextLeafs - len(leafIds)))
-                        else:
-                            file.write(str(nextLeafs))
-                        file.write("\n")
-                        file.write(str(currentDepth))
-                    print(f"Saved logfile: ./data/{videoId}.log")
-                    print(f"Saved breakpoint: ./data/{videoId}_breakpoint.txt")
-                    return False, 0, 0
-    return True, currentLeafs, nextLeafs
+                    print(f"Saved leafTree: {leaf_index}")
+                except Exception:  #  pylint: disable=broad-except
+                    _save_breakpoint(
+                        start_line,
+                        leaf_index,
+                        current_leafs,
+                        next_leafs,
+                        current_depth,
+                        leaf_layer_video_ids,
+                        evaluating_root,
+                    )
+                    continue_eval, current_leafs, next_leafs = False, 0, 0
+                    return continue_eval, current_leafs, next_leafs
+
+    continue_eval = True
+    return continue_eval, current_leafs, next_leafs
 
 
-def forceUntilQuota(
-    line: int,
-    leaf: int,
-    currentLeafs: int,
-    nextLeafs: int,
-    currentDepth: int,
+def force_until_quota(
+    start_line: int,
+    current_leaf_index: int,
+    current_leafs: int,
+    next_leafs: int,
+    current_depth: int,
     youtube: Any,
     width: int,
     depth: int,
-    maxDepth: int,
-    videoId: str,
+    max_depth: int,
+    video_id: str,
 ) -> None:
-    """Repeatedly calls the function getLeafTrees until either the API usage limit has been exceeded, or <maxDepth> has been reached
+    """Repeatedly calls the function getLeafTrees until either the API usage limit
+    has been exceeded, or <maxDepth> has been reached
 
     Args:
-        line (int): The line number in the logfile where the calculation has previously been interrupted
-        leaf (int): The number of the leaf of the current tree where the calculation has previously been interrupted
+        line (int): The line number in the logfile where the calculation
+        has previously been interrupted
+        leaf (int): The number of the leaf of the current tree where the calculation
+        has previously been interrupted
         currentLeafs (int): The number of leaves left in the current depth layer
         nextLeafs (int): The number of leaves coming up for the next depth layer
         currentDepth (int): The current overall depth
@@ -606,40 +599,39 @@ def forceUntilQuota(
         maxDepth (int): The maximum overall depth that should not be exceeded
         videoId (str): The ID of the Youtube video
     """
-
-    loop = True
-    while loop:
-        print(f"Calling getLeafTrees({line})...")
-        if currentLeafs == 0:
-            currentDepth += depth
-            currentLeafs = nextLeafs
-            nextLeafs = 0
-        loop, currentLeafs, nextLeafs = getLeafTrees(
-            line,
-            leaf,
-            currentLeafs,
-            nextLeafs,
-            currentDepth,
+    continue_eval = True
+    while continue_eval:
+        print(f"Calling get_leaf_trees({start_line})...")
+        if current_leafs == 0:
+            current_depth += depth
+            current_leafs = next_leafs
+            next_leafs = 0
+        continue_eval, current_leafs, next_leafs = get_leaf_trees(
+            start_line,
+            current_leaf_index,
+            current_leafs,
+            next_leafs,
+            current_depth,
             youtube,
             width,
             depth,
-            maxDepth,
-            videoId,
+            max_depth,
+            video_id,
         )
-        leaf = 0  # we only need leaf to continue from breakpoint on the first call of gLT()
-        currentLeafs -= 1
-        line += 1
+        # leaf needs to continue from breakpoint on the first call of get_leaf_trees()
+        current_leaf_index = 0
+        current_leafs -= 1
+        start_line += 1
 
 
-def getTitles(filename: str) -> None:
-    """Extracts the titles of every video from a specified logfile in the data folder and saves them in the titles folder
+def get_titles(filename: str) -> None:
+    """Extracts the titles of every video from a specified logfile in the data
+    folder and saves them in the titles folder
 
     Args:
         filename (str): The name of the file whose titles should be extracted
     """
     video_titles = []
-
-    # Load the file
     with open(f"./data/{filename}", "r", encoding="utf-8") as file:
         data = file.read()
 
@@ -648,16 +640,14 @@ def getTitles(filename: str) -> None:
         video_info = item.split(": [")[1].split(", ")[1].strip("'")
         video_titles.append(video_info)
 
-    # Save the titles to titles.log
     with open(f"./titles/{filename}", "w", encoding="utf-8") as file:
         for title in video_titles:
             file.write(title + "\n")
 
     print(f"Extracted titles: ./titles/{filename}")
-    return
 
 
-def hierarchy_pos(G, root=None, width=1.0, vert_gap=0.2, vert_loc=0, xcenter=0.5):
+def hierarchy_pos(graph, root=None, width=1.0, vert_gap=0.2, vert_loc=0, xcenter=0.5):
     """
     From Joel's answer at https://stackoverflow.com/a/29597209/2966723.
     Licensed under Creative Commons Attribution-Share Alike
@@ -683,19 +673,26 @@ def hierarchy_pos(G, root=None, width=1.0, vert_gap=0.2, vert_loc=0, xcenter=0.5
 
     xcenter: horizontal location of root
     """
-    if not nx.is_tree(G):
+    if not nx.is_tree(graph):
         raise TypeError("cannot use hierarchy_pos on a graph that is not a tree")
 
     if root is None:
-        if isinstance(G, nx.DiGraph):
+        if isinstance(graph, nx.DiGraph):
             root = next(
-                iter(nx.topological_sort(G))
+                iter(nx.topological_sort(graph))
             )  # allows back compatibility with nx version 1.11
         else:
-            root = random.choice(list(G.nodes))
+            root = random.choice(list(graph.nodes))
 
     def _hierarchy_pos(
-        G, root, width=1.0, vert_gap=0.2, vert_loc=0, xcenter=0.5, pos=None, parent=None
+        graph,
+        root,
+        width=1.0,
+        vert_gap=0.2,
+        vert_loc=0,
+        xcenter=0.5,
+        pos=None,
+        parent=None,
     ):
         """
         see hierarchy_pos docstring for most arguments
@@ -709,8 +706,8 @@ def hierarchy_pos(G, root=None, width=1.0, vert_gap=0.2, vert_loc=0, xcenter=0.5
             pos = {root: (xcenter, vert_loc)}
         else:
             pos[root] = (xcenter, vert_loc)
-        children = list(G.neighbors(root))
-        if not isinstance(G, nx.DiGraph) and parent is not None:
+        children = list(graph.neighbors(root))
+        if not isinstance(graph, nx.DiGraph) and parent is not None:
             children.remove(parent)
         if len(children) != 0:
             dx = width / len(children)
@@ -718,7 +715,7 @@ def hierarchy_pos(G, root=None, width=1.0, vert_gap=0.2, vert_loc=0, xcenter=0.5
             for child in children:
                 nextx += dx
                 pos = _hierarchy_pos(
-                    G,
+                    graph,
                     child,
                     width=dx,
                     vert_gap=vert_gap,
@@ -729,4 +726,4 @@ def hierarchy_pos(G, root=None, width=1.0, vert_gap=0.2, vert_loc=0, xcenter=0.5
                 )
         return pos
 
-    return _hierarchy_pos(G, root, width, vert_gap, vert_loc, xcenter)
+    return _hierarchy_pos(graph, root, width, vert_gap, vert_loc, xcenter)
