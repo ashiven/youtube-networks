@@ -1,6 +1,4 @@
 ## Options
-- There are several functionalities included with this script.
-- Below is a short description and an example for every option.
 
 #### `-s` : The initial Youtube link.
 ```bash
