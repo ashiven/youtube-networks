@@ -134,7 +134,7 @@ def get_layers(youtube: Any, video_id: str, width: int, depth: int) -> List[Dict
     return layers
 
 
-def layers_to_title_dict(layers: List[Dict]) -> Dict:
+def video_id_to_title_dict(layers: List[Dict], tree: nx.Graph) -> Dict:
     """Takes the layers returned by get_layers and converts them into a dictionary
     mapping video IDs to video titles
 
@@ -145,10 +145,17 @@ def layers_to_title_dict(layers: List[Dict]) -> Dict:
     for layer in layers:
         for video_id, video_info in layer.items():
             video_id_to_title[video_id] = video_info[1]
+
+    video_id_to_title = {
+        node: video_id_to_title[node]
+        for node in tree.nodes()
+        if node in video_id_to_title
+    }
+
     return video_id_to_title
 
 
-def layers_to_channel_dict(layers: List[Dict]) -> Dict:
+def video_id_to_channel_id_dict(layers: List[Dict], tree: nx.Graph) -> Dict:
     """Takes the layers returned by get_layers and converts them into a dictionary
     mapping video IDs to channel IDs
 
@@ -160,10 +167,77 @@ def layers_to_channel_dict(layers: List[Dict]) -> Dict:
         for video_id, video_info in layer.items():
             video_id_to_channel_id[video_id] = video_info[2]
 
+    video_id_to_channel_id = {
+        node: video_id_to_channel_id[node]
+        for node in tree.nodes()
+        if node in video_id_to_channel_id
+    }
+
     return video_id_to_channel_id
 
 
-def get_colors(layers: List[Dict], tree: nx.Graph) -> tuple[List[str], Dict]:
+def channel_id_to_channel_name_dict(
+    layers: List[Dict], tree: nx.Graph, use_noembed: bool = False
+) -> Dict[str, str]:
+    """Takes a dictionary mapping video IDs to channel IDs and returns a dictionary
+    mapping channel IDs to channel names by querying the Youtube Data API
+
+    :param youtube: The Youtube Data API object
+    :param video_id_to_channel_id: A dictionary mapping video IDs to channel IDs
+    :return: A dictionary mapping channel IDs to channel names
+    """
+    video_id_to_channel_id = video_id_to_channel_id_dict(layers, tree)
+
+    filtered_video_id_to_channel_id = {}
+    for video_id, channel_id in video_id_to_channel_id.items():
+        if channel_id not in filtered_video_id_to_channel_id.values():
+            filtered_video_id_to_channel_id[video_id] = channel_id
+
+    channel_id_to_channel_name = {
+        channel_id: get_channel_name_embed(video_id, use_noembed)
+        for video_id, channel_id in filtered_video_id_to_channel_id.items()
+    }
+
+    for channel_id, channel_name in channel_id_to_channel_name.items():
+        if channel_name is None:
+            channel_id_to_channel_name[channel_id] = "Not Found"
+
+    return channel_id_to_channel_name
+
+
+def video_id_to_channel_name_dict(
+    layers: List[Dict], tree: nx.Graph, use_noembed: bool = False
+) -> Dict[str, str]:
+    """Takes the layers returned by get_layers and converts them into a dictionary
+    mapping video IDs to channel names by querying the Youtube Data API or using noembed
+
+    :param layers (List[Dict]): The layers that were returned by get_layers
+    :param tree (nx.Graph): The tree representation of the layers
+    :param use_noembed (bool): If True, uses noembed.com to fetch channel names,
+    otherwise uses youtube.com/oembed
+    :return: A dictionary containing video IDs as keys and channel names as values
+    """
+    video_id_to_channel_id = video_id_to_channel_id_dict(layers, tree)
+    channel_id_to_channel_name = channel_id_to_channel_name_dict(
+        layers, tree, use_noembed=use_noembed
+    )
+
+    video_id_to_channel_name = {
+        video_id: channel_id_to_channel_name[channel_id]
+        for video_id, channel_id in video_id_to_channel_id.items()
+        if channel_id in channel_id_to_channel_name
+    }
+
+    video_id_to_channel_name = {
+        node: video_id_to_channel_name[node]
+        for node in tree.nodes()
+        if node in video_id_to_channel_name
+    }
+
+    return video_id_to_channel_name
+
+
+def get_colors(layers: List[Dict], tree: nx.Graph) -> List[str]:
     """Takes the layers generated in get_layers and their tree representation
     and returns a coloring according to the Youtube channels
 
@@ -172,12 +246,7 @@ def get_colors(layers: List[Dict], tree: nx.Graph) -> tuple[List[str], Dict]:
     :return: A tuple containing a list of colors for each node in the tree
     and a dictionary mapping video IDs to channel IDs
     """
-    video_id_to_channel_id = layers_to_channel_dict(layers)
-    video_id_to_channel_id = {
-        node: video_id_to_channel_id[node]
-        for node in tree.nodes()
-        if node in video_id_to_channel_id
-    }
+    video_id_to_channel_id = video_id_to_channel_id_dict(layers, tree)
     unique_channel_ids = list(set(video_id_to_channel_id.values()))
 
     colors = [
@@ -202,7 +271,7 @@ def get_colors(layers: List[Dict], tree: nx.Graph) -> tuple[List[str], Dict]:
     }
     colorings = [node_to_color.get(node, "red") for node in tree.nodes()]
 
-    return colorings, video_id_to_channel_id
+    return colorings
 
 
 def get_tree(layers: List[Dict]) -> tuple[nx.Graph, str]:

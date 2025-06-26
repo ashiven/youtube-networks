@@ -7,27 +7,92 @@ import logging
 import os
 import re
 import subprocess
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import matplotlib.pyplot as plt
 import networkx as nx
 
 from helpers import (
-    get_channel_name,
-    get_channel_name_embed,
     get_colors,
     get_layers,
     get_tree,
     hierarchy_pos,
-    layers_to_channel_dict,
-    layers_to_title_dict,
+    video_id_to_channel_id_dict,
+    video_id_to_channel_name_dict,
+    video_id_to_title_dict,
 )
 
 logger = logging.getLogger(__name__)
 
 
+def _draw_tree(
+    tree: nx.Graph, root: str, colors: List[str], labels: Dict, title: str
+) -> None:
+    """Helper function to draw the tree with the specified parameters"""
+    plt.figure(figsize=(15, 10))
+    pos = hierarchy_pos(tree, root)
+    nx.draw(tree, pos=pos, with_labels=False, node_color=colors)
+    nx.draw_networkx_labels(tree, pos, labels, font_size=9)
+    plt.title(title)
+    plt.show()
+
+
+def _convert_graph(
+    tree: nx.Graph,
+    root: str,
+    video_id_to_channel_name: Dict,
+    graph: Optional[nx.Graph] = None,
+    log_line: Optional[int] = 0,
+) -> Tuple[nx.Graph, int, int]:
+    """Helper function to convert the tree into a network graph"""
+    graph = graph or nx.Graph()
+    edge_total, node_total = 0, 0
+
+    for edge in tree.edges():
+        u_video_id, v_video_id = edge
+        u_channel_name = video_id_to_channel_name[u_video_id]
+        v_channel_name = video_id_to_channel_name[v_video_id]
+        if (
+            not v_channel_name in graph.nodes()
+            and u_channel_name == "Not Found"
+            and v_channel_name != "Not Found"
+        ):
+            graph.add_node(v_channel_name, size=1)
+            node_total += 1
+            continue
+        elif (
+            not u_channel_name in graph.nodes()
+            and v_channel_name == "Not Found"
+            and u_channel_name != "Not Found"
+        ):
+            graph.add_node(u_channel_name, size=1)
+            node_total += 1
+            continue
+        elif (
+            not (u_channel_name, v_channel_name) in graph.edges()
+            and u_channel_name != v_channel_name
+        ):
+            graph.add_node(u_channel_name, size=1)
+            graph.add_node(v_channel_name, size=1)
+            graph.add_edge(u_channel_name, v_channel_name, weight=1)
+            node_total += 2
+            edge_total += 1
+        elif (u_channel_name, v_channel_name) in graph.edges():
+            graph.edges[u_channel_name, v_channel_name]["weight"] += 1
+
+    for node in tree.nodes():
+        u_channel_name = video_id_to_channel_name[node]
+        if u_channel_name == "Not Found":
+            continue
+        elif log_line == 0:
+            graph.nodes[u_channel_name]["size"] += 0.1
+        elif log_line > 0 and node != root:
+            graph.nodes[u_channel_name]["size"] += 0.1
+
+    return graph, edge_total, node_total
+
+
 def draw_tree(
-    youtube: Any,
     layers: List[Dict],
     display: str,
     convert_graph: bool,
@@ -40,199 +105,108 @@ def draw_tree(
     :param convert_graph: If True, converts the tree to a graph and saves it as a GraphML file
     :return: None
     """
-
-    def _draw_tree(tree: nx.Graph, colors: List[str], labels: Dict, title: str) -> None:
-        """Helper function to draw the tree with the specified parameters"""
-        plt.figure(figsize=(15, 10))
-        pos = hierarchy_pos(tree, root)
-        nx.draw(tree, pos=pos, with_labels=False, node_color=colors)
-        nx.draw_networkx_labels(tree, pos, labels, font_size=9)
-        plt.title(title)
-        plt.show()
-
-    def _convert_graph(
-        tree: nx.Graph,
-        root: str,
-        video_id_to_channel_id: Dict,
-        channel_id_to_channel_name: Dict,
-    ) -> None:
-        """Helper function to convert the tree into a network graph"""
-        graph = nx.Graph()
-        for edge in tree.edges():
-            u_video_id, v_video_id = edge
-            u_channel_name = channel_id_to_channel_name[
-                video_id_to_channel_id[u_video_id]
-            ]
-            v_channel_name = channel_id_to_channel_name[
-                video_id_to_channel_id[v_video_id]
-            ]
-            if (
-                not (u_channel_name, v_channel_name) in graph.edges()
-                and u_channel_name != v_channel_name
-            ):
-                graph.add_node(u_channel_name, size=1)
-                graph.add_node(v_channel_name, size=1)
-                graph.add_edge(u_channel_name, v_channel_name, weight=1)
-            elif (u_channel_name, v_channel_name) in graph.edges():
-                graph.edges[u_channel_name, v_channel_name]["weight"] += 1
-
-        for node in tree.nodes():
-            u_channel_name = channel_id_to_channel_name[video_id_to_channel_id[node]]
-            graph.nodes[u_channel_name]["size"] += 1
-
-        nx.write_graphml(graph, f"./graphs/{root}.graphml")
-        logger.info("Created graph: ./graphs/%s.graphml", root)
-
     tree, root = get_tree(layers)
-    colors, video_id_to_channel_id = get_colors(layers, tree)
+    colors = get_colors(layers, tree)
+
     if display == "channelName" or convert_graph:
-        unique_channel_ids = list(set(video_id_to_channel_id.values()))
-        channel_id_to_channel_name = {
-            channel_id: get_channel_name(youtube, channel_id)
-            for channel_id in unique_channel_ids
-        }
-        labels = {
-            node: channel_id_to_channel_name[video_id_to_channel_id[node]]
-            for node in tree.nodes()
-        }
+        video_id_to_channel_name = video_id_to_channel_name_dict(
+            layers, tree, use_noembed=True
+        )
+        labels = video_id_to_channel_name
         _draw_tree(
             tree,
+            root,
             colors,
             labels,
             "Channel Name Tree",
         )
         if convert_graph:
-            _convert_graph(
-                tree, root, video_id_to_channel_id, channel_id_to_channel_name
-            )
+            graph = _convert_graph(tree, root, video_id_to_channel_name)
+            nx.write_graphml(graph, f"./graphs/{root}.graphml")
+            logger.info("Created graph: ./graphs/%s.graphml", root)
     elif display == "videoId":
         labels = {node: node for node in tree.nodes()}
         _draw_tree(
             tree,
+            root,
             colors,
             labels,
             "Video ID Tree",
         )
     elif display == "channelId":
-        labels = {node: video_id_to_channel_id[node] for node in tree.nodes()}
+        labels = video_id_to_channel_id_dict(layers, tree)
         _draw_tree(
             tree,
+            root,
             colors,
             labels,
             "Channel ID Tree",
         )
     elif display == "title":
-        video_id_to_title = layers_to_title_dict(layers)
-        labels = {node: video_id_to_title[node] for node in tree.nodes()}
+        labels = video_id_to_title_dict(layers, tree)
         _draw_tree(
             tree,
+            root,
             colors,
             labels,
             "Video Title Tree",
         )
 
 
-def convert_imports(filename: str) -> None:
-    """Given the path to a logfile that contains multiple layers derived with get_layers,
+def convert_imports(logfile: str) -> None:
+    """Given the path to a logfile that contains multiple tree-representing layers,
     converts this set of layers into one network graph that will be saved in the graphs folder
 
-    :param filename: The name of the logfile containing the layers
+    :param logfile: The name of the logfile containing the layers
     :return: None
     """
-    layers_list = []
-    with open(f"./data/{filename}", "r", encoding="utf-8") as logfile:
-        for line in logfile:
-            layers = eval(line)  # pylint: disable=eval-used
-            layers_list.append(layers)
 
-    file_name = None
-    use_noembed = True
-    node_total = 0
-    edge_total = 0
+    def _layers_list_from_logfile(logfile: str) -> List[Dict]:
+        """Reads the logfile and returns a list of layers"""
+        layers_list = []
+        with open(f"./data/{logfile}", "r", encoding="utf-8") as logfile:
+            for line in logfile:
+                layers = eval(line)  # pylint: disable=eval-used
+                layers_list.append(layers)
+        return layers_list
+
+    file_name, use_noembed = None, True
     graph = nx.Graph()
+    node_total, edge_total, subtree_total = 0, 0, 0
+    layers_list = _layers_list_from_logfile(logfile)
+
     for log_line, layers in enumerate(layers_list):
-        tree, root = get_tree(layers)
-        logger.info("Converting subtree: %d with root: %s", log_line, root)
+        subtree, subroot = get_tree(layers)
+        logger.info("Converting subtree: %d with root: %s", log_line, subroot)
 
-        # name the file after the root of the first tree
-        if file_name is None:
-            file_name = channel_id_to_channel_name[video_id_to_channel_id[root]]
-
-        # swap between noembed and oembed every 20 iterations
         if log_line % 20 == 0 and log_line > 0:
             use_noembed = not use_noembed
+        video_id_to_channel_name = video_id_to_channel_name_dict(
+            layers, subtree, use_noembed=use_noembed
+        )
 
-        # create a bunch of mappings between video IDs, channel IDs, and channel names
-        video_id_to_channel_id = layers_to_channel_dict(layers)
-        video_id_to_channel_id = {
-            node: video_id_to_channel_id[node] for node in tree.nodes()
-        }
-        video_id_to_channel_info = {}
-        for video_id in tree.nodes():
-            channel_name = get_channel_name_embed(video_id, use_noembed)
-            if channel_name:
-                channel_name = re.sub(r"[^\w\s-]", "", channel_name).strip()
-                video_id_to_channel_info[video_id] = [
-                    channel_name,
-                    video_id_to_channel_id[video_id],
-                ]
-            else:
-                video_id_to_channel_info[video_id] = [
-                    "Not Found",
-                    video_id_to_channel_id[video_id],
-                ]
-        channel_id_to_channel_name = {
-            channel_id: channel_name
-            for channel_name, channel_id in video_id_to_channel_info.values()
-        }
+        if file_name is None:
+            file_name = video_id_to_channel_name[subroot]
+            file_name = re.sub(r"\s+", "_", file_name)
+            file_name = re.sub(r"[^\w\s-]", "", file_name)
 
-        # add nodes and edges to the graph for each tree
-        for edge in tree.edges():
-            u_video_id, v_video_id = edge
-            u_channel_name = channel_id_to_channel_name[
-                video_id_to_channel_id[u_video_id]
-            ]
-            v_channel_name = channel_id_to_channel_name[
-                video_id_to_channel_id[v_video_id]
-            ]
-            if (
-                not v_channel_name in graph.nodes()
-                and u_channel_name == "Not Found"
-                and v_channel_name != "Not Found"
-            ):
-                graph.add_node(v_channel_name, size=1)
-                continue
-            elif (
-                not u_channel_name in graph.nodes()
-                and v_channel_name == "Not Found"
-                and u_channel_name != "Not Found"
-            ):
-                graph.add_node(u_channel_name, size=1)
-                continue
-            elif (
-                not (u_channel_name, v_channel_name) in graph.edges()
-                and u_channel_name != v_channel_name
-            ):
-                graph.add_node(u_channel_name, size=1)
-                graph.add_node(v_channel_name, size=1)
-                graph.add_edge(u_channel_name, v_channel_name, weight=1)
-            elif (u_channel_name, v_channel_name) in graph.edges():
-                graph.edges[u_channel_name, v_channel_name]["weight"] += 1
-            edge_total += 1
+        graph, edge_total, node_total = _convert_graph(
+            subtree,
+            subroot,
+            video_id_to_channel_name,
+            graph=graph,
+            log_line=log_line,
+        )
+        edge_total += edge_total
+        node_total += node_total
+        subtree_total += 1
 
-        for node in tree.nodes():
-            u_channel_name = channel_id_to_channel_name[video_id_to_channel_id[node]]
-            if u_channel_name == "Not Found":
-                continue
-            elif log_line == 0:
-                graph.nodes[u_channel_name]["size"] += 0.1
-            elif log_line > 0 and node != root:
-                graph.nodes[u_channel_name]["size"] += 0.1
-            node_total += 1
-
-    file_name = re.sub(r"\s+", "_", file_name)
-    file_name = re.sub(r"[^\w\s-]", "", file_name)
-    logger.info("Converted tree T with V(T)=%d, E(T)=%d", node_total, edge_total)
+    logger.info(
+        "Converted %d subtrees into one tree with %d nodes and %d edges",
+        subtree_total,
+        node_total,
+        edge_total,
+    )
     nx.write_graphml(graph, f"./graphs/{file_name}.graphml")
     logger.info("Created graph: ./graphs/%s.graphml", file_name)
 
