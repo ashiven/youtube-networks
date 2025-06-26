@@ -40,7 +40,7 @@ This script can be used to map out the channel landscape surrounding specific **
 -  Enter the following command to run the script:
 
    ```bash
-   python ./src/main.py -s <link to a youtube video>
+   python main.py -s <link to a youtube video>
    ```
 
    |    parameter    | alias |  type   | description                                                                        | default |
