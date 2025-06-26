@@ -72,7 +72,8 @@ def parse_args():
         "--labels",
         type=str,
         default="title",
-        help="Display Video Titles: 'title' | Video Ids: 'videoId' | Channel Ids: 'channelId'",
+        help="""Display Video Titles: 'title' | Video Ids: 'videoId'
+ | Channel Ids: 'channelId'  | Channel Names: 'channelName'""",
     )
     parser.add_argument(
         "-g",
@@ -86,7 +87,7 @@ def parse_args():
         "--import_trees",
         type=str,
         default=None,
-        help="Import the trees for a given file and convert them to a graph",
+        help="Import the trees for a given logfile and convert them to a graph",
     )
     parser.add_argument(
         "-f",
