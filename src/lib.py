@@ -99,7 +99,6 @@ def draw_tree(
 ) -> None:
     """Takes the tree retrieved from get_tree, visualizes it, and optionally converts it to a graph
 
-    :param youtube: The Youtube Data API object
     :param layers: The layers that were returned by get_layers
     :param display: The type of display ('videoId', 'title', 'channelId', 'channelName')
     :param convert_graph: If True, converts the tree to a graph and saves it as a GraphML file
@@ -153,6 +152,16 @@ def draw_tree(
         )
 
 
+def _layers_list_from_logfile(logfile: str) -> List[Dict]:
+    """Reads the logfile and returns a list of layers"""
+    layers_list = []
+    with open(f"./data/{logfile}", "r", encoding="utf-8") as logfile:
+        for line in logfile:
+            layers = eval(line)  # pylint: disable=eval-used
+            layers_list.append(layers)
+    return layers_list
+
+
 def convert_imports(logfile: str) -> None:
     """Given the path to a logfile that contains multiple tree-representing layers,
     converts this set of layers into one network graph that will be saved in the graphs folder
@@ -160,16 +169,6 @@ def convert_imports(logfile: str) -> None:
     :param logfile: The name of the logfile containing the layers
     :return: None
     """
-
-    def _layers_list_from_logfile(logfile: str) -> List[Dict]:
-        """Reads the logfile and returns a list of layers"""
-        layers_list = []
-        with open(f"./data/{logfile}", "r", encoding="utf-8") as logfile:
-            for line in logfile:
-                layers = eval(line)  # pylint: disable=eval-used
-                layers_list.append(layers)
-        return layers_list
-
     file_name, use_noembed = None, True
     graph = nx.Graph()
     node_total, edge_total, subtree_total = 0, 0, 0
@@ -211,7 +210,32 @@ def convert_imports(logfile: str) -> None:
     logger.info("Created graph: ./graphs/%s.graphml", file_name)
 
 
-def _get_leaf_trees(
+def _save_breakpoint(
+    video_id: str,
+    start_line: int,
+    leaf_index: int,
+    current_leafs: int,
+    next_leafs: int,
+    current_depth: int,
+    leaf_layer_video_ids: List[str],
+    evaluating_root: bool,
+) -> None:
+    """Saves the current state of the calculation to a breakpoint file"""
+    with open(f"./data/{video_id}_breakpoint.txt", "w", encoding="utf-8") as file:
+        file.write(str(start_line) + "\n")
+        file.write(str(leaf_index) + "\n")
+        if evaluating_root:
+            file.write(str(0) + "\n")
+            file.write(str(next_leafs) + "\n")
+        else:
+            file.write(str(current_leafs) + "\n")
+            file.write(str(next_leafs - len(leaf_layer_video_ids)) + "\n")
+        file.write(str(current_depth))
+    logger.info("Saved logfile: ./data/%s.log", video_id)
+    logger.info("Saved breakpoint: ./data/%s_breakpoint.txt", video_id)
+
+
+def _calc_leaf_trees(
     start_line: int,
     current_leaf_index: int,
     current_leafs: int,
@@ -239,30 +263,6 @@ def _get_leaf_trees(
     :return: A tuple containing a boolean indicating whether the evaluation should continue,
     the number of current leafs left, and the number of next leafs to be evaluated
     """
-
-    def _save_breakpoint(
-        start_line: int,
-        leaf_index: int,
-        current_leafs: int,
-        next_leafs: int,
-        current_depth: int,
-        leaf_ids: List[str],
-        evaluating_root: bool,
-    ) -> None:
-        """Saves the current state of the calculation to a breakpoint file"""
-        with open(f"./data/{video_id}_breakpoint.txt", "w", encoding="utf-8") as file:
-            file.write(str(start_line) + "\n")
-            file.write(str(leaf_index) + "\n")
-            if evaluating_root:
-                file.write(str(0) + "\n")
-                file.write(str(next_leafs) + "\n")
-            else:
-                file.write(str(current_leafs) + "\n")
-                file.write(str(next_leafs - len(leaf_ids)) + "\n")
-            file.write(str(current_depth))
-        logger.info("Saved logfile: ./data/%s.log", video_id)
-        logger.info("Saved breakpoint: ./data/%s_breakpoint.txt", video_id)
-
     evaluating_root = False
     with open(f"./data/{video_id}.log", "r", encoding="utf-8") as logfile:
         for line_number, line in enumerate(logfile):
@@ -282,6 +282,7 @@ def _get_leaf_trees(
                 if current_depth >= max_depth:
                     logger.info("Reached maxDepth. Quitting...")
                     _save_breakpoint(
+                        video_id,
                         start_line,
                         leaf_index,
                         current_leafs,
@@ -299,6 +300,7 @@ def _get_leaf_trees(
                     logger.info("Saved leafTree: %d", leaf_index)
                 except Exception:  #  pylint: disable=broad-except
                     _save_breakpoint(
+                        video_id,
                         start_line,
                         leaf_index,
                         current_leafs,
@@ -326,7 +328,7 @@ def _force_until_quota(
     max_depth: int,
     video_id: str,
 ) -> None:
-    """Repeatedly calls the function get_leaf_trees until either the API usage limit
+    """Repeatedly calls the function _calc_leaf_trees until either the API usage limit
     has been exceeded, or max_depth has been reached
 
     :param start_line: The line number in the logfile where the calculation should start
@@ -343,12 +345,14 @@ def _force_until_quota(
     """
     continue_eval = True
     while continue_eval:
-        logger.info("Calling _get_leaf_trees(%d)...", start_line)
+        logger.info("Calculating leaf trees on line: %d", start_line)
+        # If we have reached a new tree
         if current_leafs == 0:
             current_depth += depth
             current_leafs = next_leafs
             next_leafs = 0
-        continue_eval, current_leafs, next_leafs = _get_leaf_trees(
+
+        continue_eval, current_leafs, next_leafs = _calc_leaf_trees(
             start_line,
             current_leaf_index,
             current_leafs,
@@ -360,10 +364,67 @@ def _force_until_quota(
             max_depth,
             video_id,
         )
-        # current_leaf_index needs to continue from breakpoint on the first call of get_leaf_trees()
+        start_line += 1
         current_leaf_index = 0
         current_leafs -= 1
-        start_line += 1
+
+
+def _calc_new_tree(
+    youtube: Any, video_id: str, width: int, depth: int, max_depth: int
+) -> None:
+    """Helper to calculate a new tree from scratch."""
+    layers = get_layers(youtube, video_id, width, depth)
+    with open(f"./data/{video_id}.log", "w", encoding="utf-8") as logfile:
+        print(layers, file=logfile)
+    _force_until_quota(
+        start_line=0,
+        current_leaf_index=0,
+        current_leafs=0,
+        next_leafs=0,
+        current_depth=0,
+        youtube=youtube,
+        width=width,
+        depth=depth,
+        max_depth=max_depth,
+        video_id=video_id,
+    )
+
+
+def _continue_tree_calc(
+    youtube: Any, video_id: str, width: int, depth: int, max_depth: int
+) -> None:
+    """Helper to continue the tree calculation from the last saved state in the breakpoint file."""
+    start_line, current_leaf_index, current_leafs, next_leafs, current_depth = (
+        0,
+        0,
+        0,
+        0,
+        0,
+    )
+    with open(f"./data/{video_id}_breakpoint.txt", "r", encoding="utf-8") as file:
+        for line_index, line in enumerate(file):
+            if line_index == 0:
+                start_line = int(line.strip())
+            if line_index == 1:
+                current_leaf_index = int(line.strip())
+            if line_index == 2:
+                current_leafs = int(line.strip())
+            if line_index == 3:
+                next_leafs = int(line.strip())
+            if line_index == 4:
+                current_depth = int(line.strip())
+    _force_until_quota(
+        start_line,
+        current_leaf_index,
+        current_leafs,
+        next_leafs,
+        current_depth,
+        youtube,
+        width,
+        depth,
+        max_depth,
+        video_id,
+    )
 
 
 def force_until_quota(
@@ -385,59 +446,19 @@ def force_until_quota(
     :param max_depth: The maximum overall depth that should not be exceeded
     :return: None
     """
-
-    def _calc_new_tree() -> None:
-        layers = get_layers(youtube, video_id, width, depth)
-        with open(f"./data/{video_id}.log", "w", encoding="utf-8") as logfile:
-            print(layers, file=logfile)
-        _force_until_quota(0, 0, 0, 0, 0, youtube, width, depth, max_depth, video_id)
-
-    def _continue_tree_calc() -> None:
-        start_line, current_leaf_index, current_leafs, next_leafs, current_depth = (
-            0,
-            0,
-            0,
-            0,
-            0,
-        )
-        with open(f"./data/{video_id}_breakpoint.txt", "r", encoding="utf-8") as file:
-            for line_index, line in enumerate(file):
-                if line_index == 0:
-                    start_line = int(line.strip())
-                if line_index == 1:
-                    current_leaf_index = int(line.strip())
-                if line_index == 2:
-                    current_leafs = int(line.strip())
-                if line_index == 3:
-                    next_leafs = int(line.strip())
-                if line_index == 4:
-                    current_depth = int(line.strip())
-        _force_until_quota(
-            start_line,
-            current_leaf_index,
-            current_leafs,
-            next_leafs,
-            current_depth,
-            youtube,
-            width,
-            depth,
-            max_depth,
-            video_id,
-        )
-
     if not os.path.isfile(f"./data/{video_id}.log"):
         logger.info("Starting tree calculation...")
-        _calc_new_tree()
+        _calc_new_tree(youtube, video_id, width, depth, max_depth)
     elif not os.path.isfile(f"./data/{video_id}_breakpoint.txt"):
         logger.info(
             "Log file exists, but no breakpoint file found. Starting from scratch..."
         )
-        _calc_new_tree()
+        _calc_new_tree(youtube, video_id, width, depth, max_depth)
     else:
         logger.info(
             "Log file and breakpoint file found. Continuing tree calculation..."
         )
-        _continue_tree_calc()
+        _continue_tree_calc(youtube, video_id, width, depth, max_depth)
 
 
 def calculate_aggressive(
