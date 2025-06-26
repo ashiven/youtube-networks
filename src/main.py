@@ -9,6 +9,7 @@ import logging
 
 from googleapiclient.discovery import HttpError, build
 
+from helpers import parse_video_id
 from lib import (
     calculate_aggressive,
     convert_imports,
@@ -16,7 +17,6 @@ from lib import (
     force_until_quota,
     get_layers,
     get_titles,
-    parse_video_id,
 )
 
 logger = logging.getLogger(__name__)
@@ -63,64 +63,81 @@ def parse_args():
     """
     parser = argparse.ArgumentParser(description="Youtube Related Video Collector")
     parser.add_argument(
-        "-s", "--seed", type=str, help="Initial Youtube Video Link", required=True
+        "-s",
+        "--seed",
+        type=str,
+        help="The initial YouTube link (required)",
+        required=True,
     )
-    parser.add_argument("-d", "--depth", type=int, default=2, help="Search args.depth")
-    parser.add_argument("-w", "--width", type=int, default=3, help="Search args.width")
+    parser.add_argument(
+        "-d",
+        "--depth",
+        type=int,
+        default=2,
+        help="The number of depth layers to calculate for the tree",
+    )
+    parser.add_argument(
+        "-w",
+        "--width",
+        type=int,
+        default=3,
+        help="The number of related videos per video",
+    )
     parser.add_argument(
         "-l",
         "--labels",
         type=str,
         default="title",
-        help="""Display Video Titles: 'title' | Video Ids: 'videoId'
- | Channel Ids: 'channelId'  | Channel Names: 'channelName'""",
+        help="Label description of the tree: title, videoId, channelId, channelName",
     )
     parser.add_argument(
         "-g",
         "--graph",
         action="store_true",
-        help="""Whether to convert the tree to a graph that will be exported to a
- graphML file(only works with -D channelName)""",
+        default=False,
+        help="Convert the tree into a network graph",
     )
     parser.add_argument(
         "-i",
-        "--import_trees",
+        "--importtrees",
         type=str,
         default=None,
-        help="Import the trees for a given logfile and convert them to a graph",
+        help="Path to a logfile (will convert its contents into a network graph)",
     )
     parser.add_argument(
         "-f",
         "--force",
+        default=False,
         action="store_true",
-        help="Keep calculating trees until the quota is exceeded",
+        help="Calculate a large tree saved in a logfile until API key quota is reached",
     )
     parser.add_argument(
         "-A",
         "--aggressive",
+        default=False,
         action="store_true",
-        help="Do the same as with -f but cycle through all available api keys",
+        help="Do the same as -f, exhausting all available API keys",
     )
     parser.add_argument(
         "-m",
         "--maxdepth",
         type=int,
         default=10000,
-        help="Total depth of the tree to be built with -f or -A (must be a multiple of depth)",
+        help="Max depth for tree compilation (must be a multiple of -d)",
     )
     parser.add_argument(
         "-t",
         "--titles",
         type=str,
         default=None,
-        help="Extract only the titles from a given file",
+        help="Path to a logfile (will extract the video titles for further topic analysis)",
     )
     parser.add_argument(
         "-a",
-        "--api_key",
+        "--apikey",
         type=str,
         default=None,
-        help="Use a specific API key instead of the default one in the file",
+        help="The API key to be used (if not provided, the first key from the list will be used)",
     )
     args = parser.parse_args()
     return args
@@ -135,18 +152,18 @@ def main():
     try:
         args = parse_args()
         api_keys = get_api_keys()
-        default_api_key = args.api_key if args.api_key else api_keys[0]
+        default_api_key = args.apikey if args.apikey else api_keys[0]
         youtube = build("youtube", "v3", developerKey=default_api_key)
         video_id = parse_video_id(args.seed)
 
-        if not (args.import_trees or args.force or args.aggressive or args.titles):
+        if not (args.importtrees or args.force or args.aggressive or args.titles):
             layers = get_layers(youtube, video_id, args.width, args.depth)
             with open(f"./data/{video_id}.log", "a", encoding="utf-8") as logfile:
                 print(layers, file=logfile)
-            draw_tree(youtube, layers, args.labels, args.graph)
+            draw_tree(layers, args.labels, args.graph)
 
-        elif args.import_trees:
-            logfile = args.import_trees
+        elif args.importtrees:
+            logfile = args.importtrees
             convert_imports(logfile)
 
         elif args.force:
