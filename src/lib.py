@@ -187,7 +187,6 @@ def convert_imports(logpath: str) -> None:
 
     for log_line, layers in enumerate(layers_list):
         subtree, subroot = get_tree(layers)
-        logger.info("Converting subtree: %d with root: %s", log_line, subroot)
 
         if log_line % 20 == 0 and log_line > 0:
             use_noembed = not use_noembed
@@ -195,20 +194,24 @@ def convert_imports(logpath: str) -> None:
             layers, subtree, use_noembed=use_noembed
         )
 
+        subroot_channel_name = video_id_to_channel_name[subroot]
         if file_name is None:
-            file_name = video_id_to_channel_name[subroot]
+            file_name = subroot_channel_name
             file_name = re.sub(r"\s+", "_", file_name)
             file_name = re.sub(r"[^\w\s-]", "", file_name)
 
-        graph, edge_total, node_total = _convert_graph(
+        logger.info(
+            "Converting subtree: %d with root: %s", log_line, subroot_channel_name
+        )
+        graph, subtree_edge_total, subtree_node_total = _convert_graph(
             subtree,
             subroot,
             video_id_to_channel_name,
             graph=graph,
             log_line=log_line,
         )
-        edge_total += edge_total
-        node_total += node_total
+        edge_total += subtree_edge_total
+        node_total += subtree_node_total
         subtree_total += 1
 
     logger.info(
