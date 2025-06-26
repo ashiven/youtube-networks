@@ -46,7 +46,7 @@ This script can be used to map out the channel landscape surrounding specific **
    |    parameter    | alias |  type   | description                                                                        | default |
    | :-------------: | :---: | :-----: | :--------------------------------------------------------------------------------- | :-----: |
    |    `--help`     | `-h`  | Boolean | Shows argument usage                                                               |         |
-   |    `--seed`     | `-s`  | String  | The initial YouTube link (required)                                                |  None   |
+   |    `--seed`     | `-s`  | String  | The initial YouTube link                                                           |  None   |
    |    `--depth`    | `-d`  | Integer | The number of depth layers to calculate for the tree                               |    2    |
    |    `--width`    | `-w`  | Integer | The number of related videos per video                                             |    3    |
    |   `--apikey`    | `-a`  | String  | The API key to be used (if not provided, the first key from the list will be used) |  None   |

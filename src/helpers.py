@@ -5,7 +5,7 @@ of related videos.
 import logging
 import random
 import re
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import networkx as nx
 import requests
@@ -32,7 +32,7 @@ def parse_video_id(link: str) -> Optional[str]:
     return None
 
 
-def get_video_info(youtube: Any, video_id: str) -> tuple[str, str]:
+def get_video_info(youtube: Any, video_id: str) -> Optional[Tuple[str, str]]:
     """
     Takes a Youtube video ID and returns the title and channel ID of the video.
 
@@ -41,10 +41,9 @@ def get_video_info(youtube: Any, video_id: str) -> tuple[str, str]:
     :return: A tuple containing the title and channel ID of the video
     """
     response = youtube.videos().list(part="snippet", id=video_id).execute()
-    return (
-        response["items"][0]["snippet"]["title"],
-        response["items"][0]["snippet"]["channelId"],
-    )
+    title = response["items"][0]["snippet"]["title"]
+    channel_id = response["items"][0]["snippet"]["channelId"]
+    return title, channel_id
 
 
 def get_channel_name(youtube: Any, channel_id: str) -> str:
@@ -56,7 +55,8 @@ def get_channel_name(youtube: Any, channel_id: str) -> str:
     :return: The name of the Youtube channel
     """
     response = youtube.channels().list(part="snippet", id=channel_id).execute()
-    return response["items"][0]["snippet"]["title"]
+    channel_name = response["items"][0]["snippet"]["title"]
+    return channel_name
 
 
 def get_channel_name_embed(video_id: str, noembed: bool) -> Optional[str]:
@@ -98,6 +98,10 @@ def get_related(youtube: Any, video_id: str, width: int) -> Dict:
     :return: A dictionary containing related video IDs as keys and a list of [video_id,
         title, channel_id] as values
     """
+    # NOTE: As of March 2023, the Youtube Data API v3 does not support
+    # retrieving related videos for a specific video ID any longer.
+    # So this function will have to be rewritten to use a different method for
+    # retrieving related videos.
     response = (
         youtube.search()
         .list(part="snippet", relatedToVideoId=video_id, maxResults=width, type="video")

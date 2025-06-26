@@ -18,6 +18,7 @@ from lib import (
     get_titles,
 )
 
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
@@ -29,7 +30,7 @@ def get_api_keys():
     """
     # Add your own API keys here!!!
     api_keys = [
-        "",
+        "AIzaSyBrxFIk_YKgMrKjeqn8Ocp3EPLkr9Im8Ts",
         "",
         "",
         "",
@@ -65,8 +66,7 @@ def parse_args():
         "-s",
         "--seed",
         type=str,
-        help="The initial YouTube link (required)",
-        required=True,
+        help="The initial YouTube link",
     )
     parser.add_argument(
         "-d",
@@ -154,7 +154,7 @@ def main():
         api_keys = get_api_keys()
         default_api_key = args.apikey if args.apikey else api_keys[0]
         youtube = build("youtube", "v3", developerKey=default_api_key)
-        video_id = parse_video_id(args.seed)
+        video_id = parse_video_id(args.seed) if args.seed else None
 
         if not (args.importtrees or args.force or args.aggressive or args.titles):
             draw_tree(youtube, video_id, args.width, args.depth, args.labels, args.graph)
@@ -187,10 +187,13 @@ def main():
 
         else:
             logger.error("Invalid arguments. Please use -h or --help to see the available options.")
+
     except HttpError as http_error:
         logger.error("An error occurred: %s", http_error)
-    except Exception as error:  # pylint: disable=broad-except
-        logger.error("An unexpected error occurred: %s", error)
+
+
+#    except Exception as error:  # pylint: disable=broad-except
+#        logger.error("An unexpected error occurred: %s", error)
 
 
 if __name__ == "__main__":
