@@ -3,13 +3,18 @@ This file contains functions to interact with the Youtube Data API
 and to visualize related videos as a graph.
 """
 
+import logging
+import os
 import random
 import re
+import subprocess
 from typing import Any, Dict, List, Optional
 
 import matplotlib.pyplot as plt
 import networkx as nx
 import requests
+
+logger = logging.getLogger(__name__)
 
 
 def parse_video_id(link: str) -> Optional[str]:
@@ -220,10 +225,8 @@ def get_tree(layers: List[Dict]) -> tuple[nx.Graph, str]:
     return tree, root
 
 
-def convert_tree(
+def draw_tree(
     youtube: Any,
-    tree: nx.Graph,
-    root: str,
     layers: List[Dict],
     display: str,
     convert_graph: bool,
@@ -231,10 +234,8 @@ def convert_tree(
     """Takes the tree retrieved from get_tree, visualizes it, and optionally converts it to a graph
 
     :param youtube: The Youtube Data API object
-    :param tree: The tree representation of the layers
-    :param root: The root node ID of the tree
     :param layers: The layers that were returned by get_layers
-    :param display: The type of display for the tree ('videoId', 'title', 'channelId', 'channelName')
+    :param display: The type of display ('videoId', 'title', 'channelId', 'channelName')
     :param convert_graph: If True, converts the tree to a graph and saves it as a GraphML file
     :return: None
     """
@@ -281,8 +282,17 @@ def convert_tree(
         nx.write_graphml(graph, f"./graphs/{root}.graphml")
         print(f"Created graph: ./graphs/{root}.graphml")
 
+    tree, root = get_tree(layers)
     colors, video_id_to_channel_id = get_colors(layers, tree)
-    if display == "channelId":
+    if display == "videoId":
+        labels = {node: node for node in tree.nodes()}
+        _draw_tree(
+            tree,
+            colors,
+            labels,
+            "Video ID Tree",
+        )
+    elif display == "channelId":
         labels = {node: video_id_to_channel_id[node] for node in tree.nodes()}
         _draw_tree(
             tree,
@@ -426,7 +436,7 @@ def convert_imports(filename: str) -> None:
     print(f"Created graph: ./graphs/{file_name}.graphml")
 
 
-def get_leaf_trees(
+def _get_leaf_trees(
     start_line: int,
     current_leaf_index: int,
     current_leafs: int,
@@ -529,7 +539,7 @@ def get_leaf_trees(
     return continue_eval, current_leafs, next_leafs
 
 
-def force_until_quota(
+def _force_until_quota(
     start_line: int,
     current_leaf_index: int,
     current_leafs: int,
@@ -558,12 +568,12 @@ def force_until_quota(
     """
     continue_eval = True
     while continue_eval:
-        print(f"Calling get_leaf_trees({start_line})...")
+        print(f"Calling _get_leaf_trees({start_line})...")
         if current_leafs == 0:
             current_depth += depth
             current_leafs = next_leafs
             next_leafs = 0
-        continue_eval, current_leafs, next_leafs = get_leaf_trees(
+        continue_eval, current_leafs, next_leafs = _get_leaf_trees(
             start_line,
             current_leaf_index,
             current_leafs,
@@ -579,6 +589,119 @@ def force_until_quota(
         current_leaf_index = 0
         current_leafs -= 1
         start_line += 1
+
+
+def force_until_quota(
+    youtube: Any,
+    video_id: str,
+    width: int,
+    depth: int,
+    max_depth: int,
+) -> None:
+    """Calculates the layers of related videos until the API usage limit has been exceeded
+    or max_depth has been reached. If the logfile for the video_id does not exist,
+    it will be created and the layers will be calculated from scratch. If the logfile exists,
+    it will continue the calculation from the last saved state in the breakpoint file.
+
+    :param youtube: The Youtube Data API object
+    :param video_id: The ID of the Youtube video for which the layers should be calculated
+    :param width: The width of one tree (number of related videos per layer)
+    :param depth: The depth of one tree (number of layers)
+    :param max_depth: The maximum overall depth that should not be exceeded
+    :return: None
+    """
+
+    def _calc_new_tree() -> None:
+        layers = get_layers(youtube, video_id, width, depth)
+        with open(f"./data/{video_id}.log", "w", encoding="utf-8") as logfile:
+            print(layers, file=logfile)
+        _force_until_quota(0, 0, 0, 0, 0, youtube, width, depth, max_depth, video_id)
+
+    def _continue_tree_calc() -> None:
+        start_line, current_leaf_index, current_leafs, next_leafs, current_depth = (
+            0,
+            0,
+            0,
+            0,
+            0,
+        )
+        with open(f"./data/{video_id}_breakpoint.txt", "r", encoding="utf-8") as file:
+            for line_index, line in enumerate(file):
+                if line_index == 0:
+                    start_line = int(line.strip())
+                if line_index == 1:
+                    current_leaf_index = int(line.strip())
+                if line_index == 2:
+                    current_leafs = int(line.strip())
+                if line_index == 3:
+                    next_leafs = int(line.strip())
+                if line_index == 4:
+                    current_depth = int(line.strip())
+        _force_until_quota(
+            start_line,
+            current_leaf_index,
+            current_leafs,
+            next_leafs,
+            current_depth,
+            youtube,
+            width,
+            depth,
+            max_depth,
+            video_id,
+        )
+
+    if not os.path.isfile(f"./data/{video_id}.log"):
+        logger.info("Starting tree calculation...")
+        _calc_new_tree()
+    elif not os.path.isfile(f"./data/{video_id}_breakpoint.txt"):
+        logger.info(
+            "Log file exists, but no breakpoint file found. Starting from scratch..."
+        )
+        _calc_new_tree()
+    else:
+        logger.info(
+            "Log file and breakpoint file found. Continuing tree calculation..."
+        )
+        _continue_tree_calc()
+
+
+def calculate_aggressive(
+    api_keys: list[str],
+    seed: str,
+    width: int,
+    depth: int,
+    max_depth: int,
+) -> None:
+    """Calculates the layers of related videos for a given seed video using multiple API keys
+    in an aggressive manner, meaning it will use all API keys in parallel until the quota is
+    exceeded or max_depth is reached. Each API key will be used to start a new process
+    that runs the main.py script with the specified parameters.
+
+    :param api_keys: A list of API keys to use for the calculation
+    :param seed: The ID of the Youtube video to start with
+    :param width: The width of one tree (number of related videos per layer)
+    :param depth: The depth of one tree (number of layers)
+    :param max_depth: The maximum overall depth that should not be exceeded
+    :return: None
+    """
+    for api_key in api_keys:
+        logger.info("Using API-Key: %s", api_key)
+        force_process = subprocess.Popen(
+            [
+                "python",
+                "main.py",
+                f"-s {seed}",
+                f"-w {width}",
+                f"-d {depth}",
+                f"-m {max_depth}",
+                f"-a {api_key}",
+                "-f",
+            ],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+        )
+        for line in iter(force_process.stdout.readline, b""):
+            logger.info("%s", line.rstrip().decode())
 
 
 def get_titles(filename: str) -> None:

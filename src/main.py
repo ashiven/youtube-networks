@@ -1,52 +1,78 @@
 """
 This script collects related videos from YouTube using the YouTube Data API.
 It builds a tree structure of related videos starting from a given video ID,
-and allows for various configurations such as depth, width, and display options.
+and allows for various configurations such as args.depth, args.width, and args.display options.
 """
 
 import argparse
-import os
-import subprocess
+import logging
 
-import matplotlib.pyplot as plt
-import networkx as nx
 from googleapiclient.discovery import HttpError, build
 
 from lib import (
+    calculate_aggressive,
     convert_imports,
-    convert_tree,
+    draw_tree,
     force_until_quota,
-    get_colors,
     get_layers,
     get_titles,
-    get_tree,
-    hierarchy_pos,
     parse_video_id,
 )
 
+logger = logging.getLogger(__name__)
 
-def main():
+
+def get_api_keys():
     """
-    Main function to parse arguments and execute the YouTube related video collector.
-    It initializes the YouTube API client, retrieves related videos, and processes
-    them based on user-defined parameters.
+    Retrieve a list of YouTube API keys.
+
+    :return: List of API keys.
+    """
+    # Add your own API keys here!!!
+    api_keys = [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+    ]
+    return [key for key in api_keys if key]
+
+
+def parse_args():
+    """
+    Parse command line arguments for the YouTube related video collector.
+
+    :return: Parsed arguments.
     """
     parser = argparse.ArgumentParser(description="Youtube Related Video Collector")
-    parser.add_argument("-d", "--depth", type=int, default=2, help="Search Depth")
-    parser.add_argument("-w", "--width", type=int, default=3, help="Search Width")
-    parser.add_argument("-s", "--seed", type=str, help="Initial Youtube Video Link")
     parser.add_argument(
-        "-a", "--apikey", type=int, default=0, help="Which API key should be used"
+        "-s", "--seed", type=str, help="Initial Youtube Video Link", required=True
     )
+    parser.add_argument("-d", "--depth", type=int, default=2, help="Search args.depth")
+    parser.add_argument("-w", "--width", type=int, default=3, help="Search args.width")
     parser.add_argument(
-        "-D",
-        "--display",
+        "-l",
+        "--labels",
         type=str,
         default="title",
         help="Display Video Titles: 'title' | Video Ids: 'videoId' | Channel Ids: 'channelId'",
-    )
-    parser.add_argument(
-        "-l", "--log", action="store_true", help="Store the tree inside of a log file"
     )
     parser.add_argument(
         "-g",
@@ -57,7 +83,7 @@ def main():
     )
     parser.add_argument(
         "-i",
-        "--treeimport",
+        "--import_trees",
         type=str,
         default=None,
         help="Import the trees for a given file and convert them to a graph",
@@ -67,13 +93,6 @@ def main():
         "--force",
         action="store_true",
         help="Keep calculating trees until the quota is exceeded",
-    )
-    parser.add_argument(
-        "-t",
-        "--titles",
-        type=str,
-        default=None,
-        help="Extract only the titles from a given file",
     )
     parser.add_argument(
         "-A",
@@ -88,178 +107,77 @@ def main():
         default=10000,
         help="Total depth of the tree to be built with -f or -A (must be a multiple of depth)",
     )
+    parser.add_argument(
+        "-t",
+        "--titles",
+        type=str,
+        default=None,
+        help="Extract only the titles from a given file",
+    )
+    parser.add_argument(
+        "-a",
+        "--api_key",
+        type=str,
+        default=None,
+        help="Use a specific API key instead of the default one in the file",
+    )
     args = parser.parse_args()
+    return args
 
-    seed = args.seed
-    width = args.width
-    depth = args.depth
-    api_index = args.apikey
-    display = args.display
-    log = args.log
-    graph = args.graph
-    treeimport = args.treeimport
-    force = args.force
-    titles = args.titles
-    aggressive = args.aggressive
-    max_depth = args.maxdepth
-    video_id = parse_video_id(seed) if seed else None
 
-    # Add your own API keys here!!!
-    api_key0 = ""
-    api_key1 = ""
-    api_key2 = ""
-    api_key3 = ""
-    api_key4 = ""
-    api_key5 = ""
-    api_key6 = ""
-    api_key7 = ""
-    api_key8 = ""
-    api_key9 = ""
-    api_key10 = ""
-    api_key11 = ""
-    api_key12 = ""
-    api_key13 = ""
-    api_key14 = ""
-    api_key15 = ""
-    api_key16 = ""
-    api_key17 = ""
-    api_key18 = ""
-    api_key19 = ""
+def main():
+    """
+    Main function to parse arguments and execute the YouTube related video collector.
+    It initializes the YouTube API client, retrieves related videos, and processes
+    them based on user-defined parameters.
+    """
+    try:
+        args = parse_args()
+        api_keys = get_api_keys()
+        default_api_key = args.api_key if args.api_key else api_keys[0]
+        youtube = build("youtube", "v3", developerKey=default_api_key)
+        video_id = parse_video_id(args.seed)
 
-    api_keys = [
-        api_key0,
-        api_key1,
-        api_key2,
-        api_key3,
-        api_key4,
-        api_key5,
-        api_key6,
-        api_key7,
-        api_key8,
-        api_key9,
-        api_key10,
-        api_key11,
-        api_key12,
-        api_key13,
-        api_key14,
-        api_key15,
-        api_key16,
-        api_key17,
-        api_key18,
-        api_key19,
-    ]
-
-    youtube = build("youtube", "v3", developerKey=api_keys[api_index])
-    if not (treeimport or force or titles or aggressive):
-        layers = get_layers(youtube, video_id, width, depth)
-        if log:
+        if not (args.import_trees or args.force or args.aggressive or args.titles):
+            layers = get_layers(youtube, video_id, args.width, args.depth)
             with open(f"./data/{video_id}.log", "a", encoding="utf-8") as logfile:
                 print(layers, file=logfile)
+            draw_tree(youtube, layers, args.labels, args.graph)
 
-    # display video ids as node labels
-    if display == "videoId":
-        tree, root = get_tree(layers)
-        colors = get_colors(layers, tree)[0]
+        elif args.import_trees:
+            logfile = args.import_trees
+            convert_imports(logfile)
 
-        plt.figure(figsize=(15, 10))
-        pos = hierarchy_pos(tree, root)
-        nx.draw(tree, pos=pos, with_labels=True, font_size=9, node_color=colors)
-        plt.title("Related Videos")
-        plt.show()
+        elif args.force:
+            force_until_quota(
+                youtube,
+                video_id,
+                args.width,
+                args.depth,
+                args.maxdepth,
+            )
 
-    # display video titles as node labels
-    elif (
-        display == "title" or display == "channelId" or display == "channelName"
-    ) and not (treeimport or force or titles or aggressive):
-        tree, root = get_tree(layers)
-        convert_tree(youtube, tree, root, layers, display, graph)
+        elif args.aggressive:
+            calculate_aggressive(
+                api_keys,
+                video_id,
+                args.width,
+                args.depth,
+                args.maxdepth,
+            )
 
-    # import/convert trees saved in treeimport
-    elif treeimport:
-        convert_imports(treeimport)
-
-    # calculate trees until the quota is exceeded
-    elif force:
-        if not os.path.isfile(f"./data/{video_id}.log"):
-            open(f"./data/{video_id}.log", "w", encoding="utf-8").close()
-
-        with open(f"./data/{video_id}.log", "r", encoding="utf-8") as logfile:
-            linecount = sum(1 for _ in logfile)
-
-        if linecount == 0:
-            layers = get_layers(youtube, video_id, width, depth)
-            with open(f"./data/{video_id}.log", "a", encoding="utf-8") as logfile:
-                print(layers, file=logfile)
-            print("Starting tree calculation...")
-            force_until_quota(0, 0, 0, 0, 0, youtube, width, depth, max_depth, video_id)
+        elif args.titles:
+            get_titles(args.titles)
 
         else:
-            line, leaf, current_leafs, next_leafs, current_depth = 0, 0, 0, 0, 0
-            with open(
-                f"./data/{video_id}_breakpoint.txt", "r", encoding="utf-8"
-            ) as file:
-                for i, l in enumerate(file):
-                    if i == 0:
-                        line = l
-                    if i == 1:
-                        leaf = l
-                    if i == 2:
-                        current_leafs = l
-                    if i == 3:
-                        next_leafs = l
-                    if i == 4:
-                        current_depth = l
-            line = int(line.strip())
-            leaf = int(leaf.strip())
-            current_leafs = int(current_leafs.strip())
-            next_leafs = int(next_leafs.strip())
-            current_depth = int(current_depth.strip())
-            print(f"Continuing tree calculation from line: {line} - leaf: {leaf}")
-            force_until_quota(
-                line,
-                leaf,
-                current_leafs,
-                next_leafs,
-                current_depth,
-                youtube,
-                width,
-                depth,
-                max_depth,
-                video_id,
+            logger.error(
+                "Invalid arguments. Please use -h or --help to see the available options."
             )
-
-    # extract only the tiles of a given logfile
-    elif titles:
-        get_titles(titles)
-
-    # call the force option with every available api key
-    elif aggressive:
-        for i in range(len(api_keys)):
-            print(f"Using API-Key: {i}")
-            p = subprocess.Popen(
-                [
-                    "python",
-                    "main.py",
-                    f"-s {seed}",
-                    f"-w {width}",
-                    f"-d {depth}",
-                    f"-m {max_depth}",
-                    "-f",
-                    f"-a {i}",
-                ],
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-            )
-            for line in iter(p.stdout.readline, b""):
-                print(line.rstrip().decode())
-
-    # invalid arguments
-    else:
-        parser.print_usage()
+    except HttpError as http_error:
+        logger.error("An error occurred: %s", http_error)
+    except Exception as error:  # pylint: disable=broad-except
+        logger.error("An unexpected error occurred: %s", error)
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except HttpError:
-        print("seems like the quota has been exceeded :(")
+    main()
