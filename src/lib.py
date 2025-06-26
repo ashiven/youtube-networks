@@ -17,12 +17,18 @@ from helpers import (
     get_layers,
     get_tree,
     hierarchy_pos,
+    save_layers,
     video_id_to_channel_id_dict,
     video_id_to_channel_name_dict,
     video_id_to_title_dict,
 )
 
 logger = logging.getLogger(__name__)
+
+
+DATA_PATH = "./data/"
+GRAPHS_PATH = "./graphs/"
+TITLES_PATH = "./titles/"
 
 
 def _draw_tree(
@@ -93,7 +99,10 @@ def _convert_graph(
 
 
 def draw_tree(
-    layers: List[Dict],
+    youtube: Any,
+    video_id: str,
+    width: int,
+    depth: int,
     display: str,
     convert_graph: bool,
 ) -> None:
@@ -104,6 +113,8 @@ def draw_tree(
     :param convert_graph: If True, converts the tree to a graph and saves it as a GraphML file
     :return: None
     """
+    layers = get_layers(youtube, video_id, width, depth)
+    save_layers(layers, video_id)
     tree, root = get_tree(layers)
     colors = get_colors(layers, tree)
 
@@ -152,27 +163,27 @@ def draw_tree(
         )
 
 
-def _layers_list_from_logfile(logfile: str) -> List[Dict]:
+def _layers_list_from_logfile(logpath: str) -> List[Dict]:
     """Reads the logfile and returns a list of layers"""
     layers_list = []
-    with open(f"./data/{logfile}", "r", encoding="utf-8") as logfile:
+    with open(logpath, "r", encoding="utf-8") as logfile:
         for line in logfile:
             layers = eval(line)  # pylint: disable=eval-used
             layers_list.append(layers)
     return layers_list
 
 
-def convert_imports(logfile: str) -> None:
+def convert_imports(logpath: str) -> None:
     """Given the path to a logfile that contains multiple tree-representing layers,
     converts this set of layers into one network graph that will be saved in the graphs folder
 
-    :param logfile: The name of the logfile containing the layers
+    :param logpath: The name of the logfile containing the layers
     :return: None
     """
     file_name, use_noembed = None, True
     graph = nx.Graph()
     node_total, edge_total, subtree_total = 0, 0, 0
-    layers_list = _layers_list_from_logfile(logfile)
+    layers_list = _layers_list_from_logfile(logpath)
 
     for log_line, layers in enumerate(layers_list):
         subtree, subroot = get_tree(layers)
@@ -221,7 +232,7 @@ def _save_breakpoint(
     evaluating_root: bool,
 ) -> None:
     """Saves the current state of the calculation to a breakpoint file"""
-    with open(f"./data/{video_id}_breakpoint.txt", "w", encoding="utf-8") as file:
+    with open(f"{DATA_PATH}{video_id}_breakpoint.txt", "w", encoding="utf-8") as file:
         file.write(str(start_line) + "\n")
         file.write(str(leaf_index) + "\n")
         if evaluating_root:
@@ -231,8 +242,8 @@ def _save_breakpoint(
             file.write(str(current_leafs) + "\n")
             file.write(str(next_leafs - len(leaf_layer_video_ids)) + "\n")
         file.write(str(current_depth))
-    logger.info("Saved logfile: ./data/%s.log", video_id)
-    logger.info("Saved breakpoint: ./data/%s_breakpoint.txt", video_id)
+    logger.info("Saved logfile: %s%s.log", DATA_PATH, video_id)
+    logger.info("Saved breakpoint: %s%s_breakpoint.txt", DATA_PATH, video_id)
 
 
 def _calc_leaf_trees(
@@ -264,7 +275,7 @@ def _calc_leaf_trees(
     the number of current leafs left, and the number of next leafs to be evaluated
     """
     evaluating_root = False
-    with open(f"./data/{video_id}.log", "r", encoding="utf-8") as logfile:
+    with open(f"{DATA_PATH}{video_id}.log", "r", encoding="utf-8") as logfile:
         for line_number, line in enumerate(logfile):
             if line_number == start_line:
                 start_layers = eval(line)  # pylint: disable=eval-used
@@ -276,7 +287,7 @@ def _calc_leaf_trees(
                 else:
                     next_leafs += len(leaf_layer_video_ids)
 
-    with open(f"./data/{video_id}.log", "a", encoding="utf-8") as logfile:
+    with open(f"{DATA_PATH}{video_id}.log", "a", encoding="utf-8") as logfile:
         for leaf_index, leaf_video_id in enumerate(leaf_layer_video_ids):
             if leaf_index >= current_leaf_index:
                 if current_depth >= max_depth:
@@ -346,6 +357,7 @@ def _force_until_quota(
     continue_eval = True
     while continue_eval:
         logger.info("Calculating leaf trees on line: %d", start_line)
+
         # If we have reached a new tree
         if current_leafs == 0:
             current_depth += depth
@@ -374,8 +386,7 @@ def _calc_new_tree(
 ) -> None:
     """Helper to calculate a new tree from scratch."""
     layers = get_layers(youtube, video_id, width, depth)
-    with open(f"./data/{video_id}.log", "w", encoding="utf-8") as logfile:
-        print(layers, file=logfile)
+    save_layers(layers, video_id)
     _force_until_quota(
         start_line=0,
         current_leaf_index=0,
@@ -401,7 +412,7 @@ def _continue_tree_calc(
         0,
         0,
     )
-    with open(f"./data/{video_id}_breakpoint.txt", "r", encoding="utf-8") as file:
+    with open(f"{DATA_PATH}{video_id}_breakpoint.txt", "r", encoding="utf-8") as file:
         for line_index, line in enumerate(file):
             if line_index == 0:
                 start_line = int(line.strip())
@@ -446,10 +457,10 @@ def force_until_quota(
     :param max_depth: The maximum overall depth that should not be exceeded
     :return: None
     """
-    if not os.path.isfile(f"./data/{video_id}.log"):
+    if not os.path.isfile(f"{DATA_PATH}{video_id}.log"):
         logger.info("Starting tree calculation...")
         _calc_new_tree(youtube, video_id, width, depth, max_depth)
-    elif not os.path.isfile(f"./data/{video_id}_breakpoint.txt"):
+    elif not os.path.isfile(f"{DATA_PATH}{video_id}_breakpoint.txt"):
         logger.info(
             "Log file exists, but no breakpoint file found. Starting from scratch..."
         )
@@ -500,24 +511,25 @@ def calculate_aggressive(
             logger.info("%s", line.rstrip().decode())
 
 
-def get_titles(filename: str) -> None:
+def get_titles(logpath: str) -> None:
     """Extracts the titles of every video from a specified logfile in the data
     folder and saves them in the titles folder
 
-    :param filename: The name of the logfile containing the layers
+    :param logpath: The path to the logfile containing the layers
     :return: None
     """
     video_titles = []
-    with open(f"./data/{filename}", "r", encoding="utf-8") as file:
-        data = file.read()
+    with open(logpath, "r", encoding="utf-8") as logfile:
+        data = logfile.read()
 
     items = data.split("}, {")
     for item in items:
-        video_info = item.split(": [")[1].split(", ")[1].strip("'")
-        video_titles.append(video_info)
+        video_title = item.split(": [")[1].split(", ")[1].strip("'")
+        video_titles.append(video_title)
 
-    with open(f"./titles/{filename}", "w", encoding="utf-8") as file:
+    filename = os.path.basename(logpath).replace(".log", "_titles.txt")
+    with open(f"{TITLES_PATH}{filename}", "w", encoding="utf-8") as title_file:
         for title in video_titles:
-            file.write(title + "\n")
+            title_file.write(title + "\n")
 
-    logger.info("Extracted titles: ./titles/%s", filename)
+    logger.info("Extracted titles: %s", f"{TITLES_PATH}{filename}")

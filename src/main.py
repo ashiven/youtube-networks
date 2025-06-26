@@ -15,7 +15,6 @@ from lib import (
     convert_imports,
     draw_tree,
     force_until_quota,
-    get_layers,
     get_titles,
 )
 
@@ -157,10 +156,9 @@ def main():
         video_id = parse_video_id(args.seed)
 
         if not (args.importtrees or args.force or args.aggressive or args.titles):
-            layers = get_layers(youtube, video_id, args.width, args.depth)
-            with open(f"./data/{video_id}.log", "a", encoding="utf-8") as logfile:
-                print(layers, file=logfile)
-            draw_tree(layers, args.labels, args.graph)
+            draw_tree(
+                youtube, video_id, args.width, args.depth, args.labels, args.graph
+            )
 
         elif args.importtrees:
             logfile = args.importtrees
@@ -185,7 +183,8 @@ def main():
             )
 
         elif args.titles:
-            get_titles(args.titles)
+            logfile = args.titles
+            get_titles(logfile)
 
         else:
             logger.error(

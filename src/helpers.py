@@ -14,6 +14,9 @@ import requests
 logger = logging.getLogger(__name__)
 
 
+DATA_PATH = "./data/"
+
+
 def parse_video_id(link: str) -> Optional[str]:
     """Uses a regular expression to extract the video ID  from a Youtube link
 
@@ -132,6 +135,16 @@ def get_layers(youtube: Any, video_id: str, width: int, depth: int) -> List[Dict
                 layers[layer_depth].update(related)
 
     return layers
+
+
+def save_layers(layers: List[Dict], video_id: str) -> None:
+    """Saves the layers of related videos to a file
+
+    :param layers: The layers of related videos
+    :param video_id: The ID of the Youtube video for which the layers were calculated
+    """
+    with open(f"{DATA_PATH}{video_id}.log", "w", encoding="utf-8") as logfile:
+        print(layers, file=logfile)
 
 
 def video_id_to_title_dict(layers: List[Dict], tree: nx.Graph) -> Dict:
