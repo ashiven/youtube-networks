@@ -4,6 +4,10 @@
 
 This script can be used to map out the channel landscape surrounding specific **YouTube** videos. It was developed as part of a programming project at TU Berlin. If you want to learn more about the project and how the generated graphs were evaluated, you may read the [project report](docs/Projektbericht.pdf).
 
+<p align="center">
+   <img src="https://github.com/user-attachments/assets/7b36596e-34ed-4bbe-bcb0-ba8bcbdbf142" />
+</p>
+
 ## Getting Started
 
 ### Prerequisites
