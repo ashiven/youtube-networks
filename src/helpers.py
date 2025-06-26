@@ -1,6 +1,5 @@
-"""
-This file contains functions to interact with the Youtube Data API
-and create trees of related videos.
+"""This file contains functions to interact with the Youtube Data API and create trees
+of related videos.
 """
 
 import logging
@@ -18,7 +17,8 @@ DATA_PATH = "./data/"
 
 
 def parse_video_id(link: str) -> Optional[str]:
-    """Uses a regular expression to extract the video ID  from a Youtube link
+    """
+    Uses a regular expression to extract the video ID  from a Youtube link.
 
     :param link: The Youtube link from which the video ID should be extracted
     :return: The video ID if the link is valid, otherwise None
@@ -33,7 +33,8 @@ def parse_video_id(link: str) -> Optional[str]:
 
 
 def get_video_info(youtube: Any, video_id: str) -> tuple[str, str]:
-    """Takes a Youtube video ID and returns the title and channel ID of the video
+    """
+    Takes a Youtube video ID and returns the title and channel ID of the video.
 
     :param youtube: The Youtube Data API object
     :param video_id: The ID of the Youtube video
@@ -47,7 +48,8 @@ def get_video_info(youtube: Any, video_id: str) -> tuple[str, str]:
 
 
 def get_channel_name(youtube: Any, channel_id: str) -> str:
-    """Takes a Youtube channel ID and returns the name of the channel
+    """
+    Takes a Youtube channel ID and returns the name of the channel.
 
     :param youtube: The Youtube Data API object
     :param channel_id: The ID of the Youtube channel
@@ -58,24 +60,24 @@ def get_channel_name(youtube: Any, channel_id: str) -> str:
 
 
 def get_channel_name_embed(video_id: str, noembed: bool) -> Optional[str]:
-    """Takes a Youtube channel ID and returns the name of the channel using oembed or noembed
+    """
+    Takes a Youtube channel ID and returns the name of the channel using oembed or
+    noembed.
 
     :param video_id: The ID of the Youtube video
-    :param noembed: If True, uses noembed.com to fetch the channel name,
-    otherwise uses youtube.com/oembed
+    :param noembed: If True, uses noembed.com to fetch the channel name, otherwise uses
+        youtube.com/oembed
     :return: The name of the Youtube channel or None if the request fails
     """
     try:
         if noembed:
             response = requests.get(
-                "https://noembed.com/embed?url=https://www.youtube.com/watch?v="
-                + video_id,
+                "https://noembed.com/embed?url=https://www.youtube.com/watch?v=" + video_id,
                 timeout=10,
             )
         else:
             response = requests.get(
-                "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v="
-                + video_id,
+                "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=" + video_id,
                 timeout=10,
             )
         response.raise_for_status()
@@ -87,13 +89,14 @@ def get_channel_name_embed(video_id: str, noembed: bool) -> Optional[str]:
 
 
 def get_related(youtube: Any, video_id: str, width: int) -> Dict:
-    """Takes a video ID and returns related videos via the Youtube Data API
+    """
+    Takes a video ID and returns related videos via the Youtube Data API.
 
     :param youtube: The Youtube Data API object
     :param video_id: The ID of the Youtube video
     :param width: The number of related videos to retrieve
-    :return: A dictionary containing related video IDs as keys and a list of
-    [video_id, title, channel_id] as values
+    :return: A dictionary containing related video IDs as keys and a list of [video_id,
+        title, channel_id] as values
     """
     response = (
         youtube.search()
@@ -112,15 +115,16 @@ def get_related(youtube: Any, video_id: str, width: int) -> Dict:
 
 
 def get_layers(youtube: Any, video_id: str, width: int, depth: int) -> List[Dict]:
-    """Calculates the layers of related videos with the help of get_related
+    """
+    Calculates the layers of related videos with the help of get_related.
 
     :param youtube: The Youtube Data API object
     :param video_id: The ID of the Youtube video to start with
     :param width: The number of related videos to retrieve at each layer
     :param depth: The number of layers to retrieve
-    :return: A list of dictionaries, where each dictionary represents a layer
-    of related videos. Each dictionary contains video IDs as keys and a list of
-    [related_to, title, channel_id] as values
+    :return: A list of dictionaries, where each dictionary represents a layer of related
+        videos. Each dictionary contains video IDs as keys and a list of [related_to,
+        title, channel_id] as values
     """
     title, channel_id = get_video_info(youtube, video_id)
     layers = [{} for _ in range(depth + 1)]
@@ -138,7 +142,8 @@ def get_layers(youtube: Any, video_id: str, width: int, depth: int) -> List[Dict
 
 
 def save_layers(layers: List[Dict], video_id: str) -> None:
-    """Saves the layers of related videos to a file
+    """
+    Saves the layers of related videos to a file.
 
     :param layers: The layers of related videos
     :param video_id: The ID of the Youtube video for which the layers were calculated
@@ -148,8 +153,9 @@ def save_layers(layers: List[Dict], video_id: str) -> None:
 
 
 def video_id_to_title_dict(layers: List[Dict], tree: nx.Graph) -> Dict:
-    """Takes the layers returned by get_layers and converts them into a dictionary
-    mapping video IDs to video titles
+    """
+    Takes the layers returned by get_layers and converts them into a dictionary mapping
+    video IDs to video titles.
 
     :param layers (List[Dict]): The layers that were returned by get_layers
     :return: A dictionary containing video IDs as keys and titles as values
@@ -160,17 +166,16 @@ def video_id_to_title_dict(layers: List[Dict], tree: nx.Graph) -> Dict:
             video_id_to_title[video_id] = video_info[1]
 
     video_id_to_title = {
-        node: video_id_to_title[node]
-        for node in tree.nodes()
-        if node in video_id_to_title
+        node: video_id_to_title[node] for node in tree.nodes() if node in video_id_to_title
     }
 
     return video_id_to_title
 
 
 def video_id_to_channel_id_dict(layers: List[Dict], tree: nx.Graph) -> Dict:
-    """Takes the layers returned by get_layers and converts them into a dictionary
-    mapping video IDs to channel IDs
+    """
+    Takes the layers returned by get_layers and converts them into a dictionary mapping
+    video IDs to channel IDs.
 
     :param layers (List[Dict]): The layers that were returned by get_layers
     :return: A dictionary containing video IDs as keys and channel IDs as values
@@ -192,8 +197,9 @@ def video_id_to_channel_id_dict(layers: List[Dict], tree: nx.Graph) -> Dict:
 def channel_id_to_channel_name_dict(
     layers: List[Dict], tree: nx.Graph, use_noembed: bool = False
 ) -> Dict[str, str]:
-    """Takes a dictionary mapping video IDs to channel IDs and returns a dictionary
-    mapping channel IDs to channel names by querying the Youtube Data API
+    """
+    Takes a dictionary mapping video IDs to channel IDs and returns a dictionary mapping
+    channel IDs to channel names by querying the Youtube Data API.
 
     :param youtube: The Youtube Data API object
     :param video_id_to_channel_id: A dictionary mapping video IDs to channel IDs
@@ -221,13 +227,14 @@ def channel_id_to_channel_name_dict(
 def video_id_to_channel_name_dict(
     layers: List[Dict], tree: nx.Graph, use_noembed: bool = False
 ) -> Dict[str, str]:
-    """Takes the layers returned by get_layers and converts them into a dictionary
-    mapping video IDs to channel names by querying the Youtube Data API or using noembed
+    """
+    Takes the layers returned by get_layers and converts them into a dictionary mapping
+    video IDs to channel names by querying the Youtube Data API or using noembed.
 
     :param layers (List[Dict]): The layers that were returned by get_layers
     :param tree (nx.Graph): The tree representation of the layers
     :param use_noembed (bool): If True, uses noembed.com to fetch channel names,
-    otherwise uses youtube.com/oembed
+        otherwise uses youtube.com/oembed
     :return: A dictionary containing video IDs as keys and channel names as values
     """
     video_id_to_channel_id = video_id_to_channel_id_dict(layers, tree)
@@ -251,13 +258,14 @@ def video_id_to_channel_name_dict(
 
 
 def get_colors(layers: List[Dict], tree: nx.Graph) -> List[str]:
-    """Takes the layers generated in get_layers and their tree representation
-    and returns a coloring according to the Youtube channels
+    """
+    Takes the layers generated in get_layers and their tree representation and returns a
+    coloring according to the Youtube channels.
 
     :param layers (List[Dict]): The layers that were returned by get_layers
     :param tree (nx.Graph): The tree representation of the layers
-    :return: A tuple containing a list of colors for each node in the tree
-    and a dictionary mapping video IDs to channel IDs
+    :return: A tuple containing a list of colors for each node in the tree and a
+        dictionary mapping video IDs to channel IDs
     """
     video_id_to_channel_id = video_id_to_channel_id_dict(layers, tree)
     unique_channel_ids = list(set(video_id_to_channel_id.values()))
@@ -276,9 +284,7 @@ def get_colors(layers: List[Dict], tree: nx.Graph) -> List[str]:
         "limegreen",
     ] * 10
 
-    channel_id_to_color = {
-        channel_id: colors[i] for i, channel_id in enumerate(unique_channel_ids)
-    }
+    channel_id_to_color = {channel_id: colors[i] for i, channel_id in enumerate(unique_channel_ids)}
     node_to_color = {
         node: channel_id_to_color[video_id_to_channel_id[node]] for node in tree.nodes()
     }
@@ -288,7 +294,8 @@ def get_colors(layers: List[Dict], tree: nx.Graph) -> List[str]:
 
 
 def get_tree(layers: List[Dict]) -> tuple[nx.Graph, str]:
-    """Converts the layers generated in get_layers to a tree, which can then be visualized
+    """
+    Converts the layers generated in get_layers to a tree, which can then be visualized.
 
     :param layers (List[Dict]): The layers that were returned by get_layers
     :return: A tuple containing the tree as a networkx Graph and the root node ID
@@ -354,11 +361,10 @@ def hierarchy_pos(graph, root=None, width=1.0, vert_gap=0.2, vert_loc=0, xcenter
         parent=None,
     ):
         """
-        see hierarchy_pos docstring for most arguments
+        See hierarchy_pos docstring for most arguments.
 
         pos: a dict saying where all nodes go if they have been assigned
         parent: parent of this branch. - only affects it if non-directed
-
         """
 
         if pos is None:

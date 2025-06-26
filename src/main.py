@@ -1,14 +1,14 @@
 """
 This script collects related videos from YouTube using the YouTube Data API.
-It builds a tree structure of related videos starting from a given video ID,
-and allows for various configurations such as args.depth, args.width, and args.display options.
+
+It builds a tree structure of related videos starting from a given video ID, and allows
+for various configurations such as args.depth, args.width, and args.display options.
 """
 
 import argparse
 import logging
 
 from googleapiclient.discovery import HttpError, build
-
 from helpers import parse_video_id
 from lib import (
     calculate_aggressive,
@@ -145,8 +145,9 @@ def parse_args():
 def main():
     """
     Main function to parse arguments and execute the YouTube related video collector.
-    It initializes the YouTube API client, retrieves related videos, and processes
-    them based on user-defined parameters.
+
+    It initializes the YouTube API client, retrieves related videos, and processes them
+    based on user-defined parameters.
     """
     try:
         args = parse_args()
@@ -156,9 +157,7 @@ def main():
         video_id = parse_video_id(args.seed)
 
         if not (args.importtrees or args.force or args.aggressive or args.titles):
-            draw_tree(
-                youtube, video_id, args.width, args.depth, args.labels, args.graph
-            )
+            draw_tree(youtube, video_id, args.width, args.depth, args.labels, args.graph)
 
         elif args.importtrees:
             logfile = args.importtrees
@@ -187,9 +186,7 @@ def main():
             get_titles(logfile)
 
         else:
-            logger.error(
-                "Invalid arguments. Please use -h or --help to see the available options."
-            )
+            logger.error("Invalid arguments. Please use -h or --help to see the available options.")
     except HttpError as http_error:
         logger.error("An error occurred: %s", http_error)
     except Exception as error:  # pylint: disable=broad-except

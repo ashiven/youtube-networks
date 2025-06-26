@@ -1,15 +1,13 @@
-"""
-BERTopic Topic Modeling
-This script performs topic modeling using the BERTopic library on a dataset stored in a CSV file.
+"""BERTopic Topic Modeling This script performs topic modeling using the BERTopic
+library on a dataset stored in a CSV file.
 """
 
 import re
 
 import emoji
 import pandas as pd
-from nltk.corpus import stopwords
-
 from bertopic import BERTopic  # pylint: disable=W0406
+from nltk.corpus import stopwords
 
 # DataFrame aus der CSV-Datei erstellen
 df = pd.read_csv("scholz.csv")  # Hier immer Datei-Name Anpassen

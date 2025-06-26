@@ -1,6 +1,5 @@
-"""
-This file contains the main functions to interact with the Youtube Data API
-and create tree and graph structures of related videos.
+"""This file contains the main functions to interact with the Youtube Data API and
+create tree and graph structures of related videos.
 """
 
 import logging
@@ -11,7 +10,6 @@ from typing import Any, Dict, List, Optional, Tuple
 
 import matplotlib.pyplot as plt
 import networkx as nx
-
 from helpers import (
     get_colors,
     get_layers,
@@ -31,10 +29,8 @@ GRAPHS_PATH = "./graphs/"
 TITLES_PATH = "./titles/"
 
 
-def _draw_tree(
-    tree: nx.Graph, root: str, colors: List[str], labels: Dict, title: str
-) -> None:
-    """Helper function to draw the tree with the specified parameters"""
+def _draw_tree(tree: nx.Graph, root: str, colors: List[str], labels: Dict, title: str) -> None:
+    """Helper function to draw the tree with the specified parameters."""
     plt.figure(figsize=(15, 10))
     pos = hierarchy_pos(tree, root)
     nx.draw(tree, pos=pos, with_labels=False, node_color=colors)
@@ -50,7 +46,7 @@ def _convert_to_graph(
     graph: Optional[nx.Graph] = None,
     log_line: Optional[int] = 0,
 ) -> Tuple[nx.Graph, int, int]:
-    """Helper function to convert the tree into a network graph"""
+    """Helper function to convert the tree into a network graph."""
     graph = graph or nx.Graph()
     node_total, edge_total = 0, 0
 
@@ -59,7 +55,7 @@ def _convert_to_graph(
         u_channel_name = video_id_to_channel_name[u_video_id]
         v_channel_name = video_id_to_channel_name[v_video_id]
         if (
-            not v_channel_name in graph.nodes()
+            v_channel_name not in graph.nodes()
             and u_channel_name == "Not Found"
             and v_channel_name != "Not Found"
         ):
@@ -67,7 +63,7 @@ def _convert_to_graph(
             node_total += 1
             continue
         elif (
-            not u_channel_name in graph.nodes()
+            u_channel_name not in graph.nodes()
             and v_channel_name == "Not Found"
             and u_channel_name != "Not Found"
         ):
@@ -75,12 +71,12 @@ def _convert_to_graph(
             node_total += 1
             continue
         elif (
-            not (u_channel_name, v_channel_name) in graph.edges()
-            and u_channel_name != v_channel_name
-        ):
-            if not u_channel_name in graph.nodes():
+            u_channel_name,
+            v_channel_name,
+        ) not in graph.edges() and u_channel_name != v_channel_name:
+            if u_channel_name not in graph.nodes():
                 node_total += 1
-            if not v_channel_name in graph.nodes():
+            if v_channel_name not in graph.nodes():
                 node_total += 1
             graph.add_edge(u_channel_name, v_channel_name, weight=1)
             edge_total += 1
@@ -100,7 +96,7 @@ def _convert_to_graph(
 
 
 def _save_graph(graph: nx.Graph, channel_name: str):
-    """Saves the graph to a GraphML file"""
+    """Saves the graph to a GraphML file."""
     channel_name = re.sub(r"\s+", "_", channel_name)
     channel_name = re.sub(r"[^\w\s-]", "", channel_name)
     nx.write_graphml(graph, f"{GRAPHS_PATH}{channel_name}.graphml")
@@ -115,11 +111,14 @@ def draw_tree(
     display: str,
     convert_graph: bool,
 ) -> None:
-    """Takes the tree retrieved from get_tree, visualizes it, and optionally converts it to a graph
+    """
+    Takes the tree retrieved from get_tree, visualizes it, and optionally converts it to
+    a graph.
 
     :param layers: The layers that were returned by get_layers
     :param display: The type of display ('videoId', 'title', 'channelId', 'channelName')
-    :param convert_graph: If True, converts the tree to a graph and saves it as a GraphML file
+    :param convert_graph: If True, converts the tree to a graph and saves it as a
+        GraphML file
     :return: None
     """
     layers = get_layers(youtube, video_id, width, depth)
@@ -128,9 +127,7 @@ def draw_tree(
     colors = get_colors(layers, tree)
 
     if display == "channelName" or convert_graph:
-        video_id_to_channel_name = video_id_to_channel_name_dict(
-            layers, tree, use_noembed=True
-        )
+        video_id_to_channel_name = video_id_to_channel_name_dict(layers, tree, use_noembed=True)
         labels = video_id_to_channel_name
         _draw_tree(
             tree,
@@ -173,7 +170,7 @@ def draw_tree(
 
 
 def _layers_list_from_logfile(logpath: str) -> List[Dict]:
-    """Reads the logfile and returns a list of layers"""
+    """Reads the logfile and returns a list of layers."""
     layers_list = []
     with open(logpath, "r", encoding="utf-8") as logfile:
         for line in logfile:
@@ -183,8 +180,10 @@ def _layers_list_from_logfile(logpath: str) -> List[Dict]:
 
 
 def convert_imports(logpath: str) -> None:
-    """Given the path to a logfile that contains multiple tree-representing layers,
-    converts this set of layers into one network graph that will be saved in the graphs folder
+    """
+    Given the path to a logfile that contains multiple tree-representing layers,
+    converts this set of layers into one network graph that will be saved in the graphs
+    folder.
 
     :param logpath: The name of the logfile containing the layers
     :return: None
@@ -196,18 +195,14 @@ def convert_imports(logpath: str) -> None:
 
     for log_line, layers in enumerate(layers_list):
         subtree, subroot = get_tree(layers)
-        use_noembed = (
-            not use_noembed if log_line % 20 == 0 and log_line > 0 else use_noembed
-        )
+        use_noembed = not use_noembed if log_line % 20 == 0 and log_line > 0 else use_noembed
         video_id_to_channel_name = video_id_to_channel_name_dict(
             layers, subtree, use_noembed=use_noembed
         )
         subroot_channel_name = video_id_to_channel_name[subroot]
         file_name = subroot_channel_name if file_name is None else file_name
 
-        logger.info(
-            "Converting subtree: %d with root: %s", log_line, subroot_channel_name
-        )
+        logger.info("Converting subtree: %d with root: %s", log_line, subroot_channel_name)
         graph, subgraph_edge_total, subgraph_node_total = _convert_to_graph(
             subtree,
             subroot,
@@ -238,7 +233,7 @@ def _save_breakpoint(
     leaf_layer_video_ids: List[str],
     evaluating_root: bool,
 ) -> None:
-    """Saves the current state of the calculation to a breakpoint file"""
+    """Saves the current state of the calculation to a breakpoint file."""
     with open(f"{DATA_PATH}{video_id}_breakpoint.txt", "w", encoding="utf-8") as file:
         file.write(str(start_line) + "\n")
         file.write(str(leaf_index) + "\n")
@@ -265,8 +260,9 @@ def _calc_leaf_trees(
     max_depth: int,
     video_id: str,
 ) -> tuple[bool, Optional[int], Optional[int]]:
-    """Starting at the line number specified in the start_line parameter, calculates the layers for
-    all of the leaf nodes of the tree in the logfile <video_id>.log.
+    """
+    Starting at the line number specified in the start_line parameter, calculates the
+    layers for all of the leaf nodes of the tree in the logfile <video_id>.log.
 
     :param start_line: The line number in the logfile where the calculation should start
     :param current_leaf_index: The index of the current leaf node in the layer
@@ -277,9 +273,11 @@ def _calc_leaf_trees(
     :param width: The width of one tree (number of related videos per layer)
     :param depth: The depth of one tree (number of layers)
     :param max_depth: The maximum overall depth that should not be exceeded
-    :param video_id: The ID of the Youtube video for which the layers should be calculated
-    :return: A tuple containing a boolean indicating whether the evaluation should continue,
-    the number of current leafs left, and the number of next leafs to be evaluated
+    :param video_id: The ID of the Youtube video for which the layers should be
+        calculated
+    :return: A tuple containing a boolean indicating whether the evaluation should
+        continue, the number of current leafs left, and the number of next leafs to be
+        evaluated
     """
     evaluating_root = False
     with open(f"{DATA_PATH}{video_id}.log", "r", encoding="utf-8") as logfile:
@@ -316,7 +314,7 @@ def _calc_leaf_trees(
                     layers = get_layers(youtube, leaf_video_id, width, depth)
                     print(layers, file=logfile)
                     logger.info("Saved leafTree: %d", leaf_index)
-                except Exception:  #  pylint: disable=broad-except
+                except Exception:  # pylint: disable=broad-except
                     _save_breakpoint(
                         video_id,
                         start_line,
@@ -346,8 +344,9 @@ def _force_until_quota(
     max_depth: int,
     video_id: str,
 ) -> None:
-    """Repeatedly calls the function _calc_leaf_trees until either the API usage limit
-    has been exceeded, or max_depth has been reached
+    """
+    Repeatedly calls the function _calc_leaf_trees until either the API usage limit has
+    been exceeded, or max_depth has been reached.
 
     :param start_line: The line number in the logfile where the calculation should start
     :param current_leaf_index: The index of the current leaf node in the layer
@@ -358,7 +357,8 @@ def _force_until_quota(
     :param width: The width of one tree (number of related videos per layer)
     :param depth: The depth of one tree (number of layers)
     :param max_depth: The maximum overall depth that should not be exceeded
-    :param video_id: The ID of the Youtube video for which the layers should be calculated
+    :param video_id: The ID of the Youtube video for which the layers should be
+        calculated
     :return: None
     """
     continue_eval = True
@@ -388,9 +388,7 @@ def _force_until_quota(
         current_leafs -= 1
 
 
-def _calc_new_tree(
-    youtube: Any, video_id: str, width: int, depth: int, max_depth: int
-) -> None:
+def _calc_new_tree(youtube: Any, video_id: str, width: int, depth: int, max_depth: int) -> None:
     """Helper to calculate a new tree from scratch."""
     layers = get_layers(youtube, video_id, width, depth)
     save_layers(layers, video_id)
@@ -411,7 +409,9 @@ def _calc_new_tree(
 def _continue_tree_calc(
     youtube: Any, video_id: str, width: int, depth: int, max_depth: int
 ) -> None:
-    """Helper to continue the tree calculation from the last saved state in the breakpoint file."""
+    """Helper to continue the tree calculation from the last saved state in the
+    breakpoint file.
+    """
     start_line, current_leaf_index, current_leafs, next_leafs, current_depth = (
         0,
         0,
@@ -452,13 +452,16 @@ def force_until_quota(
     depth: int,
     max_depth: int,
 ) -> None:
-    """Calculates the layers of related videos until the API usage limit has been exceeded
-    or max_depth has been reached. If the logfile for the video_id does not exist,
-    it will be created and the layers will be calculated from scratch. If the logfile exists,
-    it will continue the calculation from the last saved state in the breakpoint file.
+    """
+    Calculates the layers of related videos until the API usage limit has been exceeded
+    or max_depth has been reached. If the logfile for the video_id does not exist, it
+    will be created and the layers will be calculated from scratch. If the logfile
+    exists, it will continue the calculation from the last saved state in the breakpoint
+    file.
 
     :param youtube: The Youtube Data API object
-    :param video_id: The ID of the Youtube video for which the layers should be calculated
+    :param video_id: The ID of the Youtube video for which the layers should be
+        calculated
     :param width: The width of one tree (number of related videos per layer)
     :param depth: The depth of one tree (number of layers)
     :param max_depth: The maximum overall depth that should not be exceeded
@@ -468,14 +471,10 @@ def force_until_quota(
         logger.info("Starting tree calculation...")
         _calc_new_tree(youtube, video_id, width, depth, max_depth)
     elif not os.path.isfile(f"{DATA_PATH}{video_id}_breakpoint.txt"):
-        logger.info(
-            "Log file exists, but no breakpoint file found. Starting from scratch..."
-        )
+        logger.info("Log file exists, but no breakpoint file found. Starting from scratch...")
         _calc_new_tree(youtube, video_id, width, depth, max_depth)
     else:
-        logger.info(
-            "Log file and breakpoint file found. Continuing tree calculation..."
-        )
+        logger.info("Log file and breakpoint file found. Continuing tree calculation...")
         _continue_tree_calc(youtube, video_id, width, depth, max_depth)
 
 
@@ -486,10 +485,11 @@ def calculate_aggressive(
     depth: int,
     max_depth: int,
 ) -> None:
-    """Calculates the layers of related videos for a given seed video using multiple API keys
-    in an aggressive manner, meaning it will use all API keys in parallel until the quota is
-    exceeded or max_depth is reached. Each API key will be used to start a new process
-    that runs the main.py script with the specified parameters.
+    """
+    Calculates the layers of related videos for a given seed video using multiple API
+    keys in an aggressive manner, meaning it will use all API keys in parallel until the
+    quota is exceeded or max_depth is reached. Each API key will be used to start a new
+    process that runs the main.py script with the specified parameters.
 
     :param api_keys: A list of API keys to use for the calculation
     :param seed: The ID of the Youtube video to start with
@@ -519,8 +519,9 @@ def calculate_aggressive(
 
 
 def get_titles(logpath: str) -> None:
-    """Extracts the titles of every video from a specified logfile in the data
-    folder and saves them in the titles folder
+    """
+    Extracts the titles of every video from a specified logfile in the data folder and
+    saves them in the titles folder.
 
     :param logpath: The path to the logfile containing the layers
     :return: None
