@@ -98,6 +98,14 @@ def _convert_graph(
     return graph, edge_total, node_total
 
 
+def _save_graph(graph: nx.Graph, channel_name: str):
+    """Saves the graph to a GraphML file"""
+    channel_name = re.sub(r"\s+", "_", channel_name)
+    channel_name = re.sub(r"[^\w\s-]", "", channel_name)
+    nx.write_graphml(graph, f"{GRAPHS_PATH}{channel_name}.graphml")
+    logger.info("Created graph: %s%s.graphml", GRAPHS_PATH, channel_name)
+
+
 def draw_tree(
     youtube: Any,
     video_id: str,
@@ -132,8 +140,8 @@ def draw_tree(
         )
         if convert_graph:
             graph = _convert_graph(tree, root, video_id_to_channel_name)
-            nx.write_graphml(graph, f"./graphs/{root}.graphml")
-            logger.info("Created graph: ./graphs/%s.graphml", root)
+            root_channel_name = video_id_to_channel_name[root]
+            _save_graph(graph, root_channel_name)
     elif display == "videoId":
         labels = {node: node for node in tree.nodes()}
         _draw_tree(
@@ -187,18 +195,14 @@ def convert_imports(logpath: str) -> None:
 
     for log_line, layers in enumerate(layers_list):
         subtree, subroot = get_tree(layers)
-
-        if log_line % 20 == 0 and log_line > 0:
-            use_noembed = not use_noembed
+        use_noembed = (
+            not use_noembed if log_line % 20 == 0 and log_line > 0 else use_noembed
+        )
         video_id_to_channel_name = video_id_to_channel_name_dict(
             layers, subtree, use_noembed=use_noembed
         )
-
         subroot_channel_name = video_id_to_channel_name[subroot]
-        if file_name is None:
-            file_name = subroot_channel_name
-            file_name = re.sub(r"\s+", "_", file_name)
-            file_name = re.sub(r"[^\w\s-]", "", file_name)
+        file_name = subroot_channel_name if file_name is None else file_name
 
         logger.info(
             "Converting subtree: %d with root: %s", log_line, subroot_channel_name
@@ -220,8 +224,7 @@ def convert_imports(logpath: str) -> None:
         node_total,
         edge_total,
     )
-    nx.write_graphml(graph, f"./graphs/{file_name}.graphml")
-    logger.info("Created graph: ./graphs/%s.graphml", file_name)
+    _save_graph(graph, file_name)
 
 
 def _save_breakpoint(
