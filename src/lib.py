@@ -52,7 +52,6 @@ def _convert_graph(
 ) -> Tuple[nx.Graph, int, int]:
     """Helper function to convert the tree into a network graph"""
     graph = graph or nx.Graph()
-    edge_total, node_total = 0, 0
 
     for edge in tree.edges():
         u_video_id, v_video_id = edge
@@ -64,7 +63,6 @@ def _convert_graph(
             and v_channel_name != "Not Found"
         ):
             graph.add_node(v_channel_name, size=1)
-            node_total += 1
             continue
         elif (
             not u_channel_name in graph.nodes()
@@ -72,17 +70,12 @@ def _convert_graph(
             and u_channel_name != "Not Found"
         ):
             graph.add_node(u_channel_name, size=1)
-            node_total += 1
             continue
         elif (
             not (u_channel_name, v_channel_name) in graph.edges()
             and u_channel_name != v_channel_name
         ):
-            graph.add_node(u_channel_name, size=1)
-            graph.add_node(v_channel_name, size=1)
             graph.add_edge(u_channel_name, v_channel_name, weight=1)
-            node_total += 2
-            edge_total += 1
         elif (u_channel_name, v_channel_name) in graph.edges():
             graph.edges[u_channel_name, v_channel_name]["weight"] += 1
 
@@ -94,6 +87,9 @@ def _convert_graph(
             graph.nodes[u_channel_name]["size"] += 0.1
         elif log_line > 0 and node != root:
             graph.nodes[u_channel_name]["size"] += 0.1
+
+    edge_total = tree.number_of_edges()
+    node_total = tree.number_of_nodes()
 
     return graph, edge_total, node_total
 
