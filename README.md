@@ -15,12 +15,12 @@ This script can be used to map out the channel landscape surrounding specific **
 
 1. Clone the repository to your local machine as follows:
    ```bash
-   git clone https://github.com/ashiven/YouTube-Network-Analyzer.git
+   git clone https://github.com/ashiven/youtube-networks.git
    ```
 2. Navigate to the **src** directory.
 
    ```bash
-   cd ./src
+   cd ./youtube-networks/src
    ```
 
 3. Install the necessary dependencies.
