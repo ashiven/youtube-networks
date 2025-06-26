@@ -29,7 +29,7 @@ This script can be used to map out the channel landscape surrounding specific **
    pip install --user -r requirements.txt
    ```
 
-4. Insert your API key into the script.
+4. Insert your API key(s) into the script.
 
    ```bash
    nano main.py
