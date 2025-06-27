@@ -284,22 +284,9 @@ def _calc_leaf_trees(
     with open(f"{DATA_PATH}{video_id}.log", "a", encoding="utf-8") as logfile:
         for leaf_index, leaf_video_id in enumerate(leaf_layer_video_ids):
             if leaf_index >= current_leaf_index:
-                if current_depth >= max_depth:
-                    logger.info("Reached maxDepth. Quitting...")
-                    _save_breakpoint(
-                        video_id,
-                        start_line,
-                        leaf_index,
-                        current_leafs,
-                        next_leafs,
-                        current_depth,
-                        leaf_layer_video_ids,
-                        evaluating_root,
-                    )
-                    continue_eval, current_leafs, next_leafs = False, 0, 0
-                    return continue_eval, current_leafs, next_leafs
-
                 try:
+                    if current_depth >= max_depth:
+                        raise ValueError("max_depth has been reached")
                     layers = get_layers(youtube, leaf_video_id, width, depth)
                     print(layers, file=logfile)
                     logger.info("Saved leafTree: %d", leaf_index)
