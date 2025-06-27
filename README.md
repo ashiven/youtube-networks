@@ -1,4 +1,11 @@
+<div align="center">
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/ashiven/youtube-networks)](https://github.com/ashiven/youtube-networks/issues)
+[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues-pr/ashiven/youtube-networks)](https://github.com/ashiven/youtube-networks/pulls)
+![GitHub Repo stars](https://img.shields.io/github/stars/ashiven/youtube-networks)
+
+</div>
 
 ## About
 
