@@ -29,7 +29,7 @@ def parse_video_id(link: str) -> Optional[str]:
     return video_id
 
 
-def get_video_info(youtube: Any, video_id: str) -> Optional[Tuple[str, str]]:
+def get_video_info(youtube: Any, video_id: str) -> Tuple[str, str]:
     """
     Takes a Youtube video ID and returns the title and channel ID of the video.
 
@@ -197,7 +197,7 @@ def video_id_to_channel_id_dict(layers: List[Dict], tree: nx.Graph) -> Dict:
 
 def channel_id_to_channel_name_dict(
     layers: List[Dict], tree: nx.Graph, use_noembed: bool = False
-) -> Dict[str, str]:
+) -> Dict:
     """
     Takes a dictionary mapping video IDs to channel IDs and returns a dictionary mapping
     channel IDs to channel names by querying the Youtube Data API.
@@ -227,7 +227,7 @@ def channel_id_to_channel_name_dict(
 
 def video_id_to_channel_name_dict(
     layers: List[Dict], tree: nx.Graph, use_noembed: bool = False
-) -> Dict[str, str]:
+) -> Dict:
     """
     Takes the layers returned by get_layers and converts them into a dictionary mapping
     video IDs to channel names by querying the Youtube Data API or using noembed.
