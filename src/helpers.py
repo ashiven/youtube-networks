@@ -25,7 +25,7 @@ def parse_video_id(link: str) -> Optional[str]:
     """
     regex = r"(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/)([^?&\/]+)"
     res = re.search(regex, link)
-    video_id = res.group(1)
+    video_id = res.group(1) if res else None
     return video_id
 
 
