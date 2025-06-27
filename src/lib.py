@@ -24,9 +24,9 @@ from helpers import (
 logger = logging.getLogger(__name__)
 
 
-DATA_PATH = "./data/"
-GRAPHS_PATH = "./graphs/"
-TITLES_PATH = "./titles/"
+DATA_PATH = "./src/data/"
+GRAPHS_PATH = "./src/graphs/"
+TITLES_PATH = "./src/titles/"
 
 
 def _draw_tree(tree: nx.Graph, root: str, colors: List[str], labels: Dict, title: str) -> None:
@@ -87,15 +87,15 @@ def _convert_to_graph(
         u_channel_name = video_id_to_channel_name[node]
         if u_channel_name == "Not Found":
             continue
-        elif log_line == 0:
-            graph.nodes[u_channel_name]["size"] += 0.1
-        elif log_line > 0 and node != root:
-            graph.nodes[u_channel_name]["size"] += 0.1
+        elif log_line == 0 or (log_line > 0 and node != root):
+            current_size = graph.nodes[u_channel_name].get("size", 1)
+            current_size += 0.1
+            nx.set_node_attributes(graph, {u_channel_name: current_size}, "size")
 
     return graph, edge_total, node_total
 
 
-def _save_graph(graph: nx.Graph, channel_name: str):
+def _save_graph(graph: nx.Graph, channel_name: str) -> None:
     """Saves the graph to a GraphML file."""
     channel_name = re.sub(r"\s+", "_", channel_name)
     channel_name = re.sub(r"[^\w\s-]", "", channel_name)
@@ -527,15 +527,15 @@ def get_titles(logpath: str) -> None:
     :return: None
     """
     video_titles = []
-    with open(logpath, "r", encoding="utf-8") as logfile:
-        data = logfile.read()
+    layers_list = _layers_list_from_logfile(logpath)
 
-    items = data.split("}, {")
-    for item in items:
-        video_title = item.split(": [")[1].split(", ")[1].strip("'")
-        video_titles.append(video_title)
+    for layers in layers_list:
+        for layer in layers:
+            for video_info in layer.values():
+                title = video_info[1]
+                video_titles.append(title)
 
-    filename = os.path.basename(logpath).replace(".log", "_titles.txt")
+    filename = os.path.basename(logpath).replace(".log", ".titles")
     with open(f"{TITLES_PATH}{filename}", "w", encoding="utf-8") as title_file:
         for title in video_titles:
             title_file.write(title + "\n")

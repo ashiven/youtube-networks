@@ -84,7 +84,7 @@ def get_channel_name_embed(video_id: str, noembed: bool) -> Optional[str]:
         video_info = response.json()
         return video_info["author_name"]
 
-    except requests.RequestException:
+    except (requests.RequestException, KeyError):
         return None
 
 

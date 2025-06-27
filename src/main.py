@@ -190,10 +190,8 @@ def main():
 
     except HttpError as http_error:
         logger.error("An error occurred: %s", http_error)
-
-
-#    except Exception as error:  # pylint: disable=broad-except
-#        logger.error("An unexpected error occurred: %s", error)
+    except Exception as error:  # pylint: disable=broad-except
+        logger.error("An unexpected error occurred: %s", error)
 
 
 if __name__ == "__main__":
