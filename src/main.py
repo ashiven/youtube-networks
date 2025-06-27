@@ -30,7 +30,7 @@ def get_api_keys():
     """
     # Add your own API keys here!!!
     api_keys = [
-        "AIzaSyBrxFIk_YKgMrKjeqn8Ocp3EPLkr9Im8Ts",
+        "",
         "",
         "",
         "",
