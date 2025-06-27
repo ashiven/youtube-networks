@@ -365,7 +365,9 @@ def _force_until_quota(
     while continue_eval:
         logger.info("Calculating leaf trees on line: %d", start_line)
 
-        # If we have reached a new tree
+        # We calculated the tree for each leaf of the first tree (current_leafs)
+        # and now we calculate the tree for each leaf of each tree we
+        # just calculated (next_leafs) - one tree depth level has been completed
         if current_leafs == 0:
             current_depth += depth
             current_leafs = next_leafs
