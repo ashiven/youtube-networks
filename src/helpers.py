@@ -25,11 +25,8 @@ def parse_video_id(link: str) -> Optional[str]:
     """
     regex = r"(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/)([^?&\/]+)"
     res = re.search(regex, link)
-
-    if res:
-        video_id = res.group(1)
-        return video_id
-    return None
+    video_id = res.group(1)
+    return video_id
 
 
 def get_video_info(youtube: Any, video_id: str) -> Optional[Tuple[str, str]]:
