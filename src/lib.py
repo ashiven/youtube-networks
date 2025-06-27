@@ -45,10 +45,9 @@ def _convert_to_graph(
     video_id_to_channel_name: Dict,
     graph: Optional[nx.Graph] = None,
     log_line: Optional[int] = 0,
-) -> Tuple[nx.Graph, int, int]:
+) -> nx.Graph:
     """Helper function to convert the tree into a network graph."""
     graph = graph or nx.Graph()
-    node_total, edge_total = 0, 0
 
     for edge in tree.edges():
         u_video_id, v_video_id = edge
@@ -60,7 +59,6 @@ def _convert_to_graph(
             and v_channel_name != "Not Found"
         ):
             graph.add_node(v_channel_name, size=1)
-            node_total += 1
             continue
         elif (
             u_channel_name not in graph.nodes()
@@ -68,18 +66,12 @@ def _convert_to_graph(
             and u_channel_name != "Not Found"
         ):
             graph.add_node(u_channel_name, size=1)
-            node_total += 1
             continue
         elif (
             u_channel_name,
             v_channel_name,
         ) not in graph.edges() and u_channel_name != v_channel_name:
-            if u_channel_name not in graph.nodes():
-                node_total += 1
-            if v_channel_name not in graph.nodes():
-                node_total += 1
             graph.add_edge(u_channel_name, v_channel_name, weight=1)
-            edge_total += 1
         elif (u_channel_name, v_channel_name) in graph.edges():
             graph.edges[u_channel_name, v_channel_name]["weight"] += 1
 
@@ -92,7 +84,7 @@ def _convert_to_graph(
             current_size += 0.1
             nx.set_node_attributes(graph, {u_channel_name: current_size}, "size")
 
-    return graph, edge_total, node_total
+    return graph
 
 
 def _save_graph(graph: nx.Graph, channel_name: str) -> None:
@@ -126,9 +118,8 @@ def draw_tree(
     tree, root = get_tree(layers)
     colors = get_colors(layers, tree)
 
-    if display == "channelName" or convert_graph:
-        video_id_to_channel_name = video_id_to_channel_name_dict(layers, tree, use_noembed=True)
-        labels = video_id_to_channel_name
+    if display == "channelName":
+        labels = video_id_to_channel_name_dict(layers, tree)
         _draw_tree(
             tree,
             root,
@@ -136,10 +127,6 @@ def draw_tree(
             labels,
             "Channel Name Tree",
         )
-        if convert_graph:
-            graph, _, _ = _convert_to_graph(tree, root, video_id_to_channel_name)
-            root_channel_name = video_id_to_channel_name[root]
-            _save_graph(graph, root_channel_name)
     elif display == "videoId":
         labels = {node: node for node in tree.nodes()}
         _draw_tree(
@@ -168,6 +155,12 @@ def draw_tree(
             "Video Title Tree",
         )
 
+    if convert_graph:
+        video_id_to_channel_name = video_id_to_channel_name_dict(layers, tree, use_noembed=True)
+        graph = _convert_to_graph(tree, root, video_id_to_channel_name)
+        root_channel_name = video_id_to_channel_name[root]
+        _save_graph(graph, root_channel_name)
+
 
 def _layers_list_from_logfile(logpath: str) -> List[Dict]:
     """Reads the logfile and returns a list of layers."""
@@ -190,7 +183,6 @@ def convert_imports(logpath: str) -> None:
     """
     file_name, use_noembed = None, True
     graph = nx.Graph()
-    graph_node_total, graph_edge_total, subtree_total = 0, 0, 0
     layers_list = _layers_list_from_logfile(logpath)
 
     for log_line, layers in enumerate(layers_list):
@@ -203,22 +195,19 @@ def convert_imports(logpath: str) -> None:
         file_name = subroot_channel_name if file_name is None else file_name
 
         logger.info("Converting subtree: %d with root: %s", log_line, subroot_channel_name)
-        graph, subgraph_edge_total, subgraph_node_total = _convert_to_graph(
+        graph = _convert_to_graph(
             subtree,
             subroot,
             video_id_to_channel_name,
             graph=graph,
             log_line=log_line,
         )
-        graph_edge_total += subgraph_edge_total
-        graph_node_total += subgraph_node_total
-        subtree_total += 1
 
     logger.info(
         "Converted %d subtrees into a network graph with %d nodes and %d edges",
-        subtree_total,
-        graph_node_total,
-        graph_edge_total,
+        len(layers_list),
+        len(graph.nodes()),
+        len(graph.edges()),
     )
     _save_graph(graph, file_name)
 
