@@ -118,42 +118,22 @@ def draw_tree(
     tree, root = get_tree(layers)
     colors = get_colors(layers, tree)
 
-    if display == "channelName":
-        labels = video_id_to_channel_name_dict(layers, tree, use_noembed=True)
-        _draw_tree(
-            tree,
-            root,
-            colors,
-            labels,
-            "Channel Name Tree",
-        )
-    elif display == "videoId":
+    labels = {}
+    if display == "videoId":
         labels = {node: node for node in tree.nodes()}
-        _draw_tree(
-            tree,
-            root,
-            colors,
-            labels,
-            "Video ID Tree",
-        )
-    elif display == "channelId":
-        labels = video_id_to_channel_id_dict(layers, tree)
-        _draw_tree(
-            tree,
-            root,
-            colors,
-            labels,
-            "Channel ID Tree",
-        )
     elif display == "title":
         labels = video_id_to_title_dict(layers, tree)
-        _draw_tree(
-            tree,
-            root,
-            colors,
-            labels,
-            "Video Title Tree",
-        )
+    elif display == "channelId":
+        labels = video_id_to_channel_id_dict(layers, tree)
+    elif display == "channelName":
+        labels = video_id_to_channel_name_dict(layers, tree, use_noembed=True)
+    _draw_tree(
+        tree,
+        root,
+        colors,
+        labels,
+        "Video Title Tree",
+    )
 
     if convert_graph:
         video_id_to_channel_name = video_id_to_channel_name_dict(layers, tree)
@@ -248,7 +228,7 @@ def _calc_leaf_trees(
     depth: int,
     max_depth: int,
     video_id: str,
-) -> tuple[bool, Optional[int], Optional[int]]:
+) -> Tuple[bool, int, int]:
     """
     Starting at the line number specified in the start_line parameter, calculates the
     layers for all of the leaf nodes of the tree in the logfile <video_id>.log.
@@ -286,10 +266,10 @@ def _calc_leaf_trees(
             if leaf_index >= current_leaf_index:
                 try:
                     if current_depth >= max_depth:
-                        raise ValueError("max_depth has been reached")
+                        raise ValueError("Max depth has been reached")
                     layers = get_layers(youtube, leaf_video_id, width, depth)
                     print(layers, file=logfile)
-                    logger.info("Saved leafTree: %d", leaf_index)
+                    logger.info("Saved leaftree: %d", leaf_index)
                 except Exception:  # pylint: disable=broad-except
                     _save_breakpoint(
                         video_id,
@@ -301,7 +281,7 @@ def _calc_leaf_trees(
                         leaf_layer_video_ids,
                         evaluating_root,
                     )
-                    continue_eval, current_leafs, next_leafs = False, 0, 0
+                    continue_eval = False
                     return continue_eval, current_leafs, next_leafs
 
     continue_eval = True
@@ -384,31 +364,26 @@ def _calc_new_tree(youtube: Any, video_id: str, width: int, depth: int, max_dept
     )
 
 
+def _read_breakpoint(
+    video_id: str,
+) -> List[int]:
+    """Helper to read the breakpoint file and return the saved state."""
+    breakpoint_info = [0, 0, 0, 0, 0]
+    with open(f"{DATA_PATH}{video_id}_breakpoint.txt", "r", encoding="utf-8") as file:
+        for line_index, line in enumerate(file):
+            breakpoint_info[line_index] = int(line.strip())
+    return breakpoint_info
+
+
 def _continue_tree_calc(
     youtube: Any, video_id: str, width: int, depth: int, max_depth: int
 ) -> None:
     """Helper to continue the tree calculation from the last saved state in the
     breakpoint file.
     """
-    start_line, current_leaf_index, current_leafs, next_leafs, current_depth = (
-        0,
-        0,
-        0,
-        0,
-        0,
+    [start_line, current_leaf_index, current_leafs, next_leafs, current_depth] = _read_breakpoint(
+        video_id
     )
-    with open(f"{DATA_PATH}{video_id}_breakpoint.txt", "r", encoding="utf-8") as file:
-        for line_index, line in enumerate(file):
-            if line_index == 0:
-                start_line = int(line.strip())
-            if line_index == 1:
-                current_leaf_index = int(line.strip())
-            if line_index == 2:
-                current_leafs = int(line.strip())
-            if line_index == 3:
-                next_leafs = int(line.strip())
-            if line_index == 4:
-                current_depth = int(line.strip())
     _force_until_quota(
         start_line,
         current_leaf_index,
@@ -510,12 +485,12 @@ def get_titles(logpath: str) -> None:
     for layers in layers_list:
         for layer in layers:
             for video_info in layer.values():
-                title = video_info[1]
-                video_titles.append(title)
+                video_title = video_info[1]
+                video_titles.append(video_title)
 
     filename = os.path.basename(logpath).replace(".log", ".titles")
     with open(f"{TITLES_PATH}{filename}", "w", encoding="utf-8") as title_file:
-        for title in video_titles:
-            title_file.write(title + "\n")
+        for video_title in video_titles:
+            title_file.write(video_title + "\n")
 
     logger.info("Extracted titles: %s", f"{TITLES_PATH}{filename}")
