@@ -13,7 +13,7 @@ import requests
 logger = logging.getLogger(__name__)
 
 
-DATA_PATH = "./data/"
+DATA_PATH = "./src/data/"
 
 
 def parse_video_id(link: str) -> Optional[str]:
