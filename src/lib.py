@@ -119,7 +119,7 @@ def draw_tree(
     colors = get_colors(layers, tree)
 
     if display == "channelName":
-        labels = video_id_to_channel_name_dict(layers, tree)
+        labels = video_id_to_channel_name_dict(layers, tree, use_noembed=True)
         _draw_tree(
             tree,
             root,
@@ -156,7 +156,7 @@ def draw_tree(
         )
 
     if convert_graph:
-        video_id_to_channel_name = video_id_to_channel_name_dict(layers, tree, use_noembed=True)
+        video_id_to_channel_name = video_id_to_channel_name_dict(layers, tree)
         graph = _convert_to_graph(tree, root, video_id_to_channel_name)
         root_channel_name = video_id_to_channel_name[root]
         _save_graph(graph, root_channel_name)
