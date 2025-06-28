@@ -3,6 +3,7 @@ of related videos.
 """
 
 import logging
+import os
 import random
 import re
 from typing import Any, Dict, List, Optional, Tuple
@@ -13,7 +14,8 @@ import requests
 logger = logging.getLogger(__name__)
 
 
-DATA_PATH = "./src/data/"
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(CURRENT_DIR, "data")
 
 
 def parse_video_id(link: str) -> Optional[str]:
@@ -152,7 +154,7 @@ def save_layers(layers: List[Dict], video_id: str) -> None:
     :param layers: The layers of related videos
     :param video_id: The ID of the Youtube video for which the layers were calculated
     """
-    with open(f"{DATA_PATH}{video_id}.log", "w", encoding="utf-8") as logfile:
+    with open(f"{DATA_PATH}/{video_id}.log", "w", encoding="utf-8") as logfile:
         print(layers, file=logfile)
 
 

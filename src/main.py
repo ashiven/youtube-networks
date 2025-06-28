@@ -28,31 +28,9 @@ def get_api_keys():
 
     :return: List of API keys.
     """
-    # Add your own API keys here!!!
-    api_keys = [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-    ]
-    return [key for key in api_keys if key]
+    # IMPORTANT: Add your API key(s) here!
+    api_keys = ["placeholder1", "placeholder2", "placeholder3"]
+    return api_keys
 
 
 def parse_args():
@@ -190,8 +168,8 @@ def main():
 
     except HttpError as http_error:
         logger.error("An error occurred: %s", http_error)
-    except Exception as error:  # pylint: disable=broad-except
-        logger.error("An unexpected error occurred: %s", error)
+    # except Exception as error:  # pylint: disable=broad-except
+    #    logger.error("An unexpected error occurred: %s", error)
 
 
 if __name__ == "__main__":

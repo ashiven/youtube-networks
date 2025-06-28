@@ -24,9 +24,10 @@ from helpers import (
 logger = logging.getLogger(__name__)
 
 
-DATA_PATH = "./src/data/"
-GRAPHS_PATH = "./src/graphs/"
-TITLES_PATH = "./src/titles/"
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(CURRENT_DIR, "data")
+GRAPHS_PATH = os.path.join(CURRENT_DIR, "graphs")
+TITLES_PATH = os.path.join(CURRENT_DIR, "titles")
 
 
 def _draw_tree(tree: nx.Graph, root: str, colors: List[str], labels: Dict, title: str) -> None:
@@ -91,8 +92,8 @@ def _save_graph(graph: nx.Graph, channel_name: str) -> None:
     """Saves the graph to a GraphML file."""
     channel_name = re.sub(r"\s+", "_", channel_name)
     channel_name = re.sub(r"[^\w\s-]", "", channel_name)
-    nx.write_graphml(graph, f"{GRAPHS_PATH}{channel_name}.graphml")
-    logger.info("Created graph: %s%s.graphml", GRAPHS_PATH, channel_name)
+    nx.write_graphml(graph, f"{GRAPHS_PATH}/{channel_name}.graphml")
+    logger.info("Created graph: %s/%s.graphml", GRAPHS_PATH, channel_name)
 
 
 def draw_tree(
@@ -203,7 +204,7 @@ def _save_breakpoint(
     evaluating_root: bool,
 ) -> None:
     """Saves the current state of the calculation to a breakpoint file."""
-    with open(f"{DATA_PATH}{video_id}_breakpoint.txt", "w", encoding="utf-8") as file:
+    with open(f"{DATA_PATH}/{video_id}_breakpoint.txt", "w", encoding="utf-8") as file:
         file.write(str(start_line) + "\n")
         file.write(str(leaf_index) + "\n")
         if evaluating_root:
@@ -213,8 +214,8 @@ def _save_breakpoint(
             file.write(str(current_leafs) + "\n")
             file.write(str(next_leafs - len(leaf_layer_video_ids)) + "\n")
         file.write(str(current_depth))
-    logger.info("Saved logfile: %s%s.log", DATA_PATH, video_id)
-    logger.info("Saved breakpoint: %s%s_breakpoint.txt", DATA_PATH, video_id)
+    logger.info("Saved logfile: %s/%s.log", DATA_PATH, video_id)
+    logger.info("Saved breakpoint: %s/%s_breakpoint.txt", DATA_PATH, video_id)
 
 
 def _calc_leaf_trees(
@@ -249,7 +250,7 @@ def _calc_leaf_trees(
         evaluated
     """
     evaluating_root = False
-    with open(f"{DATA_PATH}{video_id}.log", "r", encoding="utf-8") as logfile:
+    with open(f"{DATA_PATH}/{video_id}.log", "r", encoding="utf-8") as logfile:
         for line_number, line in enumerate(logfile):
             if line_number == start_line:
                 start_layers = eval(line)  # pylint: disable=eval-used
@@ -261,7 +262,7 @@ def _calc_leaf_trees(
                 else:
                     next_leafs += len(leaf_layer_video_ids)
 
-    with open(f"{DATA_PATH}{video_id}.log", "a", encoding="utf-8") as logfile:
+    with open(f"{DATA_PATH}/{video_id}.log", "a", encoding="utf-8") as logfile:
         for leaf_index, leaf_video_id in enumerate(leaf_layer_video_ids):
             if leaf_index >= current_leaf_index:
                 try:
@@ -369,7 +370,7 @@ def _read_breakpoint(
 ) -> List[int]:
     """Helper to read the breakpoint file and return the saved state."""
     breakpoint_info = [0, 0, 0, 0, 0]
-    with open(f"{DATA_PATH}{video_id}_breakpoint.txt", "r", encoding="utf-8") as file:
+    with open(f"{DATA_PATH}/{video_id}_breakpoint.txt", "r", encoding="utf-8") as file:
         for line_index, line in enumerate(file):
             breakpoint_info[line_index] = int(line.strip())
     return breakpoint_info
@@ -420,10 +421,10 @@ def force_until_quota(
     :param max_depth: The maximum overall depth that should not be exceeded
     :return: None
     """
-    if not os.path.isfile(f"{DATA_PATH}{video_id}.log"):
+    if not os.path.isfile(f"{DATA_PATH}/{video_id}.log"):
         logger.info("Starting tree calculation...")
         _calc_new_tree(youtube, video_id, width, depth, max_depth)
-    elif not os.path.isfile(f"{DATA_PATH}{video_id}_breakpoint.txt"):
+    elif not os.path.isfile(f"{DATA_PATH}/{video_id}_breakpoint.txt"):
         logger.info("Log file exists, but no breakpoint file found. Starting from scratch...")
         _calc_new_tree(youtube, video_id, width, depth, max_depth)
     else:
@@ -489,8 +490,8 @@ def get_titles(logpath: str) -> None:
                 video_titles.append(video_title)
 
     filename = os.path.basename(logpath).replace(".log", ".titles")
-    with open(f"{TITLES_PATH}{filename}", "w", encoding="utf-8") as title_file:
+    with open(f"{TITLES_PATH}/{filename}", "w", encoding="utf-8") as title_file:
         for video_title in video_titles:
             title_file.write(video_title + "\n")
 
-    logger.info("Extracted titles: %s", f"{TITLES_PATH}{filename}")
+    logger.info("Extracted titles: %s", f"{TITLES_PATH}/{filename}")
