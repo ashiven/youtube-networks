@@ -29,10 +29,10 @@ This script can be used to map out the channel landscape surrounding specific **
    ```bash
    git clone https://github.com/ashiven/youtube-networks.git
    ```
-2. Navigate to the **src** directory.
+2. Navigate to the **youtube-networks** directory.
 
    ```bash
-   cd ./youtube-networks/src
+   cd ./youtube-networks
    ```
 
 3. Install the necessary dependencies.
@@ -44,7 +44,7 @@ This script can be used to map out the channel landscape surrounding specific **
 4. Insert your API key(s) into the script.
 
    ```bash
-   nano main.py
+   nano ./src/main.py
    ```
 
 ### Usage
@@ -52,7 +52,7 @@ This script can be used to map out the channel landscape surrounding specific **
 -  Enter the following command to run the script:
 
    ```bash
-   python main.py -s <link to a youtube video>
+   python ./src/main.py -s <link to a youtube video>
    ```
 
    |    parameter    | alias |  type   | description                                                                        | default |

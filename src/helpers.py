@@ -284,7 +284,7 @@ def get_colors(layers: List[Dict], tree: nx.Graph) -> List[str]:
         "red",
         "limegreen",
     ] * 10
-    
+
     video_id_to_channel_id = video_id_to_channel_id_dict(layers, tree)
     unique_channel_ids = list(set(video_id_to_channel_id.values()))
     channel_id_to_color = {channel_id: colors[i] for i, channel_id in enumerate(unique_channel_ids)}
@@ -309,8 +309,10 @@ def get_tree(layers: List[Dict]) -> tuple[nx.Graph, str]:
             parent_video_id = video_info[0]
             if parent_video_id is not None:
                 tree.add_edge(parent_video_id, video_id)
-    
-    {root_video_id: root_video_info} = layers[0]
+
+    root_layer = layers[0]
+    root_layer_video_ids = list(root_layer.keys())
+    root_video_id = root_layer_video_ids[0]
     root = root_video_id
 
     return tree, root
