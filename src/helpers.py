@@ -66,15 +66,18 @@ def get_channel_name_embed(video_id: str, noembed: bool) -> Optional[str]:
         youtube.com/oembed
     :return: The name of the Youtube channel or None if the request fails
     """
+    YOUTUBE_BASE = "https://www.youtube.com/watch?v="
+    NOEMBED_URL = "https://noembed.com/embed?url="
+    OEMBED_URL = "https://www.youtube.com/oembed?url="
     try:
         if noembed:
             response = requests.get(
-                "https://noembed.com/embed?url=https://www.youtube.com/watch?v=" + video_id,
+                NOEMBED_URL + YOUTUBE_BASE + video_id,
                 timeout=10,
             )
         else:
             response = requests.get(
-                "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=" + video_id,
+                OEMBED_URL + YOUTUBE_BASE + video_id,
                 timeout=10,
             )
         response.raise_for_status()
