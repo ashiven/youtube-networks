@@ -204,7 +204,7 @@ def _save_breakpoint(
     evaluating_root: bool,
 ) -> None:
     """Saves the current state of the calculation to a breakpoint file."""
-    with open(f"{DATA_PATH}/{video_id}_breakpoint.txt", "w", encoding="utf-8") as file:
+    with open(f"{DATA_PATH}/{video_id}.breakpoint", "w", encoding="utf-8") as file:
         file.write(str(start_line) + "\n")
         file.write(str(leaf_index) + "\n")
         if evaluating_root:
@@ -215,7 +215,7 @@ def _save_breakpoint(
             file.write(str(next_leafs - len(leaf_layer_video_ids)) + "\n")
         file.write(str(current_depth))
     logger.info("Saved logfile: %s/%s.log", DATA_PATH, video_id)
-    logger.info("Saved breakpoint: %s/%s_breakpoint.txt", DATA_PATH, video_id)
+    logger.info("Saved breakpoint: %s/%s.breakpoint", DATA_PATH, video_id)
 
 
 def _calc_leaf_trees(
@@ -370,7 +370,7 @@ def _read_breakpoint(
 ) -> List[int]:
     """Helper to read the breakpoint file and return the saved state."""
     breakpoint_info = [0, 0, 0, 0, 0]
-    with open(f"{DATA_PATH}/{video_id}_breakpoint.txt", "r", encoding="utf-8") as file:
+    with open(f"{DATA_PATH}/{video_id}.breakpoint", "r", encoding="utf-8") as file:
         for line_index, line in enumerate(file):
             breakpoint_info[line_index] = int(line.strip())
     return breakpoint_info
@@ -424,7 +424,7 @@ def force_until_quota(
     if not os.path.isfile(f"{DATA_PATH}/{video_id}.log"):
         logger.info("Starting tree calculation...")
         _calc_new_tree(youtube, video_id, width, depth, max_depth)
-    elif not os.path.isfile(f"{DATA_PATH}/{video_id}_breakpoint.txt"):
+    elif not os.path.isfile(f"{DATA_PATH}/{video_id}.breakpoint"):
         logger.info("Log file exists, but no breakpoint file found. Starting from scratch...")
         _calc_new_tree(youtube, video_id, width, depth, max_depth)
     else:
