@@ -271,9 +271,6 @@ def get_colors(layers: List[Dict], tree: nx.Graph) -> List[str]:
     :return: A tuple containing a list of colors for each node in the tree and a
         dictionary mapping video IDs to channel IDs
     """
-    video_id_to_channel_id = video_id_to_channel_id_dict(layers, tree)
-    unique_channel_ids = list(set(video_id_to_channel_id.values()))
-
     colors = [
         "gold",
         "violet",
@@ -287,7 +284,9 @@ def get_colors(layers: List[Dict], tree: nx.Graph) -> List[str]:
         "red",
         "limegreen",
     ] * 10
-
+    
+    video_id_to_channel_id = video_id_to_channel_id_dict(layers, tree)
+    unique_channel_ids = list(set(video_id_to_channel_id.values()))
     channel_id_to_color = {channel_id: colors[i] for i, channel_id in enumerate(unique_channel_ids)}
     node_to_color = {
         node: channel_id_to_color[video_id_to_channel_id[node]] for node in tree.nodes()
@@ -307,12 +306,12 @@ def get_tree(layers: List[Dict]) -> tuple[nx.Graph, str]:
     tree = nx.Graph()
     for layer in layers:
         for video_id, video_info in layer.items():
-            related_to = video_info[0]
-            if not tree.has_node(video_id) and related_to is not None:
-                tree.add_node(video_id)
-                parent_video_id = related_to
+            parent_video_id = video_info[0]
+            if parent_video_id is not None:
                 tree.add_edge(parent_video_id, video_id)
-    root = next(iter(layers[1].values()))[0]
+    
+    {root_video_id: root_video_info} = layers[0]
+    root = root_video_id
 
     return tree, root
 
