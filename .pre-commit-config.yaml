@@ -22,6 +22,7 @@ repos:
      hooks:
         - id: isort
           args: ["--profile=black"]
+          exclude: topic_analysis.py
    - repo: https://github.com/PyCQA/docformatter
      rev: v1.7.5
      hooks:

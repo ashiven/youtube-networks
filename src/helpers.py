@@ -16,6 +16,9 @@ logger = logging.getLogger(__name__)
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(CURRENT_DIR, "data")
+YOUTUBE_BASE = "https://www.youtube.com/watch?v="
+NOEMBED_URL = "https://noembed.com/embed?url="
+OEMBED_URL = "https://www.youtube.com/oembed?url="
 
 
 def parse_video_id(link: str) -> Optional[str]:
@@ -68,9 +71,6 @@ def get_channel_name_embed(video_id: str, noembed: bool) -> Optional[str]:
         youtube.com/oembed
     :return: The name of the Youtube channel or None if the request fails
     """
-    YOUTUBE_BASE = "https://www.youtube.com/watch?v="
-    NOEMBED_URL = "https://noembed.com/embed?url="
-    OEMBED_URL = "https://www.youtube.com/oembed?url="
     try:
         if noembed:
             response = requests.get(

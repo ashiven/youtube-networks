@@ -6,8 +6,8 @@ import re
 
 import emoji
 import pandas as pd
-from bertopic import BERTopic  # pylint: disable=W0406
 from nltk.corpus import stopwords
+from bertopic import BERTopic
 
 # DataFrame aus der CSV-Datei erstellen
 df = pd.read_csv("scholz.csv")  # Hier immer Datei-Name Anpassen
@@ -27,8 +27,7 @@ def remove_emojis(text):
     """Entfernt Emojis aus dem Text."""
     if isinstance(text, str):
         return emoji.demojize(text)
-    else:
-        return ""
+    return ""
 
 
 df["Text"] = df["Text"].apply(remove_emojis)

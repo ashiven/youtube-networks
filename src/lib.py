@@ -61,14 +61,14 @@ def _convert_to_graph(
         ):
             graph.add_node(v_channel_name, size=1)
             continue
-        elif (
+        if (
             u_channel_name not in graph.nodes()
             and v_channel_name == "Not Found"
             and u_channel_name != "Not Found"
         ):
             graph.add_node(u_channel_name, size=1)
             continue
-        elif (
+        if (
             u_channel_name,
             v_channel_name,
         ) not in graph.edges() and u_channel_name != v_channel_name:
