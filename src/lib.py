@@ -80,7 +80,7 @@ def _convert_to_graph(
         u_channel_name = video_id_to_channel_name[node]
         if u_channel_name == "Not Found":
             continue
-        elif log_line == 0 or (log_line > 0 and node != root):
+        if log_line == 0 or (log_line > 0 and node != root):
             current_size = graph.nodes[u_channel_name].get("size", 1)
             current_size += 0.1
             nx.set_node_attributes(graph, {u_channel_name: current_size}, "size")

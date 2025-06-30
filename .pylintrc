@@ -3,3 +3,4 @@ disable=
     too-many-arguments,
     too-many-positional-arguments,
     too-many-locals,
+    consider-using-with,
